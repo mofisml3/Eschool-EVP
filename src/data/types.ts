@@ -311,6 +311,45 @@ export type TeachersPayload = {
   teachingHoursTrendRef: string;
 };
 
+export type AssessmentsMasteryByStage = {
+  stageId: StageId;
+  label: string;
+  masteryPercent: number;
+};
+
+export type PerformanceBand = {
+  bandId: 'excellent' | 'very-good' | 'good' | 'acceptable' | 'did-not-pass';
+  label: string;
+  sharePercent: number;
+};
+
+export type AssessmentType = {
+  typeId: 'formative' | 'summative' | 'diagnostic';
+  label: string;
+  count: number;
+  sharePercent: number;
+};
+
+export type CurriculumCoverage = {
+  totalCurriculumUnits: number;
+  unitsWithAssessments: number;
+  coveragePercent: number;
+};
+
+export type AssessmentsPayload = {
+  _meta: Meta;
+  lastUpdatedAt: string;
+  period: Period;
+  heroKpis: KpiTile[];
+  masteryByStage: AssessmentsMasteryByStage[];
+  performanceDistribution: PerformanceBand[];
+  assessmentTypes: AssessmentType[];
+  curriculumCoverage: CurriculumCoverage;
+  yearMasteryTrendRef: string;
+  masteryBySubjectRef: string;
+  regionalMasteryRef: string;
+};
+
 export type VideosQualityIndicators = {
   hdCoveragePercent: number;
   captionsCoveragePercent: number;

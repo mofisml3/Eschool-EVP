@@ -10,6 +10,7 @@ import type {
   MasteryBySubjectEntry,
   OverviewPayload,
   RegionFootprint,
+  AssessmentsPayload,
   TeachersPayload,
   TopWatchedLesson,
   TrendPayload,
@@ -106,6 +107,14 @@ export async function loadTeachers(): Promise<TeachersPayload> {
 
 export async function loadTeachersHoursTrend(): Promise<TrendPayload> {
   return fetchJson<TrendPayload>('data/teachers-hours-trend.json');
+}
+
+export async function loadAssessments(): Promise<AssessmentsPayload> {
+  return fetchJson<AssessmentsPayload>('data/assessments.json');
+}
+
+export async function loadAssessmentsYearTrend(): Promise<TrendPayload> {
+  return fetchJson<TrendPayload>('data/assessments-year-trend.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {

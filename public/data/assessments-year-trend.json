@@ -1,0 +1,15 @@
+{
+  "metric": "monthly-national-mastery",
+  "label": "متوسط الإتقان الوطني الشهري",
+  "unit": "نسبة",
+  "points": [
+    { "month": "2025-09", "value": 72.0 },
+    { "month": "2025-10", "value": 73.4 },
+    { "month": "2025-11", "value": 74.6 },
+    { "month": "2025-12", "value": 75.5 },
+    { "month": "2026-01", "value": 76.2 },
+    { "month": "2026-02", "value": 77.0 },
+    { "month": "2026-03", "value": 77.6 },
+    { "month": "2026-04", "value": 78.4 }
+  ]
+}

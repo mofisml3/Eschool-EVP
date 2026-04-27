@@ -6,11 +6,11 @@ import { EngagementPage } from '@/pages/portal/EngagementPage';
 import { VideosPage } from '@/pages/portal/VideosPage';
 import { ExperimentsPage } from '@/pages/portal/ExperimentsPage';
 import { TeachersPage } from '@/pages/portal/TeachersPage';
+import { AssessmentsPage } from '@/pages/portal/AssessmentsPage';
 import { ComingSoonPage } from '@/pages/portal/ComingSoonPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 const placeholderRoutes = [
-  '/portal/academics/assessments',
   '/portal/care',
   '/portal/impact',
   '/portal/reports',
@@ -65,6 +65,15 @@ export function AppRoutes() {
         element={
           <ProtectedRoute>
             <TeachersPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/portal/academics/assessments"
+        element={
+          <ProtectedRoute>
+            <AssessmentsPage />
           </ProtectedRoute>
         }
       />

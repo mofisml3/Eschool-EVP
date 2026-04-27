@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "period": {
+    "id": "academic-year-2025-2026",
+    "label": "العام الدراسي 2025/2026",
+    "rangeStart": "2025-09-01",
+    "rangeEnd": "2026-04-27"
+  },
+  "heroKpis": [
+    {
+      "id": "national-mastery",
+      "label": "متوسط الإتقان الوطني",
+      "value": 78.4,
+      "displayValue": "78.4٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 1.8, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "national-mastery"
+    },
+    {
+      "id": "deliveries-this-month",
+      "label": "التقييمات المُجراة هذا الشهر",
+      "value": 4100000,
+      "displayValue": "4.10 مليون",
+      "unit": "تقييم",
+      "trend": { "direction": "up", "deltaPercent": 5.7, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "monthly-deliveries"
+    },
+    {
+      "id": "library-size",
+      "label": "التقييمات النشطة في المكتبة",
+      "value": 95400,
+      "displayValue": "95.4 ألف",
+      "unit": "تقييم",
+      "trend": { "direction": "up", "deltaPercent": 1.4, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "assessment-library"
+    },
+    {
+      "id": "pass-rate",
+      "label": "متوسط نسبة الاجتياز",
+      "value": 82.6,
+      "displayValue": "82.6٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "pass-rate"
+    },
+    {
+      "id": "yoy-improvement",
+      "label": "تحسّن الأداء خلال العام",
+      "value": 6.4,
+      "displayValue": "+6.4",
+      "unit": "نقاط",
+      "trend": { "direction": "up", "deltaPercent": 0, "vsLabel": "منذ بداية العام الدراسي" },
+      "methodologyKey": "yoy-improvement"
+    }
+  ],
+  "masteryByStage": [
+    { "stageId": "middle",    "label": "الصف الثالث متوسط",    "masteryPercent": 79.2 },
+    { "stageId": "secondary", "label": "الصف السادس الإعدادي", "masteryPercent": 77.5 }
+  ],
+  "performanceDistribution": [
+    { "bandId": "excellent",   "label": "ممتاز (90٪ فأعلى)",     "sharePercent": 32.4 },
+    { "bandId": "very-good",   "label": "جيد جداً (80–89٪)",      "sharePercent": 28.8 },
+    { "bandId": "good",        "label": "جيد (70–79٪)",           "sharePercent": 21.4 },
+    { "bandId": "acceptable",  "label": "مقبول (60–69٪)",         "sharePercent": 12.0 },
+    { "bandId": "did-not-pass","label": "لم يجتز (أقل من 60٪)",   "sharePercent":  5.4 }
+  ],
+  "assessmentTypes": [
+    { "typeId": "formative",  "label": "تكويني",  "count": 64200, "sharePercent": 67.3 },
+    { "typeId": "summative",  "label": "ختامي",   "count": 18400, "sharePercent": 19.3 },
+    { "typeId": "diagnostic", "label": "تشخيصي",  "count": 12800, "sharePercent": 13.4 }
+  ],
+  "curriculumCoverage": {
+    "totalCurriculumUnits": 240,
+    "unitsWithAssessments": 232,
+    "coveragePercent": 96.7
+  },
+  "yearMasteryTrendRef": "data/assessments-year-trend.json",
+  "masteryBySubjectRef": "data/shared/mastery-by-subject.json",
+  "regionalMasteryRef": "data/shared/regions.json"
+}
