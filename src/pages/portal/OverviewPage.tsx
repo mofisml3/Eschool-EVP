@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { t } from '@/i18n';
 import { PortalLayout } from '@/components/shell/PortalLayout';
 import { PageHero } from '@/components/page/PageHero';
+import { ScopeStrip } from '@/components/page/ScopeStrip';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
@@ -35,6 +36,8 @@ export function OverviewPage() {
                 </div>
               }
             />
+
+            <ScopeStrip />
 
             <KpiGrid kpis={state.data.heroKpis} />
 

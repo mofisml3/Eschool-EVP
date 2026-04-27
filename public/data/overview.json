@@ -6,19 +6,19 @@
   },
   "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
   "period": {
-    "id": "last-30-days",
-    "label": "آخر 30 يوماً",
-    "rangeStart": "2026-03-28",
+    "id": "academic-year-2025-2026",
+    "label": "العام الدراسي 2025/2026",
+    "rangeStart": "2025-09-01",
     "rangeEnd": "2026-04-27"
   },
   "heroKpis": [
     {
       "id": "active-learners",
       "label": "إجمالي المتعلمين الفاعلين",
-      "value": 2480000,
-      "displayValue": "2.48 مليون",
+      "value": 1200000,
+      "displayValue": "1.20 مليون",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 7.4, "vsLabel": "مقارنة بالفترة السابقة" },
+      "trend": { "direction": "up", "deltaPercent": 7.1, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "active-learners"
     },
     {
@@ -42,10 +42,10 @@
     {
       "id": "contributing-teachers",
       "label": "المعلمون المساهمون",
-      "value": 86500,
-      "displayValue": "86,500",
+      "value": 38000,
+      "displayValue": "38,000",
       "unit": "معلم",
-      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "مقارنة بالفترة السابقة" },
+      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "contributing-teachers"
     },
     {
@@ -79,7 +79,7 @@
   "supportSnapshot": {
     "averageResponseMinutes": 14,
     "slaAdherencePercent": 98.6,
-    "ticketsHandledThisMonth": 124800
+    "ticketsHandledThisMonth": 65000
   },
   "strategicAlignment": {
     "sdg4TargetsCovered": 8,
