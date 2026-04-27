@@ -63,6 +63,17 @@ export type RegionId =
   | 'maysan'
   | 'muthanna';
 
+/**
+ * Iraqi K-12 stage taxonomy. The literal id 'secondary' is the
+ * language-agnostic API-level identifier; the Arabic label rendered
+ * to the user is 'إعدادي' (preferred Iraqi term, sourced from
+ * i18n key shell.stages.secondary). Grade ranges:
+ *   - primary:   G1 – G6
+ *   - middle:    G7 – G9   (terminal grade الثالث متوسط)
+ *   - secondary: G10 – G12 (terminal grade السادس الإعدادي)
+ *
+ * MVP active scope (academic year 2025/2026): G9 + G12 only.
+ */
 export type StageId = 'primary' | 'middle' | 'secondary';
 
 export type CoverageLevel = 'كاملة' | 'مرتفعة' | 'متوسطة';
