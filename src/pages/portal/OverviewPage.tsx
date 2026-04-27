@@ -3,6 +3,7 @@ import { t } from '@/i18n';
 import { PortalLayout } from '@/components/shell/PortalLayout';
 import { PageHero } from '@/components/page/PageHero';
 import { ScopeStrip } from '@/components/page/ScopeStrip';
+import { NarrativeArcCta } from '@/components/page/NarrativeArcCta';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
@@ -73,6 +74,13 @@ export function OverviewPage() {
                 <LatestReportsCard />
               </div>
             </div>
+
+            <NarrativeArcCta
+              title={t('overview.narrativeArc.title')}
+              body={t('overview.narrativeArc.body')}
+              ctaLabel={t('overview.narrativeArc.cta')}
+              ctaTo="/portal/engagement"
+            />
           </>
         )}
       </div>
