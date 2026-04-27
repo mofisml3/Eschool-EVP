@@ -261,6 +261,56 @@ export type ExperimentsPayload = {
   featuredRef: string;
 };
 
+export type TeachersStageEntry = {
+  stageId: StageId;
+  label: string;
+  teachersCount: number;
+};
+
+export type TeachersSubjectEntry = {
+  subjectId: string;
+  name: string;
+  teachersCount: number;
+};
+
+export type TeachersRegionEntry = {
+  regionId: RegionId;
+  name: string;
+  teachersCount: number;
+};
+
+export type TeachersContentBreakdown = {
+  videoLessonsAuthored: number;
+  experimentsAuthored: number;
+  assessmentsAuthored: number;
+};
+
+export type TeachersProfessionalDevelopment = {
+  certifiedTeachersCount: number;
+  averageTrainingHoursPerYear: number;
+  trainingProgramsCompletedThisYear: number;
+};
+
+export type TeachersQualityIndicators = {
+  averagePeerReviewRating: number;
+  averageLearnerSatisfaction: number;
+  peerReviewParticipationPercent: number;
+};
+
+export type TeachersPayload = {
+  _meta: Meta;
+  lastUpdatedAt: string;
+  period: Period;
+  heroKpis: KpiTile[];
+  stageBreakdown: TeachersStageEntry[];
+  subjectsBreakdownTop: TeachersSubjectEntry[];
+  regionalDistribution: TeachersRegionEntry[];
+  contentBreakdown: TeachersContentBreakdown;
+  professionalDevelopment: TeachersProfessionalDevelopment;
+  qualityIndicators: TeachersQualityIndicators;
+  teachingHoursTrendRef: string;
+};
+
 export type VideosQualityIndicators = {
   hdCoveragePercent: number;
   captionsCoveragePercent: number;
