@@ -367,3 +367,40 @@ export type VideosPayload = {
   featuredRef: string;
   topWatchedRef: string;
 };
+
+export type CareChannel = {
+  channelId: 'chat' | 'email' | 'in-app' | 'phone';
+  label: string;
+  ticketsCount: number;
+  sharePercent: number;
+};
+
+export type CareInclusion = {
+  specialNeedsLearnersSupported: number;
+  specialEducationSchoolsServed: number;
+  signLanguageLessons: number;
+};
+
+export type CareAccessibility = {
+  captionsCoveragePercent: number;
+  screenReaderCompatibilityPercent: number;
+  highContrastAndZoomSupportPercent: number;
+};
+
+export type CareWellbeing = {
+  counselingSessionsThisMonth: number;
+  academicFollowupsForAtRiskLearners: number;
+  parentCommunicationsThisMonth: number;
+};
+
+export type CarePayload = {
+  _meta: Meta;
+  lastUpdatedAt: string;
+  period: Period;
+  heroKpis: KpiTile[];
+  channels: CareChannel[];
+  inclusion: CareInclusion;
+  accessibility: CareAccessibility;
+  wellbeing: CareWellbeing;
+  ticketsTrendRef: string;
+};

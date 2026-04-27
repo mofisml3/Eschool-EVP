@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "period": {
+    "id": "academic-year-2025-2026",
+    "label": "العام الدراسي 2025/2026",
+    "rangeStart": "2025-09-01",
+    "rangeEnd": "2026-04-27"
+  },
+  "heroKpis": [
+    {
+      "id": "avg-response-minutes",
+      "label": "متوسط زمن الاستجابة",
+      "value": 14,
+      "displayValue": "14",
+      "unit": "دقيقة",
+      "trend": { "direction": "down", "deltaPercent": 0, "vsLabel": "−1.2 دقيقة" },
+      "methodologyKey": "response-time"
+    },
+    {
+      "id": "sla-adherence",
+      "label": "الالتزام بمعايير الخدمة",
+      "value": 98.6,
+      "displayValue": "98.6٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 0.4, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "sla-adherence"
+    },
+    {
+      "id": "tickets-handled",
+      "label": "الاستفسارات المعالجة",
+      "value": 65000,
+      "displayValue": "65,000",
+      "unit": "استفسار",
+      "trend": { "direction": "up", "deltaPercent": 3.2, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "tickets"
+    },
+    {
+      "id": "first-contact-resolution",
+      "label": "الحلّ من أول تواصل",
+      "value": 87.4,
+      "displayValue": "87.4٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 1.6, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "fcr"
+    },
+    {
+      "id": "satisfaction",
+      "label": "رضا المستفيدين عن الدعم",
+      "value": 4.8,
+      "displayValue": "4.8 / 5",
+      "unit": "تقييم",
+      "trend": { "direction": "up", "deltaPercent": 0, "vsLabel": "+0.1 مقارنة بالشهر السابق" },
+      "methodologyKey": "satisfaction"
+    }
+  ],
+  "channels": [
+    { "channelId": "chat",   "label": "محادثة فورية",   "ticketsCount": 32500, "sharePercent": 50.0 },
+    { "channelId": "email",  "label": "بريد إلكتروني", "ticketsCount": 16250, "sharePercent": 25.0 },
+    { "channelId": "in-app", "label": "داخل التطبيق",  "ticketsCount":  9750, "sharePercent": 15.0 },
+    { "channelId": "phone",  "label": "هاتف",          "ticketsCount":  6500, "sharePercent": 10.0 }
+  ],
+  "inclusion": {
+    "specialNeedsLearnersSupported": 22000,
+    "specialEducationSchoolsServed": 180,
+    "signLanguageLessons": 1840
+  },
+  "accessibility": {
+    "captionsCoveragePercent": 88.7,
+    "screenReaderCompatibilityPercent": 100,
+    "highContrastAndZoomSupportPercent": 100
+  },
+  "wellbeing": {
+    "counselingSessionsThisMonth": 9500,
+    "academicFollowupsForAtRiskLearners": 32000,
+    "parentCommunicationsThisMonth": 110000
+  },
+  "ticketsTrendRef": "data/care-tickets-trend.json"
+}

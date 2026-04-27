@@ -11,6 +11,7 @@ import type {
   OverviewPayload,
   RegionFootprint,
   AssessmentsPayload,
+  CarePayload,
   TeachersPayload,
   TopWatchedLesson,
   TrendPayload,
@@ -115,6 +116,14 @@ export async function loadAssessments(): Promise<AssessmentsPayload> {
 
 export async function loadAssessmentsYearTrend(): Promise<TrendPayload> {
   return fetchJson<TrendPayload>('data/assessments-year-trend.json');
+}
+
+export async function loadCare(): Promise<CarePayload> {
+  return fetchJson<CarePayload>('data/care.json');
+}
+
+export async function loadCareTicketsTrend(): Promise<TrendPayload> {
+  return fetchJson<TrendPayload>('data/care-tickets-trend.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {
