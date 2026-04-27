@@ -6,6 +6,10 @@ import { ScopeStrip } from '@/components/page/ScopeStrip';
 import { NarrativeArcCta } from '@/components/page/NarrativeArcCta';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { TeachingHoursTrendCard } from '@/components/data/TeachingHoursTrendCard';
+import { TeachersStageCard } from '@/components/data/TeachersStageCard';
+import { TeachersSubjectsCard } from '@/components/data/TeachersSubjectsCard';
+import { TeachersRegionalCard } from '@/components/data/TeachersRegionalCard';
+import { ContentProductionCard } from '@/components/data/ContentProductionCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -40,6 +44,19 @@ export function TeachersPage() {
             <KpiGrid kpis={state.data.heroKpis} />
 
             <TeachingHoursTrendCard />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-4">
+                <TeachersStageCard data={state.data.stageBreakdown} />
+              </div>
+              <div className="lg:col-span-8">
+                <TeachersSubjectsCard data={state.data.subjectsBreakdownTop} />
+              </div>
+            </div>
+
+            <TeachersRegionalCard data={state.data.regionalDistribution} />
+
+            <ContentProductionCard data={state.data.contentBreakdown} />
 
             <NarrativeArcCta
               title={t('teachers.narrativeArc.title')}
