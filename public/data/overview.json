@@ -84,7 +84,7 @@
   "strategicAlignment": {
     "sdg4TargetsCovered": 8,
     "sdg4TargetsTotal": 10,
-    "vision2030PillarsAligned": 4
+    "nationalStrategyPillarsAligned": 4
   },
-  "latestReportsRef": "data/reports.json#latest"
+  "latestReportsRef": "data/latest-reports.json"
 }

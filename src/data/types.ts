@@ -124,7 +124,14 @@ export type OverviewPayload = {
   strategicAlignment: {
     sdg4TargetsCovered: number;
     sdg4TargetsTotal: number;
-    vision2030PillarsAligned: number;
+    nationalStrategyPillarsAligned: number;
   };
   latestReportsRef: string;
+};
+
+export type LatestReportItem = {
+  id: string;
+  title: string;
+  publishedDate: string;
+  fileSizeMb: number;
 };

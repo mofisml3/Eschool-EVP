@@ -11,6 +11,8 @@ import { EngagementTrendCard } from '@/components/data/EngagementTrendCard';
 import { ContentFootprintCard } from '@/components/data/ContentFootprintCard';
 import { MasteryBySubjectCard } from '@/components/data/MasteryBySubjectCard';
 import { SupportSnapshotCard } from '@/components/data/SupportSnapshotCard';
+import { StrategicAlignmentCard } from '@/components/data/StrategicAlignmentCard';
+import { LatestReportsCard } from '@/components/data/LatestReportsCard';
 import { useAsyncData } from '@/hooks/useAsyncData';
 import { loadOverview } from '@/services/dataService';
 
@@ -60,6 +62,15 @@ export function OverviewPage() {
               </div>
               <div className="lg:col-span-4">
                 <SupportSnapshotCard data={state.data.supportSnapshot} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-8">
+                <StrategicAlignmentCard data={state.data.strategicAlignment} />
+              </div>
+              <div className="lg:col-span-4">
+                <LatestReportsCard />
               </div>
             </div>
           </>

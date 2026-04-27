@@ -1,5 +1,6 @@
 import type { FeatureCollection, Polygon, MultiPolygon } from 'geojson';
 import type {
+  LatestReportItem,
   MasteryBySubjectEntry,
   OverviewPayload,
   RegionFootprint,
@@ -59,6 +60,10 @@ export async function loadEngagementTrend(): Promise<TrendPayload> {
 
 export async function loadIraqMap(): Promise<IraqMap> {
   return fetchJson<IraqMap>('data/iraq-15-governorates.geojson');
+}
+
+export async function loadLatestReports(): Promise<LatestReportItem[]> {
+  return fetchJson<LatestReportItem[]>('data/latest-reports.json');
 }
 
 /**
