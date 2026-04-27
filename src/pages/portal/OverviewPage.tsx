@@ -6,6 +6,7 @@ import { KpiGrid } from '@/components/data/KpiGrid';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { NationalMapCard } from '@/components/data/NationalMapCard';
+import { EngagementTrendCard } from '@/components/data/EngagementTrendCard';
 import { useAsyncData } from '@/hooks/useAsyncData';
 import { loadOverview } from '@/services/dataService';
 
@@ -36,7 +37,14 @@ export function OverviewPage() {
 
             <KpiGrid kpis={state.data.heroKpis} />
 
-            <NationalMapCard />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-8">
+                <NationalMapCard />
+              </div>
+              <div className="lg:col-span-4">
+                <EngagementTrendCard />
+              </div>
+            </div>
           </>
         )}
       </div>
