@@ -2,7 +2,20 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { LoginPage } from '@/pages/LoginPage';
 import { OverviewPage } from '@/pages/portal/OverviewPage';
+import { ComingSoonPage } from '@/pages/portal/ComingSoonPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+
+const placeholderRoutes = [
+  '/portal/engagement',
+  '/portal/content/videos',
+  '/portal/content/experiments',
+  '/portal/academics/teachers',
+  '/portal/academics/assessments',
+  '/portal/care',
+  '/portal/impact',
+  '/portal/reports',
+  '/portal/about',
+];
 
 export function AppRoutes() {
   return (
@@ -19,6 +32,18 @@ export function AppRoutes() {
           </ProtectedRoute>
         }
       />
+
+      {placeholderRoutes.map((path) => (
+        <Route
+          key={path}
+          path={path}
+          element={
+            <ProtectedRoute>
+              <ComingSoonPage />
+            </ProtectedRoute>
+          }
+        />
+      ))}
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
