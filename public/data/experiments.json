@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "period": {
+    "id": "academic-year-2025-2026",
+    "label": "العام الدراسي 2025/2026",
+    "rangeStart": "2025-09-01",
+    "rangeEnd": "2026-04-27"
+  },
+  "heroKpis": [
+    {
+      "id": "total-experiments",
+      "label": "إجمالي التجارب التفاعلية",
+      "value": 3420,
+      "displayValue": "3,420",
+      "unit": "تجربة",
+      "trend": { "direction": "up", "deltaPercent": 3.5, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "interactive-experiments"
+    },
+    {
+      "id": "disciplines-covered",
+      "label": "التخصصات المُغطّاة",
+      "value": 7,
+      "displayValue": "7",
+      "unit": "تخصص",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "experiments-disciplines"
+    },
+    {
+      "id": "avg-interaction-mins",
+      "label": "متوسط زمن التفاعل",
+      "value": 18,
+      "displayValue": "18",
+      "unit": "دقيقة",
+      "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "avg-interaction"
+    },
+    {
+      "id": "monthly-interactions",
+      "label": "التفاعلات الشهرية",
+      "value": 800000,
+      "displayValue": "800,000",
+      "unit": "جلسة",
+      "trend": { "direction": "up", "deltaPercent": 6.1, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "monthly-interactions"
+    },
+    {
+      "id": "completion-rate",
+      "label": "نسبة إكمال التجربة",
+      "value": 76.8,
+      "displayValue": "76.8٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "experiment-completion"
+    }
+  ],
+  "disciplines": [
+    { "disciplineId": "physics",     "name": "الفيزياء",          "experimentsCount": 720 },
+    { "disciplineId": "biology",     "name": "الأحياء",           "experimentsCount": 580 },
+    { "disciplineId": "chemistry",   "name": "الكيمياء",          "experimentsCount": 540 },
+    { "disciplineId": "math",        "name": "الرياضيات",         "experimentsCount": 480 },
+    { "disciplineId": "cs",          "name": "علوم الحاسب",       "experimentsCount": 420 },
+    { "disciplineId": "geo-astro",   "name": "الجغرافيا والفلك",  "experimentsCount": 360 },
+    { "disciplineId": "engineering", "name": "الهندسة والتقنية",  "experimentsCount": 320 }
+  ],
+  "typeBreakdown": [
+    { "typeId": "virtual-lab", "label": "مختبرات افتراضية",       "experimentsCount": 1380 },
+    { "typeId": "simulation",  "label": "محاكاة تفاعلية",         "experimentsCount": 1160 },
+    { "typeId": "gamified",    "label": "نشاطات مُلعَّبة",          "experimentsCount":  540 },
+    { "typeId": "3d-viz",      "label": "تصوّرات ثلاثية الأبعاد", "experimentsCount":  340 }
+  ],
+  "stageBreakdown": [
+    { "stageId": "secondary", "label": "إعدادي", "experimentsCount": 1520 },
+    { "stageId": "middle",    "label": "متوسط",  "experimentsCount": 1180 },
+    { "stageId": "primary",   "label": "ابتدائي","experimentsCount":  720 }
+  ],
+  "interactionsTrendRef": "data/experiments-interactions-trend.json",
+  "featuredRef": "data/experiments-featured.json"
+}

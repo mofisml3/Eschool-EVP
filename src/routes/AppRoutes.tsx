@@ -4,11 +4,11 @@ import { LoginPage } from '@/pages/LoginPage';
 import { OverviewPage } from '@/pages/portal/OverviewPage';
 import { EngagementPage } from '@/pages/portal/EngagementPage';
 import { VideosPage } from '@/pages/portal/VideosPage';
+import { ExperimentsPage } from '@/pages/portal/ExperimentsPage';
 import { ComingSoonPage } from '@/pages/portal/ComingSoonPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 const placeholderRoutes = [
-  '/portal/content/experiments',
   '/portal/academics/teachers',
   '/portal/academics/assessments',
   '/portal/care',
@@ -47,6 +47,15 @@ export function AppRoutes() {
         element={
           <ProtectedRoute>
             <VideosPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/portal/content/experiments"
+        element={
+          <ProtectedRoute>
+            <ExperimentsPage />
           </ProtectedRoute>
         }
       />

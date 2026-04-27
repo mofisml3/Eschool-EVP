@@ -2,6 +2,8 @@ import type { FeatureCollection, Polygon, MultiPolygon } from 'geojson';
 import type {
   DailyTrendPayload,
   EngagementPayload,
+  ExperimentsPayload,
+  FeaturedExperiment,
   FeaturedLesson,
   HeatmapPayload,
   LatestReportItem,
@@ -83,6 +85,18 @@ export async function loadVideosFeatured(): Promise<FeaturedLesson[]> {
 
 export async function loadVideosTopWatched(): Promise<TopWatchedLesson[]> {
   return fetchJson<TopWatchedLesson[]>('data/videos-top-watched.json');
+}
+
+export async function loadExperiments(): Promise<ExperimentsPayload> {
+  return fetchJson<ExperimentsPayload>('data/experiments.json');
+}
+
+export async function loadExperimentsInteractionsTrend(): Promise<TrendPayload> {
+  return fetchJson<TrendPayload>('data/experiments-interactions-trend.json');
+}
+
+export async function loadExperimentsFeatured(): Promise<FeaturedExperiment[]> {
+  return fetchJson<FeaturedExperiment[]>('data/experiments-featured.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {

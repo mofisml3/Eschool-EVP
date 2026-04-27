@@ -221,6 +221,46 @@ export type TopWatchedLesson = {
   watchCount: number;
 };
 
+export type ExperimentDiscipline = {
+  disciplineId: string;
+  name: string;
+  experimentsCount: number;
+};
+
+export type ExperimentTypeEntry = {
+  typeId: 'virtual-lab' | 'simulation' | 'gamified' | '3d-viz';
+  label: string;
+  experimentsCount: number;
+};
+
+export type ExperimentsStageEntry = {
+  stageId: StageId;
+  label: string;
+  experimentsCount: number;
+};
+
+export type FeaturedExperiment = {
+  id: string;
+  title: string;
+  disciplineName: string;
+  typeLabel: string;
+  stageLabel: string;
+  gradeLabel: string;
+  durationMinutes: number;
+};
+
+export type ExperimentsPayload = {
+  _meta: Meta;
+  lastUpdatedAt: string;
+  period: Period;
+  heroKpis: KpiTile[];
+  disciplines: ExperimentDiscipline[];
+  typeBreakdown: ExperimentTypeEntry[];
+  stageBreakdown: ExperimentsStageEntry[];
+  interactionsTrendRef: string;
+  featuredRef: string;
+};
+
 export type VideosQualityIndicators = {
   hdCoveragePercent: number;
   captionsCoveragePercent: number;
