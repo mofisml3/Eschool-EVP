@@ -6,6 +6,9 @@ import { ScopeStrip } from '@/components/page/ScopeStrip';
 import { NarrativeArcCta } from '@/components/page/NarrativeArcCta';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { InteractionsTrendCard } from '@/components/data/InteractionsTrendCard';
+import { DisciplinesGridCard } from '@/components/data/DisciplinesGridCard';
+import { ExperimentTypesCard } from '@/components/data/ExperimentTypesCard';
+import { ExperimentsStageCard } from '@/components/data/ExperimentsStageCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -40,6 +43,17 @@ export function ExperimentsPage() {
             <KpiGrid kpis={state.data.heroKpis} />
 
             <InteractionsTrendCard />
+
+            <DisciplinesGridCard data={state.data.disciplines} />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-7">
+                <ExperimentTypesCard data={state.data.typeBreakdown} />
+              </div>
+              <div className="lg:col-span-5">
+                <ExperimentsStageCard data={state.data.stageBreakdown} />
+              </div>
+            </div>
 
             <NarrativeArcCta
               title={t('experiments.narrativeArc.title')}
