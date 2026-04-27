@@ -1,0 +1,12 @@
+[
+  { "rank":  1, "lessonId": "lesson-math-quadratic",            "title": "الرياضيات: المعادلات التربيعية",         "subjectName": "الرياضيات",         "gradeLabel": "الثالث متوسط",   "watchCount": 184000 },
+  { "rank":  2, "lessonId": "lesson-arabic-rhetoric-tashbih",   "title": "البلاغة العربية: التشبيه وأنواعه",        "subjectName": "اللغة العربية",     "gradeLabel": "السادس الإعدادي","watchCount": 162000 },
+  { "rank":  3, "lessonId": "lesson-physics-motion",            "title": "الفيزياء: الحركة والقوة وقوانين نيوتن",  "subjectName": "الفيزياء",          "gradeLabel": "السادس الإعدادي","watchCount": 148000 },
+  { "rank":  4, "lessonId": "lesson-english-conditionals",      "title": "اللغة الإنجليزية: الجمل الشرطية",        "subjectName": "اللغة الإنجليزية",  "gradeLabel": "الثالث متوسط",   "watchCount": 137000 },
+  { "rank":  5, "lessonId": "lesson-tajweed-noon-sakinah",      "title": "التجويد: أحكام النون الساكنة",            "subjectName": "الدراسات الإسلامية","gradeLabel": "الثالث متوسط",   "watchCount": 129000 },
+  { "rank":  6, "lessonId": "lesson-chemistry-acid-base",       "title": "الكيمياء: تفاعلات الأحماض والقواعد",     "subjectName": "الكيمياء",          "gradeLabel": "السادس الإعدادي","watchCount": 124000 },
+  { "rank":  7, "lessonId": "lesson-biology-cell",              "title": "علم الأحياء: الخلية النباتية",            "subjectName": "العلوم",            "gradeLabel": "الثالث متوسط",   "watchCount": 118000 },
+  { "rank":  8, "lessonId": "lesson-arabic-creative-writing",   "title": "الكتابة الإبداعية: مهارات أساسية",        "subjectName": "اللغة العربية",     "gradeLabel": "الثالث متوسط",   "watchCount": 112000 },
+  { "rank":  9, "lessonId": "lesson-physics-electricity",       "title": "الفيزياء: الكهرباء التيارية",            "subjectName": "الفيزياء",          "gradeLabel": "السادس الإعدادي","watchCount": 105000 },
+  { "rank": 10, "lessonId": "lesson-arabic-text-analysis",      "title": "مهارات التحليل النصي",                    "subjectName": "اللغة العربية",     "gradeLabel": "السادس الإعدادي","watchCount":  98000 }
+]

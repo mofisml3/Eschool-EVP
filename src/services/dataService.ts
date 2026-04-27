@@ -2,11 +2,13 @@ import type { FeatureCollection, Polygon, MultiPolygon } from 'geojson';
 import type {
   DailyTrendPayload,
   EngagementPayload,
+  FeaturedLesson,
   HeatmapPayload,
   LatestReportItem,
   MasteryBySubjectEntry,
   OverviewPayload,
   RegionFootprint,
+  TopWatchedLesson,
   TrendPayload,
   VideosPayload,
   VideosSubjectEntry,
@@ -73,6 +75,14 @@ export async function loadVideosWatchTrend(): Promise<TrendPayload> {
 
 export async function loadVideosSubjects(): Promise<VideosSubjectEntry[]> {
   return fetchJson<VideosSubjectEntry[]>('data/videos-subjects.json');
+}
+
+export async function loadVideosFeatured(): Promise<FeaturedLesson[]> {
+  return fetchJson<FeaturedLesson[]>('data/videos-featured.json');
+}
+
+export async function loadVideosTopWatched(): Promise<TopWatchedLesson[]> {
+  return fetchJson<TopWatchedLesson[]>('data/videos-top-watched.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {

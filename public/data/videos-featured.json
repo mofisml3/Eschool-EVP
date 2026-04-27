@@ -1,0 +1,50 @@
+[
+  {
+    "id": "lesson-arabic-rhetoric-tashbih",
+    "title": "البلاغة العربية: التشبيه وأنواعه",
+    "subjectName": "اللغة العربية",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 22
+  },
+  {
+    "id": "lesson-physics-motion",
+    "title": "الفيزياء: الحركة والقوة وقوانين نيوتن",
+    "subjectName": "الفيزياء",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 25
+  },
+  {
+    "id": "lesson-math-quadratic",
+    "title": "الرياضيات: المعادلات التربيعية",
+    "subjectName": "الرياضيات",
+    "stageLabel": "متوسط",
+    "gradeLabel": "الثالث متوسط",
+    "durationMinutes": 18
+  },
+  {
+    "id": "lesson-chemistry-acid-base",
+    "title": "الكيمياء: تفاعلات الأحماض والقواعد",
+    "subjectName": "الكيمياء",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 24
+  },
+  {
+    "id": "lesson-english-conditionals",
+    "title": "اللغة الإنجليزية: الجمل الشرطية",
+    "subjectName": "اللغة الإنجليزية",
+    "stageLabel": "متوسط",
+    "gradeLabel": "الثالث متوسط",
+    "durationMinutes": 16
+  },
+  {
+    "id": "lesson-tajweed-noon-sakinah",
+    "title": "التجويد: أحكام النون الساكنة",
+    "subjectName": "الدراسات الإسلامية",
+    "stageLabel": "متوسط",
+    "gradeLabel": "الثالث متوسط",
+    "durationMinutes": 15
+  }
+]

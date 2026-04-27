@@ -203,6 +203,24 @@ export type VideosSubjectEntry = {
   lessonsCount: number;
 };
 
+export type FeaturedLesson = {
+  id: string;
+  title: string;
+  subjectName: string;
+  stageLabel: string;
+  gradeLabel: string;
+  durationMinutes: number;
+};
+
+export type TopWatchedLesson = {
+  rank: number;
+  lessonId: string;
+  title: string;
+  subjectName: string;
+  gradeLabel: string;
+  watchCount: number;
+};
+
 export type VideosQualityIndicators = {
   hdCoveragePercent: number;
   captionsCoveragePercent: number;

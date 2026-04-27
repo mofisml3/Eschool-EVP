@@ -8,6 +8,9 @@ import { KpiGrid } from '@/components/data/KpiGrid';
 import { WatchHoursTrendCard } from '@/components/data/WatchHoursTrendCard';
 import { VideosStageBreakdownCard } from '@/components/data/VideosStageBreakdownCard';
 import { SubjectsCoverageCard } from '@/components/data/SubjectsCoverageCard';
+import { FeaturedLessonsCard } from '@/components/data/FeaturedLessonsCard';
+import { TopWatchedLessonsCard } from '@/components/data/TopWatchedLessonsCard';
+import { QualityIndicatorsCard } from '@/components/data/QualityIndicatorsCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -49,6 +52,17 @@ export function VideosPage() {
               </div>
               <div className="lg:col-span-8">
                 <SubjectsCoverageCard />
+              </div>
+            </div>
+
+            <FeaturedLessonsCard />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-8">
+                <TopWatchedLessonsCard />
+              </div>
+              <div className="lg:col-span-4">
+                <QualityIndicatorsCard data={state.data.qualityIndicators} />
               </div>
             </div>
 
