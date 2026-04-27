@@ -48,5 +48,17 @@
       "trend": { "direction": "up", "deltaPercent": 1.1, "vsLabel": "نقاط مقارنة بالشهر السابق" },
       "methodologyKey": "stickiness"
     }
+  ],
+  "gradeBreakdown": [
+    { "gradeId": "g9",  "label": "الصف الثالث متوسط",   "stageId": "middle",    "activeLearners": 700000, "sharePercent": 58.3 },
+    { "gradeId": "g12", "label": "الصف السادس الإعدادي","stageId": "secondary", "activeLearners": 500000, "sharePercent": 41.7 }
+  ],
+  "topEngagedSubjects": [
+    { "subjectId": "arabic",         "name": "اللغة العربية",      "engagedLearners": 1150000 },
+    { "subjectId": "math",           "name": "الرياضيات",          "engagedLearners": 1080000 },
+    { "subjectId": "english",        "name": "اللغة الإنجليزية",   "engagedLearners": 1020000 },
+    { "subjectId": "islamic",        "name": "الدراسات الإسلامية", "engagedLearners":  960000 },
+    { "subjectId": "science",        "name": "العلوم",             "engagedLearners":  720000 },
+    { "subjectId": "physics",        "name": "الفيزياء",           "engagedLearners":  350000 }
   ]
 }

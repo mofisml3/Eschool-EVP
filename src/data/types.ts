@@ -149,9 +149,25 @@ export type LatestReportItem = {
   fileSizeMb: number;
 };
 
+export type GradeBreakdownEntry = {
+  gradeId: 'g9' | 'g12';
+  label: string;
+  stageId: StageId;
+  activeLearners: number;
+  sharePercent: number;
+};
+
+export type TopEngagedSubject = {
+  subjectId: string;
+  name: string;
+  engagedLearners: number;
+};
+
 export type EngagementPayload = {
   _meta: Meta;
   lastUpdatedAt: string;
   period: Period;
   heroKpis: KpiTile[];
+  gradeBreakdown: GradeBreakdownEntry[];
+  topEngagedSubjects: TopEngagedSubject[];
 };

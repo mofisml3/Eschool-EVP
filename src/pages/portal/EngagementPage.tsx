@@ -6,6 +6,8 @@ import { ScopeStrip } from '@/components/page/ScopeStrip';
 import { NarrativeArcCta } from '@/components/page/NarrativeArcCta';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { DailyTrendCard } from '@/components/data/DailyTrendCard';
+import { GradeBreakdownCard } from '@/components/data/GradeBreakdownCard';
+import { TopEngagedSubjectsCard } from '@/components/data/TopEngagedSubjectsCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -41,6 +43,15 @@ export function EngagementPage() {
             <KpiGrid kpis={state.data.heroKpis} />
 
             <DailyTrendCard />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-4">
+                <GradeBreakdownCard data={state.data.gradeBreakdown} />
+              </div>
+              <div className="lg:col-span-8">
+                <TopEngagedSubjectsCard data={state.data.topEngagedSubjects} />
+              </div>
+            </div>
 
             <NarrativeArcCta
               title={t('engagement.narrativeArc.title')}
