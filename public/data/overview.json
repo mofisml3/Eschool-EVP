@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "period": {
+    "id": "last-30-days",
+    "label": "آخر 30 يوماً",
+    "rangeStart": "2026-03-28",
+    "rangeEnd": "2026-04-27"
+  },
+  "heroKpis": [
+    {
+      "id": "active-learners",
+      "label": "إجمالي المتعلمين الفاعلين",
+      "value": 2480000,
+      "displayValue": "2.48 مليون",
+      "unit": "متعلم",
+      "trend": { "direction": "up", "deltaPercent": 7.4, "vsLabel": "مقارنة بالفترة السابقة" },
+      "methodologyKey": "active-learners"
+    },
+    {
+      "id": "video-lessons",
+      "label": "الدروس المرئية المتاحة",
+      "value": 48750,
+      "displayValue": "48.7 ألف",
+      "unit": "درس",
+      "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "مقارنة بالفترة السابقة" },
+      "methodologyKey": "video-lessons"
+    },
+    {
+      "id": "interactive-experiments",
+      "label": "التجارب التفاعلية",
+      "value": 3420,
+      "displayValue": "3,420",
+      "unit": "تجربة",
+      "trend": { "direction": "up", "deltaPercent": 3.5, "vsLabel": "مقارنة بالفترة السابقة" },
+      "methodologyKey": "interactive-experiments"
+    },
+    {
+      "id": "contributing-teachers",
+      "label": "المعلمون المساهمون",
+      "value": 86500,
+      "displayValue": "86,500",
+      "unit": "معلم",
+      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "مقارنة بالفترة السابقة" },
+      "methodologyKey": "contributing-teachers"
+    },
+    {
+      "id": "geographic-coverage",
+      "label": "التغطية الجغرافية",
+      "value": 13,
+      "displayValue": "13 / 13",
+      "unit": "منطقة",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "geographic-coverage"
+    },
+    {
+      "id": "national-mastery",
+      "label": "متوسط الإتقان الوطني",
+      "value": 78.4,
+      "displayValue": "78.4٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 1.8, "vsLabel": "نقاط مقارنة بالفترة السابقة" },
+      "methodologyKey": "national-mastery"
+    }
+  ],
+  "regionalFootprintRef": "data/shared/regions.json",
+  "engagementTrendRef": "data/engagement-trend.json",
+  "contentFootprint": {
+    "videoLessons": 48750,
+    "contentHours": 9820,
+    "interactiveExperiments": 3420,
+    "subjectsCovered": 24
+  },
+  "masteryBySubjectRef": "data/shared/mastery-by-subject.json",
+  "supportSnapshot": {
+    "averageResponseMinutes": 14,
+    "slaAdherencePercent": 98.6,
+    "ticketsHandledThisMonth": 124800
+  },
+  "strategicAlignment": {
+    "sdg4TargetsCovered": 8,
+    "sdg4TargetsTotal": 10,
+    "vision2030PillarsAligned": 4
+  },
+  "latestReportsRef": "data/reports.json#latest"
+}

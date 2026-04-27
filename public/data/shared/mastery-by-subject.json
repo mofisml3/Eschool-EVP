@@ -1,0 +1,12 @@
+[
+  { "subjectId": "arabic",         "name": "اللغة العربية",     "masteryPercent": 82.4 },
+  { "subjectId": "islamic",        "name": "الدراسات الإسلامية","masteryPercent": 81.9 },
+  { "subjectId": "cs",             "name": "علوم الحاسب",       "masteryPercent": 79.8 },
+  { "subjectId": "social-studies", "name": "الاجتماعيات",       "masteryPercent": 79.5 },
+  { "subjectId": "science",        "name": "العلوم",            "masteryPercent": 78.6 },
+  { "subjectId": "math",           "name": "الرياضيات",         "masteryPercent": 76.8 },
+  { "subjectId": "biology",        "name": "الأحياء",           "masteryPercent": 76.4 },
+  { "subjectId": "physics",        "name": "الفيزياء",          "masteryPercent": 75.2 },
+  { "subjectId": "english",        "name": "اللغة الإنجليزية",  "masteryPercent": 74.2 },
+  { "subjectId": "chemistry",      "name": "الكيمياء",          "masteryPercent": 73.8 }
+]
