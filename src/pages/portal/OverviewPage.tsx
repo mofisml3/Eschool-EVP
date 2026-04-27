@@ -7,6 +7,7 @@ import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { NationalMapCard } from '@/components/data/NationalMapCard';
 import { EngagementTrendCard } from '@/components/data/EngagementTrendCard';
+import { ContentFootprintCard } from '@/components/data/ContentFootprintCard';
 import { useAsyncData } from '@/hooks/useAsyncData';
 import { loadOverview } from '@/services/dataService';
 
@@ -45,6 +46,8 @@ export function OverviewPage() {
                 <EngagementTrendCard />
               </div>
             </div>
+
+            <ContentFootprintCard data={state.data.contentFootprint} />
           </>
         )}
       </div>
