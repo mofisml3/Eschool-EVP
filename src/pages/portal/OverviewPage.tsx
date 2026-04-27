@@ -10,6 +10,7 @@ import { NationalMapCard } from '@/components/data/NationalMapCard';
 import { EngagementTrendCard } from '@/components/data/EngagementTrendCard';
 import { ContentFootprintCard } from '@/components/data/ContentFootprintCard';
 import { MasteryBySubjectCard } from '@/components/data/MasteryBySubjectCard';
+import { SupportSnapshotCard } from '@/components/data/SupportSnapshotCard';
 import { useAsyncData } from '@/hooks/useAsyncData';
 import { loadOverview } from '@/services/dataService';
 
@@ -53,7 +54,14 @@ export function OverviewPage() {
 
             <ContentFootprintCard data={state.data.contentFootprint} />
 
-            <MasteryBySubjectCard />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-8">
+                <MasteryBySubjectCard />
+              </div>
+              <div className="lg:col-span-4">
+                <SupportSnapshotCard data={state.data.supportSnapshot} />
+              </div>
+            </div>
           </>
         )}
       </div>
