@@ -10,6 +10,8 @@ import { TeachersStageCard } from '@/components/data/TeachersStageCard';
 import { TeachersSubjectsCard } from '@/components/data/TeachersSubjectsCard';
 import { TeachersRegionalCard } from '@/components/data/TeachersRegionalCard';
 import { ContentProductionCard } from '@/components/data/ContentProductionCard';
+import { ProfessionalDevelopmentCard } from '@/components/data/ProfessionalDevelopmentCard';
+import { TeachersQualityCard } from '@/components/data/TeachersQualityCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -57,6 +59,15 @@ export function TeachersPage() {
             <TeachersRegionalCard data={state.data.regionalDistribution} />
 
             <ContentProductionCard data={state.data.contentBreakdown} />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-5">
+                <ProfessionalDevelopmentCard data={state.data.professionalDevelopment} />
+              </div>
+              <div className="lg:col-span-7">
+                <TeachersQualityCard data={state.data.qualityIndicators} />
+              </div>
+            </div>
 
             <NarrativeArcCta
               title={t('teachers.narrativeArc.title')}
