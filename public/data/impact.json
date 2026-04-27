@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastReviewedAt": "2026-04-15",
+  "heroKpis": [
+    {
+      "id": "national-strategy-pillars",
+      "label": "محاور خطة التنمية الوطنية للتعليم",
+      "value": 4,
+      "displayValue": "4 / 4",
+      "unit": "محور",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "national-strategy"
+    },
+    {
+      "id": "sdg4-targets",
+      "label": "غايات هدف الأمم المتحدة الرابع",
+      "value": 8,
+      "displayValue": "8 / 10",
+      "unit": "غاية",
+      "trend": { "direction": "up", "deltaPercent": 0, "vsLabel": "+1 منذ آخر مراجعة" },
+      "methodologyKey": "sdg4"
+    },
+    {
+      "id": "geographic-equity",
+      "label": "العدالة الجغرافية",
+      "value": 100,
+      "displayValue": "100٪",
+      "unit": "نسبة",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "geographic-equity"
+    },
+    {
+      "id": "cost-reduction",
+      "label": "تخفيض كلفة المتعلم",
+      "value": 38,
+      "displayValue": "−38٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 0, "vsLabel": "+2 نقطة منذ آخر مراجعة" },
+      "methodologyKey": "cost-reduction"
+    }
+  ],
+  "nationalStrategyPillars": [
+    { "id": "digital-system",      "title": "تطوير المنظومة التعليمية الرقمية",       "description": "نقل المنظومة المدرسية إلى بيئة رقمية شاملة وقابلة للتوسّع." },
+    { "id": "21st-century-skills", "title": "بناء قدرات المتعلم للقرن الحادي والعشرين", "description": "تنمية مهارات التفكير الناقد والتقنية والتعلّم الذاتي." },
+    { "id": "equity",              "title": "تعزيز العدالة وإتاحة التعليم لجميع المحافظات","description": "تجاوز الفجوة الجغرافية بين الحضر والريف عبر منصة موحّدة." },
+    { "id": "teacher-development", "title": "تأهيل الكوادر التعليمية وتطويرها مهنياً", "description": "برامج تطوير ممتدة لـ38,000 معلم نشط في الصفّين النهائيّين." }
+  ],
+  "sdg4Targets": [
+    { "id": "4.1", "title": "إكمال التعليم الابتدائي والثانوي بجودة",     "status": "covered" },
+    { "id": "4.2", "title": "الطفولة المبكرة والتعليم ما قبل المدرسي",     "status": "partial" },
+    { "id": "4.3", "title": "التعليم العالي والتدريب التقني",              "status": "out-of-scope" },
+    { "id": "4.4", "title": "المهارات اللازمة للعمل والابتكار",             "status": "covered" },
+    { "id": "4.5", "title": "العدالة وإلغاء الفوارق في التعليم",            "status": "covered" },
+    { "id": "4.6", "title": "محو الأمية والمعرفة العددية",                  "status": "covered" },
+    { "id": "4.7", "title": "المواطنة العالمية والتنمية المستدامة",         "status": "covered" },
+    { "id": "4.A", "title": "بيئة تعليمية آمنة وشاملة وفعّالة",             "status": "covered" },
+    { "id": "4.B", "title": "المنح والدعم المالي للتعليم",                  "status": "out-of-scope" },
+    { "id": "4.C", "title": "الكوادر المؤهلة والمدرّبة",                    "status": "covered" }
+  ],
+  "equity": {
+    "regionsCoveredPercent": 100,
+    "schoolsReached": 5550,
+    "urbanRuralGapReductionPercent": 62,
+    "specialNeedsLearnersSupported": 22000
+  },
+  "economicValue": {
+    "perLearnerCostReductionPercent": 38,
+    "costPerContentAccessIqd": 460,
+    "freeContentHoursAvailable": 9820
+  },
+  "internationalPositioning": {
+    "regionalRanking": "ضمن الأعلى إقليمياً في الجاهزية الرقمية للتعليم العام",
+    "referenceReport": "تقرير الجاهزية الرقمية للتعليم — 2025",
+    "frameworksAligned": ["UNESCO ICT Competency Framework", "SDG 4 Monitoring Framework"]
+  },
+  "milestones": [
+    { "year": 2022, "title": "إطلاق المرحلة التأسيسية للمشروع" },
+    { "year": 2023, "title": "تغطية كاملة للمحافظات الفيدرالية الـ15" },
+    { "year": 2024, "title": "إطلاق مكتبة التجارب التفاعلية الوطنية" },
+    { "year": 2025, "title": "اعتماد معايير الإتاحة WCAG 2.1 على نطاق المنصة" },
+    { "year": 2026, "title": "تفعيل الصفّين الثالث متوسط والسادس الإعدادي بـ1.20 مليون متعلم" }
+  ],
+  "roadmap": [
+    { "id": "expand-grades",       "title": "توسيع التفعيل ليشمل بقية الصفوف الدراسية" },
+    { "id": "experiments-5k",      "title": "توسيع مكتبة التجارب التفاعلية إلى 5,000 تجربة" },
+    { "id": "predictive-support",  "title": "تعزيز التحليلات التنبؤية لدعم المتعلمين المتأخرين" },
+    { "id": "english-edition",     "title": "تطوير نسخة دولية باللغة الإنجليزية لتعزيز التعاون مع الشركاء" }
+  ]
+}

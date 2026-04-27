@@ -404,3 +404,46 @@ export type CarePayload = {
   wellbeing: CareWellbeing;
   ticketsTrendRef: string;
 };
+
+export type StrategyPillar = { id: string; title: string; description: string };
+
+export type Sdg4Target = {
+  id: string;
+  title: string;
+  status: 'covered' | 'partial' | 'out-of-scope';
+};
+
+export type ImpactEquity = {
+  regionsCoveredPercent: number;
+  schoolsReached: number;
+  urbanRuralGapReductionPercent: number;
+  specialNeedsLearnersSupported: number;
+};
+
+export type ImpactEconomicValue = {
+  perLearnerCostReductionPercent: number;
+  costPerContentAccessIqd: number;
+  freeContentHoursAvailable: number;
+};
+
+export type ImpactInternational = {
+  regionalRanking: string;
+  referenceReport: string;
+  frameworksAligned: string[];
+};
+
+export type Milestone = { year: number; title: string };
+export type RoadmapItem = { id: string; title: string };
+
+export type ImpactPayload = {
+  _meta: Meta;
+  lastReviewedAt: string;
+  heroKpis: KpiTile[];
+  nationalStrategyPillars: StrategyPillar[];
+  sdg4Targets: Sdg4Target[];
+  equity: ImpactEquity;
+  economicValue: ImpactEconomicValue;
+  internationalPositioning: ImpactInternational;
+  milestones: Milestone[];
+  roadmap: RoadmapItem[];
+};
