@@ -9,6 +9,7 @@ import { InteractionsTrendCard } from '@/components/data/InteractionsTrendCard';
 import { DisciplinesGridCard } from '@/components/data/DisciplinesGridCard';
 import { ExperimentTypesCard } from '@/components/data/ExperimentTypesCard';
 import { ExperimentsStageCard } from '@/components/data/ExperimentsStageCard';
+import { FeaturedExperimentsCard } from '@/components/data/FeaturedExperimentsCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -54,6 +55,8 @@ export function ExperimentsPage() {
                 <ExperimentsStageCard data={state.data.stageBreakdown} />
               </div>
             </div>
+
+            <FeaturedExperimentsCard />
 
             <NarrativeArcCta
               title={t('experiments.narrativeArc.title')}

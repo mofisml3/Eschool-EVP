@@ -1,0 +1,56 @@
+[
+  {
+    "id": "exp-acid-base-lab",
+    "title": "مختبر الكيمياء الافتراضي: تفاعلات الأحماض والقواعد",
+    "disciplineName": "الكيمياء",
+    "typeLabel": "مختبر افتراضي",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 25
+  },
+  {
+    "id": "exp-newton-laws",
+    "title": "محاكاة قوانين نيوتن للحركة",
+    "disciplineName": "الفيزياء",
+    "typeLabel": "محاكاة تفاعلية",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 22
+  },
+  {
+    "id": "exp-simple-circuit",
+    "title": "محاكاة الدائرة الكهربائية البسيطة",
+    "disciplineName": "الفيزياء",
+    "typeLabel": "محاكاة تفاعلية",
+    "stageLabel": "متوسط",
+    "gradeLabel": "الثالث متوسط",
+    "durationMinutes": 20
+  },
+  {
+    "id": "exp-digestive-system",
+    "title": "الجهاز الهضمي: محاكاة تفاعلية",
+    "disciplineName": "الأحياء",
+    "typeLabel": "تصوّر ثلاثي الأبعاد",
+    "stageLabel": "متوسط",
+    "gradeLabel": "الثالث متوسط",
+    "durationMinutes": 18
+  },
+  {
+    "id": "exp-quicksort-viz",
+    "title": "خوارزمية الفرز السريع: تصوّر تفاعلي",
+    "disciplineName": "علوم الحاسب",
+    "typeLabel": "نشاط مُلعَّب",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 20
+  },
+  {
+    "id": "exp-equations-of-motion",
+    "title": "حلّ معادلات الحركة بطرائق متعددة",
+    "disciplineName": "الرياضيات",
+    "typeLabel": "محاكاة تفاعلية",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 24
+  }
+]
