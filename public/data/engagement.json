@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "period": {
+    "id": "academic-year-2025-2026",
+    "label": "العام الدراسي 2025/2026",
+    "rangeStart": "2025-09-01",
+    "rangeEnd": "2026-04-27"
+  },
+  "heroKpis": [
+    {
+      "id": "dau",
+      "label": "المتعلمون النشطون يومياً",
+      "value": 570000,
+      "displayValue": "570,000",
+      "unit": "متعلم",
+      "trend": { "direction": "up", "deltaPercent": 5.9, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "dau"
+    },
+    {
+      "id": "wau",
+      "label": "المتعلمون النشطون أسبوعياً",
+      "value": 920000,
+      "displayValue": "920,000",
+      "unit": "متعلم",
+      "trend": { "direction": "up", "deltaPercent": 6.4, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "wau"
+    },
+    {
+      "id": "mau",
+      "label": "المتعلمون النشطون شهرياً",
+      "value": 1200000,
+      "displayValue": "1.20 مليون",
+      "unit": "متعلم",
+      "trend": { "direction": "up", "deltaPercent": 7.1, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "mau"
+    },
+    {
+      "id": "stickiness",
+      "label": "معدل الاستمرارية",
+      "value": 47.5,
+      "displayValue": "47.5٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 1.1, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "stickiness"
+    }
+  ]
+}

@@ -36,7 +36,7 @@ export function OverviewPage() {
               lastUpdatedAt={state.data.lastUpdatedAt}
               rightSlot={
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-primary-light text-brand-primary rounded-full text-sm whitespace-nowrap">
-                  <span className="text-ink-700">{t('overview.hero.periodLabel')}</span>
+                  <span className="text-ink-700">{t('shell.common.periodLabel')}</span>
                   <span className="font-medium">{state.data.period.label}</span>
                 </div>
               }

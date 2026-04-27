@@ -32,7 +32,7 @@ export function PageHero({
             <p className="text-xs text-ink-500 m-0 mt-3 inline-flex items-center gap-1.5">
               <Calendar size={12} aria-hidden="true" />
               <span>
-                {t('overview.hero.lastUpdated')} {formatDateTime(lastUpdatedAt)}
+                {t('shell.common.lastUpdated')} {formatDateTime(lastUpdatedAt)}
               </span>
             </p>
           )}

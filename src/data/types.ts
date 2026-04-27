@@ -135,3 +135,10 @@ export type LatestReportItem = {
   publishedDate: string;
   fileSizeMb: number;
 };
+
+export type EngagementPayload = {
+  _meta: Meta;
+  lastUpdatedAt: string;
+  period: Period;
+  heroKpis: KpiTile[];
+};

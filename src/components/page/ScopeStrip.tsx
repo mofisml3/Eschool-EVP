@@ -22,9 +22,9 @@ export function ScopeStrip() {
       />
       <p className="text-sm text-ink-700 leading-relaxed m-0">
         <strong className="text-brand-primary font-semibold">
-          {t('overview.scope.title')}:
+          {t('shell.scope.title')}:
         </strong>{' '}
-        {t('overview.scope.body')}
+        {t('shell.scope.body')}
       </p>
     </div>
   );

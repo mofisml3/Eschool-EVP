@@ -2,11 +2,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { LoginPage } from '@/pages/LoginPage';
 import { OverviewPage } from '@/pages/portal/OverviewPage';
+import { EngagementPage } from '@/pages/portal/EngagementPage';
 import { ComingSoonPage } from '@/pages/portal/ComingSoonPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 const placeholderRoutes = [
-  '/portal/engagement',
   '/portal/content/videos',
   '/portal/content/experiments',
   '/portal/academics/teachers',
@@ -29,6 +29,15 @@ export function AppRoutes() {
         element={
           <ProtectedRoute>
             <OverviewPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/portal/engagement"
+        element={
+          <ProtectedRoute>
+            <EngagementPage />
           </ProtectedRoute>
         }
       />

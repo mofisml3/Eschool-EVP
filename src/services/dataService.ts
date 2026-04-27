@@ -1,5 +1,6 @@
 import type { FeatureCollection, Polygon, MultiPolygon } from 'geojson';
 import type {
+  EngagementPayload,
   LatestReportItem,
   MasteryBySubjectEntry,
   OverviewPayload,
@@ -44,6 +45,10 @@ async function fetchJson<T>(path: string): Promise<T> {
 
 export async function loadOverview(): Promise<OverviewPayload> {
   return fetchJson<OverviewPayload>('data/overview.json');
+}
+
+export async function loadEngagement(): Promise<EngagementPayload> {
+  return fetchJson<EngagementPayload>('data/engagement.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {
