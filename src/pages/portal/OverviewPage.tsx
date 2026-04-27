@@ -1,37 +1,42 @@
+import { useCallback } from 'react';
 import { t } from '@/i18n';
-import { useSession } from '@/contexts/SessionContext';
 import { PortalLayout } from '@/components/shell/PortalLayout';
+import { PageHero } from '@/components/page/PageHero';
+import { KpiGrid } from '@/components/data/KpiGrid';
+import { LoadingState } from '@/components/data/LoadingState';
+import { ErrorState } from '@/components/data/ErrorState';
+import { useAsyncData } from '@/hooks/useAsyncData';
+import { loadOverview } from '@/services/dataService';
 
-/**
- * Real KPI tiles, map, charts, and the narrative-arc CTA arrive
- * in C9 and following commits. This commit only verifies that the
- * authenticated chrome (TopBar / Sidebar / Footer) wraps cleanly
- * around the page content.
- */
 export function OverviewPage() {
-  const { session } = useSession();
+  const loader = useCallback(() => loadOverview(), []);
+  const { state, reload } = useAsyncData(loader);
 
   return (
     <PortalLayout pageTitle={t('shell.nav.overview')}>
-      <section className="bg-white rounded-card-lg shadow-card p-6 md:p-8">
-        <h2 className="text-2xl font-semibold text-brand-primary m-0">
-          المؤشرات الوطنية الكبرى لمشروع المدرسة الإلكترونية
-        </h2>
-        <p className="text-ink-700 mt-2 m-0">
-          عرضٌ موجز للأداء الوطني والتغطية الجغرافية ومخرجات التعلّم وأثر المشروع.
-        </p>
+      <div className="flex flex-col gap-6">
+        {state.status === 'loading' && <LoadingState />}
 
-        <div className="mt-6 pt-6 border-t border-ink-200 text-sm text-ink-500">
-          <p className="m-0">
-            المستخدم الحالي:{' '}
-            <span className="text-ink-900 font-medium">{session?.username}</span>
-          </p>
-          <p className="mt-2 m-0 leading-relaxed">
-            بطاقات المؤشرات، الخريطة الوطنية، اتجاه الحضور، الإتقان حسب المادة،
-            لمحة الدعم، والتقارير — كل هذه تُبنى في المراحل C9 وما بعدها.
-          </p>
-        </div>
-      </section>
+        {state.status === 'error' && <ErrorState onRetry={reload} />}
+
+        {state.status === 'success' && (
+          <>
+            <PageHero
+              title={t('overview.hero.title')}
+              subtitle={t('overview.hero.subtitle')}
+              lastUpdatedAt={state.data.lastUpdatedAt}
+              rightSlot={
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-primary-light text-brand-primary rounded-full text-sm whitespace-nowrap">
+                  <span className="text-ink-700">{t('overview.hero.periodLabel')}</span>
+                  <span className="font-medium">{state.data.period.label}</span>
+                </div>
+              }
+            />
+
+            <KpiGrid kpis={state.data.heroKpis} />
+          </>
+        )}
+      </div>
     </PortalLayout>
   );
 }
