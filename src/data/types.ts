@@ -41,20 +41,27 @@ export type Meta = {
   scenario: string;
 };
 
+/**
+ * Iraqi federal governorates (15). Excludes the Kurdistan Region
+ * (Erbil, Sulaymaniyah, Duhok) which operates a separate education
+ * system under the KRG.
+ */
 export type RegionId =
-  | 'riyadh'
-  | 'makkah'
-  | 'eastern'
-  | 'asir'
-  | 'madinah'
-  | 'jazan'
-  | 'qassim'
-  | 'tabuk'
-  | 'hail'
-  | 'najran'
-  | 'bahah'
-  | 'northern'
-  | 'jouf';
+  | 'baghdad'
+  | 'nineveh'
+  | 'basra'
+  | 'babil'
+  | 'dhi-qar'
+  | 'anbar'
+  | 'diyala'
+  | 'najaf'
+  | 'salah-ad-din'
+  | 'kirkuk'
+  | 'wasit'
+  | 'qadisiyyah'
+  | 'karbala'
+  | 'maysan'
+  | 'muthanna';
 
 export type StageId = 'primary' | 'middle' | 'secondary';
 

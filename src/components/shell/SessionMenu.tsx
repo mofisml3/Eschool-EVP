@@ -70,12 +70,12 @@ export function SessionMenu() {
 
 function formatLastLogin(iso: string): string {
   const date = new Date(iso);
-  const dateFormatter = new Intl.DateTimeFormat('ar-SA-u-nu-latn-ca-gregory', {
+  const dateFormatter = new Intl.DateTimeFormat('ar-IQ-u-nu-latn-ca-gregory', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
-  const timeFormatter = new Intl.DateTimeFormat('ar-SA-u-nu-latn-ca-gregory', {
+  const timeFormatter = new Intl.DateTimeFormat('ar-IQ-u-nu-latn-ca-gregory', {
     hour: '2-digit',
     minute: '2-digit',
     hour12: false,

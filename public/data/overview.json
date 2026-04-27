@@ -51,9 +51,9 @@
     {
       "id": "geographic-coverage",
       "label": "التغطية الجغرافية",
-      "value": 13,
-      "displayValue": "13 / 13",
-      "unit": "منطقة",
+      "value": 15,
+      "displayValue": "15 / 15",
+      "unit": "محافظة",
       "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
       "methodologyKey": "geographic-coverage"
     },
