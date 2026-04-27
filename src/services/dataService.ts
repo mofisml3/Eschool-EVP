@@ -1,9 +1,18 @@
+import type { FeatureCollection, Polygon, MultiPolygon } from 'geojson';
 import type {
   MasteryBySubjectEntry,
   OverviewPayload,
   RegionFootprint,
   TrendPayload,
 } from '@/data/types';
+
+export type IraqMapFeatureProps = {
+  regionId: string;
+  iso: string;
+  neName: string;
+};
+
+export type IraqMap = FeatureCollection<Polygon | MultiPolygon, IraqMapFeatureProps>;
 
 /**
  * Single seam between the UI and its data source.
@@ -46,6 +55,10 @@ export async function loadMasteryBySubject(): Promise<MasteryBySubjectEntry[]> {
 
 export async function loadEngagementTrend(): Promise<TrendPayload> {
   return fetchJson<TrendPayload>('data/engagement-trend.json');
+}
+
+export async function loadIraqMap(): Promise<IraqMap> {
+  return fetchJson<IraqMap>('data/iraq-15-governorates.geojson');
 }
 
 /**

@@ -5,6 +5,7 @@ import { PageHero } from '@/components/page/PageHero';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
+import { NationalMapCard } from '@/components/data/NationalMapCard';
 import { useAsyncData } from '@/hooks/useAsyncData';
 import { loadOverview } from '@/services/dataService';
 
@@ -34,6 +35,8 @@ export function OverviewPage() {
             />
 
             <KpiGrid kpis={state.data.heroKpis} />
+
+            <NationalMapCard />
           </>
         )}
       </div>
