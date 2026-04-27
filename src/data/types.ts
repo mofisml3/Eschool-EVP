@@ -197,6 +197,12 @@ export type VideosStageEntry = {
   lessonsCount: number;
 };
 
+export type VideosSubjectEntry = {
+  subjectId: string;
+  name: string;
+  lessonsCount: number;
+};
+
 export type VideosQualityIndicators = {
   hdCoveragePercent: number;
   captionsCoveragePercent: number;

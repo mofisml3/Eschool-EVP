@@ -6,6 +6,8 @@ import { ScopeStrip } from '@/components/page/ScopeStrip';
 import { NarrativeArcCta } from '@/components/page/NarrativeArcCta';
 import { KpiGrid } from '@/components/data/KpiGrid';
 import { WatchHoursTrendCard } from '@/components/data/WatchHoursTrendCard';
+import { VideosStageBreakdownCard } from '@/components/data/VideosStageBreakdownCard';
+import { SubjectsCoverageCard } from '@/components/data/SubjectsCoverageCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -40,6 +42,15 @@ export function VideosPage() {
             <KpiGrid kpis={state.data.heroKpis} />
 
             <WatchHoursTrendCard />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-4">
+                <VideosStageBreakdownCard data={state.data.stageBreakdown} />
+              </div>
+              <div className="lg:col-span-8">
+                <SubjectsCoverageCard />
+              </div>
+            </div>
 
             <NarrativeArcCta
               title={t('videos.narrativeArc.title')}

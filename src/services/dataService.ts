@@ -9,6 +9,7 @@ import type {
   RegionFootprint,
   TrendPayload,
   VideosPayload,
+  VideosSubjectEntry,
 } from '@/data/types';
 
 export type IraqMapFeatureProps = {
@@ -68,6 +69,10 @@ export async function loadVideos(): Promise<VideosPayload> {
 
 export async function loadVideosWatchTrend(): Promise<TrendPayload> {
   return fetchJson<TrendPayload>('data/videos-watch-trend.json');
+}
+
+export async function loadVideosSubjects(): Promise<VideosSubjectEntry[]> {
+  return fetchJson<VideosSubjectEntry[]>('data/videos-subjects.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {
