@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "period": {
+    "id": "academic-year-2025-2026",
+    "label": "العام الدراسي 2025/2026",
+    "rangeStart": "2025-09-01",
+    "rangeEnd": "2026-04-27"
+  },
+  "heroKpis": [
+    {
+      "id": "total-lessons",
+      "label": "إجمالي الدروس المرئية",
+      "value": 48750,
+      "displayValue": "48.7 ألف",
+      "unit": "درس",
+      "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "video-lessons"
+    },
+    {
+      "id": "content-hours",
+      "label": "إجمالي ساعات المحتوى",
+      "value": 9820,
+      "displayValue": "9,820",
+      "unit": "ساعة",
+      "trend": { "direction": "up", "deltaPercent": 1.1, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "content-hours"
+    },
+    {
+      "id": "subjects-covered",
+      "label": "المواد المُغطّاة",
+      "value": 24,
+      "displayValue": "24",
+      "unit": "مادة",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "subjects-covered"
+    },
+    {
+      "id": "completion-rate",
+      "label": "متوسط نسبة الإكمال",
+      "value": 84.2,
+      "displayValue": "84.2٪",
+      "unit": "نسبة",
+      "trend": { "direction": "up", "deltaPercent": 0.6, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "methodologyKey": "completion-rate"
+    },
+    {
+      "id": "monthly-watch-hours",
+      "label": "ساعات المشاهدة الشهرية",
+      "value": 4100000,
+      "displayValue": "4.10 مليون",
+      "unit": "ساعة",
+      "trend": { "direction": "up", "deltaPercent": 5.4, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "watch-hours"
+    }
+  ],
+  "qualityIndicators": {
+    "hdCoveragePercent": 96.4,
+    "captionsCoveragePercent": 88.7
+  },
+  "stageBreakdown": [
+    { "stageId": "primary",   "label": "ابتدائي", "lessonsCount": 21400 },
+    { "stageId": "middle",    "label": "متوسط",  "lessonsCount": 14200 },
+    { "stageId": "secondary", "label": "إعدادي", "lessonsCount": 13150 }
+  ],
+  "watchHoursTrendRef": "data/videos-watch-trend.json",
+  "subjectsRef": "data/videos-subjects.json",
+  "featuredRef": "data/videos-featured.json",
+  "topWatchedRef": "data/videos-top-watched.json"
+}

@@ -190,3 +190,27 @@ export type EngagementPayload = {
   gradeBreakdown: GradeBreakdownEntry[];
   topEngagedSubjects: TopEngagedSubject[];
 };
+
+export type VideosStageEntry = {
+  stageId: StageId;
+  label: string;
+  lessonsCount: number;
+};
+
+export type VideosQualityIndicators = {
+  hdCoveragePercent: number;
+  captionsCoveragePercent: number;
+};
+
+export type VideosPayload = {
+  _meta: Meta;
+  lastUpdatedAt: string;
+  period: Period;
+  heroKpis: KpiTile[];
+  qualityIndicators: VideosQualityIndicators;
+  stageBreakdown: VideosStageEntry[];
+  watchHoursTrendRef: string;
+  subjectsRef: string;
+  featuredRef: string;
+  topWatchedRef: string;
+};

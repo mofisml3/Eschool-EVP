@@ -8,6 +8,7 @@ import type {
   OverviewPayload,
   RegionFootprint,
   TrendPayload,
+  VideosPayload,
 } from '@/data/types';
 
 export type IraqMapFeatureProps = {
@@ -59,6 +60,14 @@ export async function loadDailyEngagement(): Promise<DailyTrendPayload> {
 
 export async function loadEngagementHeatmap(): Promise<HeatmapPayload> {
   return fetchJson<HeatmapPayload>('data/engagement-heatmap.json');
+}
+
+export async function loadVideos(): Promise<VideosPayload> {
+  return fetchJson<VideosPayload>('data/videos.json');
+}
+
+export async function loadVideosWatchTrend(): Promise<TrendPayload> {
+  return fetchJson<TrendPayload>('data/videos-watch-trend.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {
