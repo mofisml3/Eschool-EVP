@@ -1,5 +1,6 @@
 import type { FeatureCollection, Polygon, MultiPolygon } from 'geojson';
 import type {
+  DailyTrendPayload,
   EngagementPayload,
   LatestReportItem,
   MasteryBySubjectEntry,
@@ -49,6 +50,10 @@ export async function loadOverview(): Promise<OverviewPayload> {
 
 export async function loadEngagement(): Promise<EngagementPayload> {
   return fetchJson<EngagementPayload>('data/engagement.json');
+}
+
+export async function loadDailyEngagement(): Promise<DailyTrendPayload> {
+  return fetchJson<DailyTrendPayload>('data/engagement-daily.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {

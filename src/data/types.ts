@@ -102,6 +102,19 @@ export type TrendPayload = {
   points: TrendPoint[];
 };
 
+export type DailyTrendPoint = {
+  date: string;
+  value: number;
+  weekday: string;
+};
+
+export type DailyTrendPayload = {
+  metric: string;
+  label: string;
+  unit: string;
+  points: DailyTrendPoint[];
+};
+
 export type OverviewPayload = {
   _meta: Meta;
   lastUpdatedAt: string;

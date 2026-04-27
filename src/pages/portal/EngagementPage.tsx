@@ -5,6 +5,7 @@ import { PageHero } from '@/components/page/PageHero';
 import { ScopeStrip } from '@/components/page/ScopeStrip';
 import { NarrativeArcCta } from '@/components/page/NarrativeArcCta';
 import { KpiGrid } from '@/components/data/KpiGrid';
+import { DailyTrendCard } from '@/components/data/DailyTrendCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -38,6 +39,8 @@ export function EngagementPage() {
             <ScopeStrip />
 
             <KpiGrid kpis={state.data.heroKpis} />
+
+            <DailyTrendCard />
 
             <NarrativeArcCta
               title={t('engagement.narrativeArc.title')}
