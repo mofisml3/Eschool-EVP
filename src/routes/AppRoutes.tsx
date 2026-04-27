@@ -9,11 +9,11 @@ import { TeachersPage } from '@/pages/portal/TeachersPage';
 import { AssessmentsPage } from '@/pages/portal/AssessmentsPage';
 import { CarePage } from '@/pages/portal/CarePage';
 import { ImpactPage } from '@/pages/portal/ImpactPage';
+import { ReportsPage } from '@/pages/portal/ReportsPage';
 import { ComingSoonPage } from '@/pages/portal/ComingSoonPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
 const placeholderRoutes = [
-  '/portal/reports',
   '/portal/about',
 ];
 
@@ -92,6 +92,15 @@ export function AppRoutes() {
         element={
           <ProtectedRoute>
             <ImpactPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/portal/reports"
+        element={
+          <ProtectedRoute>
+            <ReportsPage />
           </ProtectedRoute>
         }
       />

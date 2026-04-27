@@ -447,3 +447,29 @@ export type ImpactPayload = {
   milestones: Milestone[];
   roadmap: RoadmapItem[];
 };
+
+export type ReportCategory = {
+  id: string;
+  label: string;
+  count: number;
+};
+
+export type ReportItem = {
+  id: string;
+  title: string;
+  categoryId: string;
+  categoryLabel: string;
+  publishedDate: string;
+  format: 'PDF' | 'إنفوغرافيك';
+  fileSizeMb: number;
+  abstract: string;
+};
+
+export type ReportsPayload = {
+  _meta: Meta;
+  lastAddedAt: string;
+  heroKpis: KpiTile[];
+  categories: ReportCategory[];
+  featuredIds: string[];
+  reports: ReportItem[];
+};

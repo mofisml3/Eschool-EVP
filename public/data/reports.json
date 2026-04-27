@@ -1,0 +1,183 @@
+{
+  "_meta": {
+    "schemaVersion": "0.1.0",
+    "seededAt": "2026-04-27",
+    "scenario": "default-mvp-demo"
+  },
+  "lastAddedAt": "2026-04-27T09:14:00+03:00",
+  "heroKpis": [
+    {
+      "id": "total-reports",
+      "label": "إجمالي التقارير المتاحة",
+      "value": 42,
+      "displayValue": "42",
+      "unit": "تقرير",
+      "trend": { "direction": "up", "deltaPercent": 0, "vsLabel": "+6 منذ بداية العام" },
+      "methodologyKey": "total-reports"
+    },
+    {
+      "id": "added-this-term",
+      "label": "المُضاف هذا الفصل الدراسي",
+      "value": 6,
+      "displayValue": "6",
+      "unit": "تقرير",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "added-this-term"
+    },
+    {
+      "id": "total-downloads",
+      "label": "إجمالي مرات التحميل",
+      "value": 64500,
+      "displayValue": "64,500",
+      "unit": "تحميل",
+      "trend": { "direction": "up", "deltaPercent": 6.4, "vsLabel": "مقارنة بالشهر السابق" },
+      "methodologyKey": "downloads"
+    },
+    {
+      "id": "languages-available",
+      "label": "اللغات المتاحة",
+      "value": 1,
+      "displayValue": "1",
+      "unit": "لغة",
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
+      "methodologyKey": "languages"
+    }
+  ],
+  "categories": [
+    { "id": "annual",          "label": "تقارير سنوية",            "count":  4 },
+    { "id": "term",            "label": "تقارير فصلية",            "count":  8 },
+    { "id": "executive-brief", "label": "ملخصات تنفيذية",          "count":  6 },
+    { "id": "case-study",      "label": "دراسات حالة",             "count":  9 },
+    { "id": "methodology",     "label": "منهجيات",                 "count":  6 },
+    { "id": "alignment",       "label": "تقارير مواءمة استراتيجية","count":  3 },
+    { "id": "infographic",     "label": "إنفوغرافيك",              "count":  6 }
+  ],
+  "featuredIds": [
+    "annual-report-2025",
+    "exec-brief-q1-2026",
+    "case-rural-digital-gap",
+    "info-numbers-2026"
+  ],
+  "reports": [
+    {
+      "id": "annual-report-2025",
+      "title": "التقرير السنوي 2025 — أداء المدرسة الإلكترونية",
+      "categoryId": "annual",
+      "categoryLabel": "تقرير سنوي",
+      "publishedDate": "2025-12-14",
+      "format": "PDF",
+      "fileSizeMb": 6.8,
+      "abstract": "التقرير السنوي الشامل لأداء المنصة عبر جميع الوحدات والمؤشرات الوطنية."
+    },
+    {
+      "id": "exec-brief-q1-2026",
+      "title": "ملخص تنفيذي — الفصل الأول 2025/2026",
+      "categoryId": "executive-brief",
+      "categoryLabel": "ملخص تنفيذي",
+      "publishedDate": "2026-04-20",
+      "format": "PDF",
+      "fileSizeMb": 1.4,
+      "abstract": "ملخص موجز للأرقام الكبرى والمستجدات الاستراتيجية للفصل الأول من العام الدراسي 2025/2026."
+    },
+    {
+      "id": "case-rural-digital-gap",
+      "title": "دراسة حالة: تقلّص الفجوة الرقمية في المحافظات الريفية",
+      "categoryId": "case-study",
+      "categoryLabel": "دراسة حالة",
+      "publishedDate": "2026-03-08",
+      "format": "PDF",
+      "fileSizeMb": 3.2,
+      "abstract": "تتبع لتقلّص فجوة الإتاحة بين المحافظات الحضرية والريفية عبر فترة عامين."
+    },
+    {
+      "id": "info-numbers-2026",
+      "title": "إنفوغرافيك: المدرسة الإلكترونية بالأرقام 2025/2026",
+      "categoryId": "infographic",
+      "categoryLabel": "إنفوغرافيك",
+      "publishedDate": "2026-04-27",
+      "format": "PDF",
+      "fileSizeMb": 0.9,
+      "abstract": "صفحة بصرية واحدة تُلخّص أبرز الأرقام الوطنية للمشروع للعام الدراسي 2025/2026."
+    },
+    {
+      "id": "case-g12-2026",
+      "title": "دراسة حالة: تجربة الصف السادس الإعدادي 2025/2026",
+      "categoryId": "case-study",
+      "categoryLabel": "دراسة حالة",
+      "publishedDate": "2026-03-22",
+      "format": "PDF",
+      "fileSizeMb": 2.6,
+      "abstract": "تحليل أنماط التفاعل والتحضير الامتحاني لمتعلمي الصف السادس الإعدادي."
+    },
+    {
+      "id": "case-g9-2026",
+      "title": "دراسة حالة: تجربة الصف الثالث متوسط 2025/2026",
+      "categoryId": "case-study",
+      "categoryLabel": "دراسة حالة",
+      "publishedDate": "2026-02-18",
+      "format": "PDF",
+      "fileSizeMb": 2.3,
+      "abstract": "تحليل أنماط التفاعل والإتقان لمتعلمي الصف الثالث متوسط على المنصة."
+    },
+    {
+      "id": "methodology-mastery-index",
+      "title": "منهجية احتساب مؤشر الإتقان الوطني",
+      "categoryId": "methodology",
+      "categoryLabel": "منهجية",
+      "publishedDate": "2025-11-02",
+      "format": "PDF",
+      "fileSizeMb": 1.1,
+      "abstract": "وثيقة المنهجية المعتمدة لاحتساب مؤشر الإتقان الوطني وتفسير نتائجه."
+    },
+    {
+      "id": "methodology-economic-evaluation",
+      "title": "منهجية تقييم الكفاءة الاقتصادية",
+      "categoryId": "methodology",
+      "categoryLabel": "منهجية",
+      "publishedDate": "2025-10-12",
+      "format": "PDF",
+      "fileSizeMb": 1.8,
+      "abstract": "إطار احتساب كلفة المتعلم والقيمة الاقتصادية للمشروع."
+    },
+    {
+      "id": "alignment-sdg4-2025",
+      "title": "تقرير مواءمة المشروع مع الهدف الرابع للتنمية المستدامة",
+      "categoryId": "alignment",
+      "categoryLabel": "تقرير مواءمة",
+      "publishedDate": "2025-09-30",
+      "format": "PDF",
+      "fileSizeMb": 2.1,
+      "abstract": "مراجعة سنوية لمواءمة المشروع مع الغايات العشر للهدف الرابع."
+    },
+    {
+      "id": "alignment-national-strategy",
+      "title": "تقرير مواءمة المشروع مع خطة التنمية الوطنية للتعليم",
+      "categoryId": "alignment",
+      "categoryLabel": "تقرير مواءمة",
+      "publishedDate": "2025-09-15",
+      "format": "PDF",
+      "fileSizeMb": 1.9,
+      "abstract": "مراجعة محاور خطة التنمية الوطنية ذات الصلة وأثر المشروع فيها."
+    },
+    {
+      "id": "annual-report-2024",
+      "title": "التقرير السنوي 2024",
+      "categoryId": "annual",
+      "categoryLabel": "تقرير سنوي",
+      "publishedDate": "2024-12-22",
+      "format": "PDF",
+      "fileSizeMb": 6.2,
+      "abstract": "التقرير السنوي الشامل لعام 2024."
+    },
+    {
+      "id": "term-q1-2025-2026",
+      "title": "تقرير فصلي — الفصل الأول 2025/2026",
+      "categoryId": "term",
+      "categoryLabel": "تقرير فصلي",
+      "publishedDate": "2026-01-30",
+      "format": "PDF",
+      "fileSizeMb": 4.1,
+      "abstract": "تقرير الفصل الأول من العام الدراسي الحالي بتفاصيل وحدة بوحدة."
+    }
+  ]
+}

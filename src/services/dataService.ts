@@ -13,6 +13,7 @@ import type {
   AssessmentsPayload,
   CarePayload,
   ImpactPayload,
+  ReportsPayload,
   TeachersPayload,
   TopWatchedLesson,
   TrendPayload,
@@ -129,6 +130,10 @@ export async function loadCareTicketsTrend(): Promise<TrendPayload> {
 
 export async function loadImpact(): Promise<ImpactPayload> {
   return fetchJson<ImpactPayload>('data/impact.json');
+}
+
+export async function loadReports(): Promise<ReportsPayload> {
+  return fetchJson<ReportsPayload>('data/reports.json');
 }
 
 export async function loadRegions(): Promise<RegionFootprint[]> {
