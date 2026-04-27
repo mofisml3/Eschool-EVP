@@ -163,11 +163,30 @@ export type TopEngagedSubject = {
   engagedLearners: number;
 };
 
+export type SessionPatterns = {
+  averageSessionMinutes: number;
+  averageSessionsPerLearnerPerWeek: number;
+};
+
+export type HeatmapCell = {
+  weekday: string;
+  hour: string;
+  intensity: number;
+};
+
+export type HeatmapPayload = {
+  metric: string;
+  weekdayOrder: string[];
+  hourBuckets: string[];
+  matrix: HeatmapCell[];
+};
+
 export type EngagementPayload = {
   _meta: Meta;
   lastUpdatedAt: string;
   period: Period;
   heroKpis: KpiTile[];
+  sessionPatterns: SessionPatterns;
   gradeBreakdown: GradeBreakdownEntry[];
   topEngagedSubjects: TopEngagedSubject[];
 };

@@ -49,6 +49,10 @@
       "methodologyKey": "stickiness"
     }
   ],
+  "sessionPatterns": {
+    "averageSessionMinutes": 38,
+    "averageSessionsPerLearnerPerWeek": 5.4
+  },
   "gradeBreakdown": [
     { "gradeId": "g9",  "label": "الصف الثالث متوسط",   "stageId": "middle",    "activeLearners": 700000, "sharePercent": 58.3 },
     { "gradeId": "g12", "label": "الصف السادس الإعدادي","stageId": "secondary", "activeLearners": 500000, "sharePercent": 41.7 }

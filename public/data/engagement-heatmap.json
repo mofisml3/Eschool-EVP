@@ -1,0 +1,880 @@
+{
+  "metric": "active-learners-by-hour-and-weekday",
+  "weekdayOrder": [
+    "الأحد",
+    "الاثنين",
+    "الثلاثاء",
+    "الأربعاء",
+    "الخميس",
+    "الجمعة",
+    "السبت"
+  ],
+  "hourBuckets": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23"
+  ],
+  "matrix": [
+    {
+      "weekday": "الأحد",
+      "hour": "00",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "01",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "06",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "07",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "08",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "09",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "10",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "11",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "12",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "13",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "14",
+      "intensity": 0.5
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "15",
+      "intensity": 0.85
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "16",
+      "intensity": 0.95
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "17",
+      "intensity": 0.95
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "18",
+      "intensity": 0.9
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "19",
+      "intensity": 0.8
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "20",
+      "intensity": 0.7
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "21",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "22",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الأحد",
+      "hour": "23",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "00",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "01",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "06",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "07",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "08",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "09",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "10",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "11",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "12",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "13",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "14",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "15",
+      "intensity": 0.9
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "16",
+      "intensity": 0.98
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "17",
+      "intensity": 0.98
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "18",
+      "intensity": 0.92
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "19",
+      "intensity": 0.8
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "20",
+      "intensity": 0.7
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "21",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "22",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الاثنين",
+      "hour": "23",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "00",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "01",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "06",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "07",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "08",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "09",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "10",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "11",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "12",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "13",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "14",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "15",
+      "intensity": 0.9
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "16",
+      "intensity": 1
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "17",
+      "intensity": 0.98
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "18",
+      "intensity": 0.92
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "19",
+      "intensity": 0.82
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "20",
+      "intensity": 0.72
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "21",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "22",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الثلاثاء",
+      "hour": "23",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "00",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "01",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "06",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "07",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "08",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "09",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "10",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "11",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "12",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "13",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "14",
+      "intensity": 0.5
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "15",
+      "intensity": 0.88
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "16",
+      "intensity": 0.95
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "17",
+      "intensity": 0.95
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "18",
+      "intensity": 0.9
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "19",
+      "intensity": 0.78
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "20",
+      "intensity": 0.68
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "21",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "22",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الأربعاء",
+      "hour": "23",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "00",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "01",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "06",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "07",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "08",
+      "intensity": 0.18
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "09",
+      "intensity": 0.18
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "10",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "11",
+      "intensity": 0.18
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "12",
+      "intensity": 0.18
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "13",
+      "intensity": 0.18
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "14",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "15",
+      "intensity": 0.65
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "16",
+      "intensity": 0.7
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "17",
+      "intensity": 0.65
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "18",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "19",
+      "intensity": 0.45
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "20",
+      "intensity": 0.35
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "21",
+      "intensity": 0.3
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "22",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الخميس",
+      "hour": "23",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "00",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "01",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "06",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "07",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "08",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "09",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "10",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "11",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "12",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "13",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "14",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "15",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "16",
+      "intensity": 0.3
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "17",
+      "intensity": 0.35
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "18",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "19",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "20",
+      "intensity": 0.35
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "21",
+      "intensity": 0.3
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "22",
+      "intensity": 0.25
+    },
+    {
+      "weekday": "الجمعة",
+      "hour": "23",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "السبت",
+      "hour": "00",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "السبت",
+      "hour": "01",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "السبت",
+      "hour": "02",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "السبت",
+      "hour": "03",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "السبت",
+      "hour": "04",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "السبت",
+      "hour": "05",
+      "intensity": 0.05
+    },
+    {
+      "weekday": "السبت",
+      "hour": "06",
+      "intensity": 0.1
+    },
+    {
+      "weekday": "السبت",
+      "hour": "07",
+      "intensity": 0.15
+    },
+    {
+      "weekday": "السبت",
+      "hour": "08",
+      "intensity": 0.2
+    },
+    {
+      "weekday": "السبت",
+      "hour": "09",
+      "intensity": 0.3
+    },
+    {
+      "weekday": "السبت",
+      "hour": "10",
+      "intensity": 0.4
+    },
+    {
+      "weekday": "السبت",
+      "hour": "11",
+      "intensity": 0.45
+    },
+    {
+      "weekday": "السبت",
+      "hour": "12",
+      "intensity": 0.45
+    },
+    {
+      "weekday": "السبت",
+      "hour": "13",
+      "intensity": 0.45
+    },
+    {
+      "weekday": "السبت",
+      "hour": "14",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "السبت",
+      "hour": "15",
+      "intensity": 0.65
+    },
+    {
+      "weekday": "السبت",
+      "hour": "16",
+      "intensity": 0.75
+    },
+    {
+      "weekday": "السبت",
+      "hour": "17",
+      "intensity": 0.78
+    },
+    {
+      "weekday": "السبت",
+      "hour": "18",
+      "intensity": 0.75
+    },
+    {
+      "weekday": "السبت",
+      "hour": "19",
+      "intensity": 0.65
+    },
+    {
+      "weekday": "السبت",
+      "hour": "20",
+      "intensity": 0.55
+    },
+    {
+      "weekday": "السبت",
+      "hour": "21",
+      "intensity": 0.45
+    },
+    {
+      "weekday": "السبت",
+      "hour": "22",
+      "intensity": 0.35
+    },
+    {
+      "weekday": "السبت",
+      "hour": "23",
+      "intensity": 0.2
+    }
+  ]
+}

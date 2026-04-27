@@ -8,6 +8,8 @@ import { KpiGrid } from '@/components/data/KpiGrid';
 import { DailyTrendCard } from '@/components/data/DailyTrendCard';
 import { GradeBreakdownCard } from '@/components/data/GradeBreakdownCard';
 import { TopEngagedSubjectsCard } from '@/components/data/TopEngagedSubjectsCard';
+import { SessionPatternsCard } from '@/components/data/SessionPatternsCard';
+import { PeakHoursHeatmapCard } from '@/components/data/PeakHoursHeatmapCard';
 import { LoadingState } from '@/components/data/LoadingState';
 import { ErrorState } from '@/components/data/ErrorState';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -50,6 +52,15 @@ export function EngagementPage() {
               </div>
               <div className="lg:col-span-8">
                 <TopEngagedSubjectsCard data={state.data.topEngagedSubjects} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-4">
+                <SessionPatternsCard data={state.data.sessionPatterns} />
+              </div>
+              <div className="lg:col-span-8">
+                <PeakHoursHeatmapCard />
               </div>
             </div>
 
