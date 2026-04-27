@@ -2,6 +2,10 @@ import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { t } from '@/i18n';
 import { useSession } from '@/contexts/SessionContext';
+import {
+  authenticate,
+  type AuthFailureReason,
+} from '@/services/authService';
 import { Logo } from '@/components/brand/Logo';
 import { TextField } from '@/components/forms/TextField';
 import { PasswordField } from '@/components/forms/PasswordField';
@@ -15,7 +19,13 @@ type FieldErrors = {
 
 type FormStatus = 'idle' | 'validating' | 'success';
 
-const SESSION_TTL_MS = 60 * 60 * 1000;
+const failureReasonToKey: Record<AuthFailureReason, string> = {
+  'invalid-credentials': 'login.errors.invalidCredentials',
+  'rate-limited': 'login.errors.rateLimited',
+  locked: 'login.errors.accountLocked',
+  network: 'login.errors.network',
+  server: 'login.errors.server',
+};
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -47,19 +57,22 @@ export function LoginPage() {
 
     setStatus('validating');
 
-    // C5 placeholder auth — accepts any non-empty credentials.
-    // C6 replaces this with a proper mock auth service that checks
-    // against EVP_AUTH_USERNAME and EVP_AUTH_PASSWORD_HASH env vars.
-    await new Promise((resolve) => setTimeout(resolve, 600));
+    try {
+      const result = await authenticate(username, password);
 
-    setStatus('success');
-    login({
-      username: username.trim(),
-      issuedAt: new Date().toISOString(),
-      expiresAt: new Date(Date.now() + SESSION_TTL_MS).toISOString(),
-    });
+      if (!result.ok) {
+        setStatus('idle');
+        setAuthError(t(failureReasonToKey[result.reason]));
+        return;
+      }
 
-    setTimeout(() => navigate('/portal/overview'), 280);
+      setStatus('success');
+      login(result.session);
+      setTimeout(() => navigate('/portal/overview'), 280);
+    } catch {
+      setStatus('idle');
+      setAuthError(t('login.errors.network'));
+    }
   }
 
   const submitLabel = (() => {
@@ -84,7 +97,6 @@ export function LoginPage() {
           </div>
         </div>
 
-        {/* Auth failure banner */}
         {authError && (
           <div className="w-full max-w-md mb-4">
             <AuthFailureBanner
@@ -94,7 +106,6 @@ export function LoginPage() {
           </div>
         )}
 
-        {/* Form card */}
         <form
           onSubmit={onSubmit}
           aria-labelledby="login-heading"
@@ -148,7 +159,6 @@ export function LoginPage() {
         </p>
       </div>
 
-      {/* Brand gradient ribbon + footer band */}
       <div
         aria-hidden="true"
         className="h-3 bg-gradient-to-l from-brand-secondary to-brand-primary"
