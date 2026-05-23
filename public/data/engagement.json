@@ -15,37 +15,37 @@
     {
       "id": "dau",
       "label": "المتعلمون النشطون يومياً",
-      "value": 570000,
-      "displayValue": "570,000",
+      "value": 8500,
+      "displayValue": "8,500",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 5.9, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 4.6, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "dau"
     },
     {
       "id": "wau",
       "label": "المتعلمون النشطون أسبوعياً",
-      "value": 920000,
-      "displayValue": "920,000",
+      "value": 12200,
+      "displayValue": "12,200",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 6.4, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 5.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "wau"
     },
     {
       "id": "mau",
       "label": "المتعلمون النشطون شهرياً",
-      "value": 1200000,
-      "displayValue": "1.20 مليون",
+      "value": 15377,
+      "displayValue": "15,377",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 7.1, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 4.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "mau"
     },
     {
       "id": "stickiness",
       "label": "معدل الاستمرارية",
-      "value": 47.5,
-      "displayValue": "47.5٪",
+      "value": 55.3,
+      "displayValue": "55.3٪",
       "unit": "نسبة",
-      "trend": { "direction": "up", "deltaPercent": 1.1, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 1.4, "vsLabel": "نقاط مقارنة بالشهر السابق" },
       "methodologyKey": "stickiness"
     }
   ],
@@ -54,15 +54,15 @@
     "averageSessionsPerLearnerPerWeek": 5.4
   },
   "gradeBreakdown": [
-    { "gradeId": "g9",  "label": "الصف الثالث متوسط",   "stageId": "middle",    "activeLearners": 700000, "sharePercent": 58.3 },
-    { "gradeId": "g12", "label": "الصف السادس الإعدادي","stageId": "secondary", "activeLearners": 500000, "sharePercent": 41.7 }
+    { "gradeId": "g9",  "label": "الصف الثالث متوسط",   "stageId": "middle",    "activeLearners":  1801, "sharePercent": 11.7 },
+    { "gradeId": "g12", "label": "الصف السادس الإعدادي","stageId": "secondary", "activeLearners": 13576, "sharePercent": 88.3 }
   ],
   "topEngagedSubjects": [
-    { "subjectId": "arabic",         "name": "اللغة العربية",      "engagedLearners": 1150000 },
-    { "subjectId": "math",           "name": "الرياضيات",          "engagedLearners": 1080000 },
-    { "subjectId": "english",        "name": "اللغة الإنجليزية",   "engagedLearners": 1020000 },
-    { "subjectId": "islamic",        "name": "الدراسات الإسلامية", "engagedLearners":  960000 },
-    { "subjectId": "science",        "name": "العلوم",             "engagedLearners":  720000 },
-    { "subjectId": "physics",        "name": "الفيزياء",           "engagedLearners":  350000 }
+    { "subjectId": "arabic",  "name": "اللغة العربية",      "engagedLearners": 14800 },
+    { "subjectId": "math",    "name": "الرياضيات",          "engagedLearners": 14200 },
+    { "subjectId": "islamic", "name": "الدراسات الإسلامية", "engagedLearners": 13800 },
+    { "subjectId": "english", "name": "اللغة الإنجليزية",   "engagedLearners": 13200 },
+    { "subjectId": "physics", "name": "الفيزياء",           "engagedLearners":  8000 },
+    { "subjectId": "biology", "name": "الأحياء",            "engagedLearners":  7800 }
   ]
 }

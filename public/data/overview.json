@@ -15,17 +15,17 @@
     {
       "id": "active-learners",
       "label": "إجمالي المتعلمين الفاعلين",
-      "value": 1200000,
-      "displayValue": "1.20 مليون",
+      "value": 15377,
+      "displayValue": "15,377",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 7.1, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 4.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "active-learners"
     },
     {
       "id": "video-lessons",
       "label": "الدروس المرئية المتاحة",
-      "value": 48750,
-      "displayValue": "48.7 ألف",
+      "value": 13360,
+      "displayValue": "13,360",
       "unit": "درس",
       "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "مقارنة بالفترة السابقة" },
       "methodologyKey": "video-lessons"
@@ -33,8 +33,8 @@
     {
       "id": "interactive-experiments",
       "label": "التجارب التفاعلية",
-      "value": 3420,
-      "displayValue": "3,420",
+      "value": 180,
+      "displayValue": "180",
       "unit": "تجربة",
       "trend": { "direction": "up", "deltaPercent": 3.5, "vsLabel": "مقارنة بالفترة السابقة" },
       "methodologyKey": "interactive-experiments"
@@ -42,8 +42,8 @@
     {
       "id": "contributing-teachers",
       "label": "المعلمون المساهمون",
-      "value": 38000,
-      "displayValue": "38,000",
+      "value": 170,
+      "displayValue": "170",
       "unit": "معلم",
       "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "contributing-teachers"
@@ -70,16 +70,16 @@
   "regionalFootprintRef": "data/shared/regions.json",
   "engagementTrendRef": "data/engagement-trend.json",
   "contentFootprint": {
-    "videoLessons": 48750,
-    "contentHours": 9820,
-    "interactiveExperiments": 3420,
-    "subjectsCovered": 24
+    "videoLessons": 13360,
+    "contentHours": 3780,
+    "interactiveExperiments": 180,
+    "subjectsCovered": 84
   },
   "masteryBySubjectRef": "data/shared/mastery-by-subject.json",
   "supportSnapshot": {
     "averageResponseMinutes": 14,
     "slaAdherencePercent": 98.6,
-    "ticketsHandledThisMonth": 65000
+    "ticketsHandledThisMonth": 5400
   },
   "strategicAlignment": {
     "sdg4TargetsCovered": 8,
