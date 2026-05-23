@@ -15,10 +15,10 @@
     {
       "id": "active-teachers",
       "label": "المعلمون المساهمون",
-      "value": 38000,
-      "displayValue": "38,000",
+      "value": 170,
+      "displayValue": "170",
       "unit": "معلم",
-      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "active-teachers"
     },
     {
@@ -33,8 +33,8 @@
     {
       "id": "content-authored",
       "label": "المحتوى المُنتَج",
-      "value": 147570,
-      "displayValue": "147.5 ألف",
+      "value": 17540,
+      "displayValue": "17,540",
       "unit": "عنصر",
       "trend": { "direction": "up", "deltaPercent": 2.3, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "content-authored"
@@ -51,57 +51,57 @@
     {
       "id": "subjects-served",
       "label": "المواد التي يخدمها الكادر",
-      "value": 24,
-      "displayValue": "24",
-      "unit": "مادة",
+      "value": 84,
+      "displayValue": "84",
+      "unit": "مقرر",
       "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
       "methodologyKey": "subjects-served"
     }
   ],
   "stageBreakdown": [
-    { "stageId": "middle",    "label": "متوسط",  "teachersCount": 22000 },
-    { "stageId": "secondary", "label": "إعدادي", "teachersCount": 16000 }
+    { "stageId": "middle",    "label": "متوسط",  "teachersCount": 34 },
+    { "stageId": "secondary", "label": "إعدادي", "teachersCount": 136 }
   ],
   "subjectsBreakdownTop": [
-    { "subjectId": "arabic",         "name": "اللغة العربية",      "teachersCount": 5500 },
-    { "subjectId": "math",           "name": "الرياضيات",          "teachersCount": 4950 },
-    { "subjectId": "science",        "name": "العلوم",             "teachersCount": 4750 },
-    { "subjectId": "islamic",        "name": "الدراسات الإسلامية", "teachersCount": 4200 },
-    { "subjectId": "english",        "name": "اللغة الإنجليزية",   "teachersCount": 3850 },
-    { "subjectId": "social-studies", "name": "الاجتماعيات",        "teachersCount": 2800 },
-    { "subjectId": "physics",        "name": "الفيزياء",           "teachersCount": 2150 },
-    { "subjectId": "chemistry",      "name": "الكيمياء",           "teachersCount": 1920 },
-    { "subjectId": "biology",        "name": "الأحياء",            "teachersCount": 1820 },
-    { "subjectId": "cs",             "name": "علوم الحاسب",        "teachersCount": 1430 },
-    { "subjectId": "art",            "name": "التربية الفنية",     "teachersCount":  960 },
-    { "subjectId": "pe",             "name": "التربية البدنية",    "teachersCount":  800 }
+    { "subjectId": "arabic",         "name": "اللغة العربية",      "teachersCount": 30 },
+    { "subjectId": "math",           "name": "الرياضيات",          "teachersCount": 28 },
+    { "subjectId": "science",        "name": "العلوم",             "teachersCount": 22 },
+    { "subjectId": "islamic",        "name": "الدراسات الإسلامية", "teachersCount": 21 },
+    { "subjectId": "english",        "name": "اللغة الإنجليزية",   "teachersCount": 19 },
+    { "subjectId": "physics",        "name": "الفيزياء",           "teachersCount": 14 },
+    { "subjectId": "chemistry",      "name": "الكيمياء",           "teachersCount": 12 },
+    { "subjectId": "biology",        "name": "الأحياء",            "teachersCount": 12 },
+    { "subjectId": "social-studies", "name": "الاجتماعيات",        "teachersCount":  9 },
+    { "subjectId": "cs",             "name": "علوم الحاسب",        "teachersCount":  7 },
+    { "subjectId": "geography",      "name": "الجغرافيا",          "teachersCount":  6 },
+    { "subjectId": "history",        "name": "التاريخ",            "teachersCount":  5 }
   ],
   "regionalDistribution": [
-    { "regionId": "baghdad",      "name": "بغداد",        "teachersCount": 11000 },
-    { "regionId": "nineveh",      "name": "نينوى",        "teachersCount":  4000 },
-    { "regionId": "basra",        "name": "البصرة",       "teachersCount":  3200 },
-    { "regionId": "babil",        "name": "بابل",         "teachersCount":  2550 },
-    { "regionId": "dhi-qar",      "name": "ذي قار",       "teachersCount":  2200 },
-    { "regionId": "anbar",        "name": "الأنبار",      "teachersCount":  2050 },
-    { "regionId": "diyala",       "name": "ديالى",        "teachersCount":  2050 },
-    { "regionId": "najaf",        "name": "النجف",        "teachersCount":  1750 },
-    { "regionId": "salah-ad-din", "name": "صلاح الدين",   "teachersCount":  1750 },
-    { "regionId": "kirkuk",       "name": "كركوك",        "teachersCount":  1580 },
-    { "regionId": "wasit",        "name": "واسط",         "teachersCount":  1420 },
-    { "regionId": "qadisiyyah",   "name": "القادسية",     "teachersCount":  1420 },
-    { "regionId": "karbala",      "name": "كربلاء",       "teachersCount":  1250 },
-    { "regionId": "maysan",       "name": "ميسان",        "teachersCount":   950 },
-    { "regionId": "muthanna",     "name": "المثنى",       "teachersCount":   830 }
+    { "regionId": "baghdad",      "name": "بغداد",        "teachersCount": 70 },
+    { "regionId": "nineveh",      "name": "نينوى",        "teachersCount": 17 },
+    { "regionId": "basra",        "name": "البصرة",       "teachersCount": 14 },
+    { "regionId": "najaf",        "name": "النجف",        "teachersCount": 10 },
+    { "regionId": "babil",        "name": "بابل",         "teachersCount":  9 },
+    { "regionId": "karbala",      "name": "كربلاء",       "teachersCount":  7 },
+    { "regionId": "dhi-qar",      "name": "ذي قار",       "teachersCount":  7 },
+    { "regionId": "anbar",        "name": "الأنبار",      "teachersCount":  6 },
+    { "regionId": "diyala",       "name": "ديالى",        "teachersCount":  5 },
+    { "regionId": "kirkuk",       "name": "كركوك",        "teachersCount":  5 },
+    { "regionId": "wasit",        "name": "واسط",         "teachersCount":  5 },
+    { "regionId": "salah-ad-din", "name": "صلاح الدين",   "teachersCount":  4 },
+    { "regionId": "qadisiyyah",   "name": "القادسية",     "teachersCount":  4 },
+    { "regionId": "maysan",       "name": "ميسان",        "teachersCount":  4 },
+    { "regionId": "muthanna",     "name": "المثنى",       "teachersCount":  3 }
   ],
   "contentBreakdown": {
-    "videoLessonsAuthored": 48750,
-    "experimentsAuthored": 3420,
-    "assessmentsAuthored": 95400
+    "videoLessonsAuthored": 13360,
+    "experimentsAuthored": 180,
+    "assessmentsAuthored": 4000
   },
   "professionalDevelopment": {
-    "certifiedTeachersCount": 34400,
+    "certifiedTeachersCount": 154,
     "averageTrainingHoursPerYear": 24,
-    "trainingProgramsCompletedThisYear": 60000
+    "trainingProgramsCompletedThisYear": 280
   },
   "qualityIndicators": {
     "averagePeerReviewRating": 4.6,

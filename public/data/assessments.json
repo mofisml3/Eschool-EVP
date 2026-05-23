@@ -24,8 +24,8 @@
     {
       "id": "deliveries-this-month",
       "label": "التقييمات المُجراة هذا الشهر",
-      "value": 4100000,
-      "displayValue": "4.10 مليون",
+      "value": 105000,
+      "displayValue": "105,000",
       "unit": "تقييم",
       "trend": { "direction": "up", "deltaPercent": 5.7, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "monthly-deliveries"
@@ -33,8 +33,8 @@
     {
       "id": "library-size",
       "label": "التقييمات النشطة في المكتبة",
-      "value": 95400,
-      "displayValue": "95.4 ألف",
+      "value": 4000,
+      "displayValue": "4,000",
       "unit": "تقييم",
       "trend": { "direction": "up", "deltaPercent": 1.4, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "assessment-library"
@@ -70,14 +70,14 @@
     { "bandId": "did-not-pass","label": "لم يجتز (أقل من 60٪)",   "sharePercent":  5.4 }
   ],
   "assessmentTypes": [
-    { "typeId": "formative",  "label": "تكويني",  "count": 64200, "sharePercent": 67.3 },
-    { "typeId": "summative",  "label": "ختامي",   "count": 18400, "sharePercent": 19.3 },
-    { "typeId": "diagnostic", "label": "تشخيصي",  "count": 12800, "sharePercent": 13.4 }
+    { "typeId": "formative",  "label": "تكويني",  "count": 2690, "sharePercent": 67.3 },
+    { "typeId": "summative",  "label": "ختامي",   "count":  770, "sharePercent": 19.3 },
+    { "typeId": "diagnostic", "label": "تشخيصي",  "count":  540, "sharePercent": 13.4 }
   ],
   "curriculumCoverage": {
-    "totalCurriculumUnits": 240,
-    "unitsWithAssessments": 232,
-    "coveragePercent": 96.7
+    "totalCurriculumUnits": 84,
+    "unitsWithAssessments": 81,
+    "coveragePercent": 96.4
   },
   "yearMasteryTrendRef": "data/assessments-year-trend.json",
   "masteryBySubjectRef": "data/shared/mastery-by-subject.json",
