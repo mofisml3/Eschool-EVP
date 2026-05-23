@@ -33,8 +33,8 @@
     {
       "id": "tickets-handled",
       "label": "الاستفسارات المعالجة",
-      "value": 65000,
-      "displayValue": "65,000",
+      "value": 5400,
+      "displayValue": "5,400",
       "unit": "استفسار",
       "trend": { "direction": "up", "deltaPercent": 3.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "tickets"
@@ -59,15 +59,15 @@
     }
   ],
   "channels": [
-    { "channelId": "chat",   "label": "محادثة فورية",   "ticketsCount": 32500, "sharePercent": 50.0 },
-    { "channelId": "email",  "label": "بريد إلكتروني", "ticketsCount": 16250, "sharePercent": 25.0 },
-    { "channelId": "in-app", "label": "داخل التطبيق",  "ticketsCount":  9750, "sharePercent": 15.0 },
-    { "channelId": "phone",  "label": "هاتف",          "ticketsCount":  6500, "sharePercent": 10.0 }
+    { "channelId": "chat",   "label": "محادثة فورية",   "ticketsCount": 2700, "sharePercent": 50.0 },
+    { "channelId": "email",  "label": "بريد إلكتروني", "ticketsCount": 1350, "sharePercent": 25.0 },
+    { "channelId": "in-app", "label": "داخل التطبيق",  "ticketsCount":  810, "sharePercent": 15.0 },
+    { "channelId": "phone",  "label": "هاتف",          "ticketsCount":  540, "sharePercent": 10.0 }
   ],
   "inclusion": {
-    "specialNeedsLearnersSupported": 22000,
-    "specialEducationSchoolsServed": 180,
-    "signLanguageLessons": 1840
+    "specialNeedsLearnersSupported": 280,
+    "specialEducationSchoolsServed": 24,
+    "signLanguageLessons": 320
   },
   "accessibility": {
     "captionsCoveragePercent": 88.7,
@@ -75,9 +75,9 @@
     "highContrastAndZoomSupportPercent": 100
   },
   "wellbeing": {
-    "counselingSessionsThisMonth": 9500,
-    "academicFollowupsForAtRiskLearners": 32000,
-    "parentCommunicationsThisMonth": 110000
+    "counselingSessionsThisMonth": 780,
+    "academicFollowupsForAtRiskLearners": 2600,
+    "parentCommunicationsThisMonth": 9000
   },
   "ticketsTrendRef": "data/care-tickets-trend.json"
 }

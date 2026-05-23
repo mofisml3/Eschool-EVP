@@ -47,7 +47,7 @@
     { "id": "digital-system",      "title": "تطوير المنظومة التعليمية الرقمية",       "description": "نقل المنظومة المدرسية إلى بيئة رقمية شاملة وقابلة للتوسّع." },
     { "id": "21st-century-skills", "title": "بناء قدرات المتعلم للقرن الحادي والعشرين", "description": "تنمية مهارات التفكير الناقد والتقنية والتعلّم الذاتي." },
     { "id": "equity",              "title": "تعزيز العدالة وإتاحة التعليم لجميع المحافظات","description": "تجاوز الفجوة الجغرافية بين الحضر والريف عبر منصة موحّدة." },
-    { "id": "teacher-development", "title": "تأهيل الكوادر التعليمية وتطويرها مهنياً", "description": "برامج تطوير ممتدة لـ38,000 معلم نشط في الصفّين النهائيّين." }
+    { "id": "teacher-development", "title": "تأهيل الكوادر التعليمية وتطويرها مهنياً", "description": "برامج تطوير ممتدة للمعلمين المساهمين في الصفّين النهائيّين." }
   ],
   "sdg4Targets": [
     { "id": "4.1", "title": "إكمال التعليم الابتدائي والثانوي بجودة",     "status": "covered" },
@@ -65,12 +65,12 @@
     "regionsCoveredPercent": 100,
     "schoolsReached": 5550,
     "urbanRuralGapReductionPercent": 62,
-    "specialNeedsLearnersSupported": 22000
+    "specialNeedsLearnersSupported": 280
   },
   "economicValue": {
     "perLearnerCostReductionPercent": 38,
     "costPerContentAccessIqd": 460,
-    "freeContentHoursAvailable": 9820
+    "freeContentHoursAvailable": 3780
   },
   "internationalPositioning": {
     "regionalRanking": "ضمن الأعلى إقليمياً في الجاهزية الرقمية للتعليم العام",
@@ -82,11 +82,11 @@
     { "year": 2023, "title": "تغطية كاملة للمحافظات الفيدرالية الـ15" },
     { "year": 2024, "title": "إطلاق مكتبة التجارب التفاعلية الوطنية" },
     { "year": 2025, "title": "اعتماد معايير الإتاحة WCAG 2.1 على نطاق المنصة" },
-    { "year": 2026, "title": "تفعيل الصفّين الثالث متوسط والسادس الإعدادي بـ1.20 مليون متعلم" }
+    { "year": 2026, "title": "تفعيل الصفّين الثالث متوسط والسادس الإعدادي بأكثر من 15 ألف متعلم" }
   ],
   "roadmap": [
     { "id": "expand-grades",       "title": "توسيع التفعيل ليشمل بقية الصفوف الدراسية" },
-    { "id": "experiments-5k",      "title": "توسيع مكتبة التجارب التفاعلية إلى 5,000 تجربة" },
+    { "id": "experiments-growth",  "title": "توسيع مكتبة التجارب التفاعلية إلى 500 تجربة" },
     { "id": "predictive-support",  "title": "تعزيز التحليلات التنبؤية لدعم المتعلمين المتأخرين" },
     { "id": "english-edition",     "title": "تطوير نسخة دولية باللغة الإنجليزية لتعزيز التعاون مع الشركاء" }
   ]

@@ -27,8 +27,8 @@
     {
       "id": "total-downloads",
       "label": "إجمالي مرات التحميل",
-      "value": 64500,
-      "displayValue": "64,500",
+      "value": 8400,
+      "displayValue": "8,400",
       "unit": "تحميل",
       "trend": { "direction": "up", "deltaPercent": 6.4, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "downloads"
