@@ -33,8 +33,10 @@ export function MasteryBySubjectCard() {
 }
 
 function MasteryInner({ subjects }: { subjects: MasteryBySubjectEntry[] }) {
-  const sorted = [...subjects].sort((a, b) => b.masteryPercent - a.masteryPercent);
-  const max = Math.max(100, ...sorted.map((s) => s.masteryPercent));
+  // Preserve the JSON order — it reflects curriculum/exam priority
+  // (Arabic → English → Math → sciences → humanities + Islamic), not
+  // a performance ranking.
+  const max = Math.max(100, ...subjects.map((s) => s.masteryPercent));
 
   return (
     <ChartCard
@@ -43,7 +45,7 @@ function MasteryInner({ subjects }: { subjects: MasteryBySubjectEntry[] }) {
       source={t('overview.mastery.source')}
     >
       <ul className="flex flex-col gap-3">
-        {sorted.map((s) => {
+        {subjects.map((s) => {
           const widthPct = (s.masteryPercent / max) * 100;
           return (
             <li key={s.subjectId} className="flex items-center gap-3 text-sm">
