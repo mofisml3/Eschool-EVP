@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#00c3fe;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة البقرة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">التقويم النهائي · {{ score }}/{{ total }}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Scene%206%20-%20Irshadat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Chapter%201%20Hub.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>الوحدة</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:800px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(16px,2.6vw,24px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#04223a;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">التقويم</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(26px,4.6vw,42px);margin:0 0 8px;color:var(--c-primary);line-height:1.15;">قِسْ تحقّقك من الدرس</h1>
+      <p style="margin:0;font-size:clamp(14px,1.9vw,17px);line-height:1.9;color:var(--c-inkSoft);">ستّة أسئلةٍ على آيات الدرس ومعانيها. اختر الإجابة لتظهر التغذية الراجعة فوراً.</p>
+    </div>
+
+    <div style="position:sticky;top:64px;z-index:20;background:#fff;border:1px solid var(--c-line);border-radius:14px;padding:12px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 16px rgba(32,0,88,.06);">
+      <span style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:18px;white-space:nowrap;">{{ score }} / {{ total }}</span>
+      <div style="flex:1;height:8px;background:var(--c-tint);border-radius:99px;overflow:hidden;">
+        <div style="height:100%;width:{{ pct }};background:linear-gradient(90deg,var(--c-accent),var(--c-good));border-radius:99px;transition:width .4s;"></div>
+      </div>
+      <span style="color:var(--c-inkSoft);font-size:13px;white-space:nowrap;">{{ answeredCount }} مُجابة</span>
+    </div>
+
+    <sc-for list="{{ questions }}" as="q" hint-placeholder-count="6">
+      <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;">
+          <span style="flex:none;width:34px;height:34px;border-radius:10px;background:var(--c-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">{{ q.num }}</span>
+          <h2 style="font-family:'Readex Pro';font-weight:600;font-size:clamp(15px,2vw,18px);margin:0;color:var(--c-ink);line-height:1.8;">{{ q.text }}</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <sc-for list="{{ q.options }}" as="o" hint-placeholder-count="3">
+            <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+              <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+              <span style="flex:1;text-align:right;">{{ o.text }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ q.answered }}" hint-placeholder-val="{{ false }}">
+          <div style="{{ q.fbStyle }}"><b>{{ q.fbTitle }}</b><span>{{ q.fbText }}</span></div>
+        </sc-if>
+      </section>
+    </sc-for>
+
+    <sc-if value="{{ allAnswered }}" hint-placeholder-val="{{ false }}">
+      <section style="{{ resultStyle }}">
+        <div style="font-size:38px;margin-bottom:6px;">{{ resultEmoji }}</div>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(22px,3vw,28px);margin:0 0 6px;">{{ resultTitle }}</h2>
+        <p style="margin:0 0 20px;font-size:clamp(15px,2vw,18px);opacity:.92;">نتيجتك: <b>{{ score }}</b> من <b>{{ total }}</b></p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <button onClick="{{ onRetry }}" style="cursor:pointer;background:rgba(255,255,255,.2);color:#fff;border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:12px 26px;border-radius:999px;min-height:44px;">↺ أعِد المحاولة</button>
+          <a href="Chapter%201%20Hub.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--c-primary);font-family:'El Messiri';font-weight:700;font-size:15px;padding:12px 26px;border-radius:999px;min-height:44px;">العودة إلى الوحدة ←</a>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { answers:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.accent);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  quiz(){
+    return [
+      { text:'بمَ أمر الله المؤمنين أن يستعينوا في الآية ١٥٣؟',
+        options:['بالمال والجاه','بالصبر والصلاة','بالقوّة والعدد'], correct:1,
+        exp:'قال تعالى ﴿ اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ ﴾.' },
+      { text:'ماذا قال الله عمّن يُقتل في سبيله (الآية ١٥٤)؟',
+        options:['هم أحياءٌ عند ربّهم يُرزقون','هم أمواتٌ كسائر الموتى','هم نائمون'], correct:0,
+        exp:'قال تعالى ﴿ بَلْ أَحْيَاءٌ وَلَٰكِنْ لَا تَشْعُرُونَ ﴾ — فالشهداء أحياء عند ربّهم.' },
+      { text:'ما الذي يقوله الصابرون عند المصيبة (الآية ١٥٦)؟',
+        options:['حسبنا الله','إنّا لله وإنّا إليه راجعون','لا حول ولا قوّة إلا بالله'], correct:1,
+        exp:'قال تعالى ﴿ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ ﴾، وجزاؤهم صلواتٌ ورحمةٌ وهم المهتدون.' },
+      { text:'ما مكانة الصفا والمروة (الآية ١٥٨)؟',
+        options:['من شعائر الله يُسعى بينهما','مجرّد جبلين','من محرّمات الحج'], correct:0,
+        exp:'قال تعالى ﴿ إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ ﴾، والسعي بينهما من مناسك الحج والعمرة.' },
+      { text:'علامَ تدلّ ظواهر الكون في الآية ١٦٤؟',
+        options:['على الصدفة','على وحدانية الله وقدرته','على تعدّد الآلهة'], correct:1,
+        exp:'ختمت الآية ﴿ لَآيَاتٍ لِقَوْمٍ يَعْقِلُونَ ﴾ — فهي دلائل على وحدانية الله وقدرته.' },
+      { text:'بمَ وصف الله الشيطان في الآية ١٦٨؟',
+        options:['صديقٌ نافع','عدوٌّ مبين','ملَكٌ كريم'], correct:1,
+        exp:'قال تعالى ﴿ إِنَّهُ لَكُمْ عَدُوٌّ مُبِينٌ ﴾، يأمر بالسوء والفحشاء والقول على الله بغير علم.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, quiz = this.quiz(), ans = this.state.answers;
+    var total = quiz.length, score = 0, answeredCount = 0;
+    quiz.forEach(function(q,i){ if(ans[i]!==undefined){ answeredCount++; if(ans[i]===q.correct) score++; } });
+    var allAnswered = answeredCount === total;
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===6 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var questions = quiz.map(function(q,qi){
+      var picked = ans[qi], answered = picked!==undefined;
+      var options = q.options.map(function(t,oi){
+        var chosen=picked===oi, isC=oi===q.correct;
+        var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:13px 15px;border-radius:13px;font-family:Readex Pro;font-size:clamp(13.5px,1.8vw,15.5px);min-height:44px;transition:all .2s;';
+        var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+        if(answered){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+        return { text:t, badge:['أ','ب','ج'][oi],
+          onClick:function(){ if(ans[qi]===undefined){ var a=Object.assign({},self.state.answers); a[qi]=oi; self.setState({answers:a}); } },
+          style:st+'background:'+bg+';border:2px solid '+bd+';',
+          badgeStyle:'flex:none;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+      });
+      var out = { num:['١','٢','٣','٤','٥','٦'][qi], text:q.text, options:options, answered:answered };
+      if(answered){
+        var ok = picked===q.correct;
+        out.fbStyle='margin-top:14px;padding:13px 16px;border-radius:13px;line-height:1.8;font-size:13.5px;display:flex;flex-direction:column;gap:4px;'
+          +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+        out.fbTitle = ok?'✓ إجابة صحيحة':'✗ إجابة غير صحيحة';
+        out.fbText = q.exp;
+      }
+      return out;
+    });
+
+    var pct = Math.round((answeredCount/total)*100)+'%';
+    var res = {};
+    if(allAnswered){
+      var pass = score>=4, perfect = score===total;
+      res.resultEmoji = perfect?'🌟':(pass?'👏':'📖');
+      res.resultTitle = perfect?'ممتاز! أتقنتَ الدرس':(pass?'أحسنت! أداءٌ جيّد':'راجِعِ الدرس ثمّ أعِد المحاولة');
+      var base='border-radius:20px;padding:clamp(22px,3.4vw,32px);text-align:center;color:#fff;';
+      res.resultStyle = base + (pass?'background:linear-gradient(135deg,#1f9e8b,#0f766e);':'background:linear-gradient(135deg,#7b3fd4,#200058);');
+    }
+
+    return {
+      pips:pips, questions:questions, score:score, total:total,
+      answeredCount:answeredCount, pct:pct, allAnswered:allAnswered,
+      onRetry:function(){ self.setState({answers:{}}); window.scrollTo({top:0}); },
+      resultEmoji:res.resultEmoji, resultTitle:res.resultTitle, resultStyle:res.resultStyle
+    };
+  }
+}
+</script>
+</body>
+</html>

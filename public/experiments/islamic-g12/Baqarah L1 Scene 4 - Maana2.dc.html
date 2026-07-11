@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes walk{0%{transform:translateX(0);}50%{transform:translateX(calc(var(--range,120px)*-1));}100%{transform:translateX(0);}}
+  @keyframes pop{0%{transform:scale(.7);opacity:0;}60%{transform:scale(1.08);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة البقرة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٦ · المعنى العام (١٥٨–١٦٣)</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Scene%203%20-%20Maana1.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Baqarah%20L1%20Scene%205%20-%20Dalail.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المعنى العام</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">الشعائر والوحدانية</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        بيّن اللهُ أنّ الصفا والمروة من شعائره، ثمّ حذّر من كتمان البيّنات وبيّن جزاء اللاعنين والتائبين، وختم بأنّه إلهٌ واحدٌ لا شريك له.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE: Sa'i between Safa & Marwah ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#6e2a54,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🕋 الصفا والمروة من شعائر الله</h2>
+        <p style="margin:0;color:#ffe0f2;font-size:clamp(12px,1.7vw,14px);">جبلان قرب بيت الله الحرام. شغّل الحركة لترى «يطوَّف»: السعي بينهما ذهاباً وإياباً.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="position:relative;background:linear-gradient(180deg,#f4ecf6,#fbf6fa);border:1px solid var(--c-line);border-radius:16px;padding:clamp(16px,3vw,26px) clamp(12px,3vw,26px) clamp(46px,7vw,60px);overflow:hidden;">
+          <!-- two hills -->
+          <svg viewBox="0 0 400 120" preserveAspectRatio="none" style="width:100%;height:clamp(80px,16vw,120px);display:block;">
+            <path d="M0,120 L60,40 Q75,26 90,40 L150,120 Z" fill="#7b3fd4" opacity="0.85"></path>
+            <path d="M250,120 L310,40 Q325,26 340,40 L400,120 Z" fill="#d55fa6" opacity="0.9"></path>
+          </svg>
+          <!-- labels -->
+          <div style="position:absolute;top:clamp(6px,1.5vw,10px);right:8%;font-family:'El Messiri';font-weight:700;color:#5b2a8f;font-size:clamp(13px,2vw,16px);">الصفا</div>
+          <div style="position:absolute;top:clamp(6px,1.5vw,10px);left:8%;font-family:'El Messiri';font-weight:700;color:#a63b7d;font-size:clamp(13px,2vw,16px);">المروة</div>
+          <!-- walking pilgrim -->
+          <div style="position:absolute;bottom:clamp(12px,3vw,20px);right:14%;width:70%;">
+            <div style="width:max-content;{{ walkStyle }}">
+              <span style="font-size:clamp(26px,6vw,40px);display:inline-block;transform:scaleX(-1);">🚶</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px;">
+          <button onClick="{{ onWalk }}" style="cursor:pointer;background:var(--scene);color:#fff;border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:11px 24px;border-radius:999px;min-height:44px;box-shadow:0 6px 16px rgba(213,95,166,.35);">{{ walkLabel }}</button>
+          <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(213,95,166,.1);color:#a63b7d;padding:9px 15px;border-radius:999px;font-size:13px;font-weight:600;">
+            «يطوَّف» = يسعى بينهما ذهاباً وإياباً
+          </span>
+        </div>
+        <p style="margin:14px 0 0;text-align:center;color:var(--c-inkSoft);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">
+          فمن قصد بيت الله حاجّاً أو معتمِراً فلا حرج ولا إثم عليه أن يسعى بينهما، بل هو من مناسك الحج والعمرة.
+        </p>
+      </div>
+    </section>
+
+    <!-- verse reveal cards -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ ayat }}" as="a" hint-placeholder-count="4">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(32,0,88,.04);">
+          <button onClick="{{ a.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:14px;align-items:flex-start;padding:clamp(16px,2.6vw,22px);text-align:right;">
+            <span style="flex:none;min-width:clamp(46px,8vw,60px);height:clamp(40px,6.4vw,50px);padding:0 8px;border-radius:12px;border:2px solid var(--scene);color:var(--scene);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(12px,1.8vw,14px);">{{ a.n }}</span>
+            <span style="flex:1;">
+              <span style="display:block;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.2vw,18px);margin-bottom:2px;">{{ a.title }}</span>
+              <span class="qv" style="color:var(--c-inkSoft);font-size:clamp(14px,2.2vw,18px);line-height:1.9;">{{ a.verse }}</span>
+            </span>
+            <span style="flex:none;color:var(--scene);font-size:20px;transform:{{ a.chev }};">⌄</span>
+          </button>
+          <sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px);">
+              <div style="background:var(--c-tint);border-radius:14px;padding:14px 16px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">{{ a.tafsir }}</div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- fate contrast box: كاتم vs تائب -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 14px;">مصيرٌ مختلف بحسب الموقف</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;">
+        <div style="background:rgba(246,132,142,.14);border:1px solid var(--c-alert);border-radius:14px;padding:18px;">
+          <div style="font-family:'El Messiri';font-weight:700;font-size:18px;margin-bottom:6px;color:#ffd3d8;">✗ من يكتم البيّنات</div>
+          <p style="margin:0;color:#f3e9f7;font-size:14px;line-height:1.9;">يخفي ما أنزل الله من الأدلة على نبوة محمد ﷺ؛ فيلعنه الله ويبعده من رحمته، ويلعنه اللاعنون من الملائكة والمؤمنين.</p>
+        </div>
+        <div style="background:rgba(31,158,139,.18);border:1px solid var(--c-good);border-radius:14px;padding:18px;">
+          <div style="font-family:'El Messiri';font-weight:700;font-size:18px;margin-bottom:6px;color:#b9f0e5;">✓ من تاب وأصلح وبيّن</div>
+          <p style="margin:0;color:#e6f7f2;font-size:14px;line-height:1.9;">يرجع عن كتمانه ويُصلح ما أفسد ويُظهر الحق للناس؛ فيتوب الله عليه، وهو التوّاب الرحيم.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- tawhid result -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idhhar);border-radius:18px;padding:clamp(18px,2.8vw,26px);text-align:center;">
+      <div class="qv" style="font-size:clamp(22px,4vw,32px);color:var(--c-primary);line-height:1.9;margin-bottom:8px;">وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ</div>
+      <p style="margin:0;color:var(--c-inkSoft);font-size:clamp(14px,1.9vw,16px);line-height:1.9;">وإلهكم — أيها الناس — إلهٌ واحد، منفردٌ في ذاته وأسمائه وصفاته وأفعاله، وعبوديّة الخلق له. لا معبود بحقٍّ إلا هو، الرحمن بجميع خلقه، الرحيم بالمؤمنين.</p>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { walking:false, open:{0:true}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  ayatData(){
+    return [
+      { n:'١٥٨', title:'الصفا والمروة من الشعائر',
+        verse:'إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ …',
+        tafsir:'إنّ الصفا والمروة — وهما جبلان قرب بيت الله الحرام — من معالم بيت الله الظاهرة ومناسكه التي يُتعبَّد الله بها. فمن قصد بيت الله حاجّاً أو معتمِراً فلا حرج ولا إثم عليه أن يسعى بينهما، بل يجب عليه ذلك. ومن فعل الطاعات متطوّعاً مخلصاً بها لله تعالى، فإنّ الله تعالى شاكرٌ يثيب على القليل بالكثير، لأنه عليمٌ بأعمال عباده فلا يضيع عنده أجر المحسنين.' },
+      { n:'١٥٩–١٦٠', title:'كتمان البيّنات والتوبة',
+        verse:'إِنَّ الَّذِينَ يَكْتُمُونَ مَا أَنْزَلْنَا مِنَ الْبَيِّنَاتِ …',
+        tafsir:'إنّ الذين يخفون ما أنزلنا من الآيات الواضحات الدالّة على نبوة محمد ﷺ وصدق ما جاء به — وهم أحبار اليهود وعلماء النصارى وغيرهم ممّن يكتم ما أنزل الله وأظهره في التوراة والإنجيل — أولئك يطردهم الله من رحمته، ويدعو عليهم باللعنة ملائكة الله والمؤمنون. ويُستثنى الذين تابوا ورجعوا عن كتمانهم، وأصلحوا العمل، وأظهروا للناس ما علموه من أمر الرسول والرسالة؛ فيقبل الله توبتهم ويعفو عنهم ويمحو ذنوبهم، وهو التوّاب الرحيم.' },
+      { n:'١٦١–١٦٢', title:'جزاء من مات على الكفر',
+        verse:'إِنَّ الَّذِينَ كَفَرُوا وَمَاتُوا وَهُمْ كُفَّارٌ …',
+        tafsir:'إنّ الذين كفروا بالله وكتبه ورسله، وكتموا الحق ولم يتوبوا بل ظلموا بظهوره وماتوا وهم على تلك الحال من الكفر — يستحقون لعنة الله والملائكة والناس أجمعين، ويكون مصيرهم في نار جهنم لبثاً خالداً فيها أبداً؛ لا يُخفَّف عنهم العذاب ولا يُؤجَّل، وإذا طلبوا الإمهال ليعتذروا لم يُجابوا إليه.' },
+      { n:'١٦٣', title:'وحدانية الله',
+        verse:'وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ …',
+        tafsir:'وإلهكم — أيها الناس — إلهٌ واحد، منفردٌ في ذاته وأسمائه وصفاته وأفعاله، وعبوديّة الخلق له. لا معبود بحقٍّ إلا هو، الرحمن المنصف بالرحمة، الرحيم بالمؤمنين.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, open = this.state.open, walking = this.state.walking;
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var ayat = this.ayatData().map(function(a,i){
+      var isOpen = !!open[i];
+      return { n:a.n, title:a.title, verse:a.verse, tafsir:a.tafsir, open:isOpen,
+        chev:isOpen?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var walkStyle = walking
+      ? 'animation:walk 3s ease-in-out infinite;'
+      : '';
+
+    var picked = this.state.picked, correct = 0;
+    var opts = ['من مناسك الحج والعمرة يسعى بينهما الحاجّ والمعتمر.','مجرّد جبلين لا علاقة لهما بالعبادة.','يجب هدمهما.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما مكانة الصفا والمروة كما بيّنت الآية ١٥٨؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'قال تعالى ﴿ إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ ﴾، فالسعي بينهما من مناسك الحج والعمرة.'
+        :'هما من شعائر الله، والسعي بينهما من مناسك الحج والعمرة، لا مجرّد جبلين.';
+    }
+
+    return { pips:pips, ayat:ayat, walkStyle:walkStyle,
+      onWalk:function(){ self.setState({walking:!self.state.walking}); },
+      walkLabel: walking ? '⏸ إيقاف السعي' : '▶ شغّل السعي', check:check };
+  }
+}
+</script>
+</body>
+</html>

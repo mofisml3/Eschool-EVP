@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes pop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <a href="Tajweed%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+         style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+         style-hover="border-color:var(--c-accent);">🏠</a>
+      <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أحكام النون الساكنة والتنوين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٦ · الإقلاب</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Tajweed%20L1%20Scene%202%20-%20Idhhar.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Tajweed%20L1%20Scene%204%20-%20Idgham.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الحكم الثاني</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">الإقلاب</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:72ch;">
+        هو قلب النون الساكنة أو التنوين <b style="color:var(--scene);">ميماً</b> إذا جاء بعدها حرف الباء <span class="qv">(ب)</span> مع بقاء الغُنّة؛ أي تُلفظ النون الساكنة أو التنوين ميماً مُخفاة. وله حرفٌ واحدٌ فقط هو الباء.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE: transformation ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#7a2b34,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🔄 مُحوِّل الإقلاب</h2>
+        <p style="margin:0;color:#ffe0e3;font-size:clamp(12px,1.7vw,14px);">اختر مثالاً ثمّ اضغط «طبّق الإقلاب» لترى النون أو التنوين تنقلب ميماً عند الباء.</p>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;">
+          <sc-for list="{{ exChips }}" as="c" hint-placeholder-count="5">
+            <button onClick="{{ c.onClick }}" style="{{ c.style }}"><span class="qv" style="font-size:18px;">{{ c.label }}</span></button>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,26px);flex-wrap:wrap;">
+          <!-- before -->
+          <div style="text-align:center;min-width:120px;">
+            <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:8px;">الأصل ({{ sel.kind }})</div>
+            <div class="qv" style="font-size:clamp(34px,7vw,54px);color:var(--c-primary);line-height:1.5;">{{ sel.orig }}</div>
+          </div>
+          <div style="font-size:clamp(28px,6vw,44px);color:var(--scene);">←</div>
+          <!-- after -->
+          <div style="text-align:center;min-width:120px;">
+            <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:8px;">بعد الإقلاب</div>
+            <sc-if value="{{ applied }}" hint-placeholder-val="{{ false }}">
+              <div class="qv" style="font-size:clamp(34px,7vw,54px);color:var(--scene);line-height:1.5;animation:pop .4s ease;">{{ sel.after }}</div>
+            </sc-if>
+            <sc-if value="{{ notApplied }}" hint-placeholder-val="{{ true }}">
+              <div class="qv" style="font-size:clamp(34px,7vw,54px);color:var(--c-line);line-height:1.5;">؟</div>
+            </sc-if>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:24px;">
+          <button onClick="{{ onToggle }}" style="cursor:pointer;background:var(--scene);color:#fff;border:none;font-family:El Messiri;font-weight:700;font-size:16px;padding:12px 26px;border-radius:999px;min-height:44px;box-shadow:0 8px 20px rgba(242,112,124,.4);">
+            {{ btnLabel }}
+          </button>
+          <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(242,112,124,.12);color:#c0505c;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;">
+            <span style="width:10px;height:10px;border-radius:50%;background:var(--scene);box-shadow:0 0 8px var(--scene);"></span>
+            الغُنّة باقية مع الميم
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- examples verbatim -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(14px,2.4vw,22px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--scene);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0 0 12px;color:var(--c-primary);">أمثلة النون الساكنة</h2>
+        <div class="qv" style="font-size:clamp(18px,2.7vw,22px);line-height:2.4;color:var(--c-ink);">
+          يُنْبِتُ <span style="color:var(--scene);">←</span> يُمْبِت &nbsp;·&nbsp; مِنْ بَعْد <span style="color:var(--scene);">←</span> مِمْ بَعْد
+        </div>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idgham);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0 0 12px;color:var(--c-primary);">أمثلة التنوين</h2>
+        <div class="qv" style="font-size:clamp(17px,2.5vw,21px);line-height:2.4;color:var(--c-ink);">
+          سَمِيعًا بَصِيرًا <span style="color:var(--scene);">←</span> سَمِيعَمْ بَصِيرًا<br>
+          رَؤُوفٌ بِالْمُؤْمِنِين <span style="color:var(--scene);">←</span> رَؤُوفُمْ بِالْمُؤْمِنِين<br>
+          آيَاتٍ بَيِّنَات <span style="color:var(--scene);">←</span> آيَاتِمْ بَيِّنَات
+        </div>
+      </section>
+    </div>
+
+    <!-- worked example -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="background:var(--scene);color:#fff;font-family:'El Messiri';font-weight:700;padding:4px 12px;border-radius:8px;font-size:13px;">مثال محلول</span>
+        <span style="color:#d6d0ee;font-size:14px;">عيّن حالة الإقلاب مع ذكر السبب</span>
+      </div>
+      <div class="qv" style="font-size:clamp(18px,3.2vw,27px);line-height:2;text-align:center;margin-bottom:8px;">
+        ﴿ وَمَا اخْتَلَفَ فِيهِ إِلَّا الَّذِينَ أُوتُوهُ مِنْ بَعْدِ مَا جَاءَتْهُمُ الْبَيِّنَاتُ بَغْيًا بَيْنَهُم ﴾
+      </div>
+      <div style="text-align:center;color:#bfa9ff;font-size:13px;margin-bottom:18px;">البقرة: 213</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="background:var(--scene);width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;">١</span><span style="font-weight:600;">النون الساكنة</span></div>
+          <p style="margin:0;color:#e4dff5;font-size:14px;line-height:1.9;">في كلمة <b class="qv" style="font-size:18px;">(مِنْ)</b> حكمها الإقلاب؛ لمجيء حرف الباء بعدها.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="background:var(--scene);width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;">٢</span><span style="font-weight:600;">التنوين</span></div>
+          <p style="margin:0;color:#e4dff5;font-size:14px;line-height:1.9;">في كلمة <b class="qv" style="font-size:18px;">(بَغْيًا)</b> حكمها الإقلاب أيضاً؛ لمجيء حرف الباء بعدها.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ex:0, applied:false, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  data(){
+    return [
+      { kind:'نون ساكنة', orig:'يُنْبِتُ', after:'يُمْبِت' },
+      { kind:'نون ساكنة', orig:'مِنْ بَعْد', after:'مِمْ بَعْد' },
+      { kind:'تنوين', orig:'سَمِيعًا بَصِيرًا', after:'سَمِيعَمْ بَصِيرًا' },
+      { kind:'تنوين', orig:'رَؤُوفٌ بِالْمُؤْمِنِين', after:'رَؤُوفُمْ بِالْمُؤْمِنِين' },
+      { kind:'تنوين', orig:'آيَاتٍ بَيِّنَات', after:'آيَاتِمْ بَيِّنَات' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, d = this.data(), sel = d[this.state.ex];
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===2 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var exChips = d.map(function(e,i){
+      var on = self.state.ex===i;
+      return { label:e.orig, onClick:function(){ self.setState({ex:i, applied:false}); },
+        style:'cursor:pointer;padding:9px 14px;border-radius:12px;font-family:Readex Pro;min-height:42px;transition:all .25s;'
+          + (on?'background:var(--scene);color:#fff;border:1.5px solid var(--scene);':'background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);') };
+    });
+
+    var picked = this.state.picked, correct = 0;
+    var opts = ['الإقلاب؛ تُقلب التنوين ميماً عند الباء.','الإظهار؛ تظهر النون بلا غنّة.','الإدغام بغنّة.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:st+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما حكم التنوين في قوله تعالى ﴿ سَمِيعًا بَصِيرًا ﴾؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'جاء بعد التنوين حرف الباء، فيُقلب ميماً مخفاةً مع الغُنّة: (سَمِيعَمْ بَصِيرًا).'
+        :'الحرف التالي هو الباء، وحكم النون/التنوين قبل الباء هو الإقلاب (قلبها ميماً)، وليس الإظهار ولا الإدغام.';
+    }
+
+    return { pips:pips, exChips:exChips, sel:sel, applied:this.state.applied, notApplied:!this.state.applied,
+      onToggle:function(){ self.setState({applied:!self.state.applied}); },
+      btnLabel:this.state.applied?'↺ أعِد':'◀ طبّق الإقلاب', check:check };
+  }
+}
+</script>
+</body>
+</html>

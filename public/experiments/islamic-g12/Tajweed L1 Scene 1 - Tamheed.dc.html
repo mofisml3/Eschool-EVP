@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-primary-dark:#12002f; --c-tint:#EDEAF7;
+    --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b; --c-ink:#211842; --c-inkSoft:#6b6288;
+    --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <!-- ===== SHARED NAV ===== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Tajweed%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أحكام النون الساكنة والتنوين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٦ · تمهيد</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Tajweed%20L1%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Tajweed%20L1%20Scene%202%20-%20Idhhar.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <!-- title + intro -->
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">تمهيد</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">النون الساكنة والتنوين</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:70ch;">
+        قبل معرفة الأحكام الأربعة، نحتاج أن نُميّز بين شيئين يلتقيان في الصوت: <b>النون الساكنة</b> الثابتة، و<b>التنوين</b> الذي يُنطق نوناً ساكنةً في الوصل ويسقط في الوقف. جرّب المُبدّل الآتي لترى الفرق.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE FIGURE ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#2a0a6e);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0;">🔬 مُختبر الوصل والوقف</h2>
+        <!-- mode toggle -->
+        <div style="display:inline-flex;background:rgba(255,255,255,.12);border-radius:999px;padding:4px;gap:4px;">
+          <sc-for list="{{ modeBtns }}" as="m" hint-placeholder-count="2">
+            <button onClick="{{ m.onClick }}" style="{{ m.style }}">{{ m.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- example chips (for tanwin panel) -->
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+          <span style="color:var(--c-inkSoft);font-size:14px;">اختر نوع التنوين:</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ exChips }}" as="c" hint-placeholder-count="3">
+              <button onClick="{{ c.onClick }}" style="{{ c.style }}">
+                <span class="qv" style="font-size:20px;">{{ c.mark }}</span>
+                <span>{{ c.name }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- two comparison panels -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,2.4vw,22px);">
+          <!-- Panel A: fixed nun sakinah -->
+          <div style="border:2px solid var(--c-line);border-radius:18px;padding:clamp(16px,2.6vw,22px);text-align:center;">
+            <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:6px;">نونٌ ساكنة</div>
+            <div class="qv" style="font-size:clamp(40px,9vw,66px);color:var(--c-primary);line-height:1.3;">{{ pA.word }}</div>
+            <div style="margin-top:10px;display:inline-flex;align-items:center;gap:8px;">
+              <span style="{{ pA.dotStyle }}">نْ</span>
+              <span style="color:var(--c-inkSoft);font-size:14px;">النطق: <b class="qv" style="color:var(--c-ink);font-size:18px;">{{ pA.pron }}</b></span>
+            </div>
+            <div style="margin-top:14px;padding:10px 12px;border-radius:12px;background:var(--c-tint);color:var(--c-primary);font-size:13px;line-height:1.7;">{{ pA.note }}</div>
+          </div>
+          <!-- Panel B: tanwin -->
+          <div style="border:2px solid {{ pB.border }};border-radius:18px;padding:clamp(16px,2.6vw,22px);text-align:center;transition:border-color .3s;">
+            <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:6px;">تنوين</div>
+            <div class="qv" style="font-size:clamp(40px,9vw,66px);color:var(--c-primary);line-height:1.3;transition:opacity .3s;">{{ pB.word }}</div>
+            <div style="margin-top:10px;display:inline-flex;align-items:center;gap:8px;">
+              <span style="{{ pB.dotStyle }}">نْ</span>
+              <span style="color:var(--c-inkSoft);font-size:14px;">النطق: <b class="qv" style="color:var(--c-ink);font-size:18px;">{{ pB.pron }}</b></span>
+            </div>
+            <div style="margin-top:14px;padding:10px 12px;border-radius:12px;background:{{ pB.noteBg }};color:{{ pB.noteColor }};font-size:13px;line-height:1.7;transition:all .3s;">{{ pB.note }}</div>
+          </div>
+        </div>
+
+        <!-- ayah of selected example -->
+        <div style="margin-top:20px;background:var(--c-tint);border-radius:16px;padding:clamp(14px,2.4vw,20px);text-align:center;">
+          <div class="qv" style="font-size:clamp(20px,3.4vw,28px);color:var(--c-primary);line-height:1.9;">{{ ayah.text }}</div>
+          <div style="color:var(--c-inkSoft);font-size:13px;margin-top:8px;">{{ ayah.ref }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WORKED CONTENT: definitions ===== -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(14px,2.4vw,22px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--c-primary);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.5vw,23px);margin:0 0 12px;color:var(--c-primary);">النون الساكنة</h2>
+        <p style="margin:0 0 12px;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">
+          حرفٌ خالٍ من الحركة، يقع في وسط الكلمة أو في آخرها، يُلفظ ساكناً في الوقف والوصل، وتكون في الأسماء والأفعال والحروف.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="qv" style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:19px;">عَنْهُم</span>
+          <span class="qv" style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:19px;">مِنْ</span>
+          <span class="qv" style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:19px;">أَنْعَمْتَ</span>
+          <span class="qv" style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:19px;">أَنْفُسَهُم</span>
+          <span class="qv" style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:19px;">الأَنْهَار</span>
+        </div>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idgham);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.5vw,23px);margin:0 0 12px;color:var(--c-primary);">التنوين</h2>
+        <p style="margin:0 0 12px;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">
+          هو النطق بالحركة المُضعّفة نوناً ساكنةً <span class="qv" style="font-size:18px;">(ــًــٍــٌـ)</span>، فهو نونٌ ساكنةٌ زائدةٌ مسبوقةٌ بحركة، تلحق آخر الاسم، تُلفظ ولا تُكتب، ويُنطق بها في حالة الوصل وتسقط عند الوقف.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:14px;">علامتها: <b class="qv" style="font-size:18px;">الضمّتان ٌ</b></span>
+          <span style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:14px;"><b class="qv" style="font-size:18px;">الفتحتان ً</b></span>
+          <span style="background:var(--c-tint);color:var(--c-primary);padding:6px 14px;border-radius:10px;font-size:14px;"><b class="qv" style="font-size:18px;">الكسرتان ٍ</b></span>
+        </div>
+      </section>
+    </div>
+
+    <!-- result box: the four rules preview -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 6px;">للنون الساكنة والتنوين أربعة أحكام</h2>
+      <p style="margin:0 0 16px;color:#d6d0ee;font-size:14px;">سنتناول كلَّ حكمٍ في مشهدٍ مستقلّ.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:var(--r-idhhar);padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;">① الإظهار</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;background:var(--r-iqlab);padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;">② الإقلاب</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;background:var(--r-idgham);padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;">③ الإدغام</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;background:var(--r-ikhfa);padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;">④ الإخفاء</span>
+      </div>
+    </section>
+
+    <!-- ===== COMPREHENSION CHECK ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}">
+          <b>{{ check.fbTitle }}</b>
+          <span>{{ check.fbText }}</span>
+        </div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mode:'wasl', ex:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-primary-dark', B.primaryDark);
+    r.setProperty('--c-tint', B.tint); r.setProperty('--c-accent', B.accent);
+    r.setProperty('--c-alert', B.alert); r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  examples() {
+    return [
+      { name:'ضمّتان', mark:'ٌـ', word:'كِتَابٌ', wordWaqf:'كِتَاب', pronWasl:'كِتَابُنْ', pronWaqf:'كِتَاب',
+        ayah:{ text:'﴿ وَعِنْدَنَا كِتَابٌ حَفِيظٌ ﴾', ref:'ق: 4 (وصل) · ﴿ لِكُلِّ أَجَلٍ كِتَابٌ ﴾ الرعد: 38 (وقف)' } },
+      { name:'فتحتان', mark:'ًـ', word:'عَلِيمًا', wordWaqf:'عَلِيمَا', pronWasl:'عَلِيمَنْ', pronWaqf:'عَلِيمَا',
+        ayah:{ text:'﴿ إِنَّ اللَّهَ كَانَ عَلِيمًا حَكِيمًا ﴾', ref:'الإنسان: 30' } },
+      { name:'كسرتان', mark:'ٍـ', word:'نُوحٍ', wordWaqf:'نُوح', pronWasl:'نُوحِنْ', pronWaqf:'نُوح',
+        ayah:{ text:'﴿ وَأُوحِيَ إِلَى نُوحٍ أَنَّهُ لَنْ يُؤْمِنَ ﴾', ref:'هود: 36' } },
+    ];
+  }
+
+  renderVals() {
+    var self = this, wasl = this.state.mode === 'wasl';
+    var exs = this.examples(), ex = exs[this.state.ex];
+
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===0 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var mkMode = function(key,label){
+      var on = self.state.mode===key;
+      return { label:label, onClick:function(){ self.setState({mode:key}); },
+        style:'border:none;cursor:pointer;padding:8px 18px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:14px;min-height:36px;transition:all .25s;'
+          + (on ? 'background:#fff;color:#200058;' : 'background:transparent;color:#dcd6f2;') };
+    };
+    var modeBtns = [ mkMode('wasl','وَصْل'), mkMode('waqf','وَقْف') ];
+
+    var exChips = exs.map(function(e,i){
+      var on = self.state.ex===i;
+      return { mark:e.mark, name:e.name, onClick:function(){ self.setState({ex:i}); },
+        style:'display:inline-flex;align-items:center;gap:8px;cursor:pointer;padding:8px 14px;border-radius:12px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;transition:all .25s;'
+          + (on ? 'background:var(--c-primary);color:#fff;border:1.5px solid var(--c-primary);'
+                : 'background:#fff;color:var(--c-inkSoft);border:1.5px solid var(--c-line);') };
+    });
+
+    var dotOn = 'display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-family:Amiri;font-weight:700;font-size:16px;color:#fff;background:var(--c-good);box-shadow:0 0 12px var(--c-good);transition:all .3s;';
+    var dotOff = 'display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;font-family:Amiri;font-weight:700;font-size:16px;color:#b6add6;background:var(--c-tint);opacity:.5;transition:all .3s;';
+
+    var pA = { word:'مِنْ', pron:'مِنْ', dotStyle:dotOn,
+      note:'ثابتة: تُلفظ النون ساكنةً في الوصل والوقف معاً.' };
+
+    var pB;
+    if (wasl) {
+      pB = { word:ex.word, pron:ex.pronWasl, dotStyle:dotOn, border:'var(--c-good)',
+        noteBg:'rgba(31,158,139,.12)', noteColor:'var(--c-good)',
+        note:'في الوصل: يُنطق التنوين نوناً ساكنةً في آخر الكلمة.' };
+    } else {
+      pB = { word:ex.wordWaqf, pron:ex.pronWaqf, dotStyle:dotOff, border:'var(--c-alert)',
+        noteBg:'rgba(246,132,142,.14)', noteColor:'#c85562',
+        note:'في الوقف: يسقط التنوين فلا يُنطق نوناً.' };
+    }
+
+    // check
+    var picked = this.state.picked, correct = 1;
+    var opts = [
+      'يُنطق التنوين نوناً ساكنةً كما في الوصل.',
+      'يسقط التنوين فلا يُنطق، فنقول: (عَلِيمَا).',
+      'يتحوّل التنوين إلى ميمٍ ظاهرة.'
+    ];
+    var options = opts.map(function(t,i){
+      var chosen = picked===i, isCorrect = i===correct;
+      var st = 'display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',badgeBg='var(--c-tint)',badgeCol='var(--c-primary)';
+      if (picked!==null) {
+        if (isCorrect){ bg='rgba(31,158,139,.08)'; bd='var(--c-good)'; badgeBg='var(--c-good)'; badgeCol='#fff'; }
+        else if (chosen){ bg='rgba(246,132,142,.1)'; bd='var(--c-alert)'; badgeBg='var(--c-alert)'; badgeCol='#fff'; }
+      }
+      return { text:t, badge:['أ','ب','ج'][i],
+        onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style: st + 'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+badgeBg+';color:'+badgeCol+';' };
+    });
+    var check = { q:'في حالة الوقف، ماذا يحدث للتنوين في كلمة (عَلِيمًا)؟', options:options, showFeedback: picked!==null };
+    if (picked!==null){
+      var ok = picked===correct;
+      check.fbStyle = 'margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        + (ok ? 'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);'
+              : 'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle = ok ? '✓ إجابة صحيحة' : '✗ راجع الإجابة';
+      check.fbText = ok
+        ? 'التنوين نونٌ ساكنةٌ زائدةٌ تُلفظ في الوصل وتسقط في الوقف، فنقف على (عَلِيمَا) بلا نون.'
+        : 'التنوين لا يبقى ولا يتحوّل ميماً؛ بل يسقط عند الوقف فنقول (عَلِيمَا). حرّك المُبدّل إلى «وَقْف» لتشاهد ذلك.';
+    }
+
+    return { pips:pips, modeBtns:modeBtns, exChips:exChips, pA:pA, pB:pB, ayah:ex.ayah, check:check };
+  }
+}
+</script>
+</body>
+</html>

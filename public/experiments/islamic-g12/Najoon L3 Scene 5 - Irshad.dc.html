@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  .flip{perspective:1200px;}
+  .flip-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;}
+  .flip.on .flip-inner{transform:rotateY(180deg);}
+  .flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;}
+  .flip-back{transform:rotateY(180deg);}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">الناجون يوم القيامة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · أهمّ ما يرشد إليه والمناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Scene%204%20-%20Asnaf2.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Najoon%20L3%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(22px,3.2vw,34px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الاستنتاج</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">أهمّ ما يرشد إليه الحديث</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        اضغط كلّ بطاقةٍ لتقلبها وتقرأ الإرشاد المستفاد من الحديث الشريف.
+      </p>
+    </div>
+
+    <!-- flip cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(14px,2.2vw,20px);">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+        <div class="flip {{ c.cls }}" onClick="{{ c.onClick }}" style="cursor:pointer;height:clamp(180px,26vw,210px);">
+          <div class="flip-inner">
+            <div class="flip-face" style="background:linear-gradient(150deg,{{ c.c1 }},{{ c.c2 }});color:#fff;align-items:center;justify-content:center;text-align:center;padding:18px;box-shadow:0 8px 24px rgba(32,0,88,.12);">
+              <div style="font-size:clamp(30px,6vw,40px);margin-bottom:10px;">{{ c.emoji }}</div>
+              <h3 style="font-family:'El Messiri';font-weight:700;font-size:clamp(16px,2.3vw,20px);margin:0;line-height:1.35;">{{ c.title }}</h3>
+              <div style="margin-top:10px;font-size:12px;color:rgba(255,255,255,.85);">اضغط للكشف ↺</div>
+            </div>
+            <div class="flip-face flip-back" style="background:#fff;border:2px solid {{ c.c1 }};padding:clamp(16px,2.4vw,20px);justify-content:center;">
+              <p style="margin:0;font-size:clamp(13px,1.8vw,15px);line-height:1.95;color:var(--c-ink);">{{ c.body }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- discussion -->
+    <section style="background:var(--c-tint);border-radius:22px;padding:clamp(20px,3.4vw,32px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:22px;">💬</span>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(21px,2.9vw,27px);margin:0;color:var(--c-primary);">المناقشة</h2>
+      </div>
+      <p style="margin:0 0 clamp(16px,2.4vw,20px);color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);">ثماني أسئلةٍ للحوار — اضغط السؤال لتظهر توجيهات الإجابة.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="8">
+          <div style="background:#fff;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;">
+            <button onClick="{{ q.onClick }}" style="width:100%;display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:none;text-align:right;padding:clamp(14px,2.2vw,18px) clamp(16px,2.5vw,22px);min-height:44px;">
+              <span style="flex:none;width:34px;height:34px;border-radius:10px;background:var(--scene);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:15px;">{{ q.n }}</span>
+              <span style="flex:1;font-family:'El Messiri';font-weight:600;font-size:clamp(15px,2vw,18px);color:var(--c-primary);line-height:1.6;">{{ q.q }}</span>
+              <span style="flex:none;color:var(--c-accent);font-size:20px;">{{ q.chev }}</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 clamp(16px,2.5vw,22px) clamp(16px,2.2vw,20px) clamp(60px,9vw,70px);color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:2;animation:fadeUp .3s ease;">{{ q.a }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- closing -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+      <div style="display:inline-block;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:4px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;">خلاصة الدرس</div>
+      <p style="margin:0 auto;max-width:60ch;font-size:clamp(15px,2.1vw,19px);line-height:2;">
+        النجاةُ يوم الفزع الأكبر ثمرةُ عملٍ صالحٍ خالصٍ لله: عدلٌ في الحكم، وشبابٌ في طاعة، وقلبٌ يعمر المساجد، وأخوّةٌ في الله، وعفّةٌ عند الإغراء، وصدقةٌ في الخفاء، وخشيةٌ عند الخلوة.
+      </p>
+      <div style="margin-top:22px;">
+        <a href="Najoon%20L3%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(16px,2vw,19px);padding:14px 34px;border-radius:999px;box-shadow:0 12px 30px rgba(0,195,254,.4);min-height:44px;" style-hover="filter:brightness(1.06);">
+          <span>◀</span><span>انتقل إلى التقويم</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flipped:{}, openQ:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  cardData(){
+    return [
+      { emoji:'⚖️', title:'التزام العدل بين الناس', c1:'#200058', c2:'#3a1290',
+        body:'على كلّ مسلمٍ ومسلمة — وخاصّةً الحاكم والمسؤول — أن يعدل بين الناس؛ ففي العدل كلُّ الخير والطمأنينة والحياة الهادئة السعيدة.' },
+      { emoji:'🫢', title:'مخافة الله رأس الحكمة', c1:'#00a6d6', c2:'#0176a6',
+        body:'الخوف من الله دليلُ الإيمان الصحيح، ومخافتُه تقي الإنسان الوقوع في المحرّمات؛ «رأسُ الحكمة مخافةُ الله».' },
+      { emoji:'🕌', title:'الصلاة عمود الدين', c1:'#7b3fd4', c2:'#5a24a8',
+        body:'بالصلاة يكون صلاح الفرد؛ فعلى المسلمين تنشئةُ الأبناء تنشئةً دينيّةً ملتزمةً بعيدةً عن التطرّف، وعمارةُ المساجد بالذكر والتناصح وفعل الخيرات.' },
+      { emoji:'🤝', title:'اختيار الصديق الصالح', c1:'#d55fa6', c2:'#b23c86',
+        body:'وجوبُ اختيار الأصدقاء الصالحين والابتعاد عن رفاق السوء؛ وخيرُ الأصحاب مَن يحبّك في الله وينصحك لما يرضيه — وهي الصداقة الحقّة البعيدة عن المصالح.' },
+      { emoji:'🛡️', title:'التزام العفّة وقوّة الإرادة', c1:'#1f9e8b', c2:'#177564',
+        body:'التمسّك بالخلق المتين وكبحُ جماح الشهوات باستذكار عواقب الابتعاد عن العفّة، مع الإخلاص لله في السرّ والعلن والعطف على المحتاجين.' },
+    ];
+  }
+  qData(){
+    return [
+      { q:'ما مواصفات الحاكم والمسؤول العادل؟', a:'مَن أطاع الله ووجّه سلطانه وقوّته إلى العدل، فلم يستبدّ ولم يظلم، ولم يفرّق بين رعيّته لهوىً أو قرابةٍ أو صداقة، وراعى المصلحة العامّة.' },
+      { q:'أسمى أنواع الصحبة المتحابّان في الله، فمن هما؟', a:'هما الصديقان اللذان صداقتهما قائمةٌ على التقوى؛ أحبّ كلٌّ منهما الآخر لصلاحه لله لا لغرضٍ دنيوي، وهي الأخوّة في الله التي لا تُقطع إلّا بالموت.' },
+      { q:'المؤمن يتغلّب على الإغراء المحرَّم وإن قويت الدوافع، فمن قدوتنا في ذلك؟', a:'قدوتُنا نبيُّ الله يوسف (ع) حين راودته امرأةُ العزيز، فرفض السقوط في الإثم وفضّل السجن، فقال: ﴿رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ﴾.' },
+      { q:'إعمارُ المساجد لا يقتصر على البناء، فوضّح كيف يكون ذلك؟', a:'يكون بعمارتها بالذكر والصلاة وصلاة الجماعة، وباتّخاذها فرصةً للتناصح والتعاطف والتعارف ومساعدة المحتاجين وإصلاح ذات البين ونشر قيم التسامح والأخوّة والسلام.' },
+      { q:'ما الذي يجب مراعاته عند اختيار الأصدقاء؟', a:'اختيار الصالحين والابتعاد عن رفاق السوء؛ وخيرُ الأصحاب مَن يحبّك في الله وينصحك لما يرضيه، بعيداً عن صداقة المصالح والغايات.' },
+      { q:'ما أثر مخافة الله في سلوك الفرد؟', a:'تقيه الوقوع في المحرّمات، وتحمله على العدل والعفّة والإخلاص؛ فمخافةُ الله دليلُ الإيمان الصحيح ورأسُ الحكمة.' },
+      { q:'ما آداب الصدقة؟', a:'إخفاؤها وإخلاصُها لوجه الله، والبعد عن المنّ والرياء والشهرة، بدافع العطف على المحتاج وتفريج كربته — حتى لا تعلم شمالُه ما تنفق يمينُه.' },
+      { q:'ما الذي أعدّه الله للمؤمنين المتعفّفين؟ وما وعده لمن يقترف المحرّمات؟', a:'أعدّ للمتعفّفين الصابرين نعيماً دائماً وسعادةً خالدة؛ وجعل في اقتراف الحرام عقوبةً عاجلةً في الدنيا (كالأمراض) وعقوبةً آجلةً في الآخرة.' },
+    ];
+  }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4,5].map(function(i){ return { bg: 'var(--scene)' }; });
+
+    var cards=this.cardData().map(function(c,i){
+      return { emoji:c.emoji, title:c.title, body:c.body, c1:c.c1, c2:c.c2,
+        cls: S.flipped[i] ? 'on' : '',
+        onClick:function(){ var f=Object.assign({},S.flipped); f[i]=!f[i]; self.setState({flipped:f}); } };
+    });
+
+    var nums=['١','٢','٣','٤','٥','٦','٧','٨'];
+    var questions=this.qData().map(function(x,i){
+      var open=!!S.openQ[i];
+      return { n:nums[i], q:x.q, a:x.a, open:open, chev: open?'▲':'▼',
+        onClick:function(){ var o=Object.assign({},S.openQ); o[i]=!o[i]; self.setState({openQ:o}); } };
+    });
+
+    return { pips:pips, cards:cards, questions:questions };
+  }
+}
+</script>
+</body>
+</html>

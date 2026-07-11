@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes keyTurn{0%{transform:rotate(0);}100%{transform:rotate(-32deg);}}
+  @keyframes shackle{0%{transform:translateY(0);}100%{transform:translateY(-9px);}}
+  @keyframes evilPop{0%{transform:scale(.5) translateY(6px);opacity:0;}70%{transform:scale(1.08);}100%{transform:scale(1) translateY(0);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">النهي عن الغضب</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٥ · تمهيد</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Ghadab%20L5%20Scene%202%20-%20Bawaith.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">تمهيد</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">حقيقة الغضب والعلاج النبوي</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        قد تخرج النفس الإنسانية عن طورها وتتجاوز حدودها إلى ما لا تُحمد عقباه؛ فتثور وتغضب وتقع فيما هو محذور، فيخطئ الغضبان في أغلب الأحيان. فالواجب على المسلم أن يسأل ربّه أن يصرف عنه الغضب المذموم وعواقبه الرديئة، وأن يأخذ بالعلاج النبوي.
+      </p>
+    </div>
+
+    <!-- ===== hadith frame ===== -->
+    <section style="position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#1a0350,#2a0a6e);color:#fff;padding:clamp(22px,4vw,40px) clamp(18px,4vw,44px);">
+      <div style="position:absolute;inset:0;opacity:.08;pointer-events:none;background-image:repeating-linear-gradient(45deg,#00c3fe 0 1px,transparent 1px 30px),repeating-linear-gradient(-45deg,#00c3fe 0 1px,transparent 1px 30px);"></div>
+      <div style="position:relative;z-index:2;border:2px solid rgba(154,217,255,.35);border-radius:16px;padding:clamp(18px,3vw,28px);text-align:center;">
+        <div style="color:#bfeaff;font-size:clamp(12px,1.7vw,14px);margin-bottom:10px;">جاء رجلٌ إلى النبيّ (ص) فقال: يا رسول الله أوصني</div>
+        <div class="qv" style="font-size:clamp(24px,5vw,40px);line-height:1.7;color:#fff;text-shadow:0 0 26px rgba(0,195,254,.4);">«لا تَغضَبْ»</div>
+        <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+          <span style="background:rgba(255,255,255,.1);border:1px solid rgba(154,217,255,.3);border-radius:999px;padding:6px 14px;font-size:13px;">قال: زدني — قال: «لا تغضب»</span>
+          <span style="background:rgba(255,255,255,.1);border:1px solid rgba(154,217,255,.3);border-radius:999px;padding:6px 14px;font-size:13px;">قال: زدني — قال: «لا تغضب»</span>
+          <span style="background:rgba(0,195,254,.16);border:1px solid rgba(154,217,255,.5);border-radius:999px;padding:6px 14px;font-size:13px;color:#bfeaff;">فكرّر له الوصية ثلاثاً</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE: key of evils ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#3a1290,#7b3fd4);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🔑 الغضب مفتاح الشرور</h2>
+          <p style="margin:0;color:#e7dcff;font-size:clamp(12px,1.7vw,14px);">أدِرِ المفتاح لترى ما يفتحه الغضب من شرورٍ وآثام.</p>
+        </div>
+        <span style="color:#e7dcff;font-weight:700;font-family:'El Messiri';">{{ opened }}/5</span>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+          <!-- lock + key figure -->
+          <div style="position:relative;width:min(100%,340px);display:flex;justify-content:center;">
+            {{ lockFigure }}
+          </div>
+
+          <button onClick="{{ onTurn }}" style="cursor:pointer;background:var(--r-idgham);color:#fff;border:none;font-family:El Messiri;font-weight:700;font-size:16px;padding:12px 28px;border-radius:999px;min-height:44px;box-shadow:0 8px 20px rgba(123,63,212,.4);">
+            {{ btnLabel }}
+          </button>
+
+          <!-- evils that spill out -->
+          <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;min-height:44px;">
+            <sc-for list="{{ evils }}" as="e" hint-placeholder-count="0">
+              <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(246,132,142,.14);color:#c0505c;border:1px solid var(--c-alert);border-radius:999px;padding:8px 15px;font-weight:600;font-size:clamp(13px,1.8vw,15px);animation:evilPop .4s ease;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--c-alert);"></span>{{ e }}
+              </span>
+            </sc-for>
+          </div>
+          <sc-if value="{{ allOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center;color:var(--c-inkSoft);font-size:clamp(13px,1.9vw,15px);line-height:1.9;max-width:52ch;animation:fadeUp .4s ease;">
+              فالغضب <b style="color:var(--r-idgham);">مفتاح الشرور، ورأس الآثام، ومفتاح الأزمات والأخطار</b> — ولذلك حذّر منه الشرع أشدّ التحذير.
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+
+    <!-- definition -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 10px;">تعريف الغضب</h2>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:#e4dff5;">
+        الغضب: <b style="color:#bfeaff;">حالةٌ نفسيةٌ تبعث على هياج الإنسان وثورته قولاً أو عملاً</b>. وهو مفتاح الشرور، ورأس الآثام، ومفتاح الأزمات والأخطار. ولا يحدث الغضب عفواً واعتباطاً، وإنّما ينشأ من أسبابٍ وبواعث تجعل الإنسان سريع التأثّر منفعلاً لا يملك زمام نفسه.
+      </p>
+    </section>
+
+    <!-- sayings of Ahl al-Bayt -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(14px,2.4vw,22px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idhhar);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;"><span style="font-size:20px;">💬</span><h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(16px,2.3vw,19px);">الإمام عليّ (ع)</h3></div>
+        <p style="margin:0;font-size:clamp(15px,2.1vw,18px);line-height:2;color:var(--c-ink);">«واحذَرِ الغضبَ، فإنّه جندٌ عظيمٌ من جنود إبليس».</p>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-ikhfa);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;"><span style="font-size:20px;">💬</span><h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(16px,2.3vw,19px);">الإمام الصادق (ع)</h3></div>
+        <p style="margin:0;font-size:clamp(15px,2.1vw,18px);line-height:2;color:var(--c-ink);">«الغضبُ مفتاحُ كلّ شرٍّ».</p>
+      </section>
+    </div>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { opened:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  evilsList(){ return ['الاستهزاء','التعيير','الفُحش','الضرب','القتل']; }
+
+  renderVals(){
+    var self = this, R = React.createElement, B = window.BRAND || { rules:{} };
+    var opened = this.state.opened, turned = opened>0;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===0 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var primary = B.primary || '#200058';
+    var violet = (B.rules&&B.rules.idgham) || '#7b3fd4';
+    var alert = B.alert || '#f6848e';
+    var accent = B.accent || '#00c3fe';
+
+    // lock + key SVG figure
+    var lock = R('svg', { viewBox:'0 0 260 200', style:{ width:'100%', height:'auto', maxWidth:'340px' } },
+      // shackle
+      R('path', { d:'M96 96 L96 74 A34 34 0 0 1 164 74 L164 96', fill:'none', stroke:primary, strokeWidth:14, strokeLinecap:'round',
+        style:{ transformOrigin:'130px 96px', animation: turned ? 'shackle .5s ease forwards' : 'none' } }),
+      // body
+      R('rect', { x:78, y:96, width:104, height:86, rx:16, fill:violet }),
+      R('rect', { x:78, y:96, width:104, height:86, rx:16, fill:'none', stroke:'#ffffff', strokeWidth:2, opacity:0.25 }),
+      // keyhole
+      R('circle', { cx:130, cy:130, r:11, fill:'#fff' }),
+      R('rect', { x:126, y:130, width:8, height:24, rx:3, fill:'#fff' }),
+      // key
+      R('g', { style:{ transformOrigin:'130px 130px', animation: turned ? 'keyTurn .6s ease forwards' : 'none' } },
+        R('rect', { x:128, y:130, width:6, height:70, rx:3, fill:accent }),
+        R('circle', { cx:131, cy:196, r:15, fill:'none', stroke:accent, strokeWidth:6 }),
+        R('rect', { x:120, y:150, width:12, height:5, rx:2, fill:accent }),
+        R('rect', { x:120, y:160, width:9, height:5, rx:2, fill:accent })
+      )
+    );
+
+    var evils = this.evilsList().slice(0, opened);
+    var allOpen = opened >= 5;
+
+    // check
+    var picked = this.state.picked, correct = 1;
+    var opts = ['بابٌ من أبواب الخير والفضائل.','مفتاح الشرور ورأس الآثام.','أمرٌ لا أثر له في سلوك الإنسان.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'بمَ وُصف الغضب في الدرس وفي أقوال أهل البيت (ع)؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'الغضب مفتاح الشرور ورأس الآثام ومفتاح الأزمات والأخطار، وقال الإمام الصادق (ع): «الغضب مفتاح كل شرّ».'
+        :'الغضب ليس باباً للخير ولا أمراً بلا أثر؛ بل هو مفتاح الشرور ورأس الآثام كما ورد في الدرس وأقوال أهل البيت (ع).';
+    }
+
+    return {
+      pips:pips, lockFigure:lock, opened:opened, evils:evils, allOpen:allOpen,
+      btnLabel: allOpen ? '↺ أغلِق من جديد' : (turned ? '🔓 أدِر أكثر' : '🔑 أدِر المفتاح'),
+      onTurn:function(){ self.setState({ opened: allOpen ? 0 : Math.min(5, self.state.opened + 1) }); },
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

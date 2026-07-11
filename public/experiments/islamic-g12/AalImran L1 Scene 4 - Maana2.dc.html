@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4; --gold:#d9a520;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes tawaf{to{transform:rotate(-360deg);}}
+  @keyframes tawaf2{to{transform:rotate(-360deg);}}
+  @keyframes pop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة آل عمران</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · الطعام وملّة إبراهيم والبيت الحرام</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Scene%203%20-%20Maana1.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="AalImran%20L1%20Scene%205%20-%20Irshadat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المعنى العام · ٩٣–٩٧</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(26px,4.6vw,42px);margin:0 0 10px;color:var(--c-primary);line-height:1.18;">الطعام، وملّة إبراهيم، وأوّل بيت</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        كلُّ الطعام كان حلالاً لبني إسرائيل إلا ما حرّمه يعقوب على نفسه، ثمّ حُرّم عليهم بعضُه بظلمهم. والحقُّ اتّباعُ ملّة إبراهيم، وأوّلُ بيتٍ وُضع للناس هو البيت الحرام.
+      </p>
+    </div>
+
+    <!-- verse 93-95 -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--scene);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+      <div class="qv" style="font-size:clamp(17px,2.8vw,23px);line-height:2.15;color:var(--c-primary);text-align:center;margin-bottom:6px;">
+        ﴿ كُلُّ الطَّعَامِ كَانَ حِلًّا لِبَنِي إِسْرَائِيلَ إِلَّا مَا حَرَّمَ إِسْرَائِيلُ عَلَىٰ نَفْسِهِ … قُلْ صَدَقَ اللَّهُ فَاتَّبِعُوا مِلَّةَ إِبْرَاهِيمَ حَنِيفًا وَمَا كَانَ مِنَ الْمُشْرِكِينَ ﴾
+      </div>
+      <div style="text-align:center;color:var(--c-inkSoft);font-size:13px;margin-bottom:14px;">آل عمران: ٩٣–٩٥</div>
+      <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">
+        كلُّ الأطعمة الطيّبة كانت حلالاً لأبناء يعقوب، إلا ما حرّمه يعقوب على نفسه لمرضٍ نزل به، وذلك قبل نزول التوراة. فلمّا نزلت التوراة، حرّم الله على بني إسرائيل بعضَ الأطعمة التي كانت حلالاً لهم؛ بسبب ظلمهم وبغيهم. فقل لهم — أيها الرسول: هاتوا التوراة فاتلوها إن كنتم صادقين. فمن كذب على الله وافترى عليه من بعد ذلك فأولئك هم الظالمون. قل: صدق الله فيما أخبر، فاتّبعوا ملّة الإسلام التي هي ملّة إبراهيم (ع)، فهي الحقُّ الذي لا شكَّ فيه، وما كان إبراهيم من المشركين بالله في عقيدةٍ وعبادة.
+      </p>
+    </section>
+
+    <!-- ===== INTERACTIVE 1: food toggle ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#3a1a66,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0;">🍽️ طعام بني إسرائيل</h2>
+        <div style="display:inline-flex;background:rgba(255,255,255,.12);border-radius:999px;padding:4px;gap:4px;">
+          <sc-for list="{{ foodBtns }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="{{ b.style }}">{{ b.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <p style="text-align:center;color:var(--c-inkSoft);font-size:14px;margin:0 0 18px;">{{ foodHint }}</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+          <sc-for list="{{ plates }}" as="pl" hint-placeholder-count="5">
+            <div style="{{ pl.style }}">
+              <span style="font-size:clamp(26px,6vw,38px);">{{ pl.icon }}</span>
+              <span style="font-size:12px;font-weight:600;">{{ pl.label }}</span>
+              <span style="{{ pl.tagStyle }}">{{ pl.tag }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- verse 96-97 -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--gold);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+      <div class="qv" style="font-size:clamp(17px,2.8vw,23px);line-height:2.15;color:var(--c-primary);text-align:center;margin-bottom:6px;">
+        ﴿ إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا وَهُدًى لِلْعَالَمِينَ ۝ فِيهِ آيَاتٌ بَيِّنَاتٌ مَقَامُ إِبْرَاهِيمَ وَمَنْ دَخَلَهُ كَانَ آمِنًا وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا ﴾
+      </div>
+      <div style="text-align:center;color:var(--c-inkSoft);font-size:13px;">آل عمران: ٩٦–٩٧</div>
+    </section>
+
+    <!-- ===== INTERACTIVE 2: Kaaba tawaf ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#0d0630,#241247);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🕋 أوّل بيتٍ وُضع للناس</h2>
+          <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">اضغط أيّ ميزةٍ لتتعرّف صفات البيت الحرام كما في الآيتين.</p>
+        </div>
+        <button onClick="{{ onSpin }}" style="cursor:pointer;background:rgba(255,255,255,.15);color:#fff;border:none;padding:9px 16px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;">{{ spinLabel }}</button>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- tawaf stage -->
+        <div style="position:relative;width:100%;max-width:340px;aspect-ratio:1/1;margin:0 auto clamp(16px,2.6vw,22px);">
+          <!-- orbit rings -->
+          <div style="position:absolute;inset:6%;border-radius:50%;border:1px dashed rgba(123,63,212,.35);"></div>
+          <div style="position:absolute;inset:22%;border-radius:50%;border:1px dashed rgba(0,195,254,.35);"></div>
+          <!-- rotating pilgrims (outer) -->
+          <div style="{{ ring1Style }}">
+            <sc-for list="{{ ring1 }}" as="d" hint-placeholder-count="10">
+              <span style="{{ d.style }}"></span>
+            </sc-for>
+          </div>
+          <!-- rotating pilgrims (inner) -->
+          <div style="{{ ring2Style }}">
+            <sc-for list="{{ ring2 }}" as="d" hint-placeholder-count="7">
+              <span style="{{ d.style }}"></span>
+            </sc-for>
+          </div>
+          <!-- Kaaba center -->
+          <svg viewBox="0 0 100 100" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.4));">
+            <polygon points="50,8 84,24 84,74 50,92 16,74 16,24" fill="#141414"></polygon>
+            <polygon points="50,8 84,24 50,40 16,24" fill="#232323"></polygon>
+            <polygon points="16,24 50,40 50,92 16,74" fill="#0e0e0e"></polygon>
+            <polygon points="84,24 50,40 50,92 84,74" fill="#1c1c1c"></polygon>
+            <polygon points="16,50 50,66 84,50 84,58 50,74 16,58" fill="#d9a520"></polygon>
+            <rect x="45" y="58" width="10" height="16" fill="#c9971d"></rect>
+          </svg>
+        </div>
+
+        <!-- feature chips -->
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;">
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="6">
+            <button onClick="{{ f.onClick }}" style="{{ f.style }}">{{ f.label }}</button>
+          </sc-for>
+        </div>
+
+        <!-- readout -->
+        <div style="background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.4vw,20px);text-align:center;">
+          <div class="qv" style="font-size:clamp(18px,3vw,24px);color:var(--scene);line-height:1.9;margin-bottom:6px;">{{ sel.aya }}</div>
+          <div style="font-size:clamp(13.5px,1.8vw,15.5px);line-height:1.9;color:var(--c-ink);">{{ sel.exp }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- comprehension check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { food:'before', feat:0, spin:true, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  plates(){
+    return [
+      { icon:'🍞', label:'طعامٌ طيّب', before:'حلال', after:'حلال' },
+      { icon:'🥛', label:'لبنٌ ولحم', before:'حلال', after:'حُرِّم بظلمهم' },
+      { icon:'🍇', label:'ثمار', before:'حلال', after:'حلال' },
+      { icon:'🐫', label:'ما حرّمه يعقوب على نفسه', before:'حرّمه على نفسه', after:'حرّمه على نفسه' },
+      { icon:'🐟', label:'صيدٌ يوم السبت', before:'حلال', after:'حُرِّم بظلمهم' },
+    ];
+  }
+
+  featData(){
+    return [
+      { label:'أوّل بيت', aya:'﴿ لَلَّذِي بِبَكَّةَ ﴾', exp:'أوّلُ بيتٍ وُضع للناس للعبادة في الأرض هو البيت الحرام الذي بمكّة (بكّة).' },
+      { label:'مبارك', aya:'﴿ مُبَارَكًا ﴾', exp:'مباركٌ تتضاعف فيه الحسنات، وهو مصدر بركةٍ لقاصديه.' },
+      { label:'هدًى للعالمين', aya:'﴿ وَهُدًى لِلْعَالَمِينَ ﴾', exp:'مصدر هدايةٍ ونورٍ للناس جميعًا، لا لأهل مكّة وحدهم.' },
+      { label:'مقام إبراهيم', aya:'﴿ فِيهِ آيَاتٌ بَيِّنَاتٌ مَقَامُ إِبْرَاهِيمَ ﴾', exp:'فيه علاماتٌ واضحةٌ على قدسيّته، منها مقام إبراهيم عليه السلام.' },
+      { label:'ومن دخله كان آمنًا', aya:'﴿ وَمَنْ دَخَلَهُ كَانَ آمِنًا ﴾', exp:'من دخل الحرم كان آمنًا على نفسه؛ فهو حرمٌ آمن.' },
+      { label:'حجّ البيت', aya:'﴿ وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ ﴾', exp:'الحجّ فريضةٌ على من استطاع إليه سبيلًا، ومن كفر فإنّ الله غنيٌّ عن العالمين.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, before = this.state.food==='before';
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    // food toggle
+    var mkF=function(key,label){ var on=self.state.food===key;
+      return { label:label, onClick:function(){ self.setState({food:key}); },
+        style:'border:none;cursor:pointer;padding:8px 16px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:36px;transition:all .25s;'
+          +(on?'background:#fff;color:#200058;':'background:transparent;color:#e3d9f7;') }; };
+    var foodBtns=[ mkF('before','قبل نزول التوراة'), mkF('after','بعد ظلمهم') ];
+    var foodHint = before
+      ? 'كلُّ الطعام كان حلالاً لهم، إلا ما حرّمه يعقوب (إسرائيل) على نفسه لمرضٍ نزل به.'
+      : 'بسبب ظلمهم وبغيهم، حرّم الله عليهم بعضَ الطيّبات التي كانت حلالاً لهم.';
+    var plates = this.plates().map(function(p){
+      var val = before ? p.before : p.after;
+      var harm = val.indexOf('حُرِّم')===0;
+      var self2 = val.indexOf('حرّمه')===0;
+      var col = harm ? 'var(--c-alert)' : (self2 ? 'var(--gold)' : 'var(--c-good)');
+      var bg = harm ? 'rgba(246,132,142,.10)' : (self2 ? 'rgba(217,165,32,.10)' : 'rgba(31,158,139,.08)');
+      return { icon:p.icon, label:p.label,
+        style:'display:flex;flex-direction:column;align-items:center;gap:6px;width:clamp(96px,26vw,120px);padding:14px 10px;border-radius:16px;text-align:center;transition:all .3s;background:'+bg+';border:2px solid '+col+';',
+        tag:val, tagStyle:'font-size:11px;font-weight:700;padding:2px 10px;border-radius:6px;color:#fff;background:'+col+';' };
+    });
+
+    // tawaf dots
+    var mkDots=function(count,radius,color,size){
+      return Array.from({length:count}).map(function(_,i){
+        var ang=(i/count)*360;
+        return { style:'position:absolute;left:50%;top:50%;width:'+size+'px;height:'+size+'px;border-radius:50%;background:'+color+';'
+          +'transform:rotate('+ang+'deg) translateY(-'+radius+'px);box-shadow:0 0 6px '+color+';' };
+      });
+    };
+    var spin=this.state.spin;
+    var ring1Style='position:absolute;inset:6%;'+(spin?'animation:tawaf 18s linear infinite;':'');
+    var ring2Style='position:absolute;inset:22%;'+(spin?'animation:tawaf2 12s linear infinite;':'');
+    var ring1=mkDots(12, 118, 'var(--c-accent)', 9);
+    var ring2=mkDots(8, 74, 'var(--r-ikhfa)', 8);
+
+    var fd=this.featData();
+    var features=fd.map(function(f,i){ var on=self.state.feat===i;
+      return { label:f.label, onClick:function(){ self.setState({feat:i}); },
+        style:'cursor:pointer;padding:9px 14px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:clamp(12px,1.6vw,14px);min-height:42px;transition:all .2s;'
+          +(on?'background:var(--scene);color:#fff;border:2px solid var(--scene);box-shadow:0 6px 16px rgba(123,63,212,.35);':'background:#fff;color:var(--c-primary);border:2px solid var(--c-line);') };
+    });
+    var sel=fd[this.state.feat];
+
+    // check
+    var picked=this.state.picked, correct=0;
+    var opts=['البيت الحرام الذي بمكّة (بكّة).','بيت المقدس.','مسجد قباء.'];
+    var options=opts.map(function(t,i){ var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check={ q:'ما أوّلُ بيتٍ وُضع للناس لعبادة الله كما في الآية ٩٦؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){ var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'﴿إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا﴾؛ وبكّة هي مكّة.'
+        :'الآية صريحة: أوّل بيتٍ وُضع للناس هو الذي ﴿بِبَكَّةَ﴾ أي مكّة، وهو البيت الحرام.';
+    }
+
+    return { pips:pips, foodBtns:foodBtns, foodHint:foodHint, plates:plates,
+      ring1Style:ring1Style, ring2Style:ring2Style, ring1:ring1, ring2:ring2,
+      spinLabel: spin?'إيقاف الطواف ⏸':'تشغيل الطواف ◀',
+      onSpin:function(){ self.setState({spin:!self.state.spin}); },
+      features:features, sel:sel, check:check };
+  }
+}
+</script>
+</body>
+</html>

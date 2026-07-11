@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  .flip{perspective:1200px;}
+  .flip-in{position:relative;transition:transform .55s;transform-style:preserve-3d;}
+  .flip.on .flip-in{transform:rotateY(180deg);}
+  .face{backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+  .back{position:absolute;inset:0;transform:rotateY(180deg);}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة آل عمران</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · أبرز ما ترشد إليه والمناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Scene%204%20-%20Maana2.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="AalImran%20L1%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(24px,3.5vw,36px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الخلاصة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">أبرز ما ترشد إليه الآيات</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        خمس خلاصاتٍ من الآيات <span style="direction:ltr;unicode-bidi:isolate;">٩٠–٩٧</span>. اضغط كلّ بطاقةٍ لتقلبها وتقرأ شاهدها من الآيات.
+      </p>
+    </div>
+
+    <!-- flip cards -->
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(14px,2.4vw,20px);">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+        <div class="flip {{ c.on }}" onClick="{{ c.onClick }}" style="cursor:pointer;min-height:196px;">
+          <div class="flip-in" style="min-height:196px;">
+            <!-- front -->
+            <div class="face" style="background:#fff;border:1px solid var(--c-line);border-top:5px solid {{ c.color }};border-radius:18px;padding:clamp(18px,2.6vw,24px);min-height:196px;display:flex;flex-direction:column;box-shadow:0 6px 22px rgba(32,0,88,.05);">
+              <span style="width:40px;height:40px;border-radius:12px;background:{{ c.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:19px;margin-bottom:14px;">{{ c.num }}</span>
+              <p style="margin:0;font-size:clamp(14.5px,1.9vw,16.5px);line-height:1.95;color:var(--c-ink);">{{ c.text }}</p>
+              <span style="margin-top:auto;padding-top:12px;color:var(--c-inkSoft);font-size:12.5px;display:inline-flex;align-items:center;gap:6px;">↻ اضغط لعرض الشاهد</span>
+            </div>
+            <!-- back -->
+            <div class="face back" style="background:linear-gradient(150deg,#1a0350,#3a1290);border-radius:18px;padding:clamp(18px,2.6vw,24px);min-height:196px;display:flex;flex-direction:column;justify-content:center;color:#fff;box-shadow:0 6px 22px rgba(32,0,88,.16);">
+              <div style="color:#bfeaff;font-size:12.5px;font-weight:600;margin-bottom:10px;">الشاهد</div>
+              <div class="qv" style="font-size:clamp(16px,2.4vw,20px);line-height:2;">{{ c.proof }}</div>
+              <div style="color:#b6add6;font-size:12px;margin-top:12px;">{{ c.ref }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- discussion -->
+    <section>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:22px;">💬</span>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(22px,3vw,28px);margin:0;color:var(--c-primary);">المناقشة</h2>
+      </div>
+      <p style="margin:0 0 clamp(16px,2.5vw,22px);color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);">فكّر في كلّ سؤال، ثمّ اضغط «أظهر الإجابة» لمراجعة التوجيه.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;">
+            <div style="display:flex;gap:14px;padding:clamp(16px,2.4vw,20px);">
+              <span style="flex:none;width:34px;height:34px;border-radius:10px;background:var(--c-tint);color:var(--c-primary);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">{{ q.num }}</span>
+              <p style="margin:0;flex:1;font-size:clamp(14.5px,1.9vw,16.5px);line-height:1.95;color:var(--c-ink);">{{ q.q }}</p>
+            </div>
+            <div style="padding:0 clamp(16px,2.4vw,20px) clamp(16px,2.4vw,20px) clamp(64px,10vw,68px);">
+              <button onClick="{{ q.onToggle }}" style="cursor:pointer;background:var(--c-tint);border:none;color:var(--c-primary);font-family:Readex Pro;font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;min-height:42px;">{{ q.btn }}</button>
+              <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:12px;background:rgba(31,158,139,.07);border:1px solid var(--c-good);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.95;color:#177564;">{{ q.a }}</div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- closing -->
+    <section style="background:linear-gradient(135deg,#1a0350,#3a1290);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+      <div class="qv" style="font-size:clamp(20px,3.4vw,28px);line-height:1.9;margin-bottom:10px;">﴿ قُلْ صَدَقَ اللَّهُ فَاتَّبِعُوا مِلَّةَ إِبْرَاهِيمَ حَنِيفًا ﴾</div>
+      <p style="margin:0;color:#d6d0ee;font-size:clamp(13px,1.8vw,15px);">أتمَمْتَ مشاهد الدرس — انتقل الآن إلى التقويم لتقيس ما تعلّمت.</p>
+      <a href="AalImran%20L1%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,18px);padding:13px 32px;border-radius:999px;min-height:44px;" style-hover="filter:brightness(1.06);"><span>◀</span><span>ابدأ التقويم</span></a>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flipped:{}, open:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals(){
+    var self = this, B = window.BRAND || { primary:'#200058', accent:'#00c3fe', rules:{} }, rk = B.rules||{};
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===4 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var cd = [
+      { text:'الله لا يقبل توبة من كفر بعد إيمانه واستمرّ على الكفر؛ فهؤلاء ضلّوا السبيل وخرجوا عن نهج الحقّ إلى طريق الضلال.',
+        proof:'﴿ لَنْ تُقْبَلَ تَوْبَتُهُمْ وَأُولَٰئِكَ هُمُ الضَّالُّونَ ﴾', ref:'آل عمران: ٩٠', color:B.primary },
+      { text:'من أراد الخير ودخول الجنّة فعليه أن يتصدّق في سبيل الله من أفضل أمواله وأحبِّها إليه.',
+        proof:'﴿ لَنْ تَنَالُوا الْبِرَّ حَتَّىٰ تُنْفِقُوا مِمَّا تُحِبُّونَ ﴾', ref:'آل عمران: ٩٢', color:rk.iqlab },
+      { text:'من لا يتصدّق من أفضل أمواله لا يبلغ البِرّ الذي يوصل إلى الجنّة.',
+        proof:'﴿ وَمَا تُنْفِقُوا مِنْ شَيْءٍ فَإِنَّ اللَّهَ بِهِ عَلِيمٌ ﴾', ref:'آل عمران: ٩٢', color:rk.idhhar },
+      { text:'صدَق الله في كلّ ما أوحى إلى محمد (ص) وأخبر به؛ فعلينا أن نتّبع ملّة الإسلام، ملّة إبراهيم (ع)، فهي الحقّ الذي لا شكّ فيه.',
+        proof:'﴿ قُلْ صَدَقَ اللَّهُ فَاتَّبِعُوا مِلَّةَ إِبْرَاهِيمَ حَنِيفًا ﴾', ref:'آل عمران: ٩٥', color:rk.idgham },
+      { text:'أوّل بيتٍ بُني في الأرض لعبادة الله هو المسجد الحرام الذي بمكّة، مبارَكٌ وهدًى للعالمين، وفيه فُرض الحجّ على المستطيع.',
+        proof:'﴿ إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا وَهُدًى لِلْعَالَمِينَ ﴾', ref:'آل عمران: ٩٦', color:rk.ikhfa },
+    ];
+    var nums=['١','٢','٣','٤','٥'];
+    var cards = cd.map(function(c,i){
+      return { num:nums[i], text:c.text, proof:c.proof, ref:c.ref, color:c.color,
+        on: self.state.flipped[i] ? 'on' : '',
+        onClick:function(){ var f=Object.assign({},self.state.flipped); f[i]=!f[i]; self.setState({flipped:f}); } };
+    });
+
+    var qd = [
+      { q:'هناك سلسلةٌ من العقوبات تقع بالذين كفروا بعد إيمانهم. دُلّنا عليها.',
+        a:'عدم قبول توبتهم عند الموت، وأنّهم هم الضالّون، وأنّه لا يُقبل من أحدهم مِلءُ الأرض ذهبًا فداءً، ولهم عذابٌ أليم، وما لهم من ناصرين ينصرهم من عذاب الله (الآيتان ٩٠–٩١).' },
+      { q:'المسجد الحرام في مكّة أوّل مسجدٍ مبارَكٍ تتضاعف فيه الحسنات. وهناك مسجدٌ آخر بارك الله ما حوله بأنواع البركات الحسّية والمعنوية — ماذا تعرف عنه؟ وما معنى البركات الحسّية والمعنوية؟',
+        a:'هو المسجد الأقصى؛ قال تعالى: ﴿سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ … إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ﴾. والبركة الحسّية: خصب الأرض وكثرة الأنهار والثمار حوله؛ والبركة المعنوية: أنّه مهبط الوحي ومقرّ الأنبياء ومضاعفة أجر الصلاة فيه.' },
+      { q:'اكتب مقالةً قصيرةً لا تزيد على صفحةٍ واحدة عن نبيّ الله إبراهيم (ع).',
+        a:'نشاطٌ كتابيّ: تناوَل نسبه ودعوته إلى التوحيد، وتحطيمه الأصنام، وابتلاءه بالنار والهجرة وذبح ولده، وبناءه الكعبة مع إسماعيل (ع)، وكونه أبا الأنبياء وإمامًا للناس، وأنّ ملّته هي الحنيفيّة السمحة التي أُمرنا باتّباعها.' },
+    ];
+    var qnums=['١','٢','٣'];
+    var questions = qd.map(function(q,i){
+      return { num:qnums[i], q:q.q, a:q.a, open:!!self.state.open[i],
+        btn: self.state.open[i] ? 'إخفاء الإجابة' : 'أظهر الإجابة',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    return { pips:pips, cards:cards, questions:questions };
+  }
+}
+</script>
+</body>
+</html>

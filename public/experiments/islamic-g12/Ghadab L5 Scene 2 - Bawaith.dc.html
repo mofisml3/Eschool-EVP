@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#00a6d6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes chipPop{0%{transform:scale(.6);opacity:0;}70%{transform:scale(1.08);}100%{transform:scale(1);opacity:1;}}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">النهي عن الغضب</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٢ من ٥ · بواعث الغضب</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Scene%201%20-%20Tamheed.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Ghadab%20L5%20Scene%203%20-%20Adrar.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الحكم الأول</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">بواعث الغضب</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        لا يحدث الغضب عفواً واعتباطاً، وإنّما ينشأ من أسبابٍ وبواعث تجعل الإنسان سريع التأثّر منفعلاً. وقد يكون منشأ الغضب غالباً أحدَ <b>ثلاثة أمور</b> — صنّف كلّ باعثٍ في نوعه الصحيح.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE: classify causes ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#04475a,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🧩 صنّف باعث الغضب</h2>
+          <p style="margin:0;color:#cdeefb;font-size:clamp(12px,1.7vw,14px);">اختر الباعث ثمّ اضغط نوعه الصحيح: صحّي، نفسي، أو أخلاقي.</p>
+        </div>
+        <span style="color:#cdeefb;font-weight:700;font-family:'El Messiri';">{{ solved }}/6</span>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- current item -->
+        <sc-if value="{{ hasCurrent }}" hint-placeholder-val="{{ true }}">
+          <div style="text-align:center;margin-bottom:18px;">
+            <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:8px;">الباعث:</div>
+            <div style="display:inline-block;background:var(--c-tint);color:var(--c-primary);border-radius:14px;padding:14px 22px;font-family:'El Messiri';font-weight:700;font-size:clamp(17px,3vw,22px);animation:chipPop .35s ease;{{ shakeStyle }}">{{ currentText }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;margin-bottom:18px;color:var(--c-good);font-family:'El Messiri';font-weight:700;font-size:clamp(17px,2.6vw,21px);animation:fadeUp .4s ease;">✓ أحسنت! صنّفتَ جميع البواعث</div>
+        </sc-if>
+
+        <!-- category buttons -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
+          <sc-for list="{{ cats }}" as="c" hint-placeholder-count="3">
+            <button onClick="{{ c.onClick }}" style="{{ c.style }}">
+              <span style="font-size:22px;">{{ c.icon }}</span>
+              <span style="font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2.2vw,18px);">{{ c.name }}</span>
+              <span style="font-size:12px;opacity:.85;">{{ c.count }}</span>
+            </button>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;justify-content:center;margin-top:16px;">
+          <button onClick="{{ onReset }}" style="cursor:pointer;background:var(--c-tint);border:none;color:var(--c-primary);font-weight:600;font-size:13px;padding:0 16px;height:44px;border-radius:999px;">↺ إعادة</button>
+        </div>
+
+        <sc-if value="{{ hasFb }}" hint-placeholder-val="{{ false }}">
+          <div style="{{ fbStyle }}">{{ fbText }}</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- three causes detailed -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(14px,2.4vw,20px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idhhar);border-radius:18px;padding:clamp(18px,2.6vw,24px);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px;"><span style="width:34px;height:34px;border-radius:10px;background:var(--r-idhhar);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">١</span><h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(16px,2.3vw,19px);">باعثٌ صحّي</h3></div>
+        <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">انحرافٌ صحّي، كاعتلال الصحة العامة، أو ضعف الجهاز العصبي، ممّا يسبّب سرعة الانفعال.</p>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idgham);border-radius:18px;padding:clamp(18px,2.6vw,24px);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px;"><span style="width:34px;height:34px;border-radius:10px;background:var(--r-idgham);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">٢</span><h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(16px,2.3vw,19px);">باعثٌ نفسي</h3></div>
+        <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">منبعثٌ عن الإجهاد العقلي، أو الأنانية، أو الشعور بالإهانة والاستنقاص، ونحوها من الحالات النفسية التي تستفزّ الإنسان وتستثير غضبه.</p>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-ikhfa);border-radius:18px;padding:clamp(18px,2.6vw,24px);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px;"><span style="width:34px;height:34px;border-radius:10px;background:var(--r-ikhfa);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">٣</span><h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(16px,2.3vw,19px);">باعثٌ أخلاقي</h3></div>
+        <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">كتعوّد الشراسة وسرعة التهيّج، ممّا يوجب رسوخ عادة الغضب في صاحبه.</p>
+      </section>
+    </div>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx:0, solved:0, fb:null, shake:false, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idhhar);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  items(){
+    return [
+      { text:'ضعف الجهاز العصبي', cat:'sihhi' },
+      { text:'الشعور بالإهانة والاستنقاص', cat:'nafsi' },
+      { text:'تعوّد الشراسة وسرعة التهيّج', cat:'akhlaqi' },
+      { text:'اعتلال الصحة العامة', cat:'sihhi' },
+      { text:'الإجهاد العقلي والأنانية', cat:'nafsi' },
+      { text:'رسوخ عادة الغضب في صاحبه', cat:'akhlaqi' },
+    ];
+  }
+  catName(k){ return { sihhi:'صحّي', nafsi:'نفسي', akhlaqi:'أخلاقي' }[k]; }
+
+  renderVals(){
+    var self = this, items = this.items();
+    var idx = this.state.idx, cur = items[idx];
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===1 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var counts = { sihhi:0, nafsi:0, akhlaqi:0 };
+    for (var i=0;i<this.state.solved;i++){ counts[items[i].cat]++; }
+
+    var meta = [
+      { key:'sihhi', icon:'🩺', name:'صحّي', color:'var(--r-idhhar)' },
+      { key:'nafsi', icon:'🧠', name:'نفسي', color:'var(--r-idgham)' },
+      { key:'akhlaqi', icon:'🎭', name:'أخلاقي', color:'var(--r-ikhfa)' },
+    ];
+    var allDone = this.state.solved >= items.length;
+    var cats = meta.map(function(m){
+      return { icon:m.icon, name:m.name, count:'('+counts[m.key]+')',
+        onClick:function(){ if(allDone) return;
+          if(cur.cat===m.key){ self.setState({ solved:self.state.solved+1, idx:Math.min(items.length-1,self.state.idx+1), fb:{ok:true,text:'✓ صحيح: «'+cur.text+'» باعثٌ '+self.catName(cur.cat)+'.'}, shake:false }); }
+          else { self.setState({ fb:{ok:false,text:'✗ ليس باعثاً '+self.catName(m.key)+'؛ «'+cur.text+'» باعثٌ '+self.catName(cur.cat)+'. حاول مرّة أخرى.'}, shake:true });
+            setTimeout(function(){ self.setState({shake:false}); }, 450); } },
+        style:'cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:16px 10px;border-radius:16px;background:#fff;border:2px solid '+m.color+';color:var(--c-primary);min-height:44px;transition:all .2s;'
+          + (allDone?'opacity:.55;':'') };
+    });
+
+    var fb = this.state.fb;
+
+    // final check
+    var picked = this.state.picked, correct = 3-1; // index 2 => 'ثلاثة'
+    var opts = ['أمرٌ واحدٌ فقط.','أمران اثنان.','ثلاثة أمور: صحّي ونفسي وأخلاقي.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===2;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'منشأ الغضب غالباً يعود إلى كم أمرٍ حسب الدرس؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===2;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'يعود منشأ الغضب غالباً إلى ثلاثة أمور: انحرافٌ صحّي، وباعثٌ نفسي، وباعثٌ أخلاقي.'
+        :'بواعث الغضب ثلاثة: الصحّي، والنفسي، والأخلاقي — كما فصّلها الدرس.';
+    }
+
+    return {
+      pips:pips, solved:this.state.solved, allDone:allDone,
+      hasCurrent: !allDone, currentText: cur.text,
+      shakeStyle: this.state.shake ? 'animation:shake .4s;' : '',
+      cats:cats, onReset:function(){ self.setState({idx:0,solved:0,fb:null,shake:false}); },
+      hasFb: !!fb, fbText: fb?fb.text:'',
+      fbStyle: fb ? ('margin-top:16px;padding:13px 18px;border-radius:14px;font-size:14px;line-height:1.7;'
+        + (fb.ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);')) : '',
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

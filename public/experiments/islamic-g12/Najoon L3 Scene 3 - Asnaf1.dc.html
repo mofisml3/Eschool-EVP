@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes tilt{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+  /* dignified, restrained idle motion */
+  @keyframes breath{0%,100%{transform:scale(1);opacity:.92;}50%{transform:scale(1.04);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">الناجون يوم القيامة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٥ · الأصناف الأربعة الأولى</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Scene%202%20-%20Dhill.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Najoon%20L3%20Scene%204%20-%20Asnaf2.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">شرح الأصناف · ١–٤</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">الأصناف الأربعة الأولى</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        اختر أيّ صنفٍ من الأربعة لتقرأ وصفه ودليله من القرآن والسنّة. هذه أمثلةٌ ساميةٌ من المؤمنين الصالحين الذين استحقّوا ظلّ الرحمن.
+      </p>
+    </div>
+
+    <!-- selectable tiles -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(10px,2vw,16px);">
+      <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="4">
+        <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+          <span style="{{ t.iconWrap }}">
+            <span style="font-family:'El Messiri';font-weight:700;font-size:13px;color:{{ t.color }};background:#fff;border-radius:7px;padding:1px 8px;position:absolute;top:8px;right:8px;box-shadow:0 2px 6px rgba(0,0,0,.12);">{{ t.n }}</span>
+            <span style="{{ t.emojiStyle }}">{{ t.emoji }}</span>
+          </span>
+          <span style="font-family:'El Messiri';font-weight:600;font-size:clamp(13px,1.8vw,15px);color:{{ t.labelColor }};line-height:1.4;text-align:center;">{{ t.short }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <!-- detail panel -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,{{ cur.c1 }},{{ cur.c2 }});padding:clamp(18px,3vw,26px) clamp(18px,3vw,28px);display:flex;align-items:center;gap:16px;">
+        <div style="flex:none;width:clamp(54px,10vw,68px);height:clamp(54px,10vw,68px);border-radius:18px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:clamp(28px,5.5vw,38px);animation:floaty 3.4s ease-in-out infinite;">{{ cur.emoji }}</div>
+        <div style="min-width:0;">
+          <div style="color:rgba(255,255,255,.85);font-size:13px;font-family:'El Messiri';font-weight:600;">الصنف {{ cur.n }}</div>
+          <h2 style="font-family:'El Messiri';font-weight:700;color:#fff;font-size:clamp(19px,3vw,27px);margin:2px 0 0;line-height:1.2;">{{ cur.title }}</h2>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:clamp(14px,2.2vw,20px);">
+        <p style="margin:0;font-size:clamp(15px,2vw,17px);line-height:2;color:var(--c-ink);">{{ cur.body }}</p>
+        <div style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:16px;padding:clamp(16px,2.6vw,24px);text-align:center;color:#fff;">
+          <div style="display:inline-block;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:3px 12px;border-radius:8px;font-size:12px;margin-bottom:12px;">{{ cur.dalilTag }}</div>
+          <div class="qv" style="font-size:clamp(17px,2.8vw,24px);line-height:2.1;">{{ cur.dalil }}</div>
+          <div style="color:#bfa9ff;font-size:12.5px;margin-top:8px;">{{ cur.dalilRef }}</div>
+        </div>
+        <sc-if value="{{ cur.hasNote }}" hint-placeholder-val="{{ false }}">
+          <div style="border-right:4px solid {{ cur.c1 }};background:var(--c-tint);border-radius:0 14px 14px 0;padding:14px 16px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">{{ cur.note }}</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sel:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  data(){
+    return [
+      { n:'١', short:'الإمام العادل', title:'الإمام العادل', emoji:'⚖️', c1:'#200058', c2:'#3a1290', color:'#200058',
+        body:'هو الحاكم ومَن وليَ شيئاً من أمور المسلمين فلم يغرّه السلطان بالاستبداد والظلم، بل أطاع الله ووجّه سلطانه وقوّته وجهوده إلى العدل، فلم يفرّق بين رعيّته لهوىً أو قرابةٍ أو صداقة. وعدلُ الحاكم يبعث الطمأنينة بين الناس، ويسود به الأمن، وتنتهي الفوضى، وتُرعى المصلحة العامّة.',
+        dalilTag:'دليلٌ من القرآن', dalil:'يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ وَلَوْ عَلَىٰ أَنفُسِكُمْ أَوِ الْوَالِدَيْنِ وَالْأَقْرَبِينَ', dalilRef:'النساء: ١٣٥', hasNote:false, note:'' },
+      { n:'٢', short:'الشابّ في العبادة', title:'شابٌّ نشأ في عبادة الله', emoji:'🌱', c1:'#00a6d6', c2:'#0176a6', color:'#00a6d6',
+        body:'هو الشابّ المتديّن المطيع لله، الفاعل لكلّ خير، المتحكّم في نزواته، الكابح لشهواته، الذي يكفّ نفسه عن الهوى والمعاصي وينتظر ساعة الجزاء الأوفى. صرف شبابه ونشاطه في عبادة الله وطاعته، تاركاً نزوات النفس التي تجرّ صاحبها نحو الطيش والمعاصي. وهذه هي مجاهدة النفس على طريق الاستقامة، وهي الجهاد الأكبر.',
+        dalilTag:'دليلٌ من القرآن', dalil:'وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ', dalilRef:'النازعات: ٤٠ – ٤١', hasNote:true,
+        note:'قال النبيّ ﷺ لسريّةٍ رجعت من الجهاد: «مرحباً بقومٍ قضَوا الجهاد الأصغر وبقي عليهم الجهاد الأكبر». قالوا: وما الجهاد الأكبر يا رسول الله؟ قال: «جهاد النفس».' },
+      { n:'٣', short:'معلَّقٌ بالمساجد', title:'رجلٌ قلبُه معلَّقٌ بالمساجد', emoji:'🕌', c1:'#7b3fd4', c2:'#5a24a8', color:'#7b3fd4',
+        body:'هو الرجل الذي تعلّق قلبُه بحبّ بيوت الله، طاهرُ القلب عامرُ النفس بالإيمان، يعمر المساجد بالذكر والصلاة، ويلتقي فيها بإخوانه المصلّين يؤدّون صلاة الجماعة، ويتّخذون من هذا اللقاء فرصةً للتناصح والتعاطف والتعارف ودفع الضرر ومساعدة المحتاجين وإصلاح ذات البين ونشر قيم الإسلام في التسامح والأخوّة والرحمة والسلام؛ فإعمارُ المساجد بأعمال الخير جزءٌ من عمارتها.',
+        dalilTag:'دليلٌ من القرآن', dalil:'فِي بُيُوتٍ أَذِنَ اللَّهُ أَن تُرْفَعَ وَيُذْكَرَ فِيهَا اسْمُهُ يُسَبِّحُ لَهُ فِيهَا بِالْغُدُوِّ وَالْآصَالِ ۝ رِجَالٌ لَّا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَن ذِكْرِ اللَّهِ', dalilRef:'النور: ٣٦ – ٣٧', hasNote:false, note:'' },
+      { n:'٤', short:'المتحابّان في الله', title:'رجلانِ تحابّا في الله', emoji:'🤝', c1:'#d55fa6', c2:'#b23c86', color:'#d55fa6',
+        body:'هما الصديقان اللذان صداقتهما قائمةٌ على أساس التقوى، قائمةٌ لله حبّاً حقيقيّاً لا ظاهراً فقط؛ أحبّ كلٌّ منهما الآخر لصلاحه وتقواه، فابتعدا عن صداقة الغايات والمصالح الذاتيّة، وعن صداقة النفاق والرياء. وهذا أسمى أنواع الصحبة ويسمّى بالأخوّة في الله، وهو مصدر الخير والاتّحاد والتعاون، فصداقتهما تدوم على المحبّة ولا تُقطع لعارضٍ دنيويّ، ولا يفرّق بينهما إلّا الموت.',
+        dalilTag:'دليلٌ من القرآن', dalil:'إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ', dalilRef:'الحجرات: ١٠', hasNote:false, note:'' },
+    ];
+  }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4,5].map(function(i){ return { bg: i<=2 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var d=this.data(), sel=S.sel;
+
+    var tiles=d.map(function(x,i){
+      var on=sel===i;
+      var speed = on ? '3.4s' : '5s';
+      var emojiStyle='display:inline-block;font-size:clamp(26px,5vw,34px);transform-origin:center center;'
+        +'animation:breath '+speed+' ease-in-out infinite;'
+        +'animation-delay:'+(i*0.5)+'s;'
+        +(on?'filter:drop-shadow(0 3px 8px rgba(0,0,0,.22));':'');
+      return { n:x.n, emoji:x.emoji, short:x.short, color:x.color, emojiStyle:emojiStyle,
+        labelColor: on ? '#fff' : 'var(--c-primary)',
+        style:'position:relative;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 12px 14px;border-radius:18px;border:2px solid '+(on?x.color:'var(--c-line)')+';background:'+(on?x.color:'#fff')+';min-height:44px;transition:all .25s;'+(on?'box-shadow:0 10px 24px '+x.color+'55;transform:translateY(-2px);':''),
+        iconWrap:'position:relative;width:clamp(56px,11vw,68px);height:clamp(56px,11vw,68px);border-radius:16px;display:flex;align-items:center;justify-content:center;background:'+(on?'rgba(255,255,255,.16)':'var(--c-tint)')+';' };
+    });
+
+    var cur=d[sel];
+
+    // check
+    var picked=S.picked, correct=2;
+    var opts=['لأنّه بنى المسجد بماله.','لأنّه يلتقي إخوانه فيه للتجارة.','لأنّ قلبه متعلّقٌ بها حبّاً وذكراً وصلاةً وإصلاحاً بين الناس.'];
+    var options=opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check={ q:'لماذا كان الرجل الذي قلبه معلَّقٌ بالمساجد من السبعة؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'تعلّق القلب بالمساجد حبّاً وعبادةً وذكراً وإصلاحاً بين الناس هو المقصود، لا مجرّد البناء أو المنفعة الدنيوية.'
+        :'المقصود تعلّق القلب بالمسجد حبّاً وذكراً وصلاةً وعمارةً بالخير — لا البناء وحده ولا اللقاء للتجارة.';
+    }
+
+    return { pips:pips, tiles:tiles, cur:cur, check:check };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --scene:#00c3fe;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes pop{0%{transform:scale(.8);opacity:0;}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">الناجون يوم القيامة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">التقويم النهائي</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Scene%205%20-%20Irshad.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Chapter%201%20Hub.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>🏠</span><span>الرئيسية</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:920px;margin:0 auto;padding:clamp(22px,3.8vw,44px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(18px,2.6vw,26px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#04223a;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">التقويم</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">قِس ما تعلّمت</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-inkSoft);max-width:70ch;">ستّة أسئلةٍ على حديث السبعة الذين يُظلّهم الله في ظلّه. اختر الإجابة الصحيحة وستظهر لك التغذية الراجعة فوراً.</p>
+    </div>
+
+    <!-- score bar -->
+    <div style="position:sticky;top:64px;z-index:40;background:#fff;border:1px solid var(--c-line);border-radius:16px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 6px 20px rgba(32,0,88,.06);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2vw,18px);">النتيجة: {{ score }} / {{ total }}</span>
+      </div>
+      <div style="flex:1;max-width:280px;height:10px;border-radius:6px;background:var(--c-tint);overflow:hidden;">
+        <div style="height:100%;width:{{ pct }}%;background:linear-gradient(90deg,var(--c-accent),var(--c-good));border-radius:6px;transition:width .5s;"></div>
+      </div>
+    </div>
+
+    <sc-for list="{{ questions }}" as="q" hint-placeholder-count="6">
+      <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(18px,2.8vw,26px);box-shadow:0 6px 22px rgba(32,0,88,.05);">
+        <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;">
+          <span style="flex:none;width:34px;height:34px;border-radius:10px;background:var(--c-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:15px;">{{ q.n }}</span>
+          <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(16px,2.2vw,20px);margin:0;color:var(--c-primary);line-height:1.6;padding-top:3px;">{{ q.q }}</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ q.options }}" as="o" hint-placeholder-count="3">
+            <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+              <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+              <span style="flex:1;text-align:right;line-height:1.6;">{{ o.text }}</span>
+              <sc-if value="{{ o.showMark }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;">{{ o.mark }}</span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ q.showFeedback }}" hint-placeholder-val="{{ false }}">
+          <div style="{{ q.fbStyle }}"><b>{{ q.fbTitle }}</b><span>{{ q.fbText }}</span></div>
+        </sc-if>
+      </section>
+    </sc-for>
+
+    <sc-if value="{{ allAnswered }}" hint-placeholder-val="{{ false }}">
+      <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:22px;padding:clamp(24px,4vw,36px);text-align:center;color:#fff;animation:pop .4s ease;">
+        <div style="font-size:clamp(40px,9vw,58px);margin-bottom:8px;">{{ resultEmoji }}</div>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(24px,4vw,34px);margin:0 0 8px;">{{ resultTitle }}</h2>
+        <p style="margin:0 0 6px;font-size:clamp(17px,2.4vw,21px);color:#e8e2ff;">نتيجتك: {{ score }} من {{ total }}</p>
+        <p style="margin:0 auto 22px;max-width:52ch;color:#bfa9ff;font-size:clamp(13px,1.8vw,15px);line-height:1.9;">{{ resultMsg }}</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <button onClick="{{ reset }}" style="cursor:pointer;border:none;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,18px);padding:13px 30px;border-radius:999px;min-height:44px;" style-hover="filter:brightness(1.06);">أعد المحاولة ↺</button>
+          <a href="Chapter%201%20Hub.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:#fff;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,18px);padding:13px 30px;border-radius:999px;min-height:44px;" style-hover="background:rgba(255,255,255,.2);"><span>🏠</span><span>الرئيسية</span></a>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { answers:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--scene', B.accent);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  quiz(){
+    return [
+      { q:'كم عددُ الأصناف الذين يُظلّهم الله في ظلّه يوم القيامة؟',
+        options:['خمسة','سبعة','عشرة'], correct:1,
+        fb:['','نصُّ الحديث: «سبعةٌ يُظلّهم الله في ظلّه يوم لا ظلّ إلّا ظلّه».',''] },
+      { q:'ما معنى «ظلِّ الله» في الحديث؟',
+        options:['ظلُّ شجرةٍ في الجنّة','كرامتُه وحمايتُه ورحمتُه سبحانه','ظلُّ العرش الحسّي فقط'], correct:1,
+        fb:['','المراد كرامةُ الله وحمايتُه ورحمتُه، إذ لا ظلَّ يومئذٍ إلّا ظلُّه.',''] },
+      { q:'الشابّ الذي يُظلّه الله هو الذي…',
+        options:['نشأ في عبادة الله وكفّ نفسه عن الهوى','جمع المال في شبابه','اعتزل الناس كلَّهم'], correct:0,
+        fb:['نشأتُه في العبادة وضبطُه لنزواته هو الجهاد الأكبر (جهاد النفس).','','هذا هو المقصود.'] },
+      { q:'مَن قدوةُ المؤمن العفيف الذي دعته امرأةٌ فامتنع خوفاً من الله؟',
+        options:['النبيّ يوسف (ع)','النبيّ موسى (ع)','النبيّ نوح (ع)'], correct:0,
+        fb:['قال يوسف (ع): ﴿رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ﴾.','',''] },
+      { q:'ما آدابُ الصدقة التي تجعل صاحبها من السبعة؟',
+        options:['إعلانُها ليقتدي به الناس','إخفاؤها حتى لا تعلم شمالُه ما تنفق يمينُه','التصدّق على الأقارب فقط'], correct:1,
+        fb:['','إخفاؤها وإخلاصُها لله بعيداً عن المنّ والرياء والشهرة.',''] },
+      { q:'العلاقةُ التي تجمع المتحابَّينِ في الله قائمةٌ على…',
+        options:['المصلحة والمنفعة الدنيوية','التقوى وحبِّ كلٍّ منهما الآخر لله','القرابة والنسب'], correct:1,
+        fb:['','هي الأخوّة في الله التي لا تُقطع لعارضٍ دنيويّ ولا يفرّق بينها إلّا الموت.',''] },
+    ];
+  }
+
+  renderVals(){
+    var self=this, S=this.state, ans=S.answers;
+    var qz=this.quiz(), total=qz.length;
+    var score=0; qz.forEach(function(x,i){ if(ans[i]===x.correct) score++; });
+    var answeredCount=Object.keys(ans).length;
+    var nums=['١','٢','٣','٤','٥','٦'];
+
+    var questions=qz.map(function(x,i){
+      var picked = ans[i]!==undefined ? ans[i] : null;
+      var options=x.options.map(function(t,j){
+        var chosen=picked===j, isC=j===x.correct, answered=picked!==null;
+        var s='display:flex;align-items:center;gap:12px;cursor:'+(answered?'default':'pointer')+';text-align:right;width:100%;padding:13px 16px;border-radius:13px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+        var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+        if(answered){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+        return { text:t, badge:['أ','ب','ج'][j],
+          showMark: answered && (isC || chosen), mark: isC ? '✓' : (chosen ? '✗' : ''),
+          onClick:function(){ if(ans[i]===undefined){ var a=Object.assign({},self.state.answers); a[i]=j; self.setState({answers:a}); } },
+          style:s+'background:'+bg+';border:2px solid '+bd+';',
+          badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+      });
+      var out={ n:nums[i], q:x.q, options:options, showFeedback:picked!==null };
+      if(picked!==null){
+        var ok=picked===x.correct;
+        out.fbStyle='margin-top:14px;padding:13px 17px;border-radius:13px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:3px;'
+          +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+        out.fbTitle=ok?'✓ إجابة صحيحة':'✗ الإجابة الصحيحة: '+x.options[x.correct];
+        out.fbText=x.fb[x.correct];
+      }
+      return out;
+    });
+
+    var allAnswered=answeredCount===total;
+    var pct=Math.round((score/total)*100);
+    var resultEmoji='🌟', resultTitle='ممتاز', resultMsg='';
+    if(allAnswered){
+      if(score===total){ resultEmoji='🏆'; resultTitle='ممتاز جدّاً'; resultMsg='أتقنتَ حديث السبعة الناجين وأصنافهم وأدلّتهم إتقاناً تامّاً. أحسنت!'; }
+      else if(score>=4){ resultEmoji='🌟'; resultTitle='أحسنت'; resultMsg='مستوىً جيّد جدّاً. راجع ما أخطأتَ فيه لتُتقن جميع الأصناف السبعة وأدلّتها.'; }
+      else { resultEmoji='📖'; resultTitle='واصل المراجعة'; resultMsg='عُد إلى مشاهد الدرس وراجع الأصناف السبعة ومعاني كلمات الحديث، ثمّ أعد المحاولة.'; }
+    }
+
+    return {
+      questions:questions, score:score, total:total, pct:pct,
+      allAnswered:allAnswered, resultEmoji:resultEmoji, resultTitle:resultTitle, resultMsg:resultMsg,
+      reset:function(){ self.setState({answers:{}}); window.scrollTo(0,0); }
+    };
+  }
+}
+</script>
+</body>
+</html>

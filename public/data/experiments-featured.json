@@ -20,6 +20,16 @@
     "launchPath": "experiments/arabic-g12-l2/Book Cover.dc.html"
   },
   {
+    "id": "exp-islamic-g12-book",
+    "title": "التربية الإسلامية: كتاب تفاعلي للسادس الإعدادي",
+    "disciplineName": "التربية الإسلامية",
+    "typeLabel": "كتاب تفاعلي",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي — الفصل الأول",
+    "durationMinutes": 40,
+    "launchPath": "experiments/islamic-g12/Book Cover.dc.html"
+  },
+  {
     "id": "exp-newton-laws",
     "title": "محاكاة قوانين نيوتن للحركة",
     "disciplineName": "الفيزياء",

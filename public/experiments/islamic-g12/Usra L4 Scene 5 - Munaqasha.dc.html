@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Usra%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">نظام الأسرة في الإسلام</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · المناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Usra%20L4%20Scene%204%20-%20Muaqqat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Usra%20L4%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المناقشة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">أسئلة المناقشة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        سبعة أسئلةٍ للتفكّر والحوار — اضغط أيّ سؤالٍ لتظهر إرشاداتُ الإجابة عنه.
+      </p>
+    </div>
+
+    <section style="background:var(--c-tint);border-radius:22px;padding:clamp(20px,3.4vw,32px);">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
+          <div style="background:#fff;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;">
+            <button onClick="{{ q.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:12px;align-items:center;padding:clamp(14px,2.2vw,18px);text-align:right;">
+              <span style="flex:none;width:32px;height:32px;border-radius:9px;background:var(--c-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:14px;">{{ q.n }}</span>
+              <span style="flex:1;font-size:clamp(14px,1.9vw,16.5px);line-height:1.8;color:var(--c-ink);">{{ q.text }}</span>
+              <span style="flex:none;color:var(--c-primary);font-size:19px;transform:{{ q.chev }};">⌄</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 clamp(14px,2.2vw,18px) clamp(14px,2.2vw,18px);">
+                <div style="background:var(--c-tint);border-radius:12px;padding:12px 14px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;"><b style="color:var(--c-primary);">إرشاد الإجابة: </b>{{ q.hint }}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0350,#3a1290);border-radius:22px;padding:clamp(24px,4vw,40px);color:#fff;text-align:center;">
+      <svg viewBox="0 0 40 40" style="position:absolute;top:10px;right:14px;width:34px;opacity:.4;animation:rot 26s linear infinite;">
+        <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#bfeaff"></polygon></g>
+      </svg>
+      <div style="font-family:'El Messiri';font-weight:600;color:#bfeaff;font-size:clamp(14px,2vw,16px);margin-bottom:12px;">ونختم بالدعاء</div>
+      <div class="qv" style="font-size:clamp(19px,3.6vw,30px);line-height:2.1;">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ</div>
+      <div style="color:#bfa9ff;font-size:13px;margin-top:10px;">آل عمران: ٨</div>
+    </section>
+
+    <section style="background:linear-gradient(135deg,#1f9e8b,#0f766e);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+      <div style="font-size:34px;margin-bottom:8px;">🏡</div>
+      <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(20px,2.8vw,26px);margin:0 0 8px;">أتممتَ درس نظام الأسرة</h2>
+      <p style="margin:0 0 18px;color:#d7f5ee;font-size:clamp(14px,1.9vw,16px);line-height:1.9;">انتقل إلى التقويم النهائي الذي يقيس تحقّقك من هدف الدرس.</p>
+      <a href="Usra%20L4%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0f766e;font-family:'El Messiri';font-weight:700;font-size:16px;padding:13px 30px;border-radius:999px;min-height:44px;"><span>ابدأ التقويم</span><span>←</span></a>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { qopen:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  discussion(){
+    return [
+      { text:'اهتمّ القرآن الكريم لبناء الأسرة فجعلها قائمةً على أسسٍ ثابتة. ما تلك الأسس؟',
+        hint:'أربعة أسس: وحدة الأصل والمنشأ، والمودة والرحمة، والعدالة والمساواة، والتكافل الاجتماعي.' },
+      { text:'ما مقياس الاختيار في الزواج؟ وما آثار حسن الاختيار في نجاح الزواج أو فشله؟',
+        hint:'المقياس هو الدين والخلق «فاظفر بذات الدين». وحسن الاختيار يؤدّي إلى السكن والمودة والرحمة واستمرار الحياة الزوجية؛ وسوؤه يؤدّي إلى الخلاف والشقاء.' },
+      { text:'المحرّمات من النساء تحرم أصنافاً مؤبّدةً ثلاثةً باختلاف السبب. اذكر ذلك، ومثّل لكلٍّ منها.',
+        hint:'بالنسب (كالأمّهات والبنات والأخوات)، وبالمصاهرة (كأمّ الزوجة وزوجة الأب)، وبالرضاع (كالأمّ والأخت من الرضاعة).' },
+      { text:'هل يجوز للمسلمة الزواج من غير المسلم؟',
+        hint:'لا يجوز؛ ﴿ولا تنكحوا المشركين حتى يؤمنوا﴾، فتحرم المسلمة على غير المسلم حتى يُسلم.' },
+      { text:'ما الحكمة من تحريم الجمع بين الأختين؟',
+        hint:'حتى لا يقع بينهما التنافس والقطيعة، فتبقى صلة الرحم قائمةً بين الأختين بعيدةً عن المنازعات.' },
+      { text:'ما ضوابط اللقاء بين الخطيبين؟',
+        hint:'يجوز للخاطب أن يرى خطيبته بما يدعوه إلى نكاحها بحضور محرمٍ لها، دون خلوة؛ «لا يخلونّ رجلٌ بامرأةٍ إلا كان ثالثهما الشيطان».' },
+      { text:'القوامة تكليفٌ لا تشريف. ناقش ذلك.',
+        hint:'القوامة ليست أفضليةً جنسية، بل مسؤوليةٌ لتحقيق نظام الأسرة؛ فالعبء الأكبر على الرجل يدفع المهر وينفق ويرعى، «كلكم راعٍ وكلكم مسؤولٌ عن رعيته».' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, qopen = this.state.qopen;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===4 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var questions = this.discussion().map(function(q,i){
+      var open=!!qopen[i];
+      return { n:['١','٢','٣','٤','٥','٦','٧'][i], text:q.text, hint:q.hint, open:open,
+        chev:open?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.qopen); o[i]=!o[i]; self.setState({qopen:o}); } };
+    });
+    return { pips:pips, questions:questions };
+  }
+}
+</script>
+</body>
+</html>

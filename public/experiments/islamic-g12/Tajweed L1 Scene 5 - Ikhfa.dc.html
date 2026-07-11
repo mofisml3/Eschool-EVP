@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <a href="Tajweed%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+         style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+         style-hover="border-color:var(--c-accent);">🏠</a>
+      <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أحكام النون الساكنة والتنوين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٦ · الإخفاء</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Tajweed%20L1%20Scene%204%20-%20Idgham.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Tajweed%20L1%20Scene%206%20-%20Tatbeeq.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الحكم الرابع</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">الإخفاء</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        هو النطق بالنون الساكنة والتنوين خاليةً من التشديد، <b style="color:var(--scene);">وسطاً بين الإظهار والإدغام</b> مع الغُنّة (أي إخفاء معظم لفظ النون)، إذا جاء بعدها أحدُ خمسة عشر حرفاً. ويقع في كلمةٍ واحدةٍ أو كلمتين.
+      </p>
+    </div>
+
+    <!-- spectrum -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(16px,2.2vw,20px);margin:0 0 16px;color:var(--c-primary);">موقع الإخفاء بين الأحكام</h2>
+      <div style="display:flex;align-items:stretch;gap:8px;">
+        <div style="flex:1;text-align:center;background:rgba(0,166,214,.1);border:1px solid var(--r-idhhar);border-radius:12px;padding:12px 8px;">
+          <div style="font-family:'El Messiri';font-weight:700;color:var(--r-idhhar);font-size:clamp(13px,1.9vw,16px);">الإظهار</div>
+          <div style="color:var(--c-inkSoft);font-size:11px;margin-top:3px;">إظهارٌ تامّ بلا غُنّة</div>
+        </div>
+        <div style="flex:1.3;text-align:center;background:linear-gradient(135deg,#b64d8e,var(--scene));border-radius:12px;padding:12px 8px;box-shadow:0 8px 22px rgba(213,95,166,.4);transform:translateY(-4px);">
+          <div style="font-family:'El Messiri';font-weight:700;color:#fff;font-size:clamp(14px,2.1vw,18px);">◆ الإخفاء</div>
+          <div style="color:#ffe6f4;font-size:11px;margin-top:3px;">وسطٌ مع الغُنّة</div>
+        </div>
+        <div style="flex:1;text-align:center;background:rgba(123,63,212,.1);border:1px solid var(--r-idgham);border-radius:12px;padding:12px 8px;">
+          <div style="font-family:'El Messiri';font-weight:700;color:var(--r-idgham);font-size:clamp(13px,1.9vw,16px);">الإدغام</div>
+          <div style="color:var(--c-inkSoft);font-size:11px;margin-top:3px;">إدماجٌ تامّ</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#6e2a54,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🎼 حروف الإخفاء الخمسة عشر</h2>
+        <p style="margin:0;color:#ffe0f2;font-size:clamp(12px,1.7vw,14px);">مجموعة في أوائل كلمات هذا البيت — اضغط أيّ حرفٍ لترى مثاله.</p>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- poem two lines -->
+        <div class="qv" style="text-align:center;font-size:clamp(17px,3.4vw,28px);color:var(--c-primary);line-height:2.1;margin-bottom:20px;">
+          <div>
+            <sc-for list="{{ line1 }}" as="w" hint-placeholder-count="8">
+              <span onClick="{{ w.onClick }}" style="{{ w.style }}"><span style="{{ w.initStyle }}">{{ w.init }}</span>{{ w.rest }}</span>
+            </sc-for>
+          </div>
+          <div>
+            <sc-for list="{{ line2 }}" as="w" hint-placeholder-count="7">
+              <span onClick="{{ w.onClick }}" style="{{ w.style }}"><span style="{{ w.initStyle }}">{{ w.init }}</span>{{ w.rest }}</span>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- letter chips -->
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;">
+          <sc-for list="{{ letters }}" as="l" hint-placeholder-count="15">
+            <button onClick="{{ l.onClick }}" style="{{ l.style }}">{{ l.ch }}</button>
+          </sc-for>
+        </div>
+
+        <!-- readout -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+          <div style="background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.6vw,22px);text-align:center;">
+            <div style="color:var(--c-inkSoft);font-size:13px;">الحرف · من مثال</div>
+            <div class="qv" style="font-size:clamp(44px,10vw,72px);color:var(--scene);line-height:1.2;">{{ sel.ch }}</div>
+            <div class="qv" style="font-size:22px;color:var(--c-primary);">{{ sel.ex }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;justify-content:center;">
+            <div style="background:#fff;border:1px solid var(--c-line);border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="color:var(--c-inkSoft);font-size:13px;">الحكم</span><span style="font-weight:700;color:var(--scene);">إخفاء</span>
+            </div>
+            <div style="background:rgba(31,158,139,.1);border:1px solid var(--c-good);border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="color:#177564;font-size:13px;">الغُنّة</span><span style="font-weight:700;color:var(--c-good);">نعم — مع الغُنّة</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- examples verbatim -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(14px,2.4vw,22px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--scene);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0 0 12px;color:var(--c-primary);">أمثلة النون الساكنة</h2>
+        <p class="qv" style="margin:0;font-size:clamp(17px,2.6vw,21px);line-height:2.3;color:var(--c-ink);">
+          فَانْصِب — مُنْذِر — إِنْ كَذَّبَ — مِنْ ثَمَرَة — فَمَنْ شَاء — مِنْ قَبْل — مِنْ سَعَة — مِنْ دَابَّة — مِنْ طَيِّبَات — مَنْ زَكَّاهَا — مِنْ فِضَّة — مِنْ تَابَ — مِنْ ضَلَّ — مِنْ ظَلَم.
+        </p>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idgham);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0 0 12px;color:var(--c-primary);">أمثلة التنوين</h2>
+        <p class="qv" style="margin:0;font-size:clamp(17px,2.6vw,21px);line-height:2.3;color:var(--c-ink);">
+          عَمَلًا صَوَابًا — يُؤْمِنُونَ ثَمَانِيَة — كِتَابٌ كَرِيم — كَذَّابًا جَزَاء — غَفُورٌ شَكُور — رِفْقًا قَالُوا — بَشَرًا سَوِيًّا — قَوْمًا طَاغِين — غُلَامًا زَكِيًّا — يَتِيمًا فَآوَى — جَنَّاتٍ تَجْرِي — مَكَانًا ضَيِّقًا — ظِلًّا ظَلِيلًا.
+        </p>
+      </section>
+    </div>
+
+    <!-- worked example -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="background:var(--scene);color:#fff;font-family:'El Messiri';font-weight:700;padding:4px 12px;border-radius:8px;font-size:13px;">مثال محلول</span>
+        <span style="color:#d6d0ee;font-size:14px;">عيّن الإخفاء مع ذكر السبب</span>
+      </div>
+      <div class="qv" style="font-size:clamp(18px,3.2vw,27px);line-height:2;text-align:center;margin-bottom:8px;">
+        ﴿ وَكَأَيِّن مِّن قَرْيَةٍ أَمْلَيْتُ لَهَا وَهِيَ ظَالِمَةٌ ثُمَّ أَخَذْتُهَا وَإِلَيَّ الْمَصِيرُ ﴾
+      </div>
+      <div style="text-align:center;color:#bfa9ff;font-size:13px;margin-bottom:18px;">الحج: 48</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="background:var(--scene);width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;">١</span><span style="font-weight:600;">النون الساكنة</span></div>
+          <p style="margin:0;color:#e4dff5;font-size:14px;line-height:1.9;">في كلمة <b class="qv" style="font-size:18px;">(مِنْ)</b> حكمها الإخفاء؛ لمجيء حرف القاف <span class="qv">(ق)</span> بعدها.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="background:var(--scene);width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;">٢</span><span style="font-weight:600;">التنوين</span></div>
+          <p style="margin:0;color:#e4dff5;font-size:14px;line-height:1.9;">في كلمة <b class="qv" style="font-size:18px;">(ظَالِمَةٌ)</b> حكمها الإخفاء؛ لمجيء حرف الثاء <span class="qv">(ث)</span> بعدها.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sel:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  data(){
+    return [
+      { ch:'ص', ex:'فَانْصِب',        init:'صِ', rest:'فْ',    line:1 },
+      { ch:'ذ', ex:'مُنْذِر',         init:'ذَ', rest:'ا',     line:1 },
+      { ch:'ث', ex:'مِنْ ثَمَرَة',    init:'ثَ', rest:'نَا',   line:1 },
+      { ch:'ك', ex:'إِنْ كَذَّبَ',    init:'كَ', rest:'مْ',    line:1 },
+      { ch:'ج', ex:'كَذَّابًا جَزَاء', init:'جَ', rest:'ادَ',   line:1 },
+      { ch:'ش', ex:'فَمَنْ شَاء',     init:'شَ', rest:'خْصٌ',  line:1 },
+      { ch:'ق', ex:'مِنْ قَبْل',      init:'قَ', rest:'دْ',    line:1 },
+      { ch:'س', ex:'مِنْ سَعَة',      init:'سَ', rest:'مَا',   line:1 },
+      { ch:'د', ex:'مِنْ دَابَّة',    init:'دُ', rest:'مْ',    line:2 },
+      { ch:'ط', ex:'مِنْ طَيِّبَات',  init:'طَ', rest:'يِّبًا', line:2 },
+      { ch:'ز', ex:'مَنْ زَكَّاهَا',  init:'زِ', rest:'دْ',    line:2 },
+      { ch:'ف', ex:'مِنْ فِضَّة',     init:'فِ', rest:'ي',     line:2 },
+      { ch:'ت', ex:'مِنْ تَابَ',      init:'تُ', rest:'قًى',   line:2 },
+      { ch:'ض', ex:'مِنْ ضَلَّ',      init:'ضَ', rest:'عْ',    line:2 },
+      { ch:'ظ', ex:'مِنْ ظَلَم',      init:'ظَ', rest:'الِمَا', line:2 },
+    ];
+  }
+
+  renderVals(){
+    var self = this, d = this.data(), sel = d[this.state.sel];
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===4 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var mkWord = function(item, idx){
+      var on = self.state.sel===idx;
+      return { init:item.init, rest:item.rest, onClick:function(){ self.setState({sel:idx}); },
+        style:'cursor:pointer;margin:0 5px;',
+        initStyle:'color:'+(on?'var(--scene)':'var(--c-primary)')+';font-weight:700;'
+          +(on?'text-shadow:0 0 12px rgba(213,95,166,.55);border-bottom:3px solid var(--scene);':'border-bottom:3px solid transparent;') };
+    };
+    var line1 = [], line2 = [];
+    d.forEach(function(item, idx){ (item.line===1?line1:line2).push(mkWord(item, idx)); });
+
+    var letters = d.map(function(l,i){
+      var on = self.state.sel===i;
+      return { ch:l.ch, onClick:function(){ self.setState({sel:i}); },
+        style:'cursor:pointer;width:clamp(42px,9vw,52px);height:clamp(42px,9vw,52px);border-radius:13px;font-family:Amiri;font-weight:700;font-size:clamp(20px,4.4vw,26px);transition:all .22s;min-height:44px;'
+          +(on?'background:var(--scene);color:#fff;border:2px solid var(--scene);box-shadow:0 6px 16px rgba(213,95,166,.4);transform:translateY(-2px);'
+                :'background:#fff;color:var(--c-primary);border:2px solid var(--c-line);') };
+    });
+
+    var picked = this.state.picked, correct = 0;
+    var opts = ['الإخفاء؛ لأنّ القاف من الحروف الخمسة عشر.','الإظهار؛ لأنّ القاف من حروف الحَلْق.','الإقلاب؛ لأنّ بعد النون باء.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:st+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما حكم النون الساكنة في قوله تعالى ﴿ مِنْ قَبْلُ ﴾؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'القاف (ق) أحد الحروف الخمسة عشر للإخفاء، فتُخفى النون مع الغُنّة وسطاً بين الإظهار والإدغام.'
+        :'القاف ليست من حروف الحَلْق ولا يليها باء؛ بل هي من حروف الإخفاء الخمسة عشر، فالحكم إخفاء.';
+    }
+
+    return { pips:pips, line1:line1, line2:line2, letters:letters, sel:sel, check:check };
+  }
+}
+</script>
+</body>
+</html>

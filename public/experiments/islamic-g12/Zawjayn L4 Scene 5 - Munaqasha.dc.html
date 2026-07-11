@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">حقوق الزوجين وواجباتهما</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · المناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Scene%204%20-%20Taaddud.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Zawjayn%20L4%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1000px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1000px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,28px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المناقشة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">أسئلةٌ للحوار</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-inkSoft);max-width:70ch;">ثماني أسئلةٍ تراجع بها الدرس. فكّر في إجابتك أوّلاً، ثمّ اضغط «إظهار التوجيه» لتقارن جوابك بالتوجيه.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ questions }}" as="q" hint-placeholder-count="8">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;padding:clamp(16px,2.5vw,24px);box-shadow:0 5px 18px rgba(32,0,88,.05);">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <span style="flex:none;width:36px;height:36px;border-radius:11px;background:var(--scene);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:15px;">{{ q.num }}</span>
+            <h2 style="flex:1;font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(16px,2.3vw,20px);margin:0;line-height:1.7;padding-top:3px;">{{ q.q }}</h2>
+          </div>
+          <div style="margin:14px 0 0;padding-inline-start:48px;">
+            <button onClick="{{ q.onToggle }}" style="cursor:pointer;border:1px solid var(--c-accent);background:rgba(0,195,254,.08);color:var(--c-primary);border-radius:10px;padding:9px 18px;font-family:'El Messiri';font-weight:700;font-size:13px;min-height:44px;" style-hover="background:rgba(0,195,254,.16);">{{ q.btnLabel }}</button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:12px;background:var(--c-tint);border-radius:12px;padding:14px 16px;animation:fadeUp .35s ease;">
+                <div style="font-family:'El Messiri';font-weight:700;color:var(--c-good);font-size:13px;margin-bottom:4px;">توجيه الإجابة</div>
+                <p style="margin:0;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:2;">{{ q.a }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </section>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:clamp(8px,2vw,14px);">
+      <a href="Zawjayn%20L4%20Check.dc.html"
+         style="display:inline-flex;align-items:center;gap:12px;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(17px,2.2vw,21px);padding:15px 38px;border-radius:999px;box-shadow:0 12px 34px rgba(0,195,254,.4);min-height:44px;"
+         style-hover="filter:brightness(1.06);"><span style="font-size:1.1em;">◀</span><span>انتقل إلى التقويم</span></a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4].map(function(){ return { bg:'var(--scene)' }; });
+    var nums=['١','٢','٣','٤','٥','٦','٧','٨'];
+    var data=[
+      { q:'ما حقوقُ الزوجة؟',
+        a:'ثلاثةٌ رئيسة: المهرُ (حقٌّ خالصٌ لها لا يؤخذ إلّا برضاها)، والنفقةُ (طعامها ولباسها ومسكنها وإن كانت غنيّة)، وحُسنُ المعاملة والمعاشرةُ بالمعروف وإدخالُ السرور عليها.' },
+      { q:'هل يجوز لوليِّ الأمر (كالأب) أخذُ مهر ابنته؟',
+        a:'لا يجوز؛ لأنّ المهرَ حقٌّ خالصٌ للمرأة وحدَها، لا يجوز لأحدٍ — وليّاً كان أو زوجاً — أن يأخذَ منه شيئاً إلّا برضاها.' },
+      { q:'متى تسقطُ نفقةُ الزوجة؟',
+        a:'تسقط إذا نشزَت الزوجةُ وامتنعت عن زوجها بغير حقٍّ شرعيّ. وإذا عجز الزوجُ عن الإنفاق فللزوجة أن ترفع أمرَها إلى القاضي الشرعيّ للنظر فيه.' },
+      { q:'استشهِد بآيةٍ وحديثٍ شريفٍ على وجوب حسن معاملة الزوجة.',
+        a:'الآية: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ ۚ فَإِن كَرِهْتُمُوهُنَّ فَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَيَجْعَلَ اللَّهُ فِيهِ خَيْرًا كَثِيرًا﴾ [النساء: ١٩]. والحديث: «خيرُكم خيرُكم لأهلِه، وأنا خيرُكم لأهلي».' },
+      { q:'ما حقيقةُ قوامةِ الرجل؟ وهل تُعدّ تكليفاً أو تشريفاً؟ ولماذا اختُصّ بها الرجلُ دون المرأة؟',
+        a:'القوامةُ مسؤوليّةٌ وتكليفٌ لا تشريفٌ ولا سلطة، وأمرٌ طبيعيٌّ لأنّ كلَّ شراكةٍ تحتاج مديراً يحسم الخلاف لئلّا تختلّ. واختُصّ بها الرجلُ لأنّه المسؤولُ الأوّلُ والمكلَّفُ بالإنفاق على البيت وأفراده، وهي مبنيّةٌ على المودّة والرحمة والمعاشرة الحسنة.' },
+      { q:'ما حقوقُ الزوج؟',
+        a:'أوّلها الطاعةُ فيما لا معصيةَ فيه لله (لأنّه المسؤول الأوّل عن البيت)، ومنها أن تحفظَه الزوجةُ في نفسها وماله، وأن تعاونَه بالمعروف، وأن ترعى أولادَهما.' },
+      { q:'هل يجوز للمرأة أن تخرجَ من بيتها من دون إذن الزوج؟',
+        a:'لا؛ فمن حفظِها لبيت زوجها ألّا تخرجَ من بيته إلّا بإذنه، وألّا تأذنَ بدخول من يكرهه. وهذا من صيانة البيت وحفظ العِرض والأسرار.' },
+      { q:'كيف تحفظُ الزوجةُ زوجَها في نفسها؟',
+        a:'بأن تصونَ نفسَها عن الشبهات، وتحفظَ عِرضَه وأسرارَه، ولا تسمحَ بدخول بيته لمن يكرهه، ولا تخرجَ إلّا بإذنه، وتُحسِنَ التدبيرَ فلا تُسرِفَ في ماله.' },
+    ];
+    var questions=data.map(function(x,i){
+      var open=!!S.open[i];
+      return { num:nums[i], q:x.q, a:x.a, open:open,
+        btnLabel: open ? 'إخفاء التوجيه ▴' : 'إظهار التوجيه ▾',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+    return { pips:pips, questions:questions };
+  }
+}
+</script>
+</body>
+</html>

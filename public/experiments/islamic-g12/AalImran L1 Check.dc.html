@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#00c3fe;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes pop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة آل عمران</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">التقويم النهائيّ</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Scene%205%20-%20Irshadat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Chapter%201%20Hub.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>الرئيسية</span></a>
+      </div>
+    </div>
+    <div style="height:4px;max-width:900px;margin:0 auto;background:var(--c-line);">
+      <div style="height:100%;width:{{ progressPct }};background:var(--c-accent);transition:width .4s;"></div>
+    </div>
+  </header>
+
+  <main style="max-width:900px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;">
+
+    <div style="margin-bottom:clamp(20px,3vw,30px);">
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#04223a;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">التقويم</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(26px,4.6vw,42px);margin:0 0 8px;color:var(--c-primary);line-height:1.15;">قِس ما تعلّمت</h1>
+      <p style="margin:0;font-size:clamp(14px,1.9vw,17px);line-height:1.9;color:var(--c-inkSoft);">ستّة أسئلةٍ على الآيات ٩٠–٩٧ ومعانيها. اختر الإجابة الصحيحة وستظهر لك التغذية الراجعة فورًا.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:clamp(16px,2.4vw,22px);">
+      <sc-for list="{{ questions }}" as="q" hint-placeholder-count="6">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;padding:clamp(18px,2.8vw,26px);box-shadow:0 5px 20px rgba(32,0,88,.04);">
+          <div style="display:flex;gap:12px;margin-bottom:16px;">
+            <span style="flex:none;width:34px;height:34px;border-radius:10px;background:var(--c-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">{{ q.num }}</span>
+            <p style="margin:0;flex:1;font-size:clamp(15px,2vw,17.5px);line-height:1.9;color:var(--c-ink);font-weight:500;">{{ q.text }}</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <sc-for list="{{ q.options }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+                <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+                <span style="flex:1;text-align:right;">{{ o.text }}</span>
+                <sc-if value="{{ o.mark }}" hint-placeholder-val="{{ false }}"><span style="font-weight:700;">{{ o.mark }}</span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ q.showFeedback }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ q.fbStyle }}"><b>{{ q.fbTitle }}</b><span>{{ q.fbText }}</span></div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ allAnswered }}" hint-placeholder-val="{{ false }}">
+      <section style="{{ resultStyle }}">
+        <div style="font-size:34px;margin-bottom:8px;">{{ resultEmoji }}</div>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(22px,3.2vw,30px);margin:0 0 6px;">{{ resultTitle }}</h2>
+        <p style="margin:0 0 4px;font-size:clamp(16px,2.2vw,20px);font-weight:600;">نتيجتك: <span style="direction:ltr;unicode-bidi:isolate;">{{ score }} / ٦</span></p>
+        <p style="margin:0;font-size:14px;opacity:.92;line-height:1.8;max-width:52ch;margin-inline:auto;">{{ resultMsg }}</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
+          <button onClick="{{ onRetry }}" style="cursor:pointer;background:#fff;color:var(--c-primary);border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:12px 26px;border-radius:999px;min-height:44px;">↺ إعادة المحاولة</button>
+          <a href="Chapter%201%20Hub.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);color:#fff;font-family:'El Messiri';font-weight:700;font-size:15px;padding:12px 26px;border-radius:999px;min-height:44px;">الرئيسية ←</a>
+        </div>
+      </section>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { answers:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.accent);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  data(){
+    return [
+      { t:'من كفر بعد إيمانه وازداد كفرًا، ما حُكم توبته حسب الآية ٩٠؟', c:2,
+        o:['تُقبل توبته في كلّ حال.','تُقبل إن تصدّق بماله.','لن تُقبل توبته، وأولئك هم الضالّون.'],
+        fb:'﴿لَنْ تُقْبَلَ تَوْبَتُهُمْ وَأُولَٰئِكَ هُمُ الضَّالُّونَ﴾؛ لأنّها ليست توبةً خالصة.' },
+      { t:'ماذا لو افتدى الكافر الذي مات على كفره بمِلء الأرض ذهبًا؟', c:0,
+        o:['لن يُقبل منه، وما له من ناصرين.','يُقبل منه ويُنجّى.','يُخفَّف عنه بعض العذاب.'],
+        fb:'﴿فَلَنْ يُقْبَلَ مِنْ أَحَدِهِمْ مِلْءُ الْأَرْضِ ذَهَبًا وَلَوِ افْتَدَىٰ بِهِ﴾؛ فالنجاة بالإيمان لا بالمال.' },
+      { t:'بمَ يَنال المؤمن البِرّ حسب الآية ٩٢؟', c:1,
+        o:['بجمع المال وادّخاره.','بالإنفاق ممّا يحبّ في سبيل الله.','بالإنفاق من الفائض فقط.'],
+        fb:'﴿لَنْ تَنَالُوا الْبِرَّ حَتَّىٰ تُنْفِقُوا مِمَّا تُحِبُّونَ﴾.' },
+      { t:'لماذا حُرِّم على بني إسرائيل بعض الطعام الذي كان حلالًا لهم؟', c:2,
+        o:['لأنّ التوراة حرّمته ابتداءً.','لأنّ إبراهيم حرّمه.','عقوبةً لهم بسبب ظلمهم وبغيهم.'],
+        fb:'كلّ الطعام كان حِلًّا لهم إلّا ما حرّم إسرائيل (يعقوب) على نفسه؛ ثمّ حُرِّم بعضُه عليهم عقوبةً لظلمهم بعد نزول التوراة.' },
+      { t:'ما أوّل بيتٍ وُضع للناس لعبادة الله؟', c:1,
+        o:['المسجد الأقصى ببيت المقدس.','البيت الحرام الذي بِبَكّة (مكّة).','مسجد قُباء بالمدينة.'],
+        fb:'﴿إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا وَهُدًى لِلْعَالَمِينَ﴾.' },
+      { t:'على مَن يجب حجّ البيت حسب الآية ٩٧؟', c:0,
+        o:['على من استطاع إليه سبيلًا.','على الأغنياء فقط دون غيرهم.','على أهل مكّة خاصّة.'],
+        fb:'﴿وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا﴾؛ فهو واجبٌ على المستطيع.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, d = this.data(), answers = this.state.answers;
+    var nums=['١','٢','٣','٤','٥','٦'], badges=['أ','ب','ج'];
+
+    var questions = d.map(function(q,qi){
+      var picked = (qi in answers) ? answers[qi] : null;
+      var options = q.o.map(function(t,i){
+        var chosen=picked===i, isC=i===q.c;
+        var s='display:flex;align-items:center;gap:12px;cursor:'+(picked===null?'pointer':'default')+';text-align:right;width:100%;padding:13px 15px;border-radius:13px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+        var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)',mark='';
+        if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';mark='✓';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';mark='✗';} }
+        return { text:t, badge:badges[i], mark:mark,
+          onClick:function(){ if(!(qi in self.state.answers)){ var a=Object.assign({},self.state.answers); a[qi]=i; self.setState({answers:a}); } },
+          style:s+'background:'+bg+';border:2px solid '+bd+';',
+          badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+      });
+      var out = { num:nums[qi], text:q.t, options:options, showFeedback:picked!==null };
+      if(picked!==null){
+        var ok=picked===q.c;
+        out.fbStyle='margin-top:14px;padding:13px 16px;border-radius:12px;line-height:1.8;font-size:13.5px;display:flex;flex-direction:column;gap:3px;'
+          +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+        out.fbTitle=ok?'✓ إجابة صحيحة':'✗ الإجابة الصحيحة مُميّزة بالأخضر';
+        out.fbText=q.fb;
+      }
+      return out;
+    });
+
+    var answered=Object.keys(answers).length, all=answered===6;
+    var score=0; d.forEach(function(q,qi){ if(answers[qi]===q.c) score++; });
+    var arNum=['٠','١','٢','٣','٤','٥','٦'];
+
+    var resultEmoji='🌟', resultTitle='ممتاز!', resultMsg='', rs;
+    if(score===6){ resultEmoji='🏆'; resultTitle='إتقانٌ تامّ!'; resultMsg='أجبتَ عن جميع الأسئلة إجابةً صحيحة. أتقنتَ آيات آل عمران ومعانيها.'; rs='linear-gradient(135deg,#1f9e8b,#0f766e)'; }
+    else if(score>=4){ resultEmoji='🌟'; resultTitle='أحسنت!'; resultMsg='نتيجةٌ جيّدة جدًّا. راجِع الأسئلة التي أخطأتَ فيها لتُتقن الدرس كاملًا.'; rs='linear-gradient(135deg,#200058,#3a1290)'; }
+    else { resultEmoji='📖'; resultTitle='تحتاج إلى مراجعة'; resultMsg='لا بأس؛ عُد إلى مشاهد الدرس ثمّ أعِد المحاولة — ستتحسّن نتيجتك بإذن الله.'; rs='linear-gradient(135deg,#b0454f,#7a2b34)'; }
+
+    return {
+      questions:questions, allAnswered:all, score:arNum[score],
+      progressPct: Math.round(answered/6*100)+'%',
+      resultEmoji:resultEmoji, resultTitle:resultTitle, resultMsg:resultMsg,
+      resultStyle:'margin-top:clamp(22px,3.4vw,32px);border-radius:22px;padding:clamp(26px,4vw,40px);color:#fff;text-align:center;animation:pop .45s ease;background:'+rs+';',
+      onRetry:function(){ self.setState({answers:{}}); if(window.scrollTo) window.scrollTo({top:0,behavior:'smooth'}); }
+    };
+  }
+}
+</script>
+</body>
+</html>

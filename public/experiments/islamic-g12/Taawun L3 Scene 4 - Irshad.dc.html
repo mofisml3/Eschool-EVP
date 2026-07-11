@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes flip{0%{transform:rotateY(90deg);opacity:0;}100%{transform:rotateY(0);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">التعاون بين المسلمين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · أهمّ ما يرشد إليه</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Scene%203%20-%20Sharh.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Taawun%20L3%20Scene%205%20-%20Munaqasha.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">خلاصة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">أهمّ ما يرشد إليه الحديث</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        اضغط كلّ بطاقةٍ لتكشف إرشاداً من إرشادات الحديث الخمسة، مع دليله. تابِع كم كشفتَ حتى تُتمّها كلّها.
+      </p>
+    </div>
+
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#6e2a54,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0;">🃏 اكشف الإرشادات الخمس</h2>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="color:#ffe0f2;font-weight:700;font-family:'El Messiri';">{{ revealed }}/5</span>
+          <button onClick="{{ onAll }}" style="cursor:pointer;background:rgba(255,255,255,.15);color:#fff;border:none;padding:8px 14px;border-radius:10px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;">{{ allLabel }}</button>
+        </div>
+      </div>
+      <div style="padding:clamp(16px,3vw,26px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:clamp(12px,2vw,16px);">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+            <button onClick="{{ c.onClick }}" style="{{ c.style }}">
+              <span style="{{ c.numStyle }}">{{ c.num }}</span>
+              <span style="{{ c.textStyle }}">{{ c.text }}</span>
+              <sc-if value="{{ c.hasVerse }}" hint-placeholder-val="{{ false }}">
+                <span class="qv" style="{{ c.verseStyle }}">{{ c.verse }}</span>
+              </sc-if>
+              <sc-if value="{{ c.hidden }}" hint-placeholder-val="{{ false }}">
+                <span style="color:var(--c-inkSoft);font-size:13px;">اضغط للكشف</span>
+              </sc-if>
+            </button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:16px;padding:14px;border-radius:14px;background:rgba(31,158,139,.1);border:1px solid var(--c-good);color:#177564;text-align:center;font-weight:600;font-size:15px;">🌟 أحسنت! كشفتَ الإرشادات الخمس كلّها.</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flipped:{}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  irshad(){
+    return [
+      { text:'يشير الحديث إلى دور التعاون والتكافل الاجتماعي في تحقيق العدالة للفئات التي عجزت عن العيش الكريم بظروف الحياة؛ فيحفظ لها إنسانيتها بلا مهانةٍ ولا تعاسةٍ ولا شقاء.', verse:'' },
+      { text:'يفرض الإسلام رعاية مصلحة المجتمع عند تملّك المال؛ لأنّ المال لله، فيد المالك يد استخلاف، وقد جعل الله المال وسيلةً للخير في مصلحة المجتمع.', verse:'آمِنُوا بِاللَّهِ وَرَسُولِهِ وَأَنْفِقُوا مِمَّا جَعَلَكُمْ مُسْتَخْلَفِينَ فِيهِ (الحديد: ٧)' },
+      { text:'الإسلام يكره تكدّس الثروات في أيدٍ قليلة، لما يؤدّيه ذلك من ترفٍ على حساب حرمان الآخرين.', verse:'كَيْ لَا يَكُونَ دُولَةً بَيْنَ الْأَغْنِيَاءِ مِنْكُمْ (الحشر: ٧)' },
+      { text:'كلّ إنسانٍ مسؤولٌ عن شؤون المجتمع واستقامة أمره، وواجبٌ على المرء أن يهتمّ بشؤون إخوانه ولبيةِ حاجاتهم.', verse:'«كُلُّكُمْ رَاعٍ وَكُلُّكُمْ مَسْؤُولٌ عَنْ رَعِيَّتِهِ» — «مَنْ لَمْ يَهْتَمَّ بِأَمْرِ المُسْلِمِينَ فَلَيْسَ مِنْهُمْ»' },
+      { text:'العطاء النابع من أعماق الشعور الذي يدعو إليه الإسلام يسمو بنفس المؤمن، ويحقّق الأهداف الإنسانية والاجتماعية؛ فيوجد التوازن، ويزيل الحرمان، ويكوّن مجتمعاً متعاوناً سليماً.', verse:'' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, flipped = this.state.flipped;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var nums = ['①','②','③','④','⑤'];
+
+    var ir = this.irshad();
+    var cards = ir.map(function(l,i){
+      var open=!!flipped[i];
+      var st='cursor:pointer;border:2px solid '+(open?'var(--scene)':'var(--c-line)')+';border-radius:16px;padding:16px;text-align:right;min-height:160px;display:flex;flex-direction:column;gap:10px;transition:all .25s;'
+        +(open?'background:#fff;box-shadow:0 8px 20px rgba(213,95,166,.12);':'background:var(--c-tint);');
+      var textStyle = open ? 'color:var(--c-ink);font-size:clamp(13px,1.7vw,14.5px);line-height:1.85;animation:flip .35s ease;' : 'display:none;';
+      var numStyle='flex:none;width:34px;height:34px;border-radius:10px;background:'+(open?'var(--scene)':'#fff')+';color:'+(open?'#fff':'var(--scene)')+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;border:1.5px solid var(--scene);';
+      var hasVerse = open && !!l.verse;
+      var verseStyle='background:rgba(213,95,166,.08);border-radius:10px;padding:8px 12px;color:var(--c-primary);font-size:clamp(13px,1.9vw,16px);line-height:1.85;';
+      return { num:nums[i], text:l.text, verse:l.verse, hasVerse:hasVerse, verseStyle:verseStyle,
+        numStyle:numStyle, textStyle:textStyle, hidden:!open,
+        style:st, onClick:function(){ var f=Object.assign({},self.state.flipped); f[i]=!f[i]; self.setState({flipped:f}); } };
+    });
+    var revealed = Object.keys(flipped).filter(function(k){ return flipped[k]; }).length;
+    var allDone = revealed===5;
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['أنّ المال مِلكٌ مطلقٌ لصاحبه يمنعه كيف شاء.','أنّ يد المالك يد استخلاف، والمال وسيلةٌ لمصلحة المجتمع.','أنّ الفقر قدرٌ لا يُدفَع.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'كيف نظر الإسلام إلى مِلكيّة المال بحسب الحديث؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'يد المالك يد استخلاف؛ فالمال لله، جعله وسيلةً للخير ومصلحة المجتمع، لا مِلكاً مطلقاً يُحبَس عن المحتاج.'
+        :'الإسلام يرى المال استخلافاً من الله (الحديد: ٧)، وسيلةً لمصلحة المجتمع، لا مِلكاً مطلقاً ولا قدراً لا يُدفَع.';
+    }
+
+    return {
+      pips:pips, cards:cards, revealed:revealed, allDone:allDone,
+      allLabel: revealed>=5 ? 'إخفاء الكل' : 'اكشف الكل',
+      onAll:function(){ if(revealed>=5){ self.setState({flipped:{}}); } else { var f={}; for(var i=0;i<5;i++) f[i]=true; self.setState({flipped:f}); } },
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

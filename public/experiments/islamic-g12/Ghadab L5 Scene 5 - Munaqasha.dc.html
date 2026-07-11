@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes emberCool{0%{background:var(--c-alert);}100%{background:var(--c-good);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">النهي عن الغضب</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · كظم الغيظ والمناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Scene%204%20-%20Ilaj.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Ghadab%20L5%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الخلاصة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">اكتساب كظم الغيظ</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        يستطيع الإنسان أن يكتسب فضيلة كظم الغيظ حتى تصير من صفاته، وذلك <b>بشيئين</b> — اضغط كلّاً منهما لتبرد جمرة الغضب في القلب.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE: cool the ember ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#6e2a54,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🫀 جمرة الغضب في القلب</h2>
+        <p style="margin:0;color:#ffe0f2;font-size:clamp(12px,1.7vw,14px);">الغضب جمرةٌ تتّقد في القلب — فعّل الوسيلتين لتُبرِدها إلى حلمٍ وسكينة.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;justify-content:center;margin-bottom:18px;">
+          <div style="position:relative;width:clamp(120px,30vw,160px);height:clamp(120px,30vw,160px);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .6s;background:{{ heartBg }};box-shadow:0 0 {{ heartGlow }};">
+            <span style="font-size:clamp(44px,10vw,64px);filter:grayscale({{ heartGray }});transition:all .6s;">{{ heartIcon }}</span>
+          </div>
+        </div>
+        <div style="text-align:center;margin-bottom:16px;font-family:'El Messiri';font-weight:700;font-size:clamp(16px,2.4vw,20px);color:{{ heartLabelColor }};transition:color .5s;">{{ heartLabel }}</div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
+          <button onClick="{{ way1.onClick }}" style="{{ way1.style }}">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><span style="font-size:20px;">🌱</span><b style="font-family:'El Messiri';font-size:clamp(15px,2.2vw,18px);">أحدهما: ترويض النفس على الخير</b></div>
+            <span style="font-size:13.5px;line-height:1.85;opacity:.92;">فالنفس إذا رُوّضت على الخير اكتسبت هذا الخُلق وصار من صفاتها بنصّ السنّة الصحيحة.</span>
+          </button>
+          <button onClick="{{ way2.onClick }}" style="{{ way2.style }}">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><span style="font-size:20px;">💠</span><b style="font-family:'El Messiri';font-size:clamp(15px,2.2vw,18px);">والآخر: الصدق</b></div>
+            <span style="font-size:13.5px;line-height:1.85;opacity:.92;">فإنّ الله تعالى إذا اطّلع على قلبك ورأى منك الصدق أوصلك إلى ما تصبو إليه.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- praised anger reminder -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;"><span style="font-size:22px;">🛡️</span><h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.5vw,23px);margin:0;">تذكّر: ليس كلّ غضبٍ مذموماً</h2></div>
+      <p style="margin:0 0 12px;font-size:clamp(14px,1.9vw,16px);line-height:2;color:#e4dff5;">
+        فالغضب المحمود هو الذي يكون لله وللحقّ، ودفاعاً عن العقيدة وصيانةً للأرواح والأموال والكرامات؛ وهو يُستحبّ إذا انتهكت حرمات الله.
+      </p>
+      <div class="qv" style="background:rgba(255,255,255,.1);border-radius:12px;padding:12px 15px;text-align:center;font-size:clamp(15px,2.4vw,19px);line-height:1.9;">﴿ ذَٰلِكَ وَمَنْ يُعَظِّمْ حُرُمَاتِ اللَّهِ فَهُوَ خَيْرٌ لَهُ عِنْدَ رَبِّهِ ﴾</div>
+      <div style="text-align:center;color:#bfa9ff;font-size:12.5px;margin-top:6px;">الحج: ٣٠</div>
+    </section>
+
+    <!-- ===== DISCUSSION ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">📝 المناقشة</h2>
+        <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">فكّر في السؤال ثمّ اضغط «إظهار الإجابة» للمراجعة.</p>
+      </div>
+      <div style="padding:clamp(16px,2.6vw,26px);display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="5">
+          <div style="border:1px solid var(--c-line);border-radius:16px;overflow:hidden;">
+            <button onClick="{{ q.onClick }}" style="{{ q.headStyle }}">
+              <span style="flex:none;width:32px;height:32px;border-radius:9px;background:var(--scene);color:#fff;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;">{{ q.num }}</span>
+              <span style="flex:1;text-align:right;font-weight:600;font-size:clamp(14px,1.95vw,16px);color:var(--c-ink);">{{ q.q }}</span>
+              <span style="flex:none;color:var(--scene);font-size:20px;">{{ q.chev }}</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 16px 16px;animation:fadeUp .3s ease;">
+                <div style="background:var(--c-tint);border-radius:12px;padding:13px 15px;font-size:clamp(13.5px,1.9vw,15.5px);line-height:2;color:var(--c-ink);">{{ q.a }}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- closing dua -->
+    <section style="background:linear-gradient(135deg,#1f9e8b,#0f766e);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+      <div style="font-size:30px;margin-bottom:6px;">🤲</div>
+      <div class="qv" style="font-size:clamp(18px,2.8vw,24px);line-height:1.9;">«اللهمّ إنّي أسألك كلمةَ الحقّ في الرضا والغضب»</div>
+      <p style="margin:14px 0 18px;color:#d7f5ee;font-size:clamp(14px,1.9vw,16px);">أتممتَ الدرس — انتقل إلى التقويم لقياس ما تعلّمته.</p>
+      <a href="Ghadab%20L5%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0f766e;font-family:'El Messiri';font-weight:700;font-size:16px;padding:13px 30px;border-radius:999px;min-height:44px;"><span>ابدأ التقويم</span><span>←</span></a>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w1:false, w2:false, open:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  qa(){
+    return [
+      { q:'ما بواعث الغضب؟', a:'بواعث الغضب ثلاثة: باعثٌ صحّي (كاعتلال الصحة وضعف الجهاز العصبي)، وباعثٌ نفسي (كالإجهاد العقلي والأنانية والشعور بالإهانة)، وباعثٌ أخلاقي (كتعوّد الشراسة وسرعة التهيّج).' },
+      { q:'ما علاج الغضب؟', a:'منه: اجتناب مرهقات النفس والجسم، وتذكّر مساوئه، وضبط النفس والتروّي، والاستعاذة بالله من الشيطان، والوضوء، وتغيير الحالة (القيام→الجلوس→الاضطجاع)، واستحضار ثواب كظم الغيظ، والسكوت، وترويض النفس على الحلم.' },
+      { q:'ما الغضب المحمود وما الغضب المذموم؟', a:'المذموم: الغضب الدنيوي الذي حذّر منه النبي (ص)، يجرّ إلى الفحش والضرب والقتل. والمحمود: الغضب لله وللحقّ ودفاعاً عن العقيدة، يُستحبّ إذا انتهكت حرمات الله.' },
+      { q:'كيف يكتسب الإنسان فضيلة كظم الغيظ؟', a:'بشيئين: أحدهما ترويض النفس على الخير حتى يصير خُلقاً من صفاتها، والآخر الصدق؛ فإنّ الله إذا اطّلع على القلب ورأى الصدق أوصل صاحبه إلى ما يصبو إليه.' },
+      { q:'ما أضرار الغضب؟', a:'أضرارٌ جسيمةٌ فردية ومجتمعية: يجرح العواطف ويشحن النفوس بالأضغان ويفكّك أواصر التحابّ، ويزجّ أناساً في السجون، ويثير الحروب ويسفك الدماء، وقد يؤدّي إلى موت الفجأة، ويُحيل الإنسان وحشاً في صورة إنسان.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===4 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var w1 = this.state.w1, w2 = this.state.w2, cooled = w1 && w2, partial = w1 || w2;
+
+    var heart = cooled
+      ? { icon:'💚', label:'حِلمٌ وكظمٌ للغيظ', bg:'linear-gradient(135deg,#1f9e8b,#0f766e)', glow:'26px rgba(31,158,139,.5)', gray:'0', color:'var(--c-good)' }
+      : (partial
+        ? { icon:'🧡', label:'الجمرة تبرد...', bg:'linear-gradient(135deg,#e0a53c,#d55fa6)', glow:'22px rgba(224,165,60,.45)', gray:'0.2', color:'#c98a1e' }
+        : { icon:'🔥', label:'جمرةٌ تتّقد في القلب', bg:'linear-gradient(135deg,#c0505c,#f6848e)', glow:'30px rgba(246,132,142,.55)', gray:'0', color:'var(--c-alert)' });
+
+    var wayStyle = function(on){
+      return 'cursor:pointer;text-align:right;border-radius:16px;padding:16px 18px;min-height:44px;transition:all .25s;display:flex;flex-direction:column;'
+        + (on ? 'background:rgba(31,158,139,.1);border:2px solid var(--c-good);color:#177564;'
+              : 'background:#fff;border:2px solid var(--c-line);color:var(--c-ink);');
+    };
+
+    var questions = this.qa().map(function(x,i){
+      var open = !!self.state.open[i];
+      return { num:['١','٢','٣','٤','٥'][i], q:x.q, a:x.a, open:open, chev: open?'▾':'▸',
+        onClick:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); },
+        headStyle:'cursor:pointer;width:100%;display:flex;align-items:center;gap:12px;background:'+(open?'var(--c-tint)':'#fff')+';border:none;padding:14px 16px;min-height:44px;' };
+    });
+
+    return {
+      pips:pips,
+      heartIcon:heart.icon, heartLabel:heart.label, heartBg:heart.bg, heartGlow:heart.glow, heartGray:heart.gray, heartLabelColor:heart.color,
+      way1:{ onClick:function(){ self.setState({w1:!self.state.w1}); }, style:wayStyle(w1) },
+      way2:{ onClick:function(){ self.setState({w2:!self.state.w2}); }, style:wayStyle(w2) },
+      questions:questions
+    };
+  }
+}
+</script>
+</body>
+</html>

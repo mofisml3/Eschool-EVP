@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  .flip{perspective:1200px;}
+  .flip-in{position:relative;transition:transform .55s;transform-style:preserve-3d;}
+  .flip.on .flip-in{transform:rotateY(180deg);}
+  .face{backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+  .back{position:absolute;inset:0;transform:rotateY(180deg);}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Maryam%20L2%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">السيّدة مريم بنت عمران (ع)</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · أبرز ما يُستنبط والمناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Maryam%20L2%20Scene%204%20-%20Mahd.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Maryam%20L2%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(24px,3.5vw,36px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الخلاصة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">أبرز ما يُستنبط من السيرة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">ثلاث خلاصاتٍ من سيرة مريم وعيسى (عليهما السلام). اضغط كلّ بطاقةٍ لتقلبها وتقرأ بيانها.</p>
+    </div>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(14px,2.4vw,20px);">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
+        <div class="flip {{ c.on }}" onClick="{{ c.onClick }}" style="cursor:pointer;min-height:206px;">
+          <div class="flip-in" style="min-height:206px;">
+            <div class="face" style="background:#fff;border:1px solid var(--c-line);border-top:5px solid {{ c.color }};border-radius:18px;padding:clamp(18px,2.6vw,24px);min-height:206px;display:flex;flex-direction:column;box-shadow:0 6px 22px rgba(32,0,88,.05);">
+              <span style="width:40px;height:40px;border-radius:12px;background:{{ c.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:19px;margin-bottom:14px;">{{ c.num }}</span>
+              <p style="margin:0;font-size:clamp(14.5px,1.9vw,16.5px);line-height:1.95;color:var(--c-ink);">{{ c.text }}</p>
+              <span style="margin-top:auto;padding-top:12px;color:var(--c-inkSoft);font-size:12.5px;">↻ اضغط لعرض البيان</span>
+            </div>
+            <div class="face back" style="background:linear-gradient(150deg,#1a0350,#3a1290);border-radius:18px;padding:clamp(18px,2.6vw,24px);min-height:206px;display:flex;flex-direction:column;justify-content:center;color:#fff;box-shadow:0 6px 22px rgba(32,0,88,.16);">
+              <div style="color:#bfeaff;font-size:12.5px;font-weight:600;margin-bottom:10px;">البيان</div>
+              <p style="margin:0;font-size:clamp(13.5px,1.8vw,15px);line-height:1.95;">{{ c.detail }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <section>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:22px;">💬</span>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(22px,3vw,28px);margin:0;color:var(--c-primary);">المناقشة</h2>
+      </div>
+      <p style="margin:0 0 clamp(16px,2.5vw,22px);color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);">فكّر في كلّ سؤال، ثمّ اضغط «أظهر الإجابة» لمراجعة التوجيه.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
+          <div style="background:#fff;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;">
+            <div style="display:flex;gap:14px;padding:clamp(16px,2.4vw,20px);">
+              <span style="flex:none;width:34px;height:34px;border-radius:10px;background:var(--c-tint);color:var(--c-primary);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;">{{ q.num }}</span>
+              <p style="margin:0;flex:1;font-size:clamp(14.5px,1.9vw,16.5px);line-height:1.95;color:var(--c-ink);">{{ q.q }}</p>
+            </div>
+            <div style="padding:0 clamp(16px,2.4vw,20px) clamp(16px,2.4vw,20px) clamp(64px,10vw,68px);">
+              <button onClick="{{ q.onToggle }}" style="cursor:pointer;background:var(--c-tint);border:none;color:var(--c-primary);font-family:Readex Pro;font-weight:600;font-size:13.5px;padding:9px 16px;border-radius:10px;min-height:42px;">{{ q.btn }}</button>
+              <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:12px;background:rgba(31,158,139,.07);border:1px solid var(--c-good);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.95;color:#177564;">{{ q.a }}</div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="background:linear-gradient(135deg,#1a0350,#3a1290);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+      <div class="qv" style="font-size:clamp(19px,3.2vw,26px);line-height:1.9;margin-bottom:10px;">﴿ وَالسَّلَامُ عَلَيَّ يَوْمَ وُلِدتُّ وَيَوْمَ أَمُوتُ وَيَوْمَ أُبْعَثُ حَيًّا ﴾</div>
+      <p style="margin:0;color:#d6d0ee;font-size:clamp(13px,1.8vw,15px);">أتمَمْتَ مشاهد الدرس — انتقل الآن إلى التقويم لتقيس ما تعلّمت.</p>
+      <a href="Maryam%20L2%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,18px);padding:13px 32px;border-radius:999px;min-height:44px;" style-hover="filter:brightness(1.06);"><span>◀</span><span>ابدأ التقويم</span></a>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flipped:{}, open:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals(){
+    var self=this, B=window.BRAND||{primary:'#200058',rules:{}}, rk=B.rules||{};
+    var cd=[
+      { text:'علوّ منزلة الأمّ والبِرّ بها.', color:B.primary,
+        detail:'رغم أنّ المسيح (ع) وُلد من عذراء بلا زوج، فإنّ هذا الطفل الذي نطق بالإعجاز أكّد بقوله ﴿وَبَرًّا بِوَالِدَتِي﴾ ضرورةَ البرّ بالأمّ ومكانتها العظيمة.' },
+      { text:'أولى معجزات المسيح (ع) تكلّمه في المهد.', color:rk.iqlab,
+        detail:'اقترنت دعوته بمعجزاتٍ كثيرة، منها أنّه يُبرئ الأكمه والأبرص، ويحيي الموتى بإذن الله؛ وكلّها خارقةٌ للعادة بمشيئة الله وقدرته.' },
+      { text:'وسيلتا هداية الناس: العلم والحكمة، مؤيَّدتان بالمعجزة.', color:rk.idgham,
+        detail:'وهب الله عيسى (ع) وسيلتين لهداية الناس هما العلم والحكمة، وأيّده بالمعجزات التي تُثبت صدق دعوته إلى عبادة الله وحده.' },
+    ];
+    var nums=['١','٢','٣'];
+    var cards=cd.map(function(c,i){
+      return { num:nums[i], text:c.text, detail:c.detail, color:c.color,
+        on:self.state.flipped[i]?'on':'',
+        onClick:function(){ var f=Object.assign({},self.state.flipped); f[i]=!f[i]; self.setState({flipped:f}); } };
+    });
+
+    var qd=[
+      { q:'تحدّث عن ولادة السيّدة مريم (ع)، وكيف تنافس الكهنة لتولّي رعايتها؟ ومن الذي تولّى كفالتها؟ وكيف؟',
+        a:'نذرت أمّها حنّة ما في بطنها لخدمة بيت المقدس، فولدتها أنثى وسمّتها مريم. تنافس الأحبار على كفالتها لأنّها بنت إمامهم عمران (وقد مات)، فاقترعوا بإلقاء أقلامهم في النهر، فثبت قلم زكريّا (ع) فكفَلها ورعاها، وكان خالها زوجَ خالتها ورأس الأحبار ونبيّهم.' },
+      { q:'صف عبادة مريم (ع).',
+        a:'كانت غارقةً في التعبّد؛ يُروى عن ابن عبّاس أنّها لمّا بلغت التاسعة كانت تصوم النهار وتقوم الليل بالعبادة، على درجةٍ كبيرة من التقوى ومعرفة الله حتى فاقت الأحبار والعلماء في زمانها، وكان لها محرابٌ خاصّ يأتيها فيه الرزق من عند الله في غير أوانه.' },
+      { q:'هيّأ الله تعالى لمريم (ع) أمورًا عندما جاءها المخاض، ما هي؟',
+        a:'ألجأها المخاض إلى جذع النخلة، فناداها ألّا تحزن ﴿قَدْ جَعَلَ رَبُّكِ تَحْتَكِ سَرِيًّا﴾ (جدول ماء)، وأمرها أن تهزّ جذع النخلة اليابسة فيتساقط عليها رُطبٌ جنيّ ﴿فَكُلِي وَاشْرَبِي وَقَرِّي عَيْنًا﴾ — فهيّأ لها أفضل غذاءٍ وشراب، وأمرها بصوم الصمت لتُحيل جوابهم إلى الوليد.' },
+      { q:'ما وجه الشبه بين آدم (ع) وعيسى (ع)؟',
+        a:'كلاهما خُلق خلقًا خارقًا للعادة بلا أبٍ بشريّ؛ فآدم خُلق من ترابٍ من غير أبٍ ولا أمّ، وعيسى خُلق من أمٍّ بلا أب، وكلاهما بكلمة ﴿كُنْ فَيَكُونُ﴾، كما قال تعالى: ﴿إِنَّ مَثَلَ عِيسَىٰ عِنْدَ اللَّهِ كَمَثَلِ آدَمَ﴾ (آل عمران ٥٩).' },
+      { q:'في خلق عيسى (ع) بيانٌ لكمال خلق الله وتنوّع قدراته. بيّن ذلك.',
+        a:'خلق الله آدم بلا أبٍ ولا أمّ، وحوّاء من رجلٍ بلا أمّ، وعيسى من أمٍّ بلا أب، وسائر الناس من أبٍ وأمّ؛ فتنوّع هذه الأنماط دليلٌ على كمال قدرة الله وأنّه لا يعجزه شيء.' },
+      { q:'لماذا تمنّت السيّدة مريم (ع) لو أنّها لم تُخلق أو أنّها ماتت؟',
+        a:'قالت ﴿يَا لَيْتَنِي مِتُّ قَبْلَ هَٰذَا وَكُنْتُ نَسْيًا مَنْسِيًّا﴾ لأنّها علمت أنّ الناس سيتّهمونها بالفاحشة ولا يصدّقونها حين تأتيهم بغلامٍ على يدها، فحملها الهمّ خشيةَ الفتنة على دينها وسمعتها الطاهرة، لا جزعًا من قَدَر الله.' },
+      { q:'كيف واجه الناس السيّدة مريم (ع) وهي تحمل مولودها؟ ومن الذي تولّى تزكيتها والشهادة لها بالطهر والعفاف؟',
+        a:'عيّروها واتّهموها: «لقد جئتِ بأمرٍ عظيمٍ مع أنّكِ من بيتٍ طاهر»، فأشارت إلى الرضيع، فتولّى وليدُها عيسى (ع) تزكيتها بنطقه في المهد ﴿إِنِّي عَبْدُ اللَّهِ...﴾ ودفاعه عنها وشهادته لها بالطهر والعفاف بأمر الله.' },
+    ];
+    var qnums=['١','٢','٣','٤','٥','٦','٧'];
+    var questions=qd.map(function(q,i){
+      return { num:qnums[i], q:q.q, a:q.a, open:!!self.state.open[i],
+        btn:self.state.open[i]?'إخفاء الإجابة':'أظهر الإجابة',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    return {
+      pips:[0,1,2,3,4].map(function(i){return {bg:i===4?'var(--scene)':'var(--c-line)'};}),
+      cards:cards, questions:questions
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#00a6d6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(12px);}100%{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Usra%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">نظام الأسرة في الإسلام</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٢ من ٥ · المبادئ العامة للزواج</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Usra%20L4%20Scene%201%20-%20Usus.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Usra%20L4%20Scene%203%20-%20Muharramat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الزواج</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">المبادئ العامة للزواج</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        الزواج هو <b>العقد المقدّس</b> الذي هو من نعم الله على عباده؛ والباعث عليه إمداد المجتمع بالبنين والبنات وإيجاد السعادة بين الزوجين. اختر كلّ مبدأٍ لتقرأ ملامحه.
+      </p>
+    </div>
+
+    <!-- verse of sakan -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;text-align:center;">
+      <div class="qv" style="font-size:clamp(18px,3.2vw,26px);line-height:2;">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً</div>
+      <div style="color:#bfa9ff;font-size:13px;margin-top:8px;">الروم: ٢١</div>
+    </section>
+
+    <!-- ===== INTERACTIVE: 6 principles ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#04475a,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">📋 ملامح الزواج الستّة</h2>
+        <p style="margin:0;color:#cdeefb;font-size:clamp(12px,1.7vw,14px);">اضغط أيّ مبدأٍ لعرض تفصيله ودليله.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}"><span style="font-size:16px;">{{ t.icon }}</span><span>{{ t.name }}</span></button>
+          </sc-for>
+        </div>
+        <div key="{{ sel.key }}" style="background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.8vw,24px);animation:fadeUp .35s ease;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <span style="font-size:26px;">{{ sel.icon }}</span>
+            <h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--scene);font-size:clamp(18px,2.6vw,22px);">{{ sel.name }}</h3>
+          </div>
+          <p style="margin:0 0 12px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">{{ sel.text }}</p>
+          <div class="qv" style="background:#fff;border-radius:12px;padding:12px 16px;color:var(--c-primary);font-size:clamp(15px,2.4vw,19px);line-height:1.95;text-align:center;">{{ sel.daleel }}</div>
+          <div style="text-align:center;color:var(--c-inkSoft);font-size:12.5px;margin-top:6px;">{{ sel.ref }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sel:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idhhar);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  principles(){
+    return [
+      { key:'ikhtiyar', icon:'🔎', name:'حسن الاختيار',
+        text:'أوصى الإسلام أن يختار كلٌّ من الزوجين شريكه على أسسٍ ثابتة، أهمها الدين والخلق؛ فالمال والجمال والنسب زائلة، والنسب لا فخر به، والقيمة بالتقوى والعمل الصالح.',
+        daleel:'«تُنكَحُ المرأةُ لِمالِها ولِجَمالِها ولِحَسَبِها ولِدِينِها، فاظفَرْ بِذاتِ الدِّينِ تَرِبَتْ يَداكَ»', ref:'حديث شريف' },
+      { key:'khitba', icon:'💍', name:'الخِطبة',
+        text:'مقدّمةٌ لعقد الزواج، جعل لها الشارع أحكاماً؛ فحثّ الخاطب على أن يرى خطيبته بما يدعوه إلى نكاحها، ومنع الخلوة بها، ونهى عن الخطبة على خطبة الأخ.',
+        daleel:'«إذا خَطَبَ أحَدُكُمُ المرأةَ فإنِ استَطاعَ أن يَنظُرَ منها ما يَدعوهُ إلى نِكاحِها فَلْيَفعَلْ»', ref:'عن جابر رضي الله عنه' },
+      { key:'rida', icon:'🤝', name:'الرضا',
+        text:'لا بدّ للزواج من توافر الإرادة الكاملة والرضا التام لكلٍّ من الزوجين؛ فلا سلطة لأحدٍ على زواج من لا يحب، ولا إكراه على النكاح.',
+        daleel:'فمن بلغ الرجلُ وصار راشداً كان له أن يزوّج من يريد، وكذلك لا بدّ من رضا الفتاة العاقلة البالغة الراشدة بزوجها.', ref:'من الشرح' },
+      { key:'mahr', icon:'🎁', name:'المهر',
+        text:'رفع الإسلام منزلة المرأة ولم يجعل المهر ثمناً لها؛ بل جعله هديةً لازمةً رمزَ تقديرٍ وإكرام، ولئلّا يكون عقبةً في طريق الشباب.',
+        daleel:'وَآتُوا النِّسَاءَ صَدُقَاتِهِنَّ نِحْلَةً', ref:'النساء: ٤' },
+      { key:'qiwama', icon:'🛡️', name:'القوامة',
+        text:'يشترك الزوجان في تدبير شؤون الأسرة بتبادل الرأي ضمن التشاور والتناصح. والقوامة ليست أفضليةً جنسية، بل مسؤوليةٌ لتحقيق نظام الأسرة، والعبء الأكبر على الرجل يدفع المهر وينفق.',
+        daleel:'الرِّجَالُ قَوَّامُونَ عَلَى النِّسَاءِ بِمَا فَضَّلَ اللَّهُ بَعْضَهُمْ عَلَىٰ بَعْضٍ وَبِمَا أَنْفَقُوا مِنْ أَمْوَالِهِمْ', ref:'النساء: ٣٤' },
+      { key:'muashara', icon:'💗', name:'حسن المعاملة',
+        text:'أوجب الإسلام حسن المعاملة بين الزوجين؛ فحسن معاملة الزوج لزوجته من قبيل القيام بالواجب لا من قبيل المنّ أو العطف.',
+        daleel:'وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ فَإِنْ كَرِهْتُمُوهُنَّ فَعَسَىٰ أَنْ تَكْرَهُوا شَيْئًا وَيَجْعَلَ اللَّهُ فِيهِ خَيْرًا كَثِيرًا', ref:'النساء: ١٩' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, P = this.principles(), sel = P[this.state.sel];
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===1 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var tabs = P.map(function(p,i){
+      var on = self.state.sel===i;
+      return { icon:p.icon, name:p.name, onClick:function(){ self.setState({sel:i}); },
+        style:'cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:12px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:44px;transition:all .2s;'
+          +(on?'background:var(--scene);color:#fff;border:1.5px solid var(--scene);box-shadow:0 6px 16px rgba(0,166,214,.35);':'background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);') };
+    });
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['المال والجمال فقط.','الدين والخلق.','النسب والجاه.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما الأساس الذي أوصى الإسلام باعتماده في حُسن اختيار الزوج؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'الأساس هو الدين والخلق؛ «فاظفَرْ بذاتِ الدِّينِ تَرِبَتْ يَداكَ»، فالمال والجمال زائلان.'
+        :'الأساس الثابت هو الدين والخلق، لا المال والجمال ولا النسب والجاه؛ لأنها زائلة.';
+    }
+
+    return { pips:pips, tabs:tabs, sel:sel, check:check };
+  }
+}
+</script>
+</body>
+</html>

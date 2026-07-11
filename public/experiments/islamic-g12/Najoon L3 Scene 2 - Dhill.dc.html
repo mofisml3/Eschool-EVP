@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#00a6d6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes sunPulse{0%,100%{opacity:.85;transform:scale(1);}50%{opacity:1;transform:scale(1.06);}}
+  @keyframes shadeBreath{0%,100%{opacity:.55;}50%{opacity:.9;}}
+  @keyframes popIn{0%{opacity:0;transform:translateY(8px) scale(.9);}100%{opacity:1;transform:translateY(0) scale(1);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">الناجون يوم القيامة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٢ من ٥ · يوم الفزع الأكبر وظلّ الله</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Scene%201%20-%20Tamheed.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Najoon%20L3%20Scene%203%20-%20Asnaf1.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">هول القيامة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">يوم الفزع الأكبر وظلّ الله</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        يصف القرآن الكريم شدّة ذلك اليوم المهول الذي سمّاه <b>الفزع الأكبر</b>؛ فتذهل المرضعة عن رضيعها وتضع الحامل حملها. وفي غمرة هذا الرعب يُنعم الله على سبعة أصنافٍ فيُؤمّنهم من الخوف ويُظلّهم بظلّه.
+      </p>
+    </div>
+
+    <!-- verse of terror -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;text-align:center;">
+      <div style="display:inline-block;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:4px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;">هول الساعة في القرآن</div>
+      <div class="qv" style="font-size:clamp(18px,3.2vw,27px);line-height:2.2;">يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمْ ۚ إِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ ۝ يَوْمَ تَرَوْنَهَا تَذْهَلُ كُلُّ مُرْضِعَةٍ عَمَّا أَرْضَعَتْ وَتَضَعُ كُلُّ ذَاتِ حَمْلٍ حَمْلَهَا وَتَرَى النَّاسَ سُكَارَىٰ وَمَا هُم بِسُكَارَىٰ وَلَٰكِنَّ عَذَابَ اللَّهِ شَدِيدٌ</div>
+      <div style="color:#bfa9ff;font-size:13px;margin-top:10px;">الحجّ: ١ – ٢</div>
+    </section>
+
+    <!-- meaning of the shade -->
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+      <div style="background:#fff;border:1px solid var(--c-line);border-right:5px solid var(--c-accent);border-radius:16px;padding:clamp(16px,2.6vw,22px);box-shadow:0 6px 20px rgba(32,0,88,.05);">
+        <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);margin:0 0 8px;font-size:clamp(17px,2.3vw,20px);">ما معنى «يُظلّهم»؟</h3>
+        <p style="margin:0;color:var(--c-ink);font-size:clamp(14px,1.8vw,16px);line-height:1.9;">أي يحميهم ويحفظهم من أهوال يوم القيامة وشدائدها.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-right:5px solid var(--r-idgham);border-radius:16px;padding:clamp(16px,2.6vw,22px);box-shadow:0 6px 20px rgba(32,0,88,.05);">
+        <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);margin:0 0 8px;font-size:clamp(17px,2.3vw,20px);">ما «ظلُّ الله»؟</h3>
+        <p style="margin:0;color:var(--c-ink);font-size:clamp(14px,1.8vw,16px);line-height:1.9;">هو كرامتُه وحمايتُه ورحمتُه سبحانه؛ إذ لا ظلَّ يومئذٍ إلّا ظلُّه.</p>
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE: the shade of the Throne ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">☂️ استظلال الأصناف السبعة</h2>
+          <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">اضغط الزرّ فيأوي كلُّ صنفٍ إلى ظلّ العرش واحداً بعد واحد.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'El Messiri';font-weight:700;color:#fff;background:rgba(255,255,255,.12);border-radius:10px;padding:8px 14px;font-size:14px;">في الظلّ: {{ sheltered }} / ٧</span>
+        </div>
+      </div>
+
+      <div style="position:relative;background:linear-gradient(180deg,#0d0230 0%,#1a0350 100%);padding:clamp(20px,4vw,34px) clamp(14px,3vw,26px) clamp(16px,3vw,26px);overflow:hidden;min-height:clamp(280px,42vw,360px);">
+        <!-- terror sun (recedes as people shelter) -->
+        <div style="position:absolute;top:clamp(14px,3vw,26px);left:clamp(20px,6vw,60px);width:clamp(46px,9vw,74px);height:clamp(46px,9vw,74px);border-radius:50%;background:radial-gradient(circle,#ffd25e,#f6843e);box-shadow:0 0 40px rgba(246,132,62,.7);animation:sunPulse 3s ease-in-out infinite;opacity:{{ sunOpacity }};transition:opacity .6s;"></div>
+
+        <!-- throne + shade -->
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+          <svg viewBox="0 0 260 120" style="width:min(100%,440px);height:auto;">
+            <!-- shade dome -->
+            <defs>
+              <radialGradient id="shd" cx="50%" cy="0%" r="90%">
+                <stop offset="0%" stop-color="#5ad8ff" stop-opacity="0.55"></stop>
+                <stop offset="100%" stop-color="#5ad8ff" stop-opacity="0"></stop>
+              </radialGradient>
+            </defs>
+            <path d="M18,116 Q130,-14 242,116 Z" fill="url(#shd)" style="animation:shadeBreath 4s ease-in-out infinite;"></path>
+            <path d="M18,116 Q130,-14 242,116" fill="none" stroke="#5ad8ff" stroke-width="2" opacity="0.8"></path>
+            <!-- throne -->
+            <g transform="translate(130 34)">
+              <rect x="-30" y="0" width="60" height="40" rx="4" fill="#2a0a6e" stroke="#d9a520" stroke-width="2"></rect>
+              <rect x="-30" y="-8" width="60" height="10" rx="3" fill="#d9a520"></rect>
+              <text x="0" y="26" text-anchor="middle" font-family="El Messiri" font-weight="700" font-size="13" fill="#ffe08a">العرش</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- the seven figures -->
+        <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1.4vw,12px);margin-top:clamp(8px,1.6vw,14px);">
+          <sc-for list="{{ figures }}" as="f" hint-placeholder-count="7">
+            <div style="{{ f.wrap }}" title="{{ f.label }}">
+              <svg viewBox="0 0 40 56" style="width:clamp(30px,6vw,42px);height:auto;">
+                <circle cx="20" cy="13" r="9" fill="{{ f.color }}"></circle>
+                <path d="M4,56 Q4,28 20,28 Q36,28 36,56 Z" fill="{{ f.color }}"></path>
+              </svg>
+              <span style="{{ f.tag }}">{{ f.n }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="padding:clamp(16px,2.6vw,24px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+        <p style="margin:0;color:var(--c-inkSoft);font-size:clamp(13px,1.8vw,15px);line-height:1.8;max-width:52ch;">{{ statusText }}</p>
+        <div style="display:flex;gap:10px;">
+          <button onClick="{{ shelterNext }}" style="cursor:pointer;border:none;border-radius:12px;padding:12px 20px;font-family:'El Messiri';font-weight:700;font-size:14px;background:var(--c-accent);color:#04223a;min-height:44px;box-shadow:0 6px 16px rgba(0,195,254,.3);" style-hover="filter:brightness(1.05);">{{ btnLabel }}</button>
+          <button onClick="{{ reset }}" style="cursor:pointer;border:1px solid var(--c-line);border-radius:12px;padding:12px 16px;font-family:'El Messiri';font-weight:600;font-size:14px;background:#fff;color:var(--c-inkSoft);min-height:44px;" style-hover="border-color:var(--c-accent);color:var(--c-primary);">إعادة</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sheltered:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idhhar);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  labels(){
+    return ['إمامٌ عادلٌ','شابٌّ نشأ في العبادة','قلبُه معلَّقٌ بالمساجد','رجلانِ تحابّا في الله','مَن خاف الله فعفَّ','مَن أخفى صدقته','مَن بكى من خشية الله'];
+  }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4,5].map(function(i){ return { bg: i<=1 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var cols=['#200058','#00a6d6','#7b3fd4','#d55fa6','#f2707c','#1f9e8b','#d9a520'];
+    var labs=this.labels();
+    var n=S.sheltered;
+    var figures=labs.map(function(t,i){
+      var inShade=i<n;
+      return {
+        label:t, color: inShade ? cols[i] : '#4b3f7a', n:['١','٢','٣','٤','٥','٦','٧'][i],
+        wrap:'position:relative;display:flex;flex-direction:column;align-items:center;opacity:'+(inShade?'1':'.4')+';transition:opacity .5s, transform .5s;transform:translateY('+(inShade?'0':'6px')+');'+(inShade?'animation:popIn .5s ease;':''),
+        tag:'margin-top:2px;font-family:El Messiri;font-weight:700;font-size:11px;color:'+(inShade?'#bfeaff':'#6b5f9a')+';'
+      };
+    });
+
+    var statusMap=[
+      'الناس في هولٍ وفزعٍ تحت شمسٍ دنت من الرؤوس — لم يستظلّ أحدٌ بعد. اضغط لتبدأ.',
+      'الإمام العادل أوّل مَن استظلّ: أطاع الله فعدَل بين الناس ولم يظلم.',
+      'الشابّ الذي نشأ في عبادة الله انضمّ إليه: صرف قوّته وشبابه في الطاعة.',
+      'مَن قلبُه معلَّقٌ بالمساجد استظلّ: أحبَّ بيوت الله ولازم الصلاة فيها.',
+      'المتحابّان في الله في الظلّ: أحبّ كلٌّ منهما الآخر لله لا لغرضٍ دنيوي.',
+      'المؤمن العفيف استظلّ: خاف الله فرفض الإغراء المحرَّم.',
+      'المتصدّق في الخفاء انضمّ: أخفى صدقته حتى لا تعلم شمالُه ما تنفق يمينُه.',
+      '🌿 اكتمل السبعة في ظلّ العرش، وأمِنوا من الفزع الأكبر بفضل الله ورحمته.'
+    ];
+
+    var picked=S.picked, correct=1;
+    var opts=['لأنّهم من الأغنياء وأصحاب الجاه.','لأنّهم قدّموا أعمالاً صالحةً خالصةً لله في الدنيا.','لأنّهم عاشوا في زمنٍ واحد.'];
+    var options=opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check={ q:'لماذا استحقّ هؤلاء السبعة أن يُظلّهم الله في ظلّه؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'الجزاء على العمل لا على المال أو الجاه؛ فكلُّ صنفٍ قدّم عملاً صالحاً خالصاً لله فجازاه الله بالأمن والظلّ.'
+        :'ليس الغنى ولا الزمان سبب النجاة، بل العمل الصالح الخالص لله هو الذي أهّلهم لظلّ العرش.';
+    }
+
+    return {
+      pips:pips, figures:figures, sheltered:n,
+      sunOpacity: n>=7 ? 0.12 : (1 - n*0.11),
+      statusText: statusMap[n],
+      btnLabel: n>=7 ? 'اكتمل ✓' : 'استظلّ التالي ←',
+      shelterNext:function(){ if(self.state.sheltered<7) self.setState({sheltered:self.state.sheltered+1}); },
+      reset:function(){ self.setState({sheltered:0}); },
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

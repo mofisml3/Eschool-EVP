@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-primary-dark:#12002f; --c-tint:#EDEAF7;
+    --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b; --c-ink:#211842; --c-inkSoft:#6b6288;
+    --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  .glyph{font-family:'Amiri Quran','Amiri',serif;line-height:1;}
+  @keyframes selPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,195,254,.35);}50%{box-shadow:0 0 0 8px rgba(0,195,254,0);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <!-- ===== SHARED NAV ===== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Chapter%201%20Hub.dc.html" title="الصفحة الرئيسية"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">علامات الوقف ومصطلحات الضبط</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">التمهيد · بيان تعريف المصطلحات</div>
+      </div>
+      <a href="Tajweed%20L1%20Blueprint.dc.html"
+         style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+         style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>درس التلاوة</span><span>←</span></a>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <!-- title + intro -->
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">التمهيد</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(26px,5vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">علامات الوقف ومصطلحات الضبط</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:72ch;">
+        رموزٌ صغيرةٌ في المصحف الشريف تُرشد القارئ إلى مواضع <b>الوقف</b> ومقداره، وإلى <b>ضبط النطق</b> بالحروف. اضغط أيّ علامةٍ في اللوحة لتعرف معناها، أو شغّل العرض التلقائيّ ليمرّ عليها واحدةً واحدة.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE FIGURE: mark explorer ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#2a0a6e);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0;">🔎 مستكشف العلامات</h2>
+        <button onClick="{{ togglePlay }}" style="{{ playStyle }}">{{ playLabel }}</button>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);display:grid;grid-template-columns:1fr;gap:clamp(18px,3vw,26px);">
+
+        <!-- detail panel -->
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,3vw,24px);align-items:center;background:{{ detail.softBg }};border:1.5px solid {{ detail.color }};border-radius:18px;padding:clamp(16px,3vw,26px);transition:all .35s;">
+          <div style="display:flex;align-items:center;justify-content:center;width:clamp(84px,18vw,120px);height:clamp(84px,18vw,120px);border-radius:20px;background:#fff;border:2px solid {{ detail.color }};">
+            <span class="glyph" style="font-size:clamp(40px,10vw,64px);color:{{ detail.color }};">{{ detail.glyph }}</span>
+          </div>
+          <div style="min-width:0;">
+            <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:{{ detail.color }};padding:3px 12px;border-radius:8px;font-size:12px;margin-bottom:8px;">{{ detail.catLabel }}</span>
+            <h3 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,3vw,26px);margin:0 0 6px;color:var(--c-primary);">{{ detail.title }}</h3>
+            <p style="margin:0;font-size:clamp(14px,2vw,17px);line-height:1.9;color:var(--c-ink);">{{ detail.meaning }}</p>
+            <sc-if value="{{ detail.hasAction }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:{{ detail.actionBg }};color:{{ detail.actionColor }};font-weight:700;font-size:13px;">
+                <span>{{ detail.actionIcon }}</span><span>{{ detail.action }}</span>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+
+        <!-- group: waqf -->
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="width:12px;height:12px;border-radius:4px;background:var(--r-idhhar);"></span>
+            <h3 style="font-family:'El Messiri';font-weight:700;font-size:clamp(16px,2.4vw,20px);margin:0;color:var(--c-primary);">علامات الوقف <span style="color:var(--c-inkSoft);font-weight:400;font-size:.8em;">(ستّ علامات)</span></h3>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(84px,20vw,120px),1fr));gap:clamp(8px,1.6vw,12px);">
+            <sc-for list="{{ waqfTiles }}" as="t" hint-placeholder-count="6">
+              <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+                <span class="glyph" style="font-size:clamp(24px,6vw,34px);color:{{ t.glyphColor }};">{{ t.glyph }}</span>
+                <span style="font-size:clamp(11px,1.6vw,13px);font-weight:600;color:{{ t.labelColor }};line-height:1.4;text-align:center;">{{ t.short }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- group: dabt -->
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="width:12px;height:12px;border-radius:4px;background:var(--r-idgham);"></span>
+            <h3 style="font-family:'El Messiri';font-weight:700;font-size:clamp(16px,2.4vw,20px);margin:0;color:var(--c-primary);">مصطلحات الضبط <span style="color:var(--c-inkSoft);font-weight:400;font-size:.8em;">(رموز النطق والعدّ)</span></h3>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(84px,20vw,120px),1fr));gap:clamp(8px,1.6vw,12px);">
+            <sc-for list="{{ dabtTiles }}" as="t" hint-placeholder-count="12">
+              <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+                <span class="glyph" style="font-size:clamp(24px,6vw,34px);color:{{ t.glyphColor }};">{{ t.glyph }}</span>
+                <span style="font-size:clamp(11px,1.6vw,13px);font-weight:600;color:{{ t.labelColor }};line-height:1.4;text-align:center;">{{ t.short }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WORKED DEMONSTRATION: muanaqah ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-idhhar);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,2.6vw,24px);margin:0 0 6px;color:var(--c-primary);">تطبيقٌ حيّ · علامة المعانقة <span class="glyph">∴ ∴</span></h2>
+      <p style="margin:0 0 18px;font-size:clamp(14px,2vw,17px);line-height:1.9;color:var(--c-ink);max-width:70ch;">
+        تأتي علامةُ المعانقة في موضعين متتاليين، ومعناها: يجوز الوقف على <b>أحد</b> الموضعين <b>لا على كليهما</b>. اضغط الموضع الذي تختار الوقف عنده.
+      </p>
+
+      <!-- ayah with two stop points -->
+      <div style="background:var(--c-tint);border-radius:16px;padding:clamp(16px,3vw,26px);text-align:center;">
+        <div class="qv" style="font-size:clamp(24px,5vw,40px);color:var(--c-primary);line-height:2;">
+          ذَٰلِكَ الْكِتَابُ لَا رَيْبَ
+          <button onClick="{{ pickA }}" style="{{ stopAStyle }}">ۛ</button>
+          فِيهِ
+          <button onClick="{{ pickB }}" style="{{ stopBStyle }}">ۛ</button>
+          هُدًى لِّلْمُتَّقِينَ
+        </div>
+        <div style="color:var(--c-inkSoft);font-size:13px;margin-top:10px;">سورة البقرة: ٢</div>
+      </div>
+
+      <sc-if value="{{ muaShown }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ muaFbStyle }}">
+          <b>{{ muaFbTitle }}</b>
+          <span>{{ muaFbText }}</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ muaShown }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ muaReset }}" style="margin-top:12px;background:#fff;border:1.5px solid var(--c-line);color:var(--c-primary);font-family:Readex Pro;font-weight:600;font-size:13px;padding:9px 18px;border-radius:12px;cursor:pointer;min-height:44px;" style-hover="border-color:var(--c-accent);">↺ أعد المحاولة</button>
+      </sc-if>
+    </section>
+
+    <!-- ===== COMPREHENSION CHECK ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="2">
+        <div style="margin-bottom:22px;">
+          <p style="margin:0 0 12px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);"><span style="color:var(--c-inkSoft);font-weight:700;">{{ c.n }}.</span> {{ c.q }}</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ c.options }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+                <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+                <span style="flex:1;text-align:right;">{{ o.text }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ c.showFeedback }}" hint-placeholder-val="{{ false }}">
+            <div style="{{ c.fbStyle }}"><b>{{ c.fbTitle }}</b> <span>{{ c.fbText }}</span></div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- closing note -->
+    <div style="text-align:center;color:var(--c-inkSoft);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">
+      أتقنتَ العلامات؟ انتقل إلى <a href="Tajweed%20L1%20Blueprint.dc.html" style="font-weight:700;">درس أحكام النون الساكنة والتنوين</a> لتطبّقها في التلاوة.
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sel:0, playing:false, mua:null, picks:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-primary-dark', B.primaryDark);
+    r.setProperty('--c-tint', B.tint); r.setProperty('--c-accent', B.accent);
+    r.setProperty('--c-alert', B.alert); r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper); r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+  componentWillUnmount(){ if(this.timer) clearInterval(this.timer); }
+
+  marks() {
+    var W = 'var(--r-idhhar)', D = 'var(--r-idgham)';
+    return [
+      // ---- waqf signs ----
+      { glyph:'مـ', short:'الوقف اللازم', cat:'waqf', color:W, title:'الوقف اللازم', meaning:'تُفيد لزوم الوقف؛ لأنّ وصلها بما بعدها قد يُغيّر المعنى المراد.', action:'قِف وجوباً', actionIcon:'⛔', actionBg:'rgba(246,132,142,.16)', actionColor:'#b0454f' },
+      { glyph:'لا', short:'النهي عن الوقف', cat:'waqf', color:W, title:'علامة النهي عن الوقف', meaning:'تُفيد النهي عن الوقف عندها؛ فلا يُوقَف على الكلمة بل يُوصَل بما بعدها.', action:'لا تقف', actionIcon:'✕', actionBg:'rgba(32,0,88,.1)', actionColor:'var(--c-primary)' },
+      { glyph:'صلى', short:'الوصل أَوْلى', cat:'waqf', color:W, title:'الوصل أَوْلى', meaning:'تُفيد بأنّ الوصل أَوْلى مع جواز الوقف؛ فالأحسن أن تَصِل، ويجوز أن تقف.', action:'الوصل أَوْلى', actionIcon:'↝', actionBg:'rgba(0,166,214,.14)', actionColor:'#0a6f8f' },
+      { glyph:'قلى', short:'الوقف أَوْلى', cat:'waqf', color:W, title:'الوقف أَوْلى', meaning:'تُفيد بأنّ الوقف أَوْلى؛ فالأحسن أن تقف، ويجوز أن تَصِل.', action:'الوقف أَوْلى', actionIcon:'✋', actionBg:'rgba(0,166,214,.14)', actionColor:'#0a6f8f' },
+      { glyph:'ج', short:'جواز الوقف', cat:'waqf', color:W, title:'جواز الوقف', meaning:'تُفيد جواز الوقف والوصل على السواء؛ فالأمر واسعٌ فيهما.', action:'يجوز الوقف والوصل', actionIcon:'≈', actionBg:'rgba(31,158,139,.14)', actionColor:'#177564' },
+      { glyph:'∴ ∴', short:'المعانقة', cat:'waqf', color:W, title:'المعانقة', meaning:'تُفيد جواز الوقف بأحد الموضعين وليس في كليهما؛ فإن وقفتَ على أحدهما لم تقف على الآخر.', action:'قِف في أحدهما فقط', actionIcon:'⇄', actionBg:'rgba(0,166,214,.14)', actionColor:'#0a6f8f' },
+      // ---- dabt marks ----
+      { glyph:'ـ۟', short:'زيادة الحرف', cat:'dabt', color:D, title:'الدائرة الصغيرة المستديرة', meaning:'الدلالة على زيادة الحرف وعدم النطق به مطلقاً في الوصل والوقف.' },
+      { glyph:'ـ۠', short:'زيادة عند الوصل', cat:'dabt', color:D, title:'الدائرة الصغيرة القائمة', meaning:'الدلالة على زيادة الحرف حين الوصل خاصّةً؛ فلا يُنطق وصلاً ويُنطق وقفاً.' },
+      { glyph:'ـْ', short:'سكون الحرف', cat:'dabt', color:D, title:'علامة السكون', meaning:'الدلالة على سكون الحرف؛ توضع فوق الحرف الساكن.' },
+      { glyph:'ـۢ', short:'الإقلاب', cat:'dabt', color:D, title:'الميم الصغيرة', meaning:'الدلالة على وجود الإقلاب؛ توضع فوق النون الساكنة أو التنوين عند حرف الباء.' },
+      { glyph:'ـٌـ', short:'إظهار التنوين', cat:'dabt', color:D, title:'تتابع حركتي التنوين', meaning:'الدلالة على إظهار التنوين؛ فتُرسَم الحركتان متتابعتين.' },
+      { glyph:'ـُّـ', short:'الإدغام والإخفاء', cat:'dabt', color:D, title:'تراكب حركتي التنوين', meaning:'الدلالة على الإدغام والإخفاء؛ فتُرسَم الحركتان متراكبتين.' },
+      { glyph:'ـٰ', short:'الحروف المتروكة', cat:'dabt', color:D, title:'الألف الصغيرة القائمة', meaning:'الدلالة على وجوب النطق بالحروف المتروكة (المحذوفة رسماً) في التلاوة.' },
+      { glyph:'س', short:'النطق بالسين', cat:'dabt', color:D, title:'السين الصغيرة', meaning:'الدلالة على وجوب النطق بالسين بدل الصاد؛ وإذا وُضعت بالأسفل فالنطق بالصاد أشهر.' },
+      { glyph:'ـٓ', short:'المدّ الزائد', cat:'dabt', color:D, title:'علامة المدّ', meaning:'الدلالة على لزوم المدّ الزائد في الحرف الذي توضع فوقه.' },
+      { glyph:'۩', short:'موضع السجود', cat:'dabt', color:D, title:'علامة السجدة', meaning:'الدلالة على موضع السجود؛ أمّا وجوب السجود فقد وُضع تحت كلمته خطٌّ.' },
+      { glyph:'۞', short:'الأجزاء والأحزاب', cat:'dabt', color:D, title:'علامة الحزب', meaning:'الدلالة على بداية الأجزاء والأحزاب وأنصافها وأرباعها.' },
+      { glyph:'۝', short:'نهاية الآية', cat:'dabt', color:D, title:'دائرة نهاية الآية', meaning:'الدلالة على نهاية الآية ورقمها.' }
+    ];
+  }
+
+  toggle(){
+    var self = this;
+    if (this.state.playing){ clearInterval(this.timer); this.setState({playing:false}); }
+    else {
+      this.setState({playing:true});
+      this.timer = setInterval(function(){
+        self.setState(function(s){ return { sel:(s.sel+1) % self.marks().length }; });
+      }, 2200);
+    }
+  }
+
+  renderVals() {
+    var self = this, ms = this.marks(), sel = this.state.sel, d = ms[sel];
+
+    // detail
+    var detail = {
+      glyph:d.glyph, title:d.title, meaning:d.meaning, color:d.color,
+      catLabel: d.cat==='waqf' ? 'علامة وقف' : 'مصطلح ضبط',
+      softBg: d.cat==='waqf' ? 'rgba(0,166,214,.07)' : 'rgba(123,63,212,.06)',
+      hasAction: !!d.action, action:d.action||'', actionIcon:d.actionIcon||'', actionBg:d.actionBg||'', actionColor:d.actionColor||''
+    };
+
+    var mkTile = function(m, gi){
+      var on = sel===gi;
+      var st = 'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;padding:12px 8px;border-radius:16px;min-height:88px;font-family:Readex Pro;transition:all .22s;'
+        + (on ? 'background:#fff;border:2px solid '+m.color+';animation:selPulse 1.8s ease-out infinite;'
+              : 'background:var(--c-paper);border:2px solid var(--c-line);');
+      return { glyph:m.glyph, short:m.short, glyphColor:m.color, labelColor: on ? 'var(--c-primary)' : 'var(--c-inkSoft)',
+        onClick:function(){ self.setState({sel:gi}); }, style:st };
+    };
+    var waqfTiles=[], dabtTiles=[];
+    ms.forEach(function(m,gi){ (m.cat==='waqf'?waqfTiles:dabtTiles).push(mkTile(m,gi)); });
+
+    // play button
+    var playing = this.state.playing;
+    var playStyle = 'border:none;cursor:pointer;padding:9px 18px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:14px;min-height:40px;transition:all .2s;'
+      + (playing ? 'background:var(--c-alert);color:#5a1a20;' : 'background:#fff;color:#200058;');
+    var playLabel = playing ? '❚❚ إيقاف' : '► عرض تلقائي';
+
+    // muanaqah interaction
+    var mua = this.state.mua;
+    var baseStop = 'font-family:"Amiri Quran",serif;cursor:pointer;border:none;background:transparent;font-size:clamp(24px,5vw,40px);line-height:1;padding:2px 6px;border-radius:8px;min-width:44px;min-height:44px;transition:all .25s;';
+    var stopAStyle = baseStop + (mua==='a' ? 'background:var(--c-good);color:#fff;' : (mua==='b' ? 'color:var(--c-inkSoft);opacity:.4;' : 'color:var(--r-idhhar);'));
+    var stopBStyle = baseStop + (mua==='b' ? 'background:var(--c-good);color:#fff;' : (mua==='a' ? 'color:var(--c-inkSoft);opacity:.4;' : 'color:var(--r-idhhar);'));
+    var muaShown = mua!==null;
+    var muaFbStyle='', muaFbTitle='', muaFbText='';
+    if (muaShown){
+      muaFbStyle = 'margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.9;font-size:14px;display:flex;flex-direction:column;gap:4px;background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);';
+      muaFbTitle = '✓ وقفٌ صحيح';
+      muaFbText = mua==='a'
+        ? 'وقفتَ بعد (رَيْبَ) على المعنى: «لا شكّ»، ثمّ تصل: (فِيهِ هُدًى...). ولا يجوز أن تقف أيضاً بعد (فِيهِ) في التلاوة نفسها؛ لأنّهما موضعا معانقةٍ يُختار أحدهما فقط.'
+        : 'وقفتَ بعد (فِيهِ) على المعنى: «لا ريب فيه»، فتبدأ: (هُدًى لِّلْمُتَّقِينَ). ولا يجوز أن تقف أيضاً بعد (رَيْبَ) في التلاوة نفسها؛ لأنّهما موضعا معانقةٍ يُختار أحدهما فقط.';
+    }
+
+    // checks
+    var picks = this.state.picks;
+    var defs = [
+      { n:'١', q:'علامة (صلى) تدلّ على:', correct:1, opts:[
+        'لزوم الوقف وجوباً.',
+        'أنّ الوصل أَوْلى مع جواز الوقف.',
+        'النهي عن الوقف مطلقاً.'],
+        okText:'صحيح؛ (صلى) اختصار «الوصل أَوْلى»، فالأحسن الوصل مع جواز الوقف.',
+        noText:'راجع: (صلى) اختصار «الوصل أَوْلى» أي الأفضل أن تَصِل، مع جواز الوقف.' },
+      { n:'٢', q:'عند علامة المعانقة (∴ ∴) الواردة في موضعين، ماذا يفعل القارئ؟', correct:2, opts:[
+        'يقف على الموضعين معاً وجوباً.',
+        'لا يقف على أيّ موضعٍ منهما.',
+        'يقف على أحد الموضعين فقط دون الآخر.'],
+        okText:'صحيح؛ المعانقة تُجيز الوقف على أحد الموضعين لا على كليهما.',
+        noText:'راجع: المعانقة معناها الوقف على أحد الموضعين فقط، وليس كليهما ولا تركهما.' }
+    ];
+    var checks = defs.map(function(def,ci){
+      var picked = (ci in picks) ? picks[ci] : null;
+      var options = def.opts.map(function(t,i){
+        var chosen=picked===i, isC=i===def.correct;
+        var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:13px 15px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+        var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bCol='var(--c-primary)';
+        if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bCol='#fff';}
+          else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bCol='#fff';} }
+        return { text:t, badge:['أ','ب','ج'][i],
+          onClick:function(){ if(!(ci in self.state.picks)){ var p=Object.assign({},self.state.picks); p[ci]=i; self.setState({picks:p}); } },
+          style: st+'background:'+bg+';border:2px solid '+bd+';',
+          badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bCol+';' };
+      });
+      var out = { n:def.n, q:def.q, options:options, showFeedback: picked!==null };
+      if(picked!==null){ var ok=picked===def.correct;
+        out.fbStyle='margin-top:14px;padding:13px 16px;border-radius:13px;line-height:1.8;font-size:14px;'
+          +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+        out.fbTitle= ok?'✓ صحيح ':'✗ غير دقيق '; out.fbText= ok?def.okText:def.noText; }
+      return out;
+    });
+
+    return {
+      detail:detail, waqfTiles:waqfTiles, dabtTiles:dabtTiles,
+      toggle:this.toggle, togglePlay:function(){ self.toggle(); }, playStyle:playStyle, playLabel:playLabel,
+      pickA:function(){ if(self.state.mua===null) self.setState({mua:'a'}); },
+      pickB:function(){ if(self.state.mua===null) self.setState({mua:'b'}); },
+      muaReset:function(){ self.setState({mua:null}); },
+      stopAStyle:stopAStyle, stopBStyle:stopBStyle, muaShown:muaShown, muaFbStyle:muaFbStyle, muaFbTitle:muaFbTitle, muaFbText:muaFbText,
+      checks:checks
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes pop{0%{transform:scale(.7);opacity:0;}60%{transform:scale(1.08);}100%{transform:scale(1);opacity:1;}}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Usra%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">نظام الأسرة في الإسلام</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · المحرّمات المؤقّتة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Usra%20L4%20Scene%203%20-%20Muharramat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Usra%20L4%20Scene%205%20-%20Munaqasha.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">التحريم المؤقّت</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">المحرّمات المؤقّتة وحكمة التحريم</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        <b>التحريم المؤقّت</b> يمنع تزويج الرجل للمرأة ما دامت على حالةٍ خاصّة، فإذا زالت الحالة جاز الزواج. اقرأ أسبابه، ثمّ صنّف الحالات: دائمٌ أم مؤقّت؟
+      </p>
+    </div>
+
+    <!-- temporary causes cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(12px,2.2vw,18px);">
+      <sc-for list="{{ causes }}" as="c" hint-placeholder-count="4">
+        <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--scene);border-radius:16px;padding:clamp(16px,2.6vw,22px);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <span style="font-size:22px;">{{ c.icon }}</span>
+            <h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(15px,2.2vw,18px);">{{ c.name }}</h3>
+          </div>
+          <p style="margin:0 0 10px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">{{ c.text }}</p>
+          <div class="qv" style="background:var(--c-tint);border-radius:10px;padding:8px 12px;color:var(--c-primary);font-size:clamp(14px,2vw,17px);line-height:1.85;text-align:center;">{{ c.verse }}</div>
+          <div style="text-align:center;color:var(--c-inkSoft);font-size:12px;margin-top:5px;">{{ c.ref }}</div>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- ===== SORTING GAME ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#7a2b34,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🗂️ صنّف: دائم أم مؤقّت؟</h2>
+          <p style="margin:0;color:#ffe0e3;font-size:clamp(12px,1.7vw,14px);">اختر لكلّ حالةٍ نوعَ تحريمها.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="color:#ffe0e3;font-weight:700;font-family:'El Messiri';">{{ solved }}/{{ totalItems }}</span>
+          <button onClick="{{ onReset }}" style="cursor:pointer;background:rgba(255,255,255,.15);color:#fff;border:none;padding:8px 14px;border-radius:10px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;">↺ إعادة</button>
+        </div>
+      </div>
+      <div style="padding:clamp(16px,3vw,26px);">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ items }}" as="it" hint-placeholder-count="6">
+            <div style="{{ it.rowStyle }}">
+              <span style="flex:1;font-size:clamp(13.5px,1.9vw,15.5px);color:var(--c-ink);line-height:1.7;">{{ it.label }}</span>
+              <div style="display:flex;gap:8px;flex:none;">
+                <button onClick="{{ it.onPerm }}" style="{{ it.permStyle }}">مؤبّد</button>
+                <button onClick="{{ it.onTemp }}" style="{{ it.tempStyle }}">مؤقّت</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:16px;padding:14px;border-radius:14px;background:rgba(31,158,139,.1);border:1px solid var(--c-good);color:#177564;text-align:center;font-weight:600;font-size:15px;">🌟 أحسنت! صنّفت الحالات كلّها بشكلٍ صحيح.</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- hikma -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 10px;">من حكمة التحريم</h2>
+      <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2;color:#e4dff5;">
+        أن تبقى صلة القربى بعيدةً عن المنازعات التي تعترض حياة الزوجين فتفسد العلاقة النسبية، وليبقى المرء على اتصالٍ دائمٍ بقريباته كأخواته وخالاته، وألّا يبتعد الإنسان عن أهله؛ فالواجب عليه أن يكون بارّاً قريباً إليهم.
+      </p>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { answers:{}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  causesData(){
+    return [
+      { icon:'👭', name:'الجمع بين الأختين', text:'يحرم الجمع بين الأختين معاً في النكاح؛ فإذا فارق إحداهما جاز له نكاح الأخرى.',
+        verse:'وَأَنْ تَجْمَعُوا بَيْنَ الْأُخْتَيْنِ', ref:'النساء: ٢٣' },
+      { icon:'💍', name:'زوجة الغير والمعتدّة', text:'يحرم على المسلم أن يتزوّج زوجة غيره ما دامت في عصمة زوجها أو في عدّتها؛ فإذا انقضت العدّة جاز.',
+        verse:'وَالْمُحْصَنَاتُ مِنَ النِّسَاءِ', ref:'النساء: ٢٤' },
+      { icon:'🕋', name:'حال الإحرام', text:'من أحرم للحجّ يحرم عليه أن يعقد النكاح لنفسه أو لغيره حتى يحلّ من إحرامه.',
+        verse:'«لَا يَنْكِحُ الْمُحْرِمُ وَلَا يُنْكِحُ»', ref:'حديث شريف' },
+      { icon:'☪️', name:'التزوّج من المشركة', text:'يحرم الزواج من المشركة الوثنيّة حتى تؤمن، ويحرم على المسلمة أن تتزوّج غير المسلم؛ فإذا أسلمت جاز الزواج.',
+        verse:'وَلَا تَنْكِحُوا الْمُشْرِكَاتِ حَتَّىٰ يُؤْمِنَّ … وَلَا تُنْكِحُوا الْمُشْرِكِينَ حَتَّىٰ يُؤْمِنُوا', ref:'البقرة: ٢٢١' },
+    ];
+  }
+
+  sortItems(){
+    // type: 'perm' مؤبّد | 'temp' مؤقّت
+    return [
+      { label:'الأمّهات والبنات والأخوات', type:'perm' },
+      { label:'الجمع بين الأختين', type:'temp' },
+      { label:'أمّ الزوجة وزوجة الأب (المصاهرة)', type:'perm' },
+      { label:'زوجة الغير والمعتدّة', type:'temp' },
+      { label:'الأمّ والأخت من الرضاعة', type:'perm' },
+      { label:'المشركة حتى تؤمن', type:'temp' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, C = this.causesData();
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var causes = C.map(function(c){ return { icon:c.icon, name:c.name, text:c.text, verse:c.verse, ref:c.ref }; });
+
+    var SI = this.sortItems(), ans = this.state.answers;
+    var items = SI.map(function(it,i){
+      var a = ans[i];
+      var done = a !== undefined;
+      var correct = done && a===it.type;
+      var rowStyle='display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:'+(done?(correct?'rgba(31,158,139,.08)':'rgba(246,132,142,.1)'):'var(--c-tint)')+';border:1.5px solid '+(done?(correct?'var(--c-good)':'var(--c-alert)'):'transparent')+';border-radius:14px;padding:12px 15px;transition:all .2s;'+(done&&!correct?'animation:shake .4s;':'');
+      var mk = function(type,label){
+        var chosen = a===type;
+        var isRight = done && type===it.type;
+        var bg='#fff',col='var(--c-primary)',bd='var(--c-line)';
+        if(done){ if(isRight){ bg='var(--c-good)';col='#fff';bd='var(--c-good)'; } else if(chosen){ bg='var(--c-alert)';col='#fff';bd='var(--c-alert)'; } }
+        return 'cursor:'+(done?'default':'pointer')+';padding:8px 16px;border-radius:10px;font-family:El Messiri;font-weight:700;font-size:13px;min-height:40px;transition:all .2s;background:'+bg+';color:'+col+';border:1.5px solid '+bd+';';
+      };
+      return { label:it.label, rowStyle:rowStyle,
+        permStyle:mk('perm'), tempStyle:mk('temp'),
+        onPerm:function(){ if(ans[i]===undefined){ var a2=Object.assign({},self.state.answers); a2[i]='perm'; self.setState({answers:a2}); } },
+        onTemp:function(){ if(ans[i]===undefined){ var a2=Object.assign({},self.state.answers); a2[i]='temp'; self.setState({answers:a2}); } } };
+    });
+    var solved = SI.filter(function(it,i){ return ans[i]===it.type; }).length;
+    var answeredAll = Object.keys(ans).length===SI.length;
+    var allDone = answeredAll && solved===SI.length;
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['تحريمٌ مؤبّد لا يزول.','تحريمٌ مؤقّت يزول بزوال سببه.','ليس محرّماً أصلاً.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'الجمع بين الأختين في النكاح تحريمُه…؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'تحريمٌ مؤقّت؛ فإذا فارق الرجلُ إحدى الأختين جاز له نكاح الأخرى، فالحرمة تزول بزوال سببها.'
+        :'هو تحريمٌ مؤقّت يزول بزوال سببه؛ فإذا فارق إحداهما جاز نكاح الأخرى.';
+    }
+
+    return {
+      pips:pips, causes:causes, items:items, solved:solved, totalItems:SI.length, allDone:allDone,
+      onReset:function(){ self.setState({answers:{}}); },
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

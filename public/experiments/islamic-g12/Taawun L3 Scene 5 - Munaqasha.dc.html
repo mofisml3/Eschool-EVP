@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">التعاون بين المسلمين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٥ · المناقشة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Scene%204%20-%20Irshad.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Taawun%20L3%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المناقشة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">أسئلة المناقشة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        سبعة أسئلةٍ للتفكّر والحوار — اضغط أيّ سؤالٍ لتظهر إرشاداتُ الإجابة عنه.
+      </p>
+    </div>
+
+    <section style="background:var(--c-tint);border-radius:22px;padding:clamp(20px,3.4vw,32px);">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
+          <div style="background:#fff;border:1px solid var(--c-line);border-radius:16px;overflow:hidden;">
+            <button onClick="{{ q.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:12px;align-items:center;padding:clamp(14px,2.2vw,18px);text-align:right;">
+              <span style="flex:none;width:32px;height:32px;border-radius:9px;background:var(--c-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:14px;">{{ q.n }}</span>
+              <span style="flex:1;font-size:clamp(14px,1.9vw,16.5px);line-height:1.8;color:var(--c-ink);">{{ q.text }}</span>
+              <span style="flex:none;color:var(--c-primary);font-size:19px;transform:{{ q.chev }};">⌄</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 clamp(14px,2.2vw,18px) clamp(14px,2.2vw,18px);">
+                <div style="background:var(--c-tint);border-radius:12px;padding:12px 14px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;"><b style="color:var(--c-primary);">إرشاد الإجابة: </b>{{ q.hint }}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- closing dua -->
+    <section style="position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0350,#3a1290);border-radius:22px;padding:clamp(24px,4vw,40px);color:#fff;text-align:center;">
+      <svg viewBox="0 0 40 40" style="position:absolute;top:10px;right:14px;width:34px;opacity:.4;animation:rot 26s linear infinite;">
+        <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#bfeaff"></polygon></g>
+      </svg>
+      <div style="font-family:'El Messiri';font-weight:600;color:#bfeaff;font-size:clamp(14px,2vw,16px);margin-bottom:12px;">ونختم بالدعاء</div>
+      <div class="qv" style="font-size:clamp(20px,4vw,32px);line-height:2.1;">رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ</div>
+      <div style="color:#bfa9ff;font-size:13px;margin-top:10px;">إبراهيم: ٤١</div>
+    </section>
+
+    <!-- closing CTA -->
+    <section style="background:linear-gradient(135deg,#1f9e8b,#0f766e);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+      <div style="font-size:34px;margin-bottom:8px;">🤝</div>
+      <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(20px,2.8vw,26px);margin:0 0 8px;">أتممتَ درس التعاون</h2>
+      <p style="margin:0 0 18px;color:#d7f5ee;font-size:clamp(14px,1.9vw,16px);line-height:1.9;">انتقل إلى التقويم النهائي الذي يقيس تحقّقك من هدف الدرس.</p>
+      <a href="Taawun%20L3%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0f766e;font-family:'El Messiri';font-weight:700;font-size:16px;padding:13px 30px;border-radius:999px;min-height:44px;"><span>ابدأ التقويم</span><span>←</span></a>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { qopen:{} };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  discussion(){
+    return [
+      { text:'إذا كان ما يخرج من مال الغنيّ منّةً ورياءً، وصادراً عن شعورٍ غير كريم، فإلى أيّ شيءٍ يتحوّل؟',
+        hint:'يتحوّل إلى عملٍ خسيسٍ يؤذي النفس والضمير، ويؤذي المجتمع في أفراده وروابطه؛ فالرياء والمنّة يُبطلان الأجر ولا يُقبَل معهما الإحسان.' },
+      { text:'ما حكم المرائي؟',
+        hint:'المرائي مذمومٌ في الدنيا ومعذَّبٌ يوم القيامة؛ لأنّه لم يُخلِص لله، وجعل عطاءه للناس لا لله، فبطل عمله.' },
+      { text:'بمَ بشّر الإسلامُ مَن يجود بماله بنفسٍ راضية؟',
+        hint:'بشّره بالجنة ونعيمها الدائم، وبالأجر عند الله بلا خوفٍ ولا حزن، كما في قوله تعالى ﴿لهم أجرهم عند ربهم ولا خوف عليهم ولا هم يحزنون﴾.' },
+      { text:'إذا انحرفت الأمّة، وظلم بعضها بعضاً، فما آثار ذلك؟',
+        hint:'يؤدّي ذلك إلى شيوع الفقر والحرمان، وابتلاء الله لها بالخوف والجوع ونقصٍ في الأموال والأنفس والثمرات، وفساد روابط المجتمع.' },
+      { text:'ما المسؤولية الشرعية تجاه الفقراء؟',
+        hint:'فرض الله في أموال الأغنياء ما يكفي الفقراء، فيجب الإنفاق عليهم ورعاية حاجاتهم؛ ومن منع ذلك حاسبه الله يوم القيامة.' },
+      { text:'بيّن أهمّ ما يرشد إليه الحديث الشريف.',
+        hint:'يرشد إلى: التكافل وتحقيق العدالة، ورعاية مصلحة المجتمع في المال (الاستخلاف)، وكراهة تكدّس الثروات، ومسؤولية الفرد عن مجتمعه، وسموّ العطاء النابع من الشعور الصادق.' },
+      { text:'ما معنى كلٍّ ممّا يأتي: يعُدْ به، المنّان، المُسبِل إزاره؟',
+        hint:'يعُدْ به: يُعيده ويُنفقه على المحتاج (من العائدة، وهي النفع والمعروف). المنّان: الذي يَعُدّ عطاءه ويُذكّر به فيُبطله. المُسبِل إزاره: الذي يطيل ثوبه كِبراً وخُيلاء.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, qopen = this.state.qopen;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===4 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var questions = this.discussion().map(function(q,i){
+      var open=!!qopen[i];
+      return { n:['١','٢','٣','٤','٥','٦','٧'][i], text:q.text, hint:q.hint, open:open,
+        chev:open?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.qopen); o[i]=!o[i]; self.setState({qopen:o}); } };
+    });
+    return { pips:pips, questions:questions };
+  }
+}
+</script>
+</body>
+</html>

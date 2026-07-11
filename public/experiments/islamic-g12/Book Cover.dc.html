@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-primary-dark:#12002f; --c-tint:#EDEAF7;
+    --c-accent:#00c3fe; --c-alert:#f6848e; --c-ink:#211842; --c-paper:#F7F6FC;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-primary-dark);}
+  a{color:var(--c-accent);text-decoration:none;}
+  a:hover{color:#5ad8ff;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes spinRev{to{transform:rotate(-360deg);}}
+  @keyframes haloBreathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.55;}50%{transform:translate(-50%,-50%) scale(1.08);opacity:.8;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;position:relative;overflow:hidden;background:
+     radial-gradient(1100px 700px at 18% 12%, #2a0a6e 0%, rgba(42,10,110,0) 60%),
+     radial-gradient(900px 700px at 88% 88%, #16064a 0%, rgba(22,6,74,0) 55%),
+     linear-gradient(160deg,#1a0350 0%,#12002f 60%,#0c0122 100%);color:#fff;">
+
+  <!-- faint geometric backdrop -->
+  <div style="position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:
+       repeating-linear-gradient(45deg,#00c3fe 0 1px,transparent 1px 46px),
+       repeating-linear-gradient(-45deg,#00c3fe 0 1px,transparent 1px 46px);"></div>
+
+  <!-- top bar -->
+  <header style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;
+       padding:clamp(18px,3vw,34px) clamp(20px,5vw,60px);">
+    <div style="font-family:'El Messiri';font-weight:600;color:#9ad9ff;font-size:clamp(14px,1.6vw,18px);letter-spacing:.02em;">
+      المنهج الرقمي التفاعلي</div>
+    <img src="brand/logo-white.svg?v=2" alt="تعليم" style="height:clamp(34px,4vw,52px);width:auto;filter:brightness(0) invert(1) drop-shadow(0 4px 14px rgba(0,195,254,.35));">
+  </header>
+
+  <!-- main grid -->
+  <div style="position:relative;z-index:4;display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;
+       gap:clamp(20px,4vw,60px);padding:clamp(10px,2vw,30px) clamp(20px,5vw,64px) clamp(40px,6vw,70px);
+       max-width:1500px;margin:0 auto;">
+
+    <!-- interactive orbit figure -->
+    <div style="flex:1 1 420px;min-width:300px;max-width:620px;display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <div id="orbitStage" style="position:relative;width:100%;max-width:560px;aspect-ratio:1/1;">
+        {{ orbitFigure }}
+      </div>
+
+      <!-- legend / filter -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:100%;max-width:560px;">
+        <sc-for list="{{ legend }}" as="lg" hint-placeholder-count="5">
+          <button onClick="{{ lg.onClick }}"
+            style="{{ lg.style }}"
+            style-hover="filter:brightness(1.12);">
+            <span style="width:11px;height:11px;border-radius:50%;background:{{ lg.dot }};display:inline-block;box-shadow:0 0 8px {{ lg.dot }};"></span>
+            <span>{{ lg.label }}</span>
+            <span style="opacity:.7;font-size:.82em;">{{ lg.count }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <p style="margin:0;color:#b9b2d8;font-size:clamp(12px,1.4vw,14px);text-align:center;max-width:520px;line-height:1.7;">
+        {{ hintText }}
+      </p>
+    </div>
+
+    <!-- hero text -->
+    <div style="flex:1 1 380px;min-width:290px;max-width:560px;">
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid rgba(154,217,255,.4);
+           border-radius:999px;background:rgba(0,195,254,.08);font-size:clamp(13px,1.5vw,15px);color:#bfeaff;font-weight:500;margin-bottom:clamp(18px,3vw,26px);">
+        الصف السادس الإعدادي · التربية الإسلامية
+      </div>
+      <h1 style="font-family:'El Messiri';font-weight:700;margin:0;line-height:1.05;
+           font-size:clamp(46px,9vw,104px);text-shadow:0 8px 40px rgba(0,195,254,.25);">التلاوة والتجويد</h1>
+      <p style="margin:clamp(16px,2.5vw,24px) 0 0;font-size:clamp(16px,2vw,21px);line-height:1.9;color:#d6d0ee;max-width:30ch;">
+        كتابٌ رقميٌّ تفاعليّ يُحوّل أحكام تلاوة القرآن الكريم إلى تجربةٍ بصريّة: حروفٌ تتلوّن، وأصواتٌ تُرى، وتقويمٌ فوريّ.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,3vw,30px);margin-top:clamp(26px,4vw,40px);">
+        <a href="Chapter%201%20Hub.dc.html"
+          style="display:inline-flex;align-items:center;gap:12px;background:var(--c-accent);color:#04223a;
+           font-family:'El Messiri';font-weight:700;font-size:clamp(17px,2vw,21px);padding:16px 34px;border-radius:999px;
+           box-shadow:0 10px 34px rgba(0,195,254,.45);min-height:44px;"
+          style-hover="filter:brightness(1.06);box-shadow:0 14px 40px rgba(0,195,254,.6);">
+          <span>افتح الكتاب</span>
+          <span style="font-size:1.1em;">←</span>
+        </a>
+        <div style="display:flex;align-items:center;gap:clamp(12px,2vw,20px);color:#c9c2e6;font-size:clamp(13px,1.5vw,15px);">
+          <span><b style="color:#fff;font-size:1.25em;font-family:'El Messiri';">1</b> فصل</span>
+          <span style="opacity:.4;">•</span>
+          <span><b style="color:#fff;font-size:1.25em;font-family:'El Messiri';">6</b> مشاهد + تقويم</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#8f86b8;font-size:13px;z-index:4;">
+    ↓ الفصل الأول: أحكام التلاوة
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selected: null, playing: true };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-primary-dark', B.primaryDark);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  rulesMeta() {
+    var B = window.BRAND;
+    return [
+      { key:'idhhar', label:'الإظهار', color:B.rules.idhhar, letters:['ء','ه','ع','ح','غ','خ'] },
+      { key:'idgham', label:'الإدغام', color:B.rules.idgham, letters:['ي','ر','م','ل','و','ن'] },
+      { key:'ikhfa',  label:'الإخفاء', color:B.rules.ikhfa,  letters:['ص','ذ','ث','ك','ج','ش','ق','س','د','ط','ز','ف','ت','ض','ظ'] },
+      { key:'iqlab',  label:'الإقلاب', color:B.rules.iqlab,  letters:['ب'] },
+    ];
+  }
+
+  buildLetters() {
+    var meta = this.rulesMeta();
+    var flat = [];
+    meta.forEach(function(m){ m.letters.forEach(function(ch){ flat.push({ ch:ch, rule:m.key, color:m.color }); }); });
+    var rings = [[],[],[]];
+    flat.forEach(function(item, i){ rings[i % 3].push(item); });
+    var radii = [20, 33, 45];
+    rings.forEach(function(ring, ri){
+      var n = ring.length, off = ri * 0.7;
+      ring.forEach(function(item, j){
+        var ang = (j / n) * Math.PI * 2 + off;
+        item.left = 50 + radii[ri] * Math.cos(ang);
+        item.top  = 50 + radii[ri] * Math.sin(ang);
+      });
+    });
+    return { rings: rings, radii: radii };
+  }
+
+  renderVals() {
+    var self = this, R = React.createElement, B = window.BRAND || {};
+    var sel = this.state.selected, playing = this.state.playing;
+    var data = this.buildLetters();
+    var durs = [46, 64, 90];
+    var dirs = ['spin','spinRev','spin'];
+    var counter = ['spinRev','spin','spinRev'];
+
+    var ringEls = data.rings.map(function(ring, ri){
+      var wrapStyle = {
+        position:'absolute', inset:0,
+        animation: dirs[ri] + ' ' + durs[ri] + 's linear infinite',
+        animationPlayState: playing ? 'running' : 'paused'
+      };
+      var chips = ring.map(function(item, j){
+        var active = !sel || sel === item.rule;
+        var chipInner = {
+          animation: counter[ri] + ' ' + durs[ri] + 's linear infinite',
+          animationPlayState: playing ? 'running' : 'paused',
+          width:'clamp(30px,6.4%,44px)', height:'clamp(30px,6.4%,44px)',
+          display:'flex', alignItems:'center', justifyContent:'center',
+          borderRadius:'50%',
+          fontFamily:"'Amiri', serif", fontWeight:700,
+          fontSize:'clamp(15px,3.4%,22px)', color:'#fff',
+          background: active ? item.color : 'rgba(255,255,255,.05)',
+          border: '1.5px solid ' + (active ? item.color : 'rgba(255,255,255,.18)'),
+          boxShadow: active ? ('0 0 14px ' + item.color + ', 0 4px 10px rgba(0,0,0,.3)') : 'none',
+          opacity: active ? 1 : 0.28,
+          transform: (sel === item.rule) ? 'scale(1.16)' : 'scale(1)',
+          transition:'opacity .35s, transform .35s, background .35s, box-shadow .35s',
+          cursor:'default'
+        };
+        return R('div', {
+          key: item.ch + j,
+          style:{ position:'absolute', left:item.left+'%', top:item.top+'%',
+                  transform:'translate(-50%,-50%)', zIndex:2 }
+        }, R('div', { style: chipInner }, item.ch));
+      });
+      return R('div', { key:'ring'+ri, style: wrapStyle }, chips);
+    });
+
+    var paths = data.radii.map(function(rad, ri){
+      var d = rad * 2;
+      return R('div', { key:'p'+ri, style:{
+        position:'absolute', left:'50%', top:'50%', width:d+'%', height:d+'%',
+        transform:'translate(-50%,-50%)', borderRadius:'50%',
+        border:'1px dashed rgba(154,217,255,.22)'
+      }});
+    });
+
+    var halo = R('div', { key:'halo', style:{
+      position:'absolute', left:'50%', top:'50%', width:'40%', height:'40%',
+      transform:'translate(-50%,-50%)', borderRadius:'50%',
+      background:'radial-gradient(circle,'+(B.accent||'#00c3fe')+'55 0%, rgba(0,195,254,0) 70%)',
+      animation:'haloBreathe 5s ease-in-out infinite'
+    }});
+    var center = R('div', { key:'center', style:{
+      position:'absolute', left:'50%', top:'50%', transform:'translate(-50%,-50%)',
+      display:'flex', flexDirection:'column', alignItems:'center', zIndex:3
+    }},
+      R('div', { style:{ fontFamily:"'Amiri Quran', serif", fontSize:'clamp(64px,15vw,120px)',
+        color:'#fff', lineHeight:1, textShadow:'0 0 30px '+(B.accent||'#00c3fe') } }, 'نْ'),
+      R('div', { style:{ marginTop:'6px', fontSize:'clamp(11px,2.4vw,14px)', color:'#bfeaff',
+        letterSpacing:'.12em', fontFamily:"'Readex Pro'" } }, 'النون الساكنة')
+    );
+
+    var figure = R('div', { style:{ position:'absolute', inset:0 } },
+      paths.concat([halo]).concat(ringEls).concat([center])
+    );
+
+    var meta = this.rulesMeta();
+    var legend = meta.map(function(m){
+      var isSel = sel === m.key;
+      return {
+        key:m.key, label:m.label, dot:m.color, count:'('+m.letters.length+')',
+        onClick:function(){ self.setState({ selected: isSel ? null : m.key }); },
+        style: 'display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border-radius:999px;cursor:pointer;'
+          + 'font-family:Readex Pro;font-weight:600;font-size:clamp(12px,1.5vw,14px);min-height:40px;'
+          + 'transition:all .25s;color:#fff;'
+          + (isSel
+              ? ('background:'+m.color+';border:1.5px solid '+m.color+';box-shadow:0 6px 18px '+m.color+'66;')
+              : 'background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);')
+      };
+    });
+    legend.push({
+      key:'toggle', label: playing ? 'إيقاف الدوران ⏸' : 'تشغيل الدوران ◀', dot:'transparent', count:'',
+      onClick:function(){ self.setState({ playing: !self.state.playing }); },
+      style:'display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:999px;cursor:pointer;'
+        +'font-family:Readex Pro;font-weight:600;font-size:clamp(12px,1.5vw,14px);min-height:40px;color:#cbe9ff;'
+        +'background:transparent;border:1.5px dashed rgba(154,217,255,.4);'
+    });
+
+    var hint = sel
+      ? ('حروف ' + (meta.find(function(m){return m.key===sel;}).label) + ' مُضاءة الآن — بقيّة الحروف مُعتّمة. اضغط الحكم مرّة أخرى لعرض الكل.')
+      : 'الحروف الـ28 تدور حول النون الساكنة، ولون كلّ حرف يدلّ على حكمه. اضغط أيّ حكمٍ أدناه لتُضيء حروفه.';
+
+    return { orbitFigure: figure, legend: legend, hintText: hint };
+  }
+}
+</script>
+</body>
+</html>

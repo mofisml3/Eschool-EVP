@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes flick{0%,100%{transform:scaleY(1) skewX(0);}50%{transform:scaleY(1.15) skewX(4deg);}}
+  @keyframes drop{0%{transform:translateY(-14px);opacity:0;}60%{opacity:1;}100%{transform:translateY(0);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">النهي عن الغضب</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · علاج الغضب</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Scene%203%20-%20Adrar.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Ghadab%20L5%20Scene%205%20-%20Munaqasha.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الحكم الثالث</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">علاج الغضب</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        للغضب علاجٌ من هدي القرآن والسنّة وأقوال أهل البيت (ع). تنقّل بين <b>الوسائل الاثنتي عشرة</b> واقرأ دليل كلٍّ منها، وجرّب الأشكال المتحركة.
+      </p>
+    </div>
+
+    <!-- ===== ANIMATED demos ===== -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,2.4vw,20px);">
+      <!-- wudu: fire -> water -->
+      <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;overflow:hidden;box-shadow:0 6px 22px rgba(32,0,88,.05);">
+        <div style="background:linear-gradient(135deg,#04475a,#00a6d6);padding:14px 18px;">
+          <h3 style="font-family:'El Messiri';font-weight:600;color:#fff;margin:0;font-size:clamp(15px,2.2vw,18px);">💧 أطفئ نار الغضب بالوضوء</h3>
+        </div>
+        <div style="padding:clamp(16px,2.6vw,22px);text-align:center;">
+          <div style="display:flex;justify-content:center;">{{ wuduFigure }}</div>
+          <button onClick="{{ onWudu }}" style="cursor:pointer;margin-top:12px;background:var(--r-idhhar);color:#fff;border:none;font-family:El Messiri;font-weight:700;font-size:15px;padding:11px 22px;border-radius:999px;min-height:44px;">{{ wuduBtn }}</button>
+          <p style="margin:12px 0 0;font-size:13px;color:var(--c-inkSoft);line-height:1.8;">«إنّ الغضبَ من الشيطان، وإنّ الشيطان خُلق من النار، وإنّما تُطفأ النارُ بالماء، فإذا غضب أحدكم فليتوضّأ».</p>
+        </div>
+      </section>
+      <!-- posture: standing -> sitting -> lying -->
+      <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;overflow:hidden;box-shadow:0 6px 22px rgba(32,0,88,.05);">
+        <div style="background:linear-gradient(135deg,#3a1290,var(--scene));padding:14px 18px;">
+          <h3 style="font-family:'El Messiri';font-weight:600;color:#fff;margin:0;font-size:clamp(15px,2.2vw,18px);">🧍 غيّر حالتك</h3>
+        </div>
+        <div style="padding:clamp(16px,2.6vw,22px);text-align:center;">
+          <div style="display:flex;justify-content:center;">{{ postureFigure }}</div>
+          <button onClick="{{ onPosture }}" style="cursor:pointer;margin-top:12px;background:var(--scene);color:#fff;border:none;font-family:El Messiri;font-weight:700;font-size:15px;padding:11px 22px;border-radius:999px;min-height:44px;">{{ postureBtn }}</button>
+          <p style="margin:12px 0 0;font-size:13px;color:var(--c-inkSoft);line-height:1.8;">«إذا غضب أحدُكم وهو قائمٌ فليجلس، فإن ذهب عنه الغضبُ وإلّا فليضطجع».</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== TREATMENTS stepper ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🩹 اثنتا عشرة وسيلةً للعلاج</h2>
+          <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">اضغط رقم الوسيلة لعرضها ودليلها.</p>
+        </div>
+        <span style="color:#bfeaff;font-weight:700;font-family:'El Messiri';">{{ seen }}/12</span>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- number chips -->
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
+          <sc-for list="{{ chips }}" as="c" hint-placeholder-count="12">
+            <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.num }}</button>
+          </sc-for>
+        </div>
+
+        <!-- selected treatment -->
+        <div style="background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.6vw,24px);animation:fadeUp .3s ease;" key="{{ curKey }}">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <span style="flex:none;width:clamp(40px,7vw,48px);height:clamp(40px,7vw,48px);border-radius:13px;background:var(--scene);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(18px,3vw,22px);">{{ curNum }}</span>
+            <h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:var(--c-primary);font-size:clamp(17px,2.6vw,21px);">{{ curTitle }}</h3>
+          </div>
+          <p style="margin:0 0 12px;font-size:clamp(14px,1.95vw,16px);line-height:2;color:var(--c-ink);">{{ curText }}</p>
+          <sc-if value="{{ curHasProof }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div class="qv" style="background:#fff;border-radius:12px;padding:12px 15px;color:var(--c-primary);font-size:clamp(15px,2.4vw,19px);line-height:1.95;text-align:center;">{{ curProof }}</div>
+              <div style="text-align:center;color:var(--c-inkSoft);font-size:12.5px;margin-top:6px;">{{ curRef }}</div>
+            </div>
+          </sc-if>
+        </div>
+
+        <!-- prev/next within stepper -->
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:16px;">
+          <button onClick="{{ onPrev }}" style="cursor:pointer;background:#fff;border:1.5px solid var(--c-line);color:var(--c-primary);font-weight:600;font-size:14px;padding:0 18px;height:44px;border-radius:12px;">→ السابقة</button>
+          <button onClick="{{ onNext }}" style="cursor:pointer;background:var(--scene);border:none;color:#fff;font-weight:700;font-size:14px;padding:0 20px;height:44px;border-radius:12px;">التالية ←</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cur:0, seen:{0:true}, wudu:false, posture:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  treatments(){
+    return [
+      { t:'اجتناب مرهقات النفس والجسم', d:'باجتناب ما يعتلّ به البدن ويرهق الأعصاب، فذلك من دواعي الانفعال.' },
+      { t:'علاج الأسباب النفسية بحسن التعامل', d:'بالابتعاد عن المغالاة في الأنانية، والجدل، والمراء، والاستهزاء، والتعيير، فهي من مثيرات الغضب.' },
+      { t:'تذكّر مساوئ الغضب وآثامه', d:'فربّ أمرٍ تافهٍ أثار غضبةً عارمةً أودت بصحة الإنسان وسعادته؛ فتذكُّر ذلك يردع النفس.' },
+      { t:'تذكّر أنّ سطوة الغاضب تُعرّضه لسخط الله', d:'فالغاضب قد يقتصّ ممّن أغضبه في نفسه أو ماله، وذلك يعرّضه لسخط الله تعالى وعقابه.',
+        p:'﴿ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ ﴾', r:'فصّلت: ٣٤' },
+      { t:'ضبط النفس والتروّي', d:'من الخير للغاضب ضبط النفس والسيطرة على الأعصاب والتروّي في أقواله وأفعاله عند احتدام الغضب، ولا يُنال ذلك إلّا بالتصبّر والتعوّد.',
+        p:'قال أمير المؤمنين (ع): «إن لم تكن حليماً فتحلّم، فإنّه قلّ من تشبّه بقومٍ إلّا أوشك أن يكون منهم».', r:'' },
+      { t:'التوجّه إلى الله والاستعاذة من الشيطان', d:'فالغضب من نزغ الشيطان، وعلاجه الالتجاء إلى الله والاستعاذة به من الشيطان الرجيم.',
+        p:'﴿ وَإِمَّا يَنْزَغَنَّكَ مِنَ الشَّيْطَانِ نَزْغٌ فَاسْتَعِذْ بِاللَّهِ ﴾', r:'الأعراف: ٢٠٠' },
+      { t:'الوضوء', d:'فالغضب من الشيطان، والشيطان خُلق من النار، وإنّما تُطفأ النار بالماء.',
+        p:'قال (ص): «... فإذا غضب أحدكم فليتوضّأ».', r:'' },
+      { t:'تغيير الحالة التي كان عليها الغضبان', d:'فإذا غضب وهو قائمٌ جلس، فإن ذهب عنه الغضب وإلّا اضطجع.',
+        p:'قال (ص): «إذا غضب أحدُكم وهو قائمٌ فليجلس، فإن ذهب عنه الغضب وإلّا فليضطجع».', r:'' },
+      { t:'استحضار ثواب كظم الغيظ', d:'فتذكُّر ما أعدّه الله للكاظمين الغيظ يدفع النفس إلى الحلم.',
+        p:'﴿ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ ﴾', r:'آل عمران: ١٣٤' },
+      { t:'تذكّر أنّ ترك الغضب من أسباب دخول الجنة', d:'فقد جعل النبيّ (ص) ترك الغضب سبباً لدخول الجنة.',
+        p:'قال (ص): «لا تغضبْ ولك الجنّة».', r:'' },
+      { t:'السكوت', d:'فالسكوت عند الغضب يمنع اللسان من التلفّظ بما لا يجوز.',
+        p:'قال (ص): «إذا غضب أحدُكم فليسكت».', r:'' },
+      { t:'ترويض النفس على الحلم والأناة وكظم الغيظ', d:'فمن يتحرَّ الخير يُعطَه، ومن يتّقِ الشرَّ يُوقَّه؛ لأنّ الغضب جمرةٌ تتّقد في القلب، فإذا كبح الإنسان جماحها حفظ لنفسه عزّتها وكرامتها، ونأى بها عن ذلّ الاعتذار ومغبّة الندم ومذمّة الانتقام.', p:'', r:'' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, R = React.createElement, B = window.BRAND || { rules:{} };
+    var T = this.treatments(), cur = this.state.cur, curT = T[cur];
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var alert = B.alert || '#f6848e';
+    var accent = B.accent || '#00c3fe';
+    var idhhar = (B.rules&&B.rules.idhhar) || '#00a6d6';
+    var primary = B.primary || '#200058';
+    var violet = (B.rules&&B.rules.idgham) || '#7b3fd4';
+
+    var seenCount = Object.keys(this.state.seen).length;
+
+    // wudu figure: fire vs water-extinguished
+    var wudu = this.state.wudu;
+    var wuduFig = R('svg', { viewBox:'0 0 200 160', style:{ width:'100%', height:'auto', maxWidth:'200px' } },
+      // brazier base
+      R('rect', { x:64, y:120, width:72, height:14, rx:6, fill:'#2c2158' }),
+      R('path', { d:'M74 120 L126 120 L120 104 L80 104 Z', fill:'#3a2e66' }),
+      wudu
+        ? // water droplets + smoke (extinguished)
+          R('g', {},
+            R('path', { d:'M100 60 q-9 16 0 26 q9 -10 0 -26 Z', fill:accent, style:{ transformOrigin:'100px 73px', animation:'drop .6s ease' } }),
+            R('circle', { cx:86, cy:96, r:4, fill:accent, opacity:0.8 }),
+            R('circle', { cx:114, cy:98, r:3, fill:accent, opacity:0.7 }),
+            R('path', { d:'M92 100 q8 -6 16 0', stroke:'#9fb7c4', strokeWidth:3, fill:'none', opacity:0.5 })
+          )
+        : // flames
+          R('g', { style:{ transformOrigin:'100px 104px', animation:'flick .5s ease-in-out infinite' } },
+            R('path', { d:'M100 46 Q84 78 92 100 Q100 92 100 100 Q100 92 108 100 Q116 78 100 46 Z', fill:alert }),
+            R('path', { d:'M100 66 Q92 86 96 100 Q100 94 104 100 Q108 86 100 66 Z', fill:'#ffd18a' })
+          )
+    );
+
+    // posture figure: 0 standing, 1 sitting, 2 lying
+    var pst = this.state.posture;
+    var body;
+    if(pst===0){ body = R('g', {}, R('circle', { cx:100, cy:40, r:13, fill:violet }), R('rect', { x:92, y:54, width:16, height:52, rx:8, fill:violet }), R('rect', { x:88, y:104, width:8, height:34, rx:4, fill:violet }), R('rect', { x:104, y:104, width:8, height:34, rx:4, fill:violet })); }
+    else if(pst===1){ body = R('g', {}, R('circle', { cx:100, cy:58, r:13, fill:violet }), R('rect', { x:92, y:72, width:16, height:36, rx:8, fill:violet }), R('rect', { x:104, y:104, width:34, height:8, rx:4, fill:violet }), R('rect', { x:130, y:104, width:8, height:26, rx:4, fill:violet }), R('rect', { x:60, y:130, width:90, height:8, rx:4, fill:'#2c2158' })); }
+    else { body = R('g', {}, R('circle', { cx:150, cy:110, r:13, fill:violet }), R('rect', { x:60, y:112, width:80, height:16, rx:8, fill:violet }), R('rect', { x:56, y:130, width:100, height:8, rx:4, fill:'#2c2158' })); }
+    var postureFig = R('svg', { viewBox:'0 0 200 160', style:{ width:'100%', height:'auto', maxWidth:'200px' } },
+      R('rect', { x:40, y:138, width:120, height:6, rx:3, fill:'var(--c-line)' }), body);
+
+    // number chips
+    var chips = T.map(function(x,i){
+      var on = cur===i, was = self.state.seen[i];
+      return { num: ['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠','١١','١٢'][i],
+        onClick:function(){ var s=Object.assign({},self.state.seen); s[i]=true; self.setState({cur:i, seen:s}); },
+        style:'cursor:pointer;width:clamp(40px,8vw,48px);height:clamp(40px,8vw,48px);border-radius:12px;font-family:El Messiri;font-weight:700;font-size:clamp(15px,3vw,19px);transition:all .2s;min-height:44px;'
+          + (on?'background:var(--scene);color:#fff;border:2px solid var(--scene);box-shadow:0 6px 16px rgba(123,63,212,.4);transform:translateY(-2px);'
+                :(was?'background:rgba(123,63,212,.1);color:var(--scene);border:2px solid rgba(123,63,212,.3);':'background:#fff;color:var(--c-primary);border:2px solid var(--c-line);')) };
+    });
+
+    // check
+    var picked = this.state.picked, correct = 1;
+    var opts = ['أن يشتدّ في غضبه حتى ينتقم.','أن يتوضّأ ويغيّر حالته ويستعيذ بالله ويسكت.','أن يترك الأمر دون فعلٍ.'];
+    var options = opts.map(function(tx,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:tx, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'من وسائل علاج الغضب الواردة عن النبي (ص):', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'من العلاج النبوي: الوضوء، وتغيير الحالة (القيام→الجلوس→الاضطجاع)، والاستعاذة بالله، والسكوت، وكظم الغيظ.'
+        :'العلاج ليس الاشتداد في الغضب ولا الترك المطلق؛ بل الوضوء وتغيير الحالة والاستعاذة والسكوت كما ورد عن النبي (ص).';
+    }
+
+    return {
+      pips:pips, seen:seenCount,
+      wuduFigure:wuduFig, wuduBtn: wudu ? '↺ أشعِل من جديد' : '💧 توضّأ',
+      onWudu:function(){ self.setState({ wudu: !self.state.wudu }); },
+      postureFigure:postureFig, postureBtn: ['اجلس ↓','اضطجع ↓','قِف ↑'][pst],
+      onPosture:function(){ self.setState({ posture: (self.state.posture+1)%3 }); },
+      chips:chips, curKey:'t'+cur, curNum:['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠','١١','١٢'][cur],
+      curTitle:curT.t, curText:curT.d, curHasProof: !!curT.p, curProof:curT.p||'', curRef:curT.r||'',
+      onPrev:function(){ var i=(cur+11)%12; var s=Object.assign({},self.state.seen); s[i]=true; self.setState({cur:i, seen:s}); },
+      onNext:function(){ var i=(cur+1)%12; var s=Object.assign({},self.state.seen); s[i]=true; self.setState({cur:i, seen:s}); },
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

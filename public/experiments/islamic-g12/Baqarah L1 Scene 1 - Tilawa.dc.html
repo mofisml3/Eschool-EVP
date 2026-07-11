@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes tStar{to{transform:rotate(360deg);}}
+  @keyframes tStarR{to{transform:rotate(-360deg);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة البقرة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٦ · التلاوة وآيات الحفظ</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Baqarah%20L1%20Scene%202%20-%20Mufradat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">التلاوة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">اتْلُ الآيات الكريمة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:72ch;">
+        هذه الآيات من <b>سورة البقرة</b>، من الآية <span style="direction:ltr;unicode-bidi:isolate;">١٥٣</span> إلى الآية <span style="direction:ltr;unicode-bidi:isolate;">١٧٠</span>. اضغط «كشف تدريجيّ» لتظهر آيةً آية، والآيات المُميّزة باللون هي <b>آيات الحفظ</b> <span style="direction:ltr;unicode-bidi:isolate;">(١٥٣–١٥٧)</span>.
+      </p>
+    </div>
+
+    <!-- ===== ORNAMENTED MUSHAF FRAME ===== -->
+    <section style="position:relative;background:linear-gradient(160deg,#fbfaff,#f2eefc);border-radius:22px;padding:clamp(10px,2vw,18px);box-shadow:0 10px 34px rgba(32,0,88,.08);">
+      <!-- double ornamental border -->
+      <div style="position:relative;border:2px solid var(--c-accent);border-radius:16px;padding:clamp(12px,2.4vw,20px);">
+        <div style="position:absolute;inset:6px;border:1px solid rgba(32,0,88,.25);border-radius:11px;pointer-events:none;"></div>
+
+        <!-- rotating corner stars -->
+        <svg viewBox="0 0 40 40" style="position:absolute;top:-3px;right:-3px;width:clamp(30px,6vw,44px);height:auto;animation:tStar 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#00c3fe"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+        <svg viewBox="0 0 40 40" style="position:absolute;top:-3px;left:-3px;width:clamp(30px,6vw,44px);height:auto;animation:tStarR 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#f6848e"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+        <svg viewBox="0 0 40 40" style="position:absolute;bottom:-3px;right:-3px;width:clamp(30px,6vw,44px);height:auto;animation:tStarR 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#7b3fd4"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+        <svg viewBox="0 0 40 40" style="position:absolute;bottom:-3px;left:-3px;width:clamp(30px,6vw,44px);height:auto;animation:tStar 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#00a6d6"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+
+        <!-- basmala -->
+        <div class="qv" style="text-align:center;font-size:clamp(22px,4.6vw,36px);color:var(--c-primary);margin:6px 0 clamp(14px,2.4vw,20px);">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+        <!-- verses flow -->
+        <div class="qv" dir="rtl" style="text-align:justify;line-height:2.5;font-size:clamp(19px,3.4vw,28px);color:var(--c-ink);padding:0 clamp(4px,1.5vw,14px);min-height:120px;">
+          <sc-for list="{{ verses }}" as="v" hint-placeholder-count="18">
+            <span style="{{ v.style }}">{{ v.text }}<span style="{{ v.numStyle }}">{{ v.num }}</span>&nbsp;</span>
+          </sc-for>
+        </div>
+        <div class="qv" style="text-align:center;color:var(--c-inkSoft);font-size:clamp(15px,2.4vw,20px);margin-top:clamp(12px,2vw,18px);">صَدَقَ اللَّهُ الْعَلِيُّ الْعَظِيمُ</div>
+      </div>
+
+      <!-- controls -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin-top:clamp(14px,2.4vw,20px);">
+        <button onClick="{{ onAuto }}" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--c-accent);color:#04223a;border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:11px 22px;border-radius:999px;min-height:44px;box-shadow:0 6px 16px rgba(0,195,254,.35);">{{ autoLabel }}</button>
+        <button onClick="{{ onPrev }}" style="cursor:pointer;background:#fff;border:1.5px solid var(--c-line);color:var(--c-primary);font-weight:600;font-size:14px;padding:0 16px;height:44px;border-radius:999px;">آية →</button>
+        <button onClick="{{ onNext }}" style="cursor:pointer;background:#fff;border:1.5px solid var(--c-line);color:var(--c-primary);font-weight:600;font-size:14px;padding:0 16px;height:44px;border-radius:999px;">← آية</button>
+        <button onClick="{{ onAll }}" style="cursor:pointer;background:var(--c-tint);border:none;color:var(--c-primary);font-weight:600;font-size:14px;padding:0 16px;height:44px;border-radius:999px;">{{ allLabel }}</button>
+        <button onClick="{{ onToggleHifz }}" style="{{ hifzBtnStyle }}"><span style="width:10px;height:10px;border-radius:3px;background:var(--r-idhhar);display:inline-block;"></span>{{ hifzLabel }}</button>
+      </div>
+      <div style="text-align:center;color:var(--c-inkSoft);font-size:13px;margin-top:8px;">ظهرت <b style="color:var(--c-primary);">{{ shownCount }}</b> من <span style="direction:ltr;unicode-bidi:isolate;">١٨</span> آية</div>
+    </section>
+
+    <!-- hifz spotlight -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:4px 12px;border-radius:8px;font-size:13px;">للحفظ</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.5vw,23px);margin:0;">آيات الحفظ <span style="direction:ltr;unicode-bidi:isolate;">(١٥٣–١٥٧)</span></h2>
+      </div>
+      <p style="margin:0;color:#d6d0ee;font-size:14px;line-height:1.9;">هذه الآيات الخمس مطلوبةٌ للحفظ؛ ركّز عليها بعد إتمام التلاوة. تظهر مُميّزةً باللون في الإطار أعلاه عند تفعيل «تمييز آيات الحفظ».</p>
+    </section>
+
+    <!-- comprehension check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { shown: 5, hifz: true, auto: false, picked: null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+  componentWillUnmount(){ if(this._t) clearInterval(this._t); }
+
+  startAuto(){
+    var self = this;
+    if(this._t) clearInterval(this._t);
+    this._t = setInterval(function(){
+      if(self.state.shown >= 18){ clearInterval(self._t); self._t=null; self.setState({auto:false}); return; }
+      self.setState({ shown: self.state.shown + 1 });
+    }, 2000);
+  }
+
+  data(){
+    return [
+      { n:'١٥٣', hifz:true, t:'يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ ' },
+      { n:'١٥٤', hifz:true, t:'وَلَا تَقُولُوا لِمَنْ يُقْتَلُ فِي سَبِيلِ اللَّهِ أَمْوَاتٌ بَلْ أَحْيَاءٌ وَلَٰكِنْ لَا تَشْعُرُونَ ' },
+      { n:'١٥٥', hifz:true, t:'وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِنَ الْأَمْوَالِ وَالْأَنْفُسِ وَالثَّمَرَاتِ وَبَشِّرِ الصَّابِرِينَ ' },
+      { n:'١٥٦', hifz:true, t:'الَّذِينَ إِذَا أَصَابَتْهُمْ مُصِيبَةٌ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ ' },
+      { n:'١٥٧', hifz:true, t:'أُولَٰئِكَ عَلَيْهِمْ صَلَوَاتٌ مِنْ رَبِّهِمْ وَرَحْمَةٌ وَأُولَٰئِكَ هُمُ الْمُهْتَدُونَ ' },
+      { n:'١٥٨', hifz:false, t:'إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَنْ يَطَّوَّفَ بِهِمَا وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ ' },
+      { n:'١٥٩', hifz:false, t:'إِنَّ الَّذِينَ يَكْتُمُونَ مَا أَنْزَلْنَا مِنَ الْبَيِّنَاتِ وَالْهُدَىٰ مِنْ بَعْدِ مَا بَيَّنَّاهُ لِلنَّاسِ فِي الْكِتَابِ أُولَٰئِكَ يَلْعَنُهُمُ اللَّهُ وَيَلْعَنُهُمُ اللَّاعِنُونَ ' },
+      { n:'١٦٠', hifz:false, t:'إِلَّا الَّذِينَ تَابُوا وَأَصْلَحُوا وَبَيَّنُوا فَأُولَٰئِكَ أَتُوبُ عَلَيْهِمْ وَأَنَا التَّوَّابُ الرَّحِيمُ ' },
+      { n:'١٦١', hifz:false, t:'إِنَّ الَّذِينَ كَفَرُوا وَمَاتُوا وَهُمْ كُفَّارٌ أُولَٰئِكَ عَلَيْهِمْ لَعْنَةُ اللَّهِ وَالْمَلَائِكَةِ وَالنَّاسِ أَجْمَعِينَ ' },
+      { n:'١٦٢', hifz:false, t:'خَالِدِينَ فِيهَا لَا يُخَفَّفُ عَنْهُمُ الْعَذَابُ وَلَا هُمْ يُنْظَرُونَ ' },
+      { n:'١٦٣', hifz:false, t:'وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ ' },
+      { n:'١٦٤', hifz:false, t:'إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ وَالْفُلْكِ الَّتِي تَجْرِي فِي الْبَحْرِ بِمَا يَنْفَعُ النَّاسَ وَمَا أَنْزَلَ اللَّهُ مِنَ السَّمَاءِ مِنْ مَاءٍ فَأَحْيَا بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا وَبَثَّ فِيهَا مِنْ كُلِّ دَابَّةٍ وَتَصْرِيفِ الرِّيَاحِ وَالسَّحَابِ الْمُسَخَّرِ بَيْنَ السَّمَاءِ وَالْأَرْضِ لَآيَاتٍ لِقَوْمٍ يَعْقِلُونَ ' },
+      { n:'١٦٥', hifz:false, t:'وَمِنَ النَّاسِ مَنْ يَتَّخِذُ مِنْ دُونِ اللَّهِ أَنْدَادًا يُحِبُّونَهُمْ كَحُبِّ اللَّهِ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِلَّهِ وَلَوْ يَرَى الَّذِينَ ظَلَمُوا إِذْ يَرَوْنَ الْعَذَابَ أَنَّ الْقُوَّةَ لِلَّهِ جَمِيعًا وَأَنَّ اللَّهَ شَدِيدُ الْعَذَابِ ' },
+      { n:'١٦٦', hifz:false, t:'إِذْ تَبَرَّأَ الَّذِينَ اتُّبِعُوا مِنَ الَّذِينَ اتَّبَعُوا وَرَأَوُا الْعَذَابَ وَتَقَطَّعَتْ بِهِمُ الْأَسْبَابُ ' },
+      { n:'١٦٧', hifz:false, t:'وَقَالَ الَّذِينَ اتَّبَعُوا لَوْ أَنَّ لَنَا كَرَّةً فَنَتَبَرَّأَ مِنْهُمْ كَمَا تَبَرَّءُوا مِنَّا كَذَٰلِكَ يُرِيهِمُ اللَّهُ أَعْمَالَهُمْ حَسَرَاتٍ عَلَيْهِمْ وَمَا هُمْ بِخَارِجِينَ مِنَ النَّارِ ' },
+      { n:'١٦٨', hifz:false, t:'يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ إِنَّهُ لَكُمْ عَدُوٌّ مُبِينٌ ' },
+      { n:'١٦٩', hifz:false, t:'إِنَّمَا يَأْمُرُكُمْ بِالسُّوءِ وَالْفَحْشَاءِ وَأَنْ تَقُولُوا عَلَى اللَّهِ مَا لَا تَعْلَمُونَ ' },
+      { n:'١٧٠', hifz:false, t:'وَإِذَا قِيلَ لَهُمُ اتَّبِعُوا مَا أَنْزَلَ اللَّهُ قَالُوا بَلْ نَتَّبِعُ مَا أَلْفَيْنَا عَلَيْهِ آبَاءَنَا أَوَلَوْ كَانَ آبَاؤُهُمْ لَا يَعْقِلُونَ شَيْئًا وَلَا يَهْتَدُونَ ' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, d = this.data(), shown = this.state.shown, hifzOn = this.state.hifz;
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===0 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var verses = d.map(function(v,i){
+      var vis = i < shown;
+      var isHifz = v.hifz && hifzOn;
+      var base = 'transition:opacity .6s, background .3s;border-radius:8px;padding:1px 4px;';
+      var st = base + (vis ? 'opacity:1;' : 'opacity:0;')
+        + (isHifz ? 'background:rgba(0,166,214,.14);box-shadow:inset 0 -2px 0 var(--r-idhhar);' : '');
+      var numColor = isHifz ? 'var(--r-idhhar)' : 'var(--c-accent)';
+      var numStyle = 'display:inline-flex;align-items:center;justify-content:center;min-width:1.9em;height:1.9em;margin:0 .2em;border:1.5px solid '+numColor+';color:'+numColor+';border-radius:50%;font-size:.52em;vertical-align:middle;font-family:Readex Pro;';
+      return { text:v.t, num:v.n, style:st, numStyle:numStyle };
+    });
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['الآيات ١٥٣ إلى ١٧٠ كلّها.','الآيات ١٥٣ إلى ١٥٧ فقط.','الآيات ١٦٤ إلى ١٧٠.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما آيات الحفظ المطلوبة في هذا الدرس؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'آيات الحفظ هي الآيات ١٥٣–١٥٧، وهي المُميّزة باللون في الإطار. أمّا التلاوة فتشمل ١٥٣–١٧٠.'
+        :'التلاوة تشمل ١٥٣–١٧٠، لكن المطلوب حفظه هو الآيات الخمس الأولى ١٥٣–١٥٧ (المُميّزة باللون).';
+    }
+
+    return {
+      pips:pips, verses:verses, shownCount:shown,
+      autoLabel: this.state.auto ? '⏸ إيقاف' : '◀ كشف تدريجيّ',
+      onAuto:function(){ var na=!self.state.auto; self.setState({auto:na}); if(na){ if(self.state.shown>=18) self.setState({shown:0}); self.startAuto(); } else if(self._t){ clearInterval(self._t); self._t=null; } },
+      onPrev:function(){ if(self._t){clearInterval(self._t);self._t=null;} self.setState({ shown: Math.max(0, self.state.shown-1), auto:false }); },
+      onNext:function(){ if(self._t){clearInterval(self._t);self._t=null;} self.setState({ shown: Math.min(18, self.state.shown+1), auto:false }); },
+      onAll:function(){ if(self._t){clearInterval(self._t);self._t=null;} self.setState({ shown: self.state.shown>=18?0:18, auto:false }); },
+      allLabel: shown>=18 ? 'إخفاء' : 'عرض الكل',
+      onToggleHifz:function(){ self.setState({ hifz: !self.state.hifz }); },
+      hifzLabel: hifzOn ? 'تمييز آيات الحفظ ✓' : 'تمييز آيات الحفظ',
+      hifzBtnStyle:'cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:14px;transition:all .2s;'
+        +(hifzOn?'background:rgba(0,166,214,.12);border:1.5px solid var(--r-idhhar);color:#065c74;':'background:#fff;border:1.5px solid var(--c-line);color:var(--c-inkSoft);'),
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

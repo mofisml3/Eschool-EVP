@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+  @keyframes rotR{to{transform:rotate(-360deg);}}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">الناجون يوم القيامة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٥ · تمهيد ونصّ الحديث</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Najoon%20L3%20Scene%202%20-%20Dhill.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">تمهيد</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">الناجون يوم القيامة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        في يوم القيامة يشتدّ الهول والفزع، فيُكرم الله سبحانه <b>سبعةَ أصنافٍ</b> من عباده الصالحين بأن يُظلّهم في ظلّه يوم لا ظلّ إلّا ظلّه، جزاءَ ما قدّموه في الدنيا من عملٍ صالح. تأمّل نصّ الحديث في الإطار الآتي.
+      </p>
+    </div>
+
+    <!-- ===== ORNAMENTED HADITH FRAME ===== -->
+    <section style="position:relative;background:linear-gradient(160deg,#fbfaff,#f2eefc);border-radius:22px;padding:clamp(10px,2vw,18px);box-shadow:0 10px 34px rgba(32,0,88,.08);">
+      <div style="position:relative;border:2px solid var(--c-accent);border-radius:16px;padding:clamp(18px,3vw,32px) clamp(14px,3vw,28px);">
+        <div style="position:absolute;inset:6px;border:1px solid rgba(32,0,88,.22);border-radius:11px;pointer-events:none;"></div>
+        <svg viewBox="0 0 40 40" style="position:absolute;top:-3px;right:-3px;width:clamp(30px,6vw,42px);height:auto;animation:rot 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#00c3fe"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+        <svg viewBox="0 0 40 40" style="position:absolute;bottom:-3px;left:-3px;width:clamp(30px,6vw,42px);height:auto;animation:rotR 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#7b3fd4"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+
+        <div style="text-align:center;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.4vw,19px);margin-bottom:clamp(12px,2vw,18px);">قال رسولُ الله ﷺ:</div>
+        <div class="qv" style="text-align:center;font-size:clamp(17px,3vw,26px);line-height:2.3;color:var(--c-ink);">
+          «سبعةٌ يُظلّهم اللهُ في ظلِّه يومَ لا ظلَّ إلّا ظلُّه: إمامٌ عادلٌ، وشابٌّ نشأ في عبادةِ اللهِ عزَّ وجلَّ، ورجلٌ قلبُه معلَّقٌ بالمساجدِ، ورجلانِ تَحابّا في اللهِ اجتمعا عليه وتفرَّقا عليه، ورجلٌ دعتْه امرأةٌ ذاتُ حُسنٍ وجَمالٍ فقال: إنّي أخافُ اللهَ ربَّ العالمين، ورجلٌ تصدَّق بصدقةٍ فأخفاها حتى لا تعلمَ شِمالُه ما تُنفِقُ يمينُه، ورجلٌ ذكرَ اللهَ خالياً ففاضتْ عيناه»
+        </div>
+        <div style="text-align:center;color:var(--c-inkSoft);font-size:clamp(13px,2vw,16px);margin-top:clamp(12px,2vw,18px);font-family:'El Messiri';">صدق رسولُ الله ﷺ — متّفقٌ عليه</div>
+      </div>
+    </section>
+
+    <!-- HIFZ: reveal the seven -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🧠 أعِنّي على الحفظ</h2>
+          <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">أخفِ الأصناف ثمّ استرجعها من ذاكرتك، واكشفها للتأكّد.</p>
+        </div>
+        <button onClick="{{ toggleHifz }}" style="cursor:pointer;border:none;border-radius:12px;padding:11px 18px;font-family:'El Messiri';font-weight:700;font-size:14px;background:var(--c-accent);color:#04223a;min-height:44px;">{{ hifzLabel }}</button>
+      </div>
+      <div style="padding:clamp(18px,3vw,26px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;">
+          <sc-for list="{{ seven }}" as="s" hint-placeholder-count="7">
+            <div style="{{ s.style }}">
+              <span style="flex:none;width:30px;height:30px;border-radius:9px;background:{{ s.dot }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:15px;">{{ s.n }}</span>
+              <span style="{{ s.textStyle }}">{{ s.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE: معاني الكلمات matching ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🧩 معاني الكلمات</h2>
+        <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">اختر الكلمة، ثمّ اضغط معناها الصحيح. أصبتَ: {{ score }} من {{ total }}.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,28px);display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(14px,2.5vw,22px);" data-cols>
+        <!-- words -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:'El Messiri';font-weight:700;color:var(--c-inkSoft);font-size:13px;margin-bottom:2px;">الكلمة</div>
+          <sc-for list="{{ words }}" as="w" hint-placeholder-count="6">
+            <button onClick="{{ w.onClick }}" style="{{ w.style }}">
+              <span class="qv" style="font-size:clamp(17px,2.4vw,21px);">{{ w.text }}</span>
+              <sc-if value="{{ w.done }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-good);font-weight:700;">✓</span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+        <!-- meanings -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-family:'El Messiri';font-weight:700;color:var(--c-inkSoft);font-size:13px;margin-bottom:2px;">المعنى</div>
+          <sc-for list="{{ meanings }}" as="m" hint-placeholder-count="6">
+            <button onClick="{{ m.onClick }}" style="{{ m.style }}">{{ m.text }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+        <div style="margin:0 clamp(18px,3vw,28px) clamp(18px,3vw,28px);padding:14px 18px;border-radius:14px;background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);font-size:14px;line-height:1.8;animation:fadeUp .35s ease;">🎉 أحسنت! طابقتَ جميع الكلمات بمعانيها الصحيحة.</div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { hifz:false, pickedWord:null, matched:{}, wrong:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){
+    this.syncVars();
+    var st=document.createElement('style');
+    st.textContent='@media(max-width:640px){[data-cols]{grid-template-columns:1fr !important;}}';
+    document.head.appendChild(st);
+  }
+
+  sevenData(){
+    return ['إمامٌ عادلٌ','شابٌّ نشأ في عبادة الله','قلبُه معلَّقٌ بالمساجد','رجلانِ تحابّا في الله','مَن دعتْه امرأةٌ فخاف الله','مَن تصدّق فأخفى صدقته','مَن ذكر الله خالياً فبكى'];
+  }
+  pairs(){
+    return [
+      { w:'يُظلّهم', m:'يحميهم ويحفظهم من أهوال يوم القيامة' },
+      { w:'ظلُّ الله', m:'كرامتُه وحمايتُه ورحمتُه سبحانه' },
+      { w:'نشأ في عبادة ربّه', m:'ابتدأ منذ صغره في عبادة الله تعالى' },
+      { w:'قلبُه معلَّقٌ بالمساجد', m:'محبٌّ لبيوت الله ومداومٌ على الصلاة والعبادة فيها' },
+      { w:'تَحابّا في الله', m:'أحبّ كلٌّ منهما الآخر لصلاحه وتقواه، لا لغرضٍ دنيوي' },
+      { w:'فاضتْ عيناه', m:'بكى خشيةً من التقصير في حقّ الله وشوقاً إلى رحمته' },
+    ];
+  }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4,5].map(function(i){ return { bg: i===0 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    // hifz
+    var seven=this.sevenData().map(function(t,i){
+      var hidden=S.hifz;
+      return {
+        n:['١','٢','٣','٤','٥','٦','٧'][i], label: hidden ? '؟' : t,
+        dot: hidden ? 'var(--c-inkSoft)' : ['#200058','#00a6d6','#7b3fd4','#d55fa6','#f2707c','#1f9e8b','#d9a520'][i],
+        style:'display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:13px;background:'+(hidden?'var(--c-tint)':'#fff')+';border:1px solid var(--c-line);min-height:44px;',
+        textStyle:'font-family:El Messiri;font-weight:600;font-size:clamp(14px,1.9vw,16px);color:'+(hidden?'var(--c-inkSoft)':'var(--c-primary)')+';'
+      };
+    });
+
+    // matching
+    var pr=this.pairs(), total=pr.length;
+    var order=[3,0,5,2,4,1]; // shuffled meaning order (indices into pr)
+    var matched=S.matched, picked=S.pickedWord, wrong=S.wrong;
+    var scoreN=Object.keys(matched).length;
+
+    var words=pr.map(function(p,i){
+      var done=matched[i]!==undefined, sel=picked===i;
+      var bd='var(--c-line)', bg='var(--c-tint)';
+      if(done){bd='var(--c-good)';bg='rgba(31,158,139,.08)';}
+      else if(sel){bd='var(--c-accent)';bg='#fff';}
+      return { text:p.w, done:done,
+        style:'display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:'+(done?'default':'pointer')+';text-align:right;padding:12px 15px;border-radius:14px;border:2px solid '+bd+';background:'+bg+';min-height:44px;transition:all .2s;'+(sel?'box-shadow:0 6px 16px rgba(0,195,254,.18);':''),
+        onClick:function(){ if(!done) self.setState({pickedWord: sel?null:i, wrong:null}); } };
+    });
+
+    var meanings=order.map(function(idx){
+      var p=pr[idx], done=matched[idx]!==undefined, isWrong=wrong===idx;
+      var bd='var(--c-line)', bg='#fff', col='var(--c-ink)';
+      if(done){bd='var(--c-good)';bg='rgba(31,158,139,.07)';col='#177564';}
+      else if(isWrong){bd='var(--c-alert)';bg='rgba(246,132,142,.1)';}
+      return { text:p.m,
+        style:'cursor:'+(done?'default':'pointer')+';text-align:right;padding:12px 15px;border-radius:14px;border:2px solid '+bd+';background:'+bg+';color:'+col+';font-size:clamp(13px,1.8vw,15px);line-height:1.7;min-height:44px;transition:all .2s;',
+        onClick:function(){
+          if(done) return;
+          if(picked===null){ self.setState({wrong:idx}); setTimeout(function(){ self.setState({wrong:null}); },600); return; }
+          if(picked===idx){ var mm=Object.assign({},matched); mm[idx]=true; self.setState({matched:mm, pickedWord:null, wrong:null}); }
+          else { self.setState({wrong:idx}); setTimeout(function(){ self.setState({wrong:null}); },600); }
+        } };
+    });
+
+    return {
+      pips:pips, seven:seven, hifz:S.hifz,
+      hifzLabel: S.hifz ? 'إظهار الكلّ 👁' : 'إخفاء للحفظ 🙈',
+      toggleHifz:function(){ self.setState({hifz:!S.hifz}); },
+      words:words, meanings:meanings, score:scoreN, total:total, allDone: scoreN===total
+    };
+  }
+}
+</script>
+</body>
+</html>

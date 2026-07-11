@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --scene:#00a6d6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes coinDrop{0%{transform:translateY(-30px);opacity:0;}30%{opacity:1;}100%{transform:translateY(0);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">حقوق الزوجين وواجباتهما</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٢ من ٥ · حقوق الزوجة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Scene%201%20-%20Tamheed.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Zawjayn%20L4%20Scene%203%20-%20Qawama.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">أ · حقوق الزوجة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">حقوقٌ ثلاثةٌ للزوجة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        أوجب الإسلامُ للزوجة حقوقاً تصونُ كرامتَها وتكفلُ حياتها؛ منها ما هو مادّيٌّ ومنها ما هو نفسيّ. اضغط كلَّ بطاقةٍ لتكشف تفصيلها ودليلها.
+      </p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ rights }}" as="r" hint-placeholder-count="3">
+        <section style="{{ r.cardStyle }}">
+          <button onClick="{{ r.onToggle }}" style="width:100%;display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:none;text-align:right;padding:clamp(16px,2.4vw,22px);">
+            <span style="flex:none;width:clamp(44px,8vw,56px);height:clamp(44px,8vw,56px);border-radius:15px;background:{{ r.iconBg }};color:#fff;display:flex;align-items:center;justify-content:center;font-size:clamp(22px,4.5vw,28px);">{{ r.emoji }}</span>
+            <div style="flex:1;min-width:0;">
+              <div style="color:var(--c-inkSoft);font-size:12px;font-family:'El Messiri';font-weight:600;">الحقّ {{ r.num }}</div>
+              <h2 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(18px,2.6vw,23px);margin:2px 0 0;">{{ r.title }}</h2>
+            </div>
+            <span style="flex:none;color:var(--scene);font-size:20px;transition:transform .3s;transform:rotate({{ r.rot }}deg);">▾</span>
+          </button>
+          <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(16px,2.4vw,22px) clamp(18px,2.6vw,24px);animation:fadeUp .35s ease;">
+              <div style="border-top:1px solid var(--c-line);padding-top:16px;">{{ r.body }}</div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:0 };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--scene', (B.rules&&B.rules.idhhar)||'#00a6d6');
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  body(i){
+    var h=React.createElement;
+    var p=function(txt){ return h('p',{style:{margin:'0 0 12px',fontSize:'clamp(14px,1.9vw,16px)',lineHeight:2,color:'var(--c-ink)'}}, txt); };
+    var quote=function(text,ref){ return h('div',{style:{background:'var(--c-tint)',borderRadius:'14px',padding:'14px 18px',margin:'12px 0 0',textAlign:'center'}},
+      h('div',{className:'qv',style:{fontSize:'clamp(16px,2.6vw,21px)',lineHeight:2,color:'var(--c-primary)'}}, text),
+      ref?h('div',{style:{color:'var(--c-inkSoft)',fontSize:'12px',marginTop:'6px'}}, ref):null); };
+    var hadith=function(text){ return h('div',{style:{borderRight:'4px solid var(--scene)',background:'rgba(0,166,214,.07)',borderRadius:'0 12px 12px 0',padding:'12px 16px',margin:'12px 0 0',fontFamily:'Amiri, serif',fontSize:'clamp(15px,2.2vw,18px)',lineHeight:1.9,color:'var(--c-primary)'}}, text); };
+    var note=function(label,txt,color){ return h('div',{style:{background:'#fff',border:'1px solid var(--c-line)',borderRadius:'12px',padding:'12px 15px',marginTop:'10px'}},
+      h('span',{style:{fontFamily:'El Messiri',fontWeight:700,color:color||'var(--c-primary)',fontSize:'14px',marginLeft:'6px'}}, label+': '),
+      h('span',{style:{color:'var(--c-ink)',fontSize:'clamp(13px,1.8vw,15px)',lineHeight:1.9}}, txt)); };
+
+    if(i===0){
+      return h('div',null,
+        p('المهرُ حقٌّ خالصٌ للمرأة، لا يجوز لأحدٍ أن يأخذَه منها إلّا برضاها؛ فهو مِلكُها وحدَها تتصرّف فيه كيف تشاء. وليس لوليِّها ولا لزوجِها حقٌّ فيه بغير إذنها.'),
+        note('لطيفةٌ فقهيّة','لا يجوز لوليِّ الأمر (كالأب) أن يأخذ مهرَ ابنته لنفسه؛ لأنّه حقٌّ خالصٌ لها.','#177564')
+      );
+    }
+    if(i===1){
+      return h('div',null,
+        p('على الزوج أن يُنفِقَ على زوجته — طعامَها ولباسَها ومسكنَها — وإن كانت غنيّة؛ وفي مقابل ذلك يكون هو القيِّمَ على البيت ومَن فيه.'),
+        h('div',{style:{background:'linear-gradient(180deg,#0d2b38,#06202b)',borderRadius:'16px',padding:'18px',display:'flex',flexDirection:'column',alignItems:'center',gap:'10px',margin:'4px 0 4px'}},
+          h('div',{style:{position:'relative',width:'min(100%,300px)',height:'96px'}},
+            h('div',{style:{position:'absolute',right:'8%',top:'6px',textAlign:'center'}},
+              h('div',{style:{fontSize:'34px'}},'🤝'),
+              h('div',{style:{color:'#bfeaff',fontFamily:'El Messiri',fontWeight:700,fontSize:'11px'}},'الزوج يُنفق')),
+            this.state.gave?h('div',{style:{position:'absolute',right:'calc(8% + 6px)',top:'42px',fontSize:'24px',animation:'coinDrop .6s ease forwards'}},'🪙'):null,
+            h('div',{style:{position:'absolute',left:'50%',bottom:'0',transform:'translateX(-50%)',textAlign:'center'}},
+              h('div',{style:{fontSize:'40px'}},'🏠'),
+              h('div',{style:{color:'#bfeaff',fontFamily:'El Messiri',fontWeight:700,fontSize:'11px'}},'نفقة البيت'))),
+          h('button',{onClick:this.gv, style:{cursor:'pointer',border:'none',borderRadius:'10px',padding:'10px 20px',fontFamily:'El Messiri',fontWeight:700,fontSize:'13px',background:'var(--c-accent)',color:'#04223a',minHeight:'44px'}},'أنفِقْ 🪙')),
+        note('متى تسقط النفقة؟','إذا نشزَت الزوجةُ وامتنعت عن زوجها بغير حقٍّ فلا تستحقّ النفقة.','#b0454f'),
+        note('إذا عجز الزوج','فللزوجة أن ترفع أمرَها إلى القاضي الشرعيّ للنظر فيه.','#177564')
+      );
+    }
+    return h('div',null,
+      p('حقُّ المرأة ليس مادّيّاً فقط؛ لها حاجاتٌ نفسيّةٌ أيضاً. فعلى الزوج أن يُدخِلَ السرورَ عليها ويعاشرَها بالمعروف. وقد كان رسول الله (ص) يعامل زوجاته أفضلَ معاملة. والمرأةُ إنسانٌ يُصيب ويُخطئ، فعلى الرجل أن يعرف ذلك ويعاملها بالحسنى.'),
+      quote('وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ ۚ فَإِن كَرِهْتُمُوهُنَّ فَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَيَجْعَلَ اللَّهُ فِيهِ خَيْرًا كَثِيرًا','النساء: ١٩'),
+      hadith('«خيرُكم خيرُكم لأهلِه، وأنا خيرُكم لأهلي».')
+    );
+  }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4].map(function(i){ return { bg: i<=1 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var meta=[
+      { num:'الأوّل', title:'المَهْر', emoji:'💍', iconBg:'#c99a1f' },
+      { num:'الثاني', title:'النَّفَقة', emoji:'🏠', iconBg:'#0176a6' },
+      { num:'الثالث', title:'حُسْن المعاملة', emoji:'🤍', iconBg:'#7b3fd4' },
+    ];
+    var rights=meta.map(function(m,i){
+      var open=S.open===i;
+      return { num:m.num, title:m.title, emoji:m.emoji, iconBg:m.iconBg,
+        open:open, rot: open?180:0,
+        cardStyle:'background:#fff;border:1px solid '+(open?'var(--scene)':'var(--c-line)')+';border-radius:20px;box-shadow:0 6px 22px rgba(32,0,88,'+(open?'.1':'.05')+');overflow:hidden;transition:border-color .3s;',
+        onToggle:function(){ self.setState({open: self.state.open===i ? -1 : i}); },
+        body: self.body(i) };
+    });
+    return {
+      pips:pips, rights:rights,
+      gv:function(){ self.setState({gave:false}); setTimeout(function(){ self.setState({gave:true}); },30); }
+    };
+  }
+}
+</script>
+</body>
+</html>

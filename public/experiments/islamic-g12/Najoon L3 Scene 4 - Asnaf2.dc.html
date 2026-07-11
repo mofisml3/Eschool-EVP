@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes coinDrop{0%{transform:translateY(-46px);opacity:0;}30%{opacity:1;}100%{transform:translateY(0);opacity:1;}}
+  @keyframes tearFall{0%{transform:translateY(0);opacity:0;}20%{opacity:1;}100%{transform:translateY(26px);opacity:0;}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">الناجون يوم القيامة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · الأصناف الثلاثة الأخيرة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Najoon%20L3%20Scene%203%20-%20Asnaf1.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Najoon%20L3%20Scene%205%20-%20Irshad.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">شرح الأصناف · ٥–٧</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">الأصناف الثلاثة الأخيرة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        ثلاثةُ أصنافٍ تجمعها قوّةُ الإيمان في السرّ: العفّةُ عند الإغراء، والصدقةُ في الخفاء، والخشيةُ عند الخلوة. جرّب المشاهد التفاعلية لتعيش معناها.
+      </p>
+    </div>
+
+    <!-- ===== 5) العفيف — Yusuf's choice ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#b23c86,#d55fa6);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;gap:14px;">
+        <div style="flex:none;width:clamp(48px,9vw,60px);height:clamp(48px,9vw,60px);border-radius:15px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:clamp(24px,5vw,32px);animation:floaty 3.4s ease-in-out infinite;">🛡️</div>
+        <div>
+          <div style="color:rgba(255,255,255,.85);font-size:13px;font-family:'El Messiri';font-weight:600;">الصنف ٥</div>
+          <h2 style="font-family:'El Messiri';font-weight:700;color:#fff;font-size:clamp(18px,2.7vw,24px);margin:2px 0 0;">المؤمن العفيف</h2>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:16px;">
+        <p style="margin:0;font-size:clamp(15px,2vw,17px);line-height:2;color:var(--c-ink);">
+          يتغلّب المؤمن على كلّ صور الإغراء المحرَّمة وإن قويت الدوافع إليها، بتقواه وترفّعه عن الإثم، فتغلب خشيةُ الله شهوتَه إذا راودته امرأةٌ تملك المال والجمال والمنصب. وقدوتُه في ذلك نبيُّ الله <b>يوسف (ع)</b> حين راودته امرأةُ العزيز عن نفسه.
+        </p>
+        <!-- interactive choice -->
+        <div style="background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.6vw,22px);">
+          <div style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.1vw,18px);margin-bottom:6px;">ماذا اختار يوسف (ع)؟</div>
+          <p style="margin:0 0 14px;color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,14px);">اختر ما يليق بالمؤمن العفيف.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+            <sc-for list="{{ yusufChoices }}" as="c" hint-placeholder-count="2">
+              <button onClick="{{ c.onClick }}" style="{{ c.style }}">
+                <span style="font-size:22px;">{{ c.emoji }}</span>
+                <span style="font-family:'El Messiri';font-weight:600;font-size:clamp(14px,1.9vw,16px);">{{ c.text }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ yusufAnswered }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;background:linear-gradient(135deg,#200058,#3a1290);border-radius:14px;padding:clamp(16px,2.4vw,22px);text-align:center;color:#fff;animation:fadeUp .4s ease;">
+              <div style="display:inline-block;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:3px 12px;border-radius:8px;font-size:12px;margin-bottom:10px;">فضَّل السجن على الإثم</div>
+              <div class="qv" style="font-size:clamp(18px,3vw,25px);line-height:2.1;">قَالَ رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ</div>
+              <div style="color:#bfa9ff;font-size:12.5px;margin-top:8px;">يوسف: ٣٣</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ yusufWrong }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:14px;padding:12px 16px;border-radius:12px;background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);font-size:14px;line-height:1.8;animation:fadeUp .3s ease;">هذا ليس شأن المؤمن العفيف؛ فالزنا والإيمان على طرفي نقيض. حاول مرّةً أخرى.</div>
+          </sc-if>
+        </div>
+        <div style="border-right:4px solid var(--scene);background:var(--c-tint);border-radius:0 14px 14px 0;padding:14px 16px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">
+          في العفّة صيانةٌ للنفس من مهالك الأمراض؛ وقد أعدّ الله للمؤمنين الصابرين المتعفّفين نعيماً دائماً وسعادةً خالدةً يتضاءل أمامها متاعُ الدنيا الفاني.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6) المتصدق — secret charity ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#177564,#1f9e8b);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;gap:14px;">
+        <div style="flex:none;width:clamp(48px,9vw,60px);height:clamp(48px,9vw,60px);border-radius:15px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:clamp(24px,5vw,32px);animation:floaty 3.4s ease-in-out infinite;">🤲</div>
+        <div>
+          <div style="color:rgba(255,255,255,.85);font-size:13px;font-family:'El Messiri';font-weight:600;">الصنف ٦</div>
+          <h2 style="font-family:'El Messiri';font-weight:700;color:#fff;font-size:clamp(18px,2.7vw,24px);margin:2px 0 0;">المؤمن المتصدّق في الخفاء</h2>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:16px;">
+        <p style="margin:0;font-size:clamp(15px,2vw,17px);line-height:2;color:var(--c-ink);">
+          هو الرجل الذي يتصدّق وينفق ماله لوجه الله سِرّاً، ويبالغ في إخفاء الصدقة <b>حتى لا تعلم شِمالُه ما تنفق يمينُه</b>، بدافع العطف على المسكين وتفريج كربة المكروب، بعيداً عن المنّ والرياء والشهرة والمنافع الدنيوية.
+        </p>
+        <!-- animation -->
+        <div style="background:linear-gradient(180deg,#0d0230,#1a0350);border-radius:16px;padding:clamp(18px,3vw,26px);display:flex;flex-direction:column;align-items:center;gap:14px;">
+          <div style="position:relative;width:min(100%,360px);height:clamp(120px,26vw,150px);">
+            <!-- right hand giving -->
+            <div style="position:absolute;right:6%;top:8px;text-align:center;">
+              <div style="font-size:clamp(30px,7vw,42px);">🤚</div>
+              <div style="color:#bfeaff;font-family:'El Messiri';font-weight:700;font-size:12px;margin-top:2px;">اليمين تُنفق</div>
+            </div>
+            <!-- left hand -->
+            <div style="position:absolute;left:6%;top:8px;text-align:center;opacity:.5;">
+              <div style="font-size:clamp(30px,7vw,42px);">✋</div>
+              <div style="color:#8a7fc0;font-family:'El Messiri';font-weight:700;font-size:12px;margin-top:2px;">الشمال لا تعلم</div>
+            </div>
+            <!-- coin -->
+            <sc-if value="{{ giving }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;right:calc(6% + clamp(8px,2vw,14px));top:clamp(46px,10vw,60px);font-size:clamp(22px,5vw,30px);animation:coinDrop .7s ease forwards;">🪙</div>
+            </sc-if>
+            <!-- box -->
+            <div style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);text-align:center;">
+              <div style="font-size:clamp(34px,8vw,48px);">📦</div>
+              <div style="color:#bfeaff;font-family:'El Messiri';font-weight:700;font-size:12px;">صندوق الصدقة</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;">
+            <button onClick="{{ giveAlms }}" style="cursor:pointer;border:none;border-radius:12px;padding:12px 22px;font-family:'El Messiri';font-weight:700;font-size:14px;background:var(--c-accent);color:#04223a;min-height:44px;box-shadow:0 6px 16px rgba(0,195,254,.3);" style-hover="filter:brightness(1.05);">تصدّق في السرّ 🪙</button>
+            <span style="color:#bfeaff;font-family:'El Messiri';font-weight:700;font-size:14px;">صدقاتٌ خفيّة: {{ almsCount }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7) الخاشع — tears ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#0176a6,#00a6d6);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;gap:14px;">
+        <div style="flex:none;width:clamp(48px,9vw,60px);height:clamp(48px,9vw,60px);border-radius:15px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:clamp(24px,5vw,32px);animation:floaty 3.4s ease-in-out infinite;">💧</div>
+        <div>
+          <div style="color:rgba(255,255,255,.85);font-size:13px;font-family:'El Messiri';font-weight:600;">الصنف ٧</div>
+          <h2 style="font-family:'El Messiri';font-weight:700;color:#fff;font-size:clamp(18px,2.7vw,24px);margin:2px 0 0;">المؤمن الخاشع</h2>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,3vw,28px);display:grid;grid-template-columns:1fr auto;gap:clamp(16px,3vw,26px);align-items:center;" data-khashi>
+        <p style="margin:0;font-size:clamp(15px,2vw,17px);line-height:2;color:var(--c-ink);">
+          هو الذي ذكر الله بقلبه ولسانه مؤمناً بجلاله وعظمته وشدّة عذابه وسعة رحمته، فانهمرت دموعُه خشيةً من التقصير في حقّه وشوقاً إلى رحمته وهو في خلوته. ومَن كانت فيه هذه السجيّة — رقّةُ القلب وصفاءُ النفس وحبُّ الله — فهو رجلُ خيرٍ لا يُنتظر منه إلّا الصلاح والنفع العام.
+        </p>
+        <div style="justify-self:center;">
+          <div style="position:relative;width:clamp(96px,19vw,128px);height:clamp(120px,24vw,150px);">
+            <svg viewBox="0 0 90 120" style="width:100%;height:100%;">
+              <defs>
+                <radialGradient id="khGlow" cx="50%" cy="6%" r="62%">
+                  <stop offset="0%" stop-color="#9fd8ff" stop-opacity=".5"></stop>
+                  <stop offset="100%" stop-color="#9fd8ff" stop-opacity="0"></stop>
+                </radialGradient>
+              </defs>
+              <ellipse cx="45" cy="14" rx="42" ry="30" fill="url(#khGlow)"></ellipse>
+              <!-- robe / shoulders -->
+              <path d="M15,120 Q13,72 32,58 L58,58 Q77,72 75,120 Z" fill="#5a34a8"></path>
+              <path d="M45,60 L45,120" stroke="#48278c" stroke-width="1.4" opacity=".5"></path>
+              <!-- cupped hands raised in supplication -->
+              <path d="M32,74 Q45,62 58,74 Q53,84 45,84 Q37,84 32,74 Z" fill="#ecdfc7"></path>
+              <path d="M45,73 L45,84" stroke="#d6c4a2" stroke-width="1" opacity=".7"></path>
+              <!-- bowed head (faceless) -->
+              <circle cx="45" cy="42" r="13" fill="#ecdfc7"></circle>
+              <!-- hood draped over head -->
+              <path d="M30,46 Q28,26 45,26 Q62,26 60,46 Q60,37 45,37 Q30,37 30,46 Z" fill="#4a2790"></path>
+            </svg>
+            <sc-if value="{{ weeping }}" hint-placeholder-val="{{ true }}">
+              <div style="position:absolute;left:41%;top:33%;font-size:13px;animation:tearFall 2.4s ease-in-out infinite;">💧</div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { yusuf:null, giving:false, alms:0 };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.ikhfa);
+  }
+  componentDidMount(){
+    this.syncVars();
+    var st=document.createElement('style');
+    st.textContent='@media(max-width:640px){[data-khashi]{grid-template-columns:1fr !important;}}';
+    document.head.appendChild(st);
+  }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4,5].map(function(i){ return { bg: i<=3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var ch=[
+      { emoji:'⛓️', text:'الوقوع في الإثم', correct:false },
+      { emoji:'🚪', text:'السجن مع طاعة الله', correct:true },
+    ];
+    var yusufChoices=ch.map(function(c,i){
+      var chosen=S.yusuf===i;
+      var bd='var(--c-line)', bg='#fff';
+      if(S.yusuf!==null){ if(c.correct){bd='var(--c-good)';bg='rgba(31,158,139,.08)';} else if(chosen){bd='var(--c-alert)';bg='rgba(246,132,142,.1)';} }
+      return { emoji:c.emoji, text:c.text,
+        style:'display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;padding:16px 12px;border-radius:14px;border:2px solid '+bd+';background:'+bg+';color:var(--c-primary);min-height:44px;transition:all .2s;',
+        onClick:function(){ self.setState({yusuf:i}); } };
+    });
+
+    return {
+      pips:pips,
+      yusufChoices:yusufChoices,
+      yusufAnswered: S.yusuf===1,
+      yusufWrong: S.yusuf===0,
+      giving:S.giving, almsCount:S.alms,
+      giveAlms:function(){
+        self.setState({giving:false});
+        setTimeout(function(){ self.setState({giving:true, alms:self.state.alms+1}); },30);
+      },
+      weeping:true
+    };
+  }
+}
+</script>
+</body>
+</html>

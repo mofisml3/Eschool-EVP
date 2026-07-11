@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">التعاون بين المسلمين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٥ · شرح الحديث والأدلّة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Scene%202%20-%20Mufradat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Taawun%20L3%20Scene%204%20-%20Irshad.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الشرح</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">شرح الحديث وأدلّته</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        حثّ الحديثُ على التعاون والتكافل عبر الإنفاق ورعاية مصالح المحتاجين، بعيداً عن المنّة والسؤال. وقد أيّد ذلك آياتٌ وأحاديثُ كثيرة — اضغط كلّ دليلٍ لقراءته وشرحه.
+      </p>
+    </div>
+
+    <!-- explanation body -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(18px,2.8vw,26px);">
+      <p style="margin:0 0 12px;font-size:clamp(14px,1.9vw,16px);line-height:2.05;color:var(--c-ink);">
+        إذا كانت هذه من صفات الأفراد، فما ينبغي أن يجحد الغنيُّ حقَّ الفقير في ماله، أو يَدَعَه للبؤس والفاقة والعوز. فمن الواجب ألّا تعيش جماعةٌ في مستوى الترف وتعيش جماعةٌ أخرى في مستوى الشظف والجوع والحرمان.
+      </p>
+      <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2.05;color:var(--c-ink);">
+        إنّ سبب شيوع الفقر بين أبناء الأمّة هو منع المال عن تأدية وظيفته الاجتماعية، وحبسه عند بعض الأغنياء، وعدم مساعدتهم للفقراء. وقد حرص المسلمون الأوائل على إقامة دعائم المجتمع المتكافل، واستئصال شأفة الفقر، حتى لا يبقى بين أبناء الأمّة فقيرٌ ومحتاج.
+      </p>
+    </section>
+
+    <!-- evidence reveal cards -->
+    <section>
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 6px;color:var(--c-primary);">أدلّة الحثّ على التكافل</h2>
+      <p style="margin:0 0 clamp(14px,2.4vw,18px);color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);">اضغط كلّ بطاقةٍ لعرض الدليل وشرحه.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+          <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(32,0,88,.04);">
+            <button onClick="{{ c.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:14px;align-items:center;padding:clamp(16px,2.6vw,22px);text-align:right;">
+              <span style="flex:none;width:clamp(42px,7vw,52px);height:clamp(42px,7vw,52px);border-radius:13px;background:{{ c.tagBg }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(11px,1.7vw,13px);text-align:center;line-height:1.2;">{{ c.tag }}</span>
+              <span style="flex:1;font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(15px,2.2vw,19px);">{{ c.title }}</span>
+              <span style="flex:none;color:var(--scene);font-size:20px;transform:{{ c.chev }};">⌄</span>
+            </button>
+            <sc-if value="{{ c.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px);">
+                <div class="qv" style="background:var(--c-tint);border-radius:14px;padding:clamp(14px,2.4vw,18px);color:var(--c-primary);font-size:clamp(16px,2.6vw,21px);line-height:2;text-align:center;">{{ c.text }}</div>
+                <p style="margin:12px 4px 0;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">{{ c.exp }}</p>
+              </div>
+            </sc-if>
+          </section>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:{0:true}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  cardData(){
+    return [
+      { tag:'قرآن', tagBg:'var(--r-idgham)', title:'الحثّ على البِرّ والتعاون',
+        text:'وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ',
+        exp:'المائدة: ٢ — أمرٌ صريحٌ بالتعاون على كل خيرٍ وتقوى، ونهيٌ عن التعاون على الإثم والظلم.' },
+      { tag:'حديث', tagBg:'var(--r-idhhar)', title:'براءة الذمّة ممّن ترك جائعاً',
+        text:'«أَيُّمَا أَهْلِ عَرْصَةٍ أَصْبَحَ فِيهِمُ امْرُؤٌ جَائِعٌ فَقَدْ بَرِئَتْ مِنْهُمْ ذِمَّةُ اللَّهِ»',
+        exp:'إذا بات في الحيّ جائعٌ ولم يُطعِموه، فقد سقطت عنهم ذمّة الله وحمايته؛ لتفريطهم في حقّ المحتاج.' },
+      { tag:'حديث', tagBg:'var(--r-idhhar)', title:'كمال الإيمان بحبّ الخير للغير',
+        text:'«لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ»',
+        exp:'لا يكتمل إيمان المسلم حتى يحبّ لإخوانه من الخير مثل ما يحبّه لنفسه؛ وهو أساس التكافل.' },
+      { tag:'الإمام\nعليّ', tagBg:'var(--c-primary)', title:'حقّ الفقراء في أموال الأغنياء',
+        text:'«إِنَّ اللَّهَ فَرَضَ عَلَى الأَغْنِيَاءِ فِي أَمْوَالِهِمْ بِقَدْرِ مَا يَكْفِي فُقَرَاءَهُمْ، فَإِنْ جَاعُوا أَوْ عَرُوا أَوْ جُهِدُوا فَبِمَنْعِ الأَغْنِيَاءِ، وَحَقٌّ عَلَى اللَّهِ أَنْ يُحَاسِبَهُمْ يَوْمَ القِيَامَةِ»',
+        exp:'قول الإمام عليّ عليه السلام — فرض الله في أموال الأغنياء ما يكفي الفقراء، فجوعهم وعُريهم سببه منع الأغنياء، وسيحاسبهم الله عليه.' },
+      { tag:'قرآن', tagBg:'var(--r-idgham)', title:'الإنفاق بلا منٍّ ولا أذى',
+        text:'الَّذِينَ يُنْفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ ثُمَّ لَا يُتْبِعُونَ مَا أَنْفَقُوا مَنًّا وَلَا أَذًى لَهُمْ أَجْرُهُمْ عِنْدَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ',
+        exp:'البقرة: ٢٦٢ — من أنفق ولم يُتبِع نفقته منًّا ولا أذى، فله الأجر عند ربه، بلا خوفٍ ولا حزن.' },
+      { tag:'حديث', tagBg:'var(--r-idhhar)', title:'جزاء من كسا وأطعم وسقى',
+        text:'«أَيُّمَا مُسْلِمٍ كَسَا مُسْلِمًا ثَوْبًا عَلَى عُرْيٍ كَسَاهُ اللَّهُ مِنْ خُضْرِ الجَنَّةِ، وَأَيُّمَا مُسْلِمٍ أَطْعَمَ مُسْلِمًا عَلَى جُوعٍ أَطْعَمَهُ اللَّهُ مِنْ ثِمَارِ الجَنَّةِ، وَأَيُّمَا مُسْلِمٍ سَقَى مُسْلِمًا عَلَى ظَمَإٍ سَقَاهُ اللَّهُ مِنَ الرَّحِيقِ المَخْتُومِ»',
+        exp:'بيانٌ لعظيم جزاء التكافل: من سدّ حاجة أخيه في اللباس أو الطعام أو الشراب، جازاه الله من نعيم الجنة.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, open = this.state.open;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===2 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var cards = this.cardData().map(function(c,i){
+      var isOpen=!!open[i];
+      return { tag:c.tag, tagBg:c.tagBg, title:c.title, text:c.text, exp:c.exp, open:isOpen,
+        chev:isOpen?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var picked = this.state.picked, correct = 2;
+    var opts = ['أنّ الإنفاق يُبطل الأجر.','أنّ الفقير يجب أن يسأل الناس.','أنّ المال حقٌّ اجتماعيٌّ لا يُحبَس عن المحتاج.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما الفكرة التي تجمع أدلّة الحديث في هذا المشهد؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'الأدلّة كلّها تبيّن أنّ المال حقٌّ اجتماعيٌّ يُنفَق على المحتاجين ولا يُحبَس عنهم، تحقيقاً للتكافل.'
+        :'الأدلّة تحثّ على الإنفاق والتكافل، وأنّ للفقير حقّاً في مال الغنيّ لا يُحبَس عنه — لا إبطال الأجر ولا سؤال الناس.';
+    }
+
+    return { pips:pips, cards:cards, check:check };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+  @keyframes rotR{to{transform:rotate(-360deg);}}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">التعاون بين المسلمين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٥ · تمهيد ونصّ الحديث</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Taawun%20L3%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Taawun%20L3%20Scene%202%20-%20Mufradat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">تمهيد</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">التعاون بين المسلمين</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        من صفات المسلمين <b>التعاون والتعاطف</b> فيما بينهم. حثّ الحديثُ الشريف على التعاون والتكافل عن طريق الإنفاق ورعاية مصالح المحتاجين والفقراء، بعيداً من المنّة والسؤال. تأمّل نصّ الحديث في الإطار الآتي.
+      </p>
+    </div>
+
+    <!-- ===== ORNAMENTED HADITH FRAME ===== -->
+    <section style="position:relative;background:linear-gradient(160deg,#fbfaff,#f2eefc);border-radius:22px;padding:clamp(10px,2vw,18px);box-shadow:0 10px 34px rgba(32,0,88,.08);">
+      <div style="position:relative;border:2px solid var(--c-accent);border-radius:16px;padding:clamp(16px,3vw,30px) clamp(14px,3vw,26px);">
+        <div style="position:absolute;inset:6px;border:1px solid rgba(32,0,88,.22);border-radius:11px;pointer-events:none;"></div>
+        <!-- rotating corner stars -->
+        <svg viewBox="0 0 40 40" style="position:absolute;top:-3px;right:-3px;width:clamp(30px,6vw,42px);height:auto;animation:rot 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#00c3fe"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+        <svg viewBox="0 0 40 40" style="position:absolute;bottom:-3px;left:-3px;width:clamp(30px,6vw,42px);height:auto;animation:rotR 24s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#7b3fd4"></polygon><circle r="3" fill="#fff"></circle></g>
+        </svg>
+
+        <div style="text-align:center;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.4vw,19px);margin-bottom:clamp(12px,2vw,18px);">قال رسولُ الله ﷺ:</div>
+        <div class="qv" style="text-align:center;font-size:clamp(20px,4vw,32px);line-height:2.2;color:var(--c-ink);">
+          «مَنْ كَانَ مَعَهُ فَضْلُ ظَهْرٍ فَلْيَعُدْ بِهِ عَلَى مَنْ لَا ظَهْرَ لَهُ، وَمَنْ كَانَ لَهُ فَضْلٌ مِنْ زَادٍ فَلْيَعُدْ بِهِ عَلَى مَنْ لَا زَادَ لَهُ»
+        </div>
+        <div style="text-align:center;color:var(--c-inkSoft);font-size:clamp(13px,2vw,16px);margin-top:clamp(12px,2vw,18px);font-family:'El Messiri';">صدق رسولُ الله ﷺ</div>
+      </div>
+    </section>
+
+    <!-- verse of cooperation -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;text-align:center;">
+      <div style="display:inline-block;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:4px 14px;border-radius:8px;font-size:13px;margin-bottom:12px;">أصل التعاون في القرآن</div>
+      <div class="qv" style="font-size:clamp(19px,3.4vw,28px);line-height:2;">وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ</div>
+      <div style="color:#bfa9ff;font-size:13px;margin-top:8px;">المائدة: ٢</div>
+    </section>
+
+    <!-- ===== INTERACTIVE: what does the hadith ask? ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🔎 ماذا يطلب الحديث؟</h2>
+        <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">اضغط كلّ جزءٍ من الحديث لتفهم المطلوب فيه.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+          <sc-for list="{{ parts }}" as="p" hint-placeholder-count="2">
+            <button onClick="{{ p.onClick }}" style="{{ p.style }}">
+              <div class="qv" style="font-size:clamp(17px,2.6vw,21px);color:var(--c-primary);line-height:1.8;">{{ p.phrase }}</div>
+              <sc-if value="{{ p.open }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;animation:fadeUp .35s ease;">{{ p.meaning }}</div>
+              </sc-if>
+              <sc-if value="{{ p.closed }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:8px;color:var(--c-inkSoft);font-size:12.5px;">اضغط للتوضيح</div>
+              </sc-if>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:{}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  partData(){
+    return [
+      { phrase:'مَنْ كَانَ مَعَهُ فَضْلُ ظَهْرٍ فَلْيَعُدْ بِهِ عَلَى مَنْ لَا ظَهْرَ لَهُ',
+        meaning:'من عنده فائضٌ من دابّة الحمل أو الركوب (ظهر) فليُعطِ منفعتها لمن لا يجد ما يركبه أو يحمل عليه.' },
+      { phrase:'وَمَنْ كَانَ لَهُ فَضْلٌ مِنْ زَادٍ فَلْيَعُدْ بِهِ عَلَى مَنْ لَا زَادَ لَهُ',
+        meaning:'ومن عنده فائضٌ من الطعام والزاد فليُعطِ منه لمن لا زاد له؛ فالفائض حقٌّ للمحتاج.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===0 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var parts = this.partData().map(function(p,i){
+      var open=!!self.state.open[i];
+      var st='cursor:pointer;text-align:right;border:2px solid '+(open?'var(--c-accent)':'var(--c-line)')+';border-radius:16px;padding:clamp(16px,2.6vw,22px);transition:all .25s;'
+        +(open?'background:#fff;box-shadow:0 8px 20px rgba(0,195,254,.12);':'background:var(--c-tint);');
+      return { phrase:p.phrase, meaning:p.meaning, open:open, closed:!open, style:st,
+        onClick:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['أن يحتفظ الغنيّ بكل ما لديه.','أن يشارك صاحبُ الفائض مَن لا يجد.','أن يطلب الفقير من الناس.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما الفكرة الأساسية التي يدعو إليها الحديث؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'يدعو الحديث صاحبَ الفائض (ظهرٍ أو زاد) أن يشارك به مَن لا يجده؛ تحقيقاً للتعاون والتكافل.'
+        :'الحديث يطلب من صاحب الفائض أن يشارك المحتاج، لا أن يحتفظ بكل شيءٍ ولا أن يسأل الفقيرُ الناس.';
+    }
+
+    return { pips:pips, parts:parts, check:check };
+  }
+}
+</script>
+</body>
+</html>

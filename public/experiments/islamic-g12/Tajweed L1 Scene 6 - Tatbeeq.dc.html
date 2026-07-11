@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+  @keyframes pop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <a href="Tajweed%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+         style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+         style-hover="border-color:var(--c-accent);">🏠</a>
+      <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أحكام النون الساكنة والتنوين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٦ من ٦ · خلاصة وتطبيق</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Tajweed%20L1%20Scene%205%20-%20Ikhfa.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Tajweed%20L1%20Check.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التقويم</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">خلاصة وتطبيق</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">لوحة الأحكام الأربعة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:72ch;">
+        حروف الهجاء الثمانية والعشرون موزّعةٌ على الأحكام الأربعة بالألوان. راجِعْها ثمّ طبّق بنفسك في نشاط التصنيف.
+      </p>
+    </div>
+
+    <!-- ===== BOARD (khulasa) ===== -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,2vw,18px);">
+      <sc-for list="{{ board }}" as="r" hint-placeholder-count="4">
+        <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid {{ r.color }};border-radius:18px;padding:clamp(16px,2.4vw,22px);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;">
+            <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(17px,2.3vw,21px);margin:0;color:{{ r.color }};">{{ r.name }}</h2>
+            <span style="background:{{ r.color }};color:#fff;font-family:'El Messiri';font-weight:700;padding:2px 10px;border-radius:8px;font-size:13px;">{{ r.count }}</span>
+          </div>
+          <p style="margin:0 0 12px;color:var(--c-inkSoft);font-size:12.5px;line-height:1.7;">{{ r.mnem }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <sc-for list="{{ r.letters }}" as="ch" hint-placeholder-count="6">
+              <span class="qv" style="width:clamp(34px,7vw,42px);height:clamp(34px,7vw,42px);display:flex;align-items:center;justify-content:center;border-radius:10px;font-weight:700;font-size:clamp(17px,3.6vw,22px);color:#fff;background:{{ r.color }};">{{ ch }}</span>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- ===== DRAG & DROP GAME ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#1a0350,#3a1290);padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🎯 نشاط التصنيف</h2>
+          <p style="margin:0;color:#d6d0ee;font-size:clamp(12px,1.7vw,14px);">اسحب كلّ حرفٍ وأفلِتْه في حكمه الصحيح.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="color:#bfeaff;font-weight:700;font-family:'El Messiri';">{{ score }}/6</span>
+          <button onClick="{{ onReset }}" style="cursor:pointer;background:rgba(255,255,255,.15);color:#fff;border:none;padding:8px 14px;border-radius:10px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;">↺ إعادة</button>
+        </div>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- tray -->
+        <div style="min-height:70px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;background:var(--c-tint);border-radius:16px;padding:16px;margin-bottom:20px;">
+          <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}">
+            <span style="color:var(--c-inkSoft);font-size:14px;">✓ صنّفتَ جميع الحروف — أحسنت!</span>
+          </sc-if>
+          <sc-for list="{{ tray }}" as="t" hint-placeholder-count="6">
+            <div onPointerDown="{{ t.onDown }}" class="qv" style="{{ t.style }}">{{ t.ch }}</div>
+          </sc-for>
+        </div>
+
+        <!-- buckets -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
+          <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="4">
+            <div data-bucket="{{ b.key }}" style="{{ b.style }}">
+              <div style="font-family:'El Messiri';font-weight:700;color:{{ b.color }};font-size:clamp(15px,2vw,18px);margin-bottom:8px;">{{ b.name }}</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;min-height:40px;align-items:center;">
+                <sc-if value="{{ b.empty }}" hint-placeholder-val="{{ true }}">
+                  <span style="color:var(--c-inkSoft);font-size:12px;opacity:.7;">أفلِتْ هنا</span>
+                </sc-if>
+                <sc-for list="{{ b.chips }}" as="c" hint-placeholder-count="0">
+                  <span class="qv" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-weight:700;font-size:20px;color:#fff;background:{{ b.color }};animation:pop .35s ease;">{{ c }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ hasFeedback }}" hint-placeholder-val="{{ false }}">
+          <div style="{{ fbStyle }}">{{ fbText }}</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- closing -->
+    <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+      <section style="background:linear-gradient(135deg,#1f9e8b,#0f766e);border-radius:20px;padding:clamp(22px,3.4vw,32px);color:#fff;text-align:center;">
+        <div style="font-size:34px;margin-bottom:8px;">🌟</div>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(20px,2.8vw,26px);margin:0 0 8px;">أحسنت! صنّفت الحروف كلّها بشكلٍ صحيح</h2>
+        <p style="margin:0 0 18px;color:#d7f5ee;font-size:clamp(14px,1.9vw,16px);line-height:1.9;">أنت الآن جاهزٌ للتقويم النهائي الذي يقيس تحقّقك من هدف الدرس.</p>
+        <a href="Tajweed%20L1%20Check.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0f766e;font-family:'El Messiri';font-weight:700;font-size:16px;padding:13px 30px;border-radius:999px;min-height:44px;"><span>ابدأ التقويم</span><span>←</span></a>
+      </section>
+    </sc-if>
+
+    <!-- ghost -->
+    <sc-if value="{{ dragging }}" hint-placeholder-val="{{ false }}">
+      <div class="qv" style="{{ ghostStyle }}">{{ ghostCh }}</div>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { placed:{}, activeDrag:null, gx:0, gy:0, fb:null, flashBucket:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){
+    this.syncVars();
+    var self = this;
+    this._move = function(e){ if(self.state.activeDrag){ e.preventDefault(); self.setState({ gx:e.clientX, gy:e.clientY }); } };
+    this._up = function(e){
+      if(!self.state.activeDrag) return;
+      var ch = self.state.activeDrag;
+      var el = document.elementFromPoint(e.clientX, e.clientY);
+      var b = el && el.closest ? el.closest('[data-bucket]') : null;
+      var bucket = b ? b.getAttribute('data-bucket') : null;
+      self.drop(ch, bucket);
+    };
+    window.addEventListener('pointermove', this._move, { passive:false });
+    window.addEventListener('pointerup', this._up);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('pointermove', this._move);
+    window.removeEventListener('pointerup', this._up);
+  }
+
+  gameLetters(){
+    return [
+      { ch:'ح', rule:'idhhar' }, { ch:'ب', rule:'iqlab' }, { ch:'و', rule:'idgham' },
+      { ch:'ق', rule:'ikhfa' }, { ch:'ع', rule:'idhhar' }, { ch:'ر', rule:'idgham' },
+    ];
+  }
+  ruleName(k){ return { idhhar:'الإظهار', iqlab:'الإقلاب', idgham:'الإدغام', ikhfa:'الإخفاء' }[k]; }
+
+  drop(ch, bucket){
+    var self = this;
+    var gl = this.gameLetters().find(function(x){ return x.ch===ch; });
+    if(!bucket || !gl){ this.setState({ activeDrag:null }); return; }
+    if(bucket === gl.rule){
+      var placed = Object.assign({}, this.state.placed); placed[ch] = bucket;
+      this.setState({ placed:placed, activeDrag:null,
+        fb:{ ok:true, text:'✓ صحيح: حرف ('+ch+') من حروف '+this.ruleName(bucket)+'.' } });
+    } else {
+      this.setState({ activeDrag:null, flashBucket:bucket,
+        fb:{ ok:false, text:'✗ حرف ('+ch+') ليس من حروف '+this.ruleName(bucket)+'؛ بل من حروف '+this.ruleName(gl.rule)+'. حاول مرّة أخرى.' } });
+      setTimeout(function(){ self.setState({ flashBucket:null }); }, 500);
+    }
+  }
+
+  renderVals(){
+    var self = this, B = window.BRAND || { rules:{} }, rk = B.rules;
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===5 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var board = [
+      { key:'idhhar', name:'الإظهار', color:'var(--r-idhhar)', count:'٦ حروف',
+        mnem:'حروف الحَلْق، مجموعة في: أخي هاك علماً حازه غير خاسر.', letters:['ء','هـ','ع','ح','غ','خ'] },
+      { key:'iqlab', name:'الإقلاب', color:'var(--r-iqlab)', count:'حرفٌ واحد',
+        mnem:'حرفٌ واحدٌ هو الباء، تُقلب عنده النون ميماً.', letters:['ب'] },
+      { key:'idgham', name:'الإدغام', color:'var(--r-idgham)', count:'٦ حروف',
+        mnem:'مجموعة في (يرملون): بغُنّة (ينمو)، وبغير غُنّة (ل، ر).', letters:['ي','ر','م','ل','و','ن'] },
+      { key:'ikhfa', name:'الإخفاء', color:'var(--r-ikhfa)', count:'١٥ حرفاً',
+        mnem:'صف ذا ثنا كم جاد شخص قد سما · دم طيباً زد في تقى ضع ظالماً.',
+        letters:['ص','ذ','ث','ك','ج','ش','ق','س','د','ط','ز','ف','ت','ض','ظ'] },
+    ];
+
+    // game
+    var placed = this.state.placed;
+    var gl = this.gameLetters();
+    var tray = gl.filter(function(x){ return !placed[x.ch]; }).map(function(x){
+      return { ch:x.ch,
+        onDown:function(e){ e.preventDefault(); self.setState({ activeDrag:x.ch, gx:e.clientX, gy:e.clientY }); },
+        style:'touch-action:none;cursor:grab;user-select:none;width:clamp(46px,10vw,56px);height:clamp(46px,10vw,56px);display:flex;align-items:center;justify-content:center;border-radius:14px;font-weight:700;font-size:clamp(22px,4.6vw,28px);color:#fff;background:var(--c-primary);box-shadow:0 6px 16px rgba(32,0,88,.3);'
+          + (self.state.activeDrag===x.ch ? 'opacity:.35;' : '') };
+    });
+    var trayEmpty = tray.length === 0;
+
+    var bColors = { idhhar:'var(--r-idhhar)', iqlab:'var(--r-iqlab)', idgham:'var(--r-idgham)', ikhfa:'var(--r-ikhfa)' };
+    var buckets = ['idhhar','iqlab','idgham','ikhfa'].map(function(k){
+      var chips = gl.filter(function(x){ return placed[x.ch]===k; }).map(function(x){ return x.ch; });
+      var flash = self.state.flashBucket===k;
+      var st = 'border-radius:16px;padding:14px 12px;text-align:center;transition:all .2s;border:2px dashed '+bColors[k]+';background:'+
+        (flash ? 'rgba(246,132,142,.14)' : 'rgba(0,0,0,0.015)')+';'
+        + (self.state.activeDrag ? 'border-style:solid;' : '')
+        + (flash ? 'animation:shake .4s;' : '');
+      return { key:k, name:self.ruleName(k), color:bColors[k], style:st, chips:chips, empty:chips.length===0 };
+    });
+
+    var score = Object.keys(placed).length;
+    var done = score === 6;
+    var fb = this.state.fb;
+
+    return {
+      pips:pips, board:board,
+      tray:tray, trayEmpty:trayEmpty, buckets:buckets, score:score, done:done,
+      onReset:function(){ self.setState({ placed:{}, fb:null, activeDrag:null }); },
+      hasFeedback: !!fb,
+      fbText: fb ? fb.text : '',
+      fbStyle: fb ? ('margin-top:16px;padding:13px 18px;border-radius:14px;font-size:14px;line-height:1.7;'
+        + (fb.ok ? 'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);'
+                 : 'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);')) : '',
+      dragging: !!this.state.activeDrag,
+      ghostCh: this.state.activeDrag || '',
+      ghostStyle: 'position:fixed;pointer-events:none;z-index:999;left:'+this.state.gx+'px;top:'+this.state.gy+'px;transform:translate(-50%,-50%);width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:14px;font-weight:700;font-size:28px;color:#fff;background:var(--c-primary);box-shadow:0 12px 30px rgba(32,0,88,.5);'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(12px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes spinCoin{0%{transform:rotateY(0);}100%{transform:rotateY(360deg);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Kahf%20L2%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أصحاب الكهف</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · البعث والعودة</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Kahf%20L2%20Scene%203%20-%20Kahf.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Kahf%20L2%20Scene%205%20-%20Istinbat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الآيات ١٩–٢٦</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">البعث والعودة إلى المدينة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        أيقظهم اللهُ بعد رقودٍ طويل، فتساءلوا عن مدّة نومهم، ثمّ أرسلوا أحدهم بالوَرِق (النقود الفضّية) إلى المدينة ليشتري طعاماً؛ فكانت النقود القديمة سبيلاً لاكتشاف أمرهم. تابِع رحلة الرسول.
+      </p>
+    </div>
+
+    <!-- ===== STORY STEPPER: the return ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#3a1a66,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🎬 رحلة الرسول إلى المدينة</h2>
+        <p style="margin:0;color:#e3d9f7;font-size:clamp(12px,1.7vw,14px);">تنقّل بين خطوات القصة من اليقظة إلى اكتشاف الحقيقة.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+            <button onClick="{{ d.onClick }}" style="{{ d.style }}">{{ d.n }}</button>
+          </sc-for>
+        </div>
+        <div key="{{ step.k }}" style="text-align:center;animation:fadeUp .4s ease;">
+          <div style="font-size:clamp(40px,9vw,64px);margin-bottom:10px;">{{ step.icon }}</div>
+          <h3 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,2.8vw,24px);margin:0 0 10px;color:var(--scene);">{{ step.title }}</h3>
+          <p style="margin:0 auto 16px;max-width:58ch;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">{{ step.text }}</p>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;">
+          <button onClick="{{ onPrev }}" style="{{ prevStyle }}">→ السابقة</button>
+          <button onClick="{{ onNext }}" style="{{ nextStyle }}">التالية ←</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- coin element -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;display:flex;gap:clamp(16px,3vw,26px);align-items:center;flex-wrap:wrap;justify-content:center;text-align:center;">
+      <div style="width:clamp(70px,16vw,100px);height:clamp(70px,16vw,100px);border-radius:50%;background:radial-gradient(circle at 38% 32%, #eef2f6, #c3ccd6 60%, #949eaa);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;color:#5a6470;font-size:clamp(20px,4vw,30px);box-shadow:0 8px 20px rgba(0,0,0,.35);animation:spinCoin 6s linear infinite;">وَرِق</div>
+      <div style="flex:1;min-width:220px;max-width:52ch;">
+        <h3 style="font-family:'El Messiri';font-weight:700;font-size:clamp(17px,2.5vw,21px);margin:0 0 8px;">الوَرِق: النقود الفضّية</h3>
+        <p style="margin:0;color:#e4dff5;font-size:clamp(14px,1.9vw,16px);line-height:1.95;">حين دفع الفتى نقوده الفضّية القديمة ثمناً للطعام، استغرب البائع وأخذ يقلّبها مذهولاً وظنّ أنّه عثر على كنز؛ فتنبّه الناس، وكانت هذه النقود التي مضى عليها أكثر من ثلاث مئة سنة دليلاً على حقيقة أمرهم.</p>
+      </div>
+    </section>
+
+    <!-- how many? interactive -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#6e2a54,var(--r-ikhfa));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🔢 كم كان عددهم؟</h2>
+        <p style="margin:0;color:#ffe0f2;font-size:clamp(12px,1.7vw,14px);">اختر عدداً... وانظر ماذا يقول القرآن عن التخمين بالغيب.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <sc-for list="{{ guessBtns }}" as="g" hint-placeholder-count="3">
+            <button onClick="{{ g.onClick }}" style="{{ g.style }}">{{ g.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ guessed }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:18px;background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.6vw,22px);text-align:center;animation:fadeUp .4s ease;">
+            <div style="font-family:'El Messiri';font-weight:700;color:var(--r-ikhfa);font-size:clamp(15px,2.2vw,18px);margin-bottom:6px;">رَجْمًا بِالْغَيْبِ</div>
+            <p style="margin:0 0 10px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">{{ guessText }}</p>
+            <div class="qv" style="color:var(--c-primary);font-size:clamp(16px,2.5vw,21px);line-height:1.95;">قُلْ رَبِّي أَعْلَمُ بِعِدَّتِهِمْ مَا يَعْلَمُهُمْ إِلَّا قَلِيلٌ</div>
+            <div style="color:var(--c-inkSoft);font-size:12.5px;margin-top:4px;">الكهف: ٢٢</div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- verses reveal 19-26 -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ ayat }}" as="a" hint-placeholder-count="3">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(32,0,88,.04);">
+          <button onClick="{{ a.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:14px;align-items:flex-start;padding:clamp(16px,2.6vw,22px);text-align:right;">
+            <span style="flex:none;min-width:clamp(46px,8vw,60px);height:clamp(40px,6.4vw,50px);padding:0 8px;border-radius:12px;border:2px solid var(--scene);color:var(--scene);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(12px,1.8vw,14px);">{{ a.n }}</span>
+            <span style="flex:1;">
+              <span style="display:block;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.2vw,18px);margin-bottom:2px;">{{ a.title }}</span>
+              <span class="qv" style="color:var(--c-inkSoft);font-size:clamp(14px,2.2vw,18px);line-height:1.9;">{{ a.verse }}</span>
+            </span>
+            <span style="flex:none;color:var(--scene);font-size:20px;transform:{{ a.chev }};">⌄</span>
+          </button>
+          <sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px);">
+              <div style="background:var(--c-tint);border-radius:14px;padding:14px 16px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">{{ a.tafsir }}</div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step:0, guess:null, open:{}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  steps(){
+    return [
+      { icon:'🌅', title:'اليقظة والتساؤل', text:'أيقظهم اللهُ بأمره وقدرته، فتساءلوا: كم لبثتم؟ فقال أحدهم: يوماً أو بعض يوم. فقالوا: ربكم أعلم بما لبثتم.' },
+      { icon:'🪙', title:'إرسال الرسول بالوَرِق', text:'ولمّا مسّهم الجوع أرسلوا أصغرهم إلى المدينة بنقودهم الفضّية ليختار أطيب الطعام، وأوصوه أن يتلطّف ولا يُشعر بهم أحداً.' },
+      { icon:'🏙️', title:'دهشة المدينة', text:'دخل الفتى المدينة فاستغرب تغيّر معالمها، وسأل عن الطعام، فعجب الناس من حاله وأنه لا يعرف المكان.' },
+      { icon:'💰', title:'النقود القديمة', text:'دفع نقوده الفضّية القديمة، فاستغرب البائع وأخذ يقلّبها مذهولاً وظنّ أنه عثر على كنز، فاجتمع الناس حوله يسألونه.' },
+      { icon:'📜', title:'اكتشاف الحقيقة وبناء المسجد', text:'شرح الفتى حاله وحال الفتية وفرارهم بإيمانهم، فعرفوا أنه من الفتية المفقودين منذ أكثر من ثلاث مئة سنة، وأنّ الملك الظالم قد مات. ثمّ أماتهم الله، فبنى الناس على كهفهم مسجداً.' },
+    ];
+  }
+
+  ayatData(){
+    return [
+      { n:'١٩', title:'اليقظة وإرسال الرسول',
+        verse:'وَكَذَٰلِكَ بَعَثْنَاهُمْ لِيَتَسَاءَلُوا بَيْنَهُمْ … فَابْعَثُوا أَحَدَكُمْ بِوَرِقِكُمْ هَٰذِهِ إِلَى الْمَدِينَةِ … وَلْيَتَلَطَّفْ وَلَا يُشْعِرَنَّ بِكُمْ أَحَدًا',
+        tafsir:'أيقظهم اللهُ بأمره، فسأل بعضهم بعضاً عن مدّة نومهم؛ فقال أحدهم: يوماً أو بعض يوم. وحين لم يتأكّدوا قالوا: ربكم أعلم بما لبثنا. ثمّ أرسلوا أصغرهم إلى المدينة بنقودهم ليأتيهم بأطيب طعام، وأوصوه أن يتلطّف في دخوله وشرائه فلا ينتبه إليه أحد.' },
+      { n:'٢١', title:'إظهار أمرهم وبناء المسجد',
+        verse:'وَكَذَٰلِكَ أَعْثَرْنَا عَلَيْهِمْ لِيَعْلَمُوا أَنَّ وَعْدَ اللَّهِ حَقٌّ … قَالَ الَّذِينَ غَلَبُوا عَلَىٰ أَمْرِهِمْ لَنَتَّخِذَنَّ عَلَيْهِمْ مَسْجِدًا',
+        tafsir:'أطلع اللهُ الناس عليهم ليعلموا أنّ وعد الله بالبعث حقٌّ وأنّ الساعة آتيةٌ لا ريب فيها. ولمّا عاد القوم إلى الكهف بعد أن ماتوا، قالوا: نبني على الكهف مسجداً؛ تكريماً لهم.' },
+      { n:'٢٢–٢٦', title:'عدّتهم ومدّتهم عند الله',
+        verse:'سَيَقُولُونَ ثَلَاثَةٌ رَابِعُهُمْ كَلْبُهُمْ … قُلْ رَبِّي أَعْلَمُ بِعِدَّتِهِمْ … وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا',
+        tafsir:'اختلف الناس في عددهم رجماً بالغيب، فقل: ربّي أعلم بعدّتهم، ما يعلمهم إلا قليل. ولبثوا في كهفهم ثلاث مئة سنةٍ وازدادوا تسعاً. قل: الله أعلم بما لبثوا، له غيب السماوات والأرض، لا وليّ لهم من دونه ولا يشرك في حكمه أحداً.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, st = this.steps(), cur = st[this.state.step];
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var dots = st.map(function(s,i){
+      var on = self.state.step===i;
+      return { n:['١','٢','٣','٤','٥'][i], onClick:function(){ self.setState({step:i}); },
+        style:'cursor:pointer;width:44px;height:44px;border-radius:12px;font-family:El Messiri;font-weight:700;font-size:15px;transition:all .2s;'
+          +(on?'background:var(--scene);color:#fff;border:2px solid var(--scene);box-shadow:0 6px 14px rgba(123,63,212,.4);':'background:#fff;color:var(--c-primary);border:2px solid var(--c-line);') };
+    });
+    var atStart=this.state.step===0, atEnd=this.state.step===st.length-1;
+    var navBase='cursor:pointer;height:44px;padding:0 20px;border-radius:999px;font-family:El Messiri;font-weight:700;font-size:14px;transition:all .2s;';
+    var prevStyle = navBase + (atStart?'background:var(--c-tint);color:#b6add6;border:none;':'background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);');
+    var nextStyle = navBase + (atEnd?'background:var(--c-tint);color:#b6add6;border:none;':'background:var(--scene);color:#fff;border:none;box-shadow:0 6px 16px rgba(123,63,212,.35);');
+
+    var guesses = [
+      { label:'ثلاثة', text:'قال بعضهم: ثلاثةٌ رابعهم كلبهم — رجماً بالغيب بلا دليل.' },
+      { label:'خمسة', text:'وقال بعضهم: خمسةٌ سادسهم كلبهم — رجماً بالغيب بلا دليل.' },
+      { label:'سبعة', text:'وقال بعضهم: سبعةٌ وثامنهم كلبهم — والله أعلم بعدّتهم.' },
+    ];
+    var guessBtns = guesses.map(function(g,i){
+      var on = self.state.guess===i;
+      return { label:g.label, onClick:function(){ self.setState({guess:i}); },
+        style:'cursor:pointer;padding:12px 22px;border-radius:14px;font-family:El Messiri;font-weight:700;font-size:clamp(15px,2.2vw,18px);min-height:48px;transition:all .2s;'
+          +(on?'background:var(--r-ikhfa);color:#fff;border:2px solid var(--r-ikhfa);box-shadow:0 6px 16px rgba(213,95,166,.35);':'background:#fff;color:var(--c-primary);border:2px solid var(--c-line);') };
+    });
+    var guessed = this.state.guess!==null;
+    var guessText = guessed ? guesses[this.state.guess].text : '';
+
+    var ayat = this.ayatData().map(function(a,i){
+      var open=!!self.state.open[i];
+      return { n:a.n, title:a.title, verse:a.verse, tafsir:a.tafsir, open:open, chev:open?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['ليشتري ذهباً وكنوزاً.','ليشتري أطيب طعامٍ لهم بنقودهم الفضّية (الوَرِق).','ليخبر الملك بمكانهم.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'لماذا أرسل الفتيةُ أحدهم إلى المدينة (الآية ١٩)؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'قال تعالى ﴿ فَابْعَثُوا أَحَدَكُمْ بِوَرِقِكُمْ هَٰذِهِ إِلَى الْمَدِينَةِ فَلْيَنْظُرْ أَيُّهَا أَزْكَىٰ طَعَامًا ﴾ — ليشتري أطيب طعامٍ بنقودهم.'
+        :'أُرسل ليشتري أطيب طعامٍ بنقودهم الفضّية (الوَرِق) مع التلطّف، لا لطلب كنزٍ ولا لإخبار أحد.';
+    }
+
+    return {
+      pips:pips, dots:dots,
+      step:{ k:this.state.step, icon:cur.icon, title:cur.title, text:cur.text },
+      onPrev:function(){ if(self.state.step>0) self.setState({step:self.state.step-1}); },
+      onNext:function(){ if(self.state.step<st.length-1) self.setState({step:self.state.step+1}); },
+      prevStyle:prevStyle, nextStyle:nextStyle,
+      guessBtns:guessBtns, guessed:guessed, guessText:guessText,
+      ayat:ayat, check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

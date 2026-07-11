@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  @keyframes glowP{0%,100%{opacity:.5;}50%{opacity:.9;}}
+  @keyframes ringBreath{0%,100%{transform:scale(1);}50%{transform:scale(1.045);}}
+  @keyframes haloSpin{to{transform:rotate(360deg);}}
+  @keyframes softPulse{0%,100%{opacity:.28;}50%{opacity:.6;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">حقوق الزوجين وواجباتهما</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٥ · تمهيد</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>المخطّط</span><span>→</span></a>
+        <a href="Zawjayn%20L4%20Scene%202%20-%20HuqooqZawja.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">تمهيد</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">الزواجُ عقدٌ وثيقٌ وشراكةٌ مهمّة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:76ch;">
+        الزواجُ عقدٌ وثيقٌ وشراكةٌ مهمّة بارك اللهُ فيها وبرعاها، وبيَّن لها من الحقوق والواجبات ما يكفلُ صفوَ الحياة الزوجية؛ كي لا يُعكِّرَ صفوَها معكِّرٌ أو يَنقُضَ هذا الرباطَ الإنسانيَّ ناقض. فما هذه الحقوق والواجبات؟
+      </p>
+    </div>
+
+    <!-- interactive: two rings forming the bond -->
+    <section style="background:linear-gradient(160deg,#1a0350,#12002f);border-radius:22px;padding:clamp(22px,3.6vw,36px);color:#fff;text-align:center;overflow:hidden;position:relative;">
+      <div style="position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:repeating-linear-gradient(45deg,#00c3fe 0 1px,transparent 1px 40px),repeating-linear-gradient(-45deg,#00c3fe 0 1px,transparent 1px 40px);"></div>
+      <div style="position:relative;z-index:2;">
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,2.7vw,26px);margin:0 0 6px;">ميثاقُ المودّة والرحمة</h2>
+        <p style="margin:0 auto 18px;color:#bfeaff;font-size:clamp(13px,1.8vw,15px);max-width:56ch;line-height:1.8;">اضغط الزرَّ لتلتقيَ الحلقتان: عقدُ الزواج يجمع بين الزوجين على السَّكَن والمودّة والرحمة.</p>
+
+        <div style="display:flex;justify-content:center;align-items:center;height:clamp(140px,30vw,180px);">
+          <svg viewBox="0 0 240 130" style="width:min(100%,360px);height:100%;">
+            <!-- glow -->
+            <ellipse cx="120" cy="65" rx="60" ry="40" fill="#00c3fe" opacity="{{ glowOpacity }}" style="filter:blur(18px);transition:opacity .6s;"></ellipse>
+            <!-- slowly rotating decorative halo -->
+            <circle cx="120" cy="65" r="54" fill="none" stroke="rgba(191,234,255,.5)" stroke-width="1.4" stroke-dasharray="2 10" style="transform-box:fill-box;transform-origin:center;animation:haloSpin 26s linear infinite, softPulse 6s ease-in-out infinite;"></circle>
+            <!-- ring pair: gentle idle breathing -->
+            <g style="transform-box:fill-box;transform-origin:center;animation:ringBreath 5.5s ease-in-out infinite;">
+              <!-- left ring (الزوج) -->
+              <circle cx="{{ ringLeftX }}" cy="65" r="38" fill="none" stroke="#5ad8ff" stroke-width="6" style="transition:cx .8s cubic-bezier(.5,0,.3,1);"></circle>
+              <!-- right ring (الزوجة) -->
+              <circle cx="{{ ringRightX }}" cy="65" r="38" fill="none" stroke="#d9a520" stroke-width="6" style="transition:cx .8s cubic-bezier(.5,0,.3,1);"></circle>
+            </g>
+          </svg>
+        </div>
+
+        <div style="display:flex;gap:22px;justify-content:center;margin:6px 0 18px;font-family:'El Messiri';font-weight:600;font-size:clamp(13px,1.8vw,15px);">
+          <span style="color:#5ad8ff;">◯ الزوج</span>
+          <span style="color:#d9a520;">◯ الزوجة</span>
+        </div>
+
+        <button onClick="{{ toggleBond }}" style="cursor:pointer;border:none;border-radius:999px;padding:13px 30px;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,17px);background:var(--c-accent);color:#04223a;min-height:44px;box-shadow:0 8px 22px rgba(0,195,254,.4);" style-hover="filter:brightness(1.06);">{{ bondLabel }}</button>
+
+        <sc-if value="{{ bonded }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:22px;animation:fadeUp .5s ease;">
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;">
+              <span style="background:rgba(0,195,254,.16);border:1px solid rgba(90,216,255,.4);border-radius:999px;padding:7px 18px;font-family:'El Messiri';font-weight:600;font-size:clamp(13px,1.8vw,15px);">سَكَن</span>
+              <span style="background:rgba(0,195,254,.16);border:1px solid rgba(90,216,255,.4);border-radius:999px;padding:7px 18px;font-family:'El Messiri';font-weight:600;font-size:clamp(13px,1.8vw,15px);">مودّة</span>
+              <span style="background:rgba(0,195,254,.16);border:1px solid rgba(90,216,255,.4);border-radius:999px;padding:7px 18px;font-family:'El Messiri';font-weight:600;font-size:clamp(13px,1.8vw,15px);">رحمة</span>
+            </div>
+            <div class="qv" style="font-size:clamp(17px,3vw,24px);line-height:2.1;max-width:60ch;margin:0 auto;">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+            <div style="color:#bfa9ff;font-size:12.5px;margin-top:8px;">الروم: ٢١</div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- why rights matter -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3vw,30px);box-shadow:0 8px 30px rgba(32,0,88,.06);">
+      <h2 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(18px,2.6vw,24px);margin:0 0 14px;">لماذا الحقوق والواجبات؟</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+        <div style="background:rgba(31,158,139,.08);border:1px solid var(--c-good);border-radius:16px;padding:18px;">
+          <div style="font-family:'El Messiri';font-weight:700;color:#177564;font-size:clamp(15px,2vw,17px);margin-bottom:6px;">إذا حُفِظت</div>
+          <p style="margin:0;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">صفَت الحياةُ الزوجية، ودامت الشراكةُ على المودّة والرحمة والمعاشرة الحسنة، فكانت أسرةً سعيدةً مستقرّة.</p>
+        </div>
+        <div style="background:rgba(246,132,142,.1);border:1px solid var(--c-alert);border-radius:16px;padding:18px;">
+          <div style="font-family:'El Messiri';font-weight:700;color:#b0454f;font-size:clamp(15px,2vw,17px);margin-bottom:6px;">إذا أُهمِلت</div>
+          <p style="margin:0;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">تعكَّر صفوُ الحياة الزوجية، وضَعُف الرباطُ الإنسانيُّ بينهما حتى يكاد يَنتقِض. فحفظُ الحقوق صيانةٌ للأسرة كلِّها.</p>
+        </div>
+      </div>
+      <p style="margin:16px 0 0;color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);line-height:1.9;text-align:center;">في هذا الدرس نتعرّف حقوقَ الزوجة، ثمّ حقوقَ الزوج والقوامة وواجباتِ الزوجة، ثمّ تعدُّدَ الزوجات وحكمتَه.</p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { bonded:false };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4].map(function(i){ return { bg: i===0 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var b=S.bonded;
+    return {
+      pips:pips,
+      bonded:b,
+      ringLeftX: b ? 108 : 78,
+      ringRightX: b ? 132 : 162,
+      glowOpacity: b ? 0.55 : 0,
+      bondLabel: b ? 'إعادة ↺' : 'اعقِد الميثاق ◀',
+      toggleBond:function(){ self.setState({bonded:!self.state.bonded}); }
+    };
+  }
+}
+</script>
+</body>
+</html>

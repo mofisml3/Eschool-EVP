@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#00a6d6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+  @keyframes pop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.1);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة آل عمران</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٢ من ٥ · معاني الكلمات</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="AalImran%20L1%20Scene%201%20-%20Tilawa.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="AalImran%20L1%20Scene%203%20-%20Maana1.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المفردات</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">معاني الكلمات</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:72ch;">
+        طابِق كلَّ كلمةٍ من الآيات مع معناها الصحيح. اضغط الكلمة أوّلاً ثمّ اضغط معناها المقابل، وستظهر لك تغذيةٌ راجعةٌ فوراً.
+      </p>
+    </div>
+
+    <!-- ===== MATCH GAME ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#04475a,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0;">🔗 لعبة مطابقة المفردات</h2>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="color:#cdeefb;font-weight:700;font-family:'El Messiri';">{{ matched }}/7</span>
+          <button onClick="{{ onReset }}" style="cursor:pointer;background:rgba(255,255,255,.15);color:#fff;border:none;padding:8px 14px;border-radius:10px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;">↺ إعادة</button>
+        </div>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(14px,2.4vw,22px);">
+        <!-- words column -->
+        <div>
+          <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:10px;font-weight:600;">الكلمة</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <sc-for list="{{ words }}" as="w" hint-placeholder-count="7">
+              <button onClick="{{ w.onClick }}" style="{{ w.style }}">
+                <span class="qv" style="font-size:clamp(18px,2.6vw,22px);">{{ w.label }}</span>
+                <sc-if value="{{ w.done }}" hint-placeholder-val="{{ false }}"><span style="color:var(--c-good);">✓</span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <!-- meanings column -->
+        <div>
+          <div style="color:var(--c-inkSoft);font-size:13px;margin-bottom:10px;font-weight:600;">المعنى</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <sc-for list="{{ meanings }}" as="m" hint-placeholder-count="7">
+              <button onClick="{{ m.onClick }}" style="{{ m.style }}">{{ m.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ hasFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="margin:0 clamp(18px,3vw,30px) clamp(18px,3vw,26px);"><div style="{{ fbStyle }}">{{ fbText }}</div></div>
+      </sc-if>
+    </section>
+
+    <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+      <section style="background:linear-gradient(135deg,#1f9e8b,#0f766e);border-radius:20px;padding:clamp(20px,3.2vw,28px);color:#fff;text-align:center;animation:pop .4s ease;">
+        <div style="font-size:30px;margin-bottom:6px;">🌟</div>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,2.6vw,24px);margin:0 0 6px;">أحسنت! طابقتَ الكلمات السبع جميعها</h2>
+        <p style="margin:0;color:#d7f5ee;font-size:14px;line-height:1.8;">راجِع الجدول أدناه لتثبيت المعاني قبل الانتقال إلى المعنى العام.</p>
+      </section>
+    </sc-if>
+
+    <!-- reference table -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;overflow:hidden;">
+      <div style="background:var(--c-tint);padding:14px 20px;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(16px,2.2vw,19px);">جدول المفردات المرجعيّ</div>
+      <div style="display:flex;flex-direction:column;">
+        <sc-for list="{{ table }}" as="t" hint-placeholder-count="7">
+          <div style="display:flex;gap:clamp(10px,2vw,18px);padding:clamp(12px,2vw,16px) clamp(16px,2.5vw,22px);border-top:1px solid var(--c-line);align-items:flex-start;">
+            <span class="qv" style="flex:none;min-width:clamp(88px,20vw,150px);font-size:clamp(17px,2.4vw,21px);color:var(--scene);font-weight:700;">{{ t.w }}</span>
+            <span style="flex:1;font-size:clamp(13.5px,1.8vw,15.5px);line-height:1.9;color:var(--c-ink);">{{ t.m }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selWord:null, placed:{}, fb:null, wrong:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idhhar);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  data(){
+    return [
+      { id:'kufr', w:'الكُفر', gist:'ضدّ الإيمان، والجحود بالله وتكذيب رسوله (ص)',
+        full:'ضدّ الإيمان، ومنه الجحود لله تعالى والتكذيب برسوله (ص) وما جاء به من الدين والشرع.' },
+      { id:'baad', w:'بَعْدَ إيمانِهم', gist:'ارتدّوا عن الإسلام إلى الكفر',
+        full:'أي: ارتدّوا عن الإسلام إلى الكفر.' },
+      { id:'dal', w:'الضّالّون', gist:'المخطئون طريق الهدى',
+        full:'المخطئون طريق الهدى.' },
+      { id:'mil', w:'مِلءُ الأرض', gist:'ما يملأ الأرض من الذهب',
+        full:'ما يملأها من الذهب.' },
+      { id:'ift', w:'ولو افْتَدى به', gist:'قدّم فداءً لنفسه لينجو',
+        full:'ولو قدّم فداءً لنفسه ما دام من النار ما قُبل منه.' },
+      { id:'birr1', w:'تنالوا البِرّ', gist:'تحصُلوا على مطلق الخير',
+        full:'نال الشيء: حصَل عليه، والبِرّ: مطلق الخير.' },
+      { id:'birr2', w:'البِرّ', gist:'الإحسان والخير الذي يكون به الإنسان بارّاً',
+        full:'ما يكون به الإنسان بارّاً، وهو الإحسان والخير.' },
+    ];
+  }
+  // fixed shuffled order for meanings
+  meaningOrder(){ return ['dal','birr2','kufr','ift','mil','birr1','baad']; }
+
+  renderVals(){
+    var self = this, d = this.data(), placed = this.state.placed;
+    var byId = {}; d.forEach(function(x){ byId[x.id]=x; });
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===1 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var sel = this.state.selWord;
+    var words = d.map(function(x){
+      var done = !!placed[x.id];
+      var isSel = sel===x.id;
+      var st='display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:'+(done?'default':'pointer')+';text-align:right;width:100%;padding:12px 15px;border-radius:13px;font-family:Readex Pro;min-height:48px;transition:all .2s;';
+      if(done){ st+='background:rgba(31,158,139,.1);border:2px solid var(--c-good);color:#177564;'; }
+      else if(isSel){ st+='background:var(--scene);border:2px solid var(--scene);color:#fff;box-shadow:0 6px 16px rgba(0,166,214,.4);'; }
+      else { st+='background:#fff;border:2px solid var(--c-line);color:var(--c-primary);'; }
+      return { label:x.w, done:done, onClick:function(){ if(!done) self.setState({ selWord:isSel?null:x.id, fb:null }); }, style:st };
+    });
+
+    var meanings = this.meaningOrder().map(function(mid){
+      var x = byId[mid];
+      var done = !!placed[mid];
+      var wrong = self.state.wrong===mid;
+      var st='cursor:'+(done?'default':'pointer')+';text-align:right;width:100%;padding:12px 15px;border-radius:13px;font-family:Readex Pro;font-size:clamp(13px,1.8vw,15px);line-height:1.7;min-height:48px;transition:all .2s;';
+      if(done){ st+='background:rgba(31,158,139,.1);border:2px solid var(--c-good);color:#177564;'; }
+      else { st+='background:#fff;border:2px solid var(--c-line);color:var(--c-ink);'+(wrong?'animation:shake .4s;border-color:var(--c-alert);':''); }
+      return { label:x.gist, onClick:function(){
+          if(done) return;
+          if(!self.state.selWord){ self.setState({ fb:{ ok:false, text:'اختر كلمةً أوّلاً من العمود الأيمن، ثمّ اضغط معناها.' } }); return; }
+          if(self.state.selWord===mid){
+            var np=Object.assign({},self.state.placed); np[mid]=true;
+            self.setState({ placed:np, selWord:null, wrong:null, fb:{ ok:true, text:'✓ أحسنت! ('+x.w+'): '+x.full } });
+          } else {
+            var sw=byId[self.state.selWord];
+            self.setState({ wrong:mid, fb:{ ok:false, text:'✗ ليست مطابقةً صحيحة. ('+sw.w+') تعني: '+sw.full+' — حاول مرّةً أخرى.' } });
+            setTimeout(function(){ self.setState({wrong:null}); },450);
+          }
+        }, style:st };
+    });
+
+    var matched = Object.keys(placed).length;
+    var fb = this.state.fb;
+
+    var table = d.map(function(x){ return { w:x.w, m:x.full }; });
+
+    return {
+      pips:pips, words:words, meanings:meanings, matched:matched, allDone:matched===7,
+      onReset:function(){ self.setState({ placed:{}, selWord:null, fb:null, wrong:null }); },
+      hasFeedback:!!fb, fbText: fb?fb.text:'',
+      fbStyle: fb ? ('padding:13px 18px;border-radius:14px;font-size:14px;line-height:1.8;'
+        + (fb.ok ? 'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);'
+                 : 'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);')) : '',
+      table:table
+    };
+  }
+}
+</script>
+</body>
+</html>

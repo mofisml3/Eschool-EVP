@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes sail{0%{transform:translateX(0) rotate(-2deg);}50%{transform:translateX(-46vw) rotate(2deg);}100%{transform:translateX(0) rotate(-2deg);}}
+  @keyframes sail2{0%{transform:translateX(0) rotate(2deg);}50%{transform:translateX(-30vw) rotate(-2deg);}100%{transform:translateX(0) rotate(2deg);}}
+  @keyframes drift{0%{transform:translateX(0);}100%{transform:translateX(-60vw);}}
+  @keyframes fall{0%{transform:translateY(-12px);opacity:0;}20%{opacity:1;}100%{transform:translateY(90px);opacity:0;}}
+  @keyframes twinkle{0%,100%{opacity:.3;}50%{opacity:1;}}
+  @keyframes sway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+  @keyframes walk2{0%{transform:translateX(0) scaleX(-1);}50%{transform:translateX(-24vw) scaleX(-1);}100%{transform:translateX(0) scaleX(-1);}}
+  @keyframes grow{0%{transform:scaleY(.2);opacity:0;}100%{transform:scaleY(1);opacity:1;}}
+  @keyframes starSpin{to{transform:rotate(360deg);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة البقرة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٥ من ٦ · دلائل القدرة (١٦٤–١٧٠)</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Scene%204%20-%20Maana2.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Baqarah%20L1%20Scene%206%20-%20Irshadat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">دلائل القدرة</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">آياتٌ لقومٍ يعقلون</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        لفت اللهُ أنظار العقلاء إلى الأدلّة الدالّة على وحدانيّته وقدرته. شغّل كلّ ظاهرةٍ في المشهد أدناه لتراها متحرّكة، واقرأ الآية المطابقة لها.
+      </p>
+    </div>
+
+    <!-- ===== ANIMATED COSMOS ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="{{ skyStyle }}">
+        <!-- rotating order star (top center) -->
+        <svg viewBox="0 0 40 40" style="position:absolute;top:6%;left:50%;transform:translateX(-50%);width:clamp(26px,5vw,38px);height:auto;opacity:.5;animation:starSpin 30s linear infinite;">
+          <g transform="translate(20 20)"><polygon points="0,-17 4,-5 17,-5 6,3 10,15 0,7 -10,15 -6,3 -17,-5 -4,-5" fill="#bfeaff"></polygon></g>
+        </svg>
+
+        <!-- sun / moon -->
+        <div style="{{ sunStyle }}">☀️</div>
+        <div style="{{ moonStyle }}">🌙</div>
+
+        <!-- stars (night) -->
+        <sc-if value="{{ isNight }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;inset:0;pointer-events:none;">
+            <span style="position:absolute;top:18%;right:20%;color:#fff;font-size:12px;animation:twinkle 2s ease-in-out infinite;">✦</span>
+            <span style="position:absolute;top:28%;right:44%;color:#fff;font-size:9px;animation:twinkle 2.6s ease-in-out infinite;">✦</span>
+            <span style="position:absolute;top:14%;left:30%;color:#fff;font-size:11px;animation:twinkle 1.8s ease-in-out infinite;">✦</span>
+            <span style="position:absolute;top:34%;left:16%;color:#fff;font-size:8px;animation:twinkle 3s ease-in-out infinite;">✦</span>
+          </div>
+        </sc-if>
+
+        <!-- clouds / wind -->
+        <sc-if value="{{ clouds }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:20%;right:-60px;font-size:clamp(30px,7vw,50px);animation:drift {{ cloudDur }} linear infinite;">☁️</div>
+          <div style="position:absolute;top:36%;right:-120px;font-size:clamp(22px,5vw,38px);opacity:.85;animation:drift {{ cloudDur2 }} linear infinite;">☁️</div>
+        </sc-if>
+
+        <!-- rain + sprout -->
+        <sc-if value="{{ rain }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:34%;left:0;right:0;height:60px;pointer-events:none;">
+            <span style="position:absolute;left:22%;color:#8fd3ff;font-size:16px;animation:fall 1.1s linear infinite;">💧</span>
+            <span style="position:absolute;left:40%;color:#8fd3ff;font-size:14px;animation:fall 1.3s linear .2s infinite;">💧</span>
+            <span style="position:absolute;left:58%;color:#8fd3ff;font-size:16px;animation:fall 1s linear .4s infinite;">💧</span>
+            <span style="position:absolute;left:74%;color:#8fd3ff;font-size:13px;animation:fall 1.25s linear .1s infinite;">💧</span>
+          </div>
+        </sc-if>
+
+        <!-- ground band -->
+        <div style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,{{ groundTop }},{{ groundBot }});"></div>
+        <!-- sea band -->
+        <div style="position:absolute;left:0;right:0;bottom:0;height:20%;background:linear-gradient(180deg,#2b7fb8,#1a5a86);"></div>
+
+        <!-- sprout on ground -->
+        <sc-if value="{{ rain }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;bottom:19%;right:26%;font-size:clamp(20px,4.6vw,30px);transform-origin:bottom;animation:grow .8s ease-out;">🌱</div>
+          <div style="position:absolute;bottom:19%;right:34%;font-size:clamp(16px,3.6vw,24px);transform-origin:bottom;animation:grow 1s ease-out;">🌿</div>
+        </sc-if>
+
+        <!-- animals -->
+        <sc-if value="{{ animals }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;bottom:19%;left:16%;font-size:clamp(22px,5vw,34px);animation:walk2 9s ease-in-out infinite;">🐫</div>
+          <div style="position:absolute;bottom:19%;left:36%;font-size:clamp(18px,4vw,26px);animation:walk2 7s ease-in-out infinite;">🐑</div>
+        </sc-if>
+
+        <!-- boats on sea -->
+        <sc-if value="{{ boats }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;bottom:7%;right:6%;font-size:clamp(26px,5.6vw,40px);animation:sail 12s ease-in-out infinite;">⛵</div>
+          <div style="position:absolute;bottom:4%;right:30%;font-size:clamp(20px,4.4vw,30px);animation:sail2 10s ease-in-out infinite;">⛵</div>
+        </sc-if>
+      </div>
+
+      <!-- controls -->
+      <div style="padding:clamp(16px,2.6vw,24px);">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+          <sc-for list="{{ toggles }}" as="t" hint-placeholder-count="5">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}"><span style="font-size:17px;">{{ t.icon }}</span><span>{{ t.label }}</span></button>
+          </sc-for>
+        </div>
+        <div style="margin-top:16px;background:var(--c-tint);border-radius:14px;padding:14px 18px;text-align:center;">
+          <div class="qv" style="color:var(--c-primary);font-size:clamp(16px,2.5vw,21px);line-height:1.9;">{{ activeVerse }}</div>
+          <div style="color:var(--c-inkSoft);font-size:13px;margin-top:6px;">{{ activeDesc }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- full ayah 164 -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <span style="background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;padding:4px 12px;border-radius:8px;font-size:13px;">الآية ١٦٤</span>
+      </div>
+      <div class="qv" style="font-size:clamp(17px,2.9vw,24px);line-height:2.2;">إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ وَالْفُلْكِ الَّتِي تَجْرِي فِي الْبَحْرِ بِمَا يَنْفَعُ النَّاسَ وَمَا أَنْزَلَ اللَّهُ مِنَ السَّمَاءِ مِنْ مَاءٍ فَأَحْيَا بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا وَبَثَّ فِيهَا مِنْ كُلِّ دَابَّةٍ وَتَصْرِيفِ الرِّيَاحِ وَالسَّحَابِ الْمُسَخَّرِ بَيْنَ السَّمَاءِ وَالْأَرْضِ لَآيَاتٍ لِقَوْمٍ يَعْقِلُونَ</div>
+    </section>
+
+    <!-- verse reveal cards 165-170 -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ ayat }}" as="a" hint-placeholder-count="3">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(32,0,88,.04);">
+          <button onClick="{{ a.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:14px;align-items:flex-start;padding:clamp(16px,2.6vw,22px);text-align:right;">
+            <span style="flex:none;min-width:clamp(46px,8vw,60px);height:clamp(40px,6.4vw,50px);padding:0 8px;border-radius:12px;border:2px solid var(--scene);color:var(--scene);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(12px,1.8vw,14px);">{{ a.n }}</span>
+            <span style="flex:1;">
+              <span style="display:block;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.2vw,18px);margin-bottom:2px;">{{ a.title }}</span>
+              <span class="qv" style="color:var(--c-inkSoft);font-size:clamp(14px,2.2vw,18px);line-height:1.9;">{{ a.verse }}</span>
+            </span>
+            <span style="flex:none;color:var(--scene);font-size:20px;transform:{{ a.chev }};">⌄</span>
+          </button>
+          <sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px);">
+              <div style="background:var(--c-tint);border-radius:14px;padding:14px 16px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">{{ a.tafsir }}</div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { day:true, boats:true, rain:false, clouds:true, animals:true, active:'day', open:{}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  ayatData(){
+    return [
+      { n:'١٦٥', title:'اتخاذ الأنداد وحبّ المؤمنين لله',
+        verse:'وَمِنَ النَّاسِ مَنْ يَتَّخِذُ مِنْ دُونِ اللَّهِ أَنْدَادًا …',
+        tafsir:'ومع هذه البراهين القاطعة يتّخذ فريقٌ من الناس أصناماً وأوثاناً نظراء لله تعالى، يعظّمونهم بالمحبة والتعظيم والطاعة، ما لا يليق إلا بالله وحده. والمؤمنون أعظم حبّاً لله من حبّ هؤلاء الكفار لآلهتهم. ولو يعلم الذين ظلموا أنفسهم بالشرك — حين يشاهدون عذاب الآخرة — أنّ الله هو المتفرّد بالقوّة جميعاً، وأنّه شديد العذاب، لَما اتّخذوا معه أنداداً.' },
+      { n:'١٦٦–١٦٧', title:'تبرّؤ المتبوعين من التابعين',
+        verse:'إِذْ تَبَرَّأَ الَّذِينَ اتُّبِعُوا مِنَ الَّذِينَ اتَّبَعُوا …',
+        tafsir:'حين يرى المشركون عذاب الآخرة يتبرّأ الرؤساء المتبوعون ممّن اتبعهم على الشرك، وتنقطع بينهم كلّ الصلات التي ارتبطوا بها في الدنيا. وقال التابعون: ليت لنا عودةً إلى الدنيا فنتبرّأ من هؤلاء الذين أضلّونا السبيل، مثل براءتهم منّا. وكما أراهم الله شدّة عذابه، يريهم أعمالهم الباطلة نداماتٍ وحسراتٍ عليهم، وليسوا بخارجين من النار أبداً.' },
+      { n:'١٦٨–١٧٠', title:'الأكل من الحلال الطيّب واتّباع الوحي',
+        verse:'يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا …',
+        tafsir:'يا أيها الناس كلوا من رزق الله الذي أباحه لكم في الأرض، وهو الطاهر غير النجس النافع غير الضار، ولا تتّبعوا طرق الشيطان فيما يُزيّنه لكم من المعاصي والفواحش فتحرّموا حلال الله وتحلّلوا حرامه. إنّما الشيطان لكم عدوٌّ ظاهر، لأنه يأمركم بكل ذنبٍ قبيحٍ يسوؤكم، وبكل معصيةٍ بالغة القبح، وبأن تفتروا على الله الكذب. وإذا قال المؤمنون ناصحين لأهل الضلال: اتبعوا ما أنزل الله من القرآن والهدى، أصرّوا على تقليد آبائهم، ولو كانوا لا يعقلون شيئاً ولا يهتدون للطريق.' },
+    ];
+  }
+
+  phenom(){
+    return {
+      day:   { verse:'وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ', desc:'بوجود أحدهما وغياب الثاني لمنافع العباد، فلا يكون الليل دائماً ولا النهار دائماً.' },
+      boats: { verse:'وَالْفُلْكِ الَّتِي تَجْرِي فِي الْبَحْرِ بِمَا يَنْفَعُ النَّاسَ', desc:'السفن تنتقل بها الناس من جهةٍ إلى أخرى وتحمل منافعهم.' },
+      rain:  { verse:'وَمَا أَنْزَلَ اللَّهُ مِنَ السَّمَاءِ مِنْ مَاءٍ فَأَحْيَا بِهِ الْأَرْضَ بَعْدَ مَوْتِهَا', desc:'يُحيي الله الأرض بالمطر بعد يبسها، فتُخرج الزرع والثمر.' },
+      animals:{ verse:'وَبَثَّ فِيهَا مِنْ كُلِّ دَابَّةٍ', desc:'ونشر في الأرض من سائر أنواع الدوابّ.' },
+      clouds:{ verse:'وَتَصْرِيفِ الرِّيَاحِ وَالسَّحَابِ الْمُسَخَّرِ بَيْنَ السَّمَاءِ وَالْأَرْضِ', desc:'تصريف الرياح وتسخير السحاب بين السماء والأرض بمشيئة الله.' },
+    };
+  }
+
+  renderVals(){
+    var self = this, s = this.state;
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===4 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var isNight = !s.day;
+
+    var skyBg = s.day
+      ? 'linear-gradient(180deg,#8fd0f2 0%,#c9ecfb 55%,#e9f7ff 70%)'
+      : 'linear-gradient(180deg,#101a4a 0%,#25286b 55%,#3a3f86 70%)';
+    var skyStyle = 'position:relative;width:100%;height:clamp(210px,42vw,320px);overflow:hidden;transition:background .6s;background:'+skyBg+';';
+
+    var sunStyle = 'position:absolute;top:9%;left:12%;font-size:clamp(30px,7vw,48px);transition:opacity .6s, transform .6s;'
+      + (s.day ? 'opacity:1;transform:translateY(0);' : 'opacity:0;transform:translateY(-16px);');
+    var moonStyle = 'position:absolute;top:9%;left:12%;font-size:clamp(28px,6.4vw,44px);transition:opacity .6s, transform .6s;'
+      + (s.day ? 'opacity:0;transform:translateY(16px);' : 'opacity:1;transform:translateY(0);');
+
+    var groundTop = s.rain ? '#6fbf5e' : '#c7b487';
+    var groundBot = s.rain ? '#3f8f4a' : '#9c8a5f';
+
+    var toggleDefs = [
+      { key:'day', icon: s.day?'☀️':'🌙', label: s.day?'نهار':'ليل' },
+      { key:'boats', icon:'⛵', label:'الفلك' },
+      { key:'rain', icon:'🌧️', label:'المطر والنبات' },
+      { key:'clouds', icon:'☁️', label:'الرياح والسحاب' },
+      { key:'animals', icon:'🐫', label:'الدوابّ' },
+    ];
+    var toggles = toggleDefs.map(function(t){
+      var on = t.key==='day' ? true : s[t.key];
+      var active = s.active===t.key;
+      return { icon:t.icon, label:t.label,
+        onClick:function(){
+          if(t.key==='day'){ self.setState({ day:!s.day, active:'day' }); }
+          else { var ns={}; ns[t.key]=!s[t.key]; ns.active=t.key; self.setState(ns); }
+        },
+        style:'cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:12px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:44px;transition:all .2s;'
+          + (active ? 'background:var(--scene);color:#fff;border:1.5px solid var(--scene);box-shadow:0 6px 16px rgba(242,112,124,.35);'
+             : ((t.key!=='day' && !s[t.key]) ? 'background:#fff;color:var(--c-inkSoft);border:1.5px dashed var(--c-line);'
+                : 'background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);')) };
+    });
+
+    var ph = this.phenom()[s.active] || this.phenom().day;
+
+    var ayat = this.ayatData().map(function(a,i){
+      var isOpen = !!s.open[i];
+      return { n:a.n, title:a.title, verse:a.verse, tafsir:a.tafsir, open:isOpen,
+        chev:isOpen?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var picked = this.state.picked, correct = 2;
+    var opts = ['أنّ الكونَ نشأ صدفةً بلا خالق.','أنّ لكلّ ظاهرةٍ إلهاً خاصّاً بها.','أنّها آياتٌ تدلّ العقلاء على وحدانية الله وقدرته.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:st+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'علامَ تدلّ ظواهر الكون في الآية ١٦٤؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'ختمت الآية بقوله ﴿ لَآيَاتٍ لِقَوْمٍ يَعْقِلُونَ ﴾ — فهي دلائل على وحدانية الله وقدرته.'
+        :'الآية تجعل هذه الظواهر ﴿ لَآيَاتٍ لِقَوْمٍ يَعْقِلُونَ ﴾، أي دلائل على وحدانية الله وقدرته، لا صدفة ولا آلهة متعددة.';
+    }
+
+    return {
+      pips:pips, skyStyle:skyStyle, sunStyle:sunStyle, moonStyle:moonStyle,
+      isNight:isNight, clouds:s.clouds, rain:s.rain, animals:s.animals, boats:s.boats,
+      cloudDur:'26s', cloudDur2:'34s', groundTop:groundTop, groundBot:groundBot,
+      toggles:toggles, activeVerse:ph.verse, activeDesc:ph.desc,
+      ayat:ayat, check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes zzz{0%{opacity:0;transform:translateY(0) scale(.8);}30%{opacity:1;}100%{opacity:0;transform:translateY(-16px) scale(1.1);}}
+  input[type=range].kahf-slider{-webkit-appearance:none;appearance:none;height:8px;border-radius:99px;outline:none;}
+  input[type=range].kahf-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--scene);box-shadow:0 3px 8px rgba(0,0,0,.25);cursor:pointer;}
+  input[type=range].kahf-slider::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--scene);cursor:pointer;}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Kahf%20L2%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أصحاب الكهف</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٥ · النوم وآية الشمس</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Kahf%20L2%20Scene%202%20-%20Iman.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Kahf%20L2%20Scene%204%20-%20Bath.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الآيات ١٧–١٨</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">النوم في الكهف وآية الشمس</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        أنامهم اللهُ في الكهف، وكانت الشمس تميل عن كهفهم فلا تصيبهم؛ حرّك الشمس من الشروق إلى الغروب لترى كيف <b>تزاور</b> عنهم يميناً و<b>تقرضهم</b> شمالاً.
+      </p>
+    </div>
+
+    <!-- ===== ANIMATED CAVE + SUN ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#7a2b34,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">☀️ مسار الشمس فوق الكهف</h2>
+        <p style="margin:0;color:#ffe0e3;font-size:clamp(12px,1.7vw,14px);">الكهف فتحته متّجهة إلى الشمال، فالشمس تميل عنه ولا تدخل عليهم.</p>
+      </div>
+      <div style="padding:clamp(16px,2.6vw,24px);">
+        <!-- scene -->
+        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;{{ skyStyle }}">
+          <!-- horizon labels -->
+          <div style="position:absolute;top:8px;right:10px;background:rgba(255,255,255,.75);border-radius:8px;padding:2px 10px;font-size:clamp(10px,1.8vw,13px);font-weight:600;color:#7a2b34;">المشرق (يمين)</div>
+          <div style="position:absolute;top:8px;left:10px;background:rgba(255,255,255,.75);border-radius:8px;padding:2px 10px;font-size:clamp(10px,1.8vw,13px);font-weight:600;color:#7a2b34;">المغرب (شمال)</div>
+
+          <!-- sun -->
+          <div style="position:absolute;left:{{ sunLeft }};top:{{ sunTop }};transform:translate(-50%,-50%);width:clamp(34px,8vw,54px);height:clamp(34px,8vw,54px);border-radius:50%;background:radial-gradient(circle at 40% 35%, #fff3c4, #ffd23f 55%, #ff9e2c);box-shadow:0 0 30px 8px rgba(255,200,60,.6);transition:left .12s linear, top .12s linear;"></div>
+          <!-- sun ray tilting away from cave -->
+          <div style="position:absolute;left:{{ sunLeft }};top:{{ sunTop }};width:2px;height:38%;background:linear-gradient(180deg,rgba(255,210,80,.55),rgba(255,210,80,0));transform-origin:top center;transform:translateX(-50%) rotate({{ rayRot }});opacity:.7;"></div>
+
+          <!-- hill + cave -->
+          <svg viewBox="0 0 320 150" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:62%;display:block;">
+            <path d="M0,150 L0,80 Q60,20 150,34 Q240,48 320,70 L320,150 Z" fill="#6b4a2a"></path>
+            <path d="M0,150 L0,96 Q70,54 150,60 Q240,66 320,92 L320,150 Z" fill="#5a3d22"></path>
+            <!-- cave mouth -->
+            <path d="M120,150 Q120,80 165,80 Q210,80 210,150 Z" fill="#160a04"></path>
+            <path d="M132,150 Q132,92 165,92 Q198,92 198,150 Z" fill="#0a0402"></path>
+          </svg>
+
+          <!-- sleepers inside cave (refined faceless silhouettes) -->
+          <div style="position:absolute;left:50%;bottom:2.5%;transform:translateX(-50%);display:flex;gap:clamp(2px,0.8vw,6px);align-items:flex-end;">
+            <sc-for list="{{ sleepers }}" as="s" hint-placeholder-count="3">
+              <span style="{{ s.style }}">
+                <svg viewBox="0 0 78 40" style="width:clamp(30px,7.4vw,50px);height:auto;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));">
+                  <path d="M6,36 Q6,23 24,21 Q34,20 48,20 Q66,20 70,30 Q72,36 63,36 Z" fill="#2c2158"></path>
+                  <path d="M12,32 Q32,26 52,28" stroke="#3f3170" stroke-width="2" fill="none" stroke-linecap="round"></path>
+                  <path d="M52,17 Q52,6 61,6 Q70,6 70,17 Q70,22 61,22 Q52,22 52,17 Z" fill="#241a4d"></path>
+                  <path d="M53,14 Q53,6 61,6 Q69,6 69,13 Z" fill="#37295f"></path>
+                </svg>
+              </span>
+            </sc-for>
+          </div>
+          <!-- dog at threshold (باسط ذراعيه بالوصيد) -->
+          <div style="position:absolute;left:70%;bottom:2.5%;width:clamp(34px,9vw,58px);">
+            <svg viewBox="0 0 64 34" style="width:100%;height:auto;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));">
+              <rect x="2" y="27" width="30" height="5" rx="2.5" fill="#3a2c1e"></rect>
+              <path d="M10,28 Q12,17 26,16 Q30,12 40,13 Q44,7 47,11 Q49,14 47,16 Q56,17 57,26 L57,30 Q57,31 55,31 L14,31 Q10,31 10,28 Z" fill="#4a3826"></path>
+              <path d="M44,10 L50,7 L49,14 Z" fill="#3a2c1e"></path>
+              <circle cx="49" cy="15" r="1.3" fill="#120a04"></circle>
+            </svg>
+          </div>
+          <!-- resting crescent (drawn, subtle) -->
+          <div style="position:absolute;left:46%;bottom:30%;animation:zzz 4s ease-in-out infinite;">
+            <svg viewBox="0 0 24 24" style="width:clamp(14px,2.8vw,20px);height:auto;display:block;opacity:.8;">
+              <path d="M17,3 A9,9 0 1,0 21,17 A7,7 0 1,1 17,3 Z" fill="#bfeaff"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- readout -->
+        <div style="margin-top:16px;background:var(--c-tint);border-radius:14px;padding:14px 18px;text-align:center;">
+          <div class="qv" style="color:var(--c-primary);font-size:clamp(16px,2.6vw,22px);line-height:1.9;">{{ phaseVerse }}</div>
+          <div style="color:var(--c-inkSoft);font-size:13px;margin-top:6px;">{{ phaseDesc }}</div>
+        </div>
+
+        <!-- slider + controls -->
+        <div style="margin-top:18px;">
+          <input type="range" min="0" max="100" value="{{ sliderVal }}" onInput="{{ onSlide }}" class="kahf-slider" style="width:100%;background:linear-gradient(90deg,#ffd23f,#ff9e2c);">
+          <div style="display:flex;justify-content:space-between;color:var(--c-inkSoft);font-size:12px;margin-top:4px;">
+            <span>الغروب (شمال) ←</span><span>→ الشروق (يمين)</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+          <button onClick="{{ onPlay }}" style="cursor:pointer;background:var(--scene);color:#fff;border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:11px 24px;border-radius:999px;min-height:44px;box-shadow:0 6px 16px rgba(242,112,124,.35);">{{ playLabel }}</button>
+          <button onClick="{{ onFlip }}" style="cursor:pointer;background:#fff;border:1.5px solid var(--c-line);color:var(--c-primary);font-family:'El Messiri';font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;min-height:44px;">↔ نُقلّبهم {{ flipLabel }}</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 309-year counter -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.4vw,32px);color:#fff;text-align:center;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.6vw,23px);margin:0 0 10px;">كم لبثوا في كهفهم؟</h2>
+      <div style="font-family:'El Messiri';font-weight:700;font-size:clamp(48px,13vw,90px);line-height:1;color:#bfeaff;text-shadow:0 0 30px rgba(0,195,254,.5);"><span style="direction:ltr;unicode-bidi:isolate;">{{ years }}</span></div>
+      <div style="color:#d6d0ee;font-size:clamp(14px,2vw,17px);margin-top:6px;">سنة &nbsp;=&nbsp; ثلاث مئة سنة + تسع سنين</div>
+      <button onClick="{{ onCount }}" style="cursor:pointer;margin-top:16px;background:var(--c-accent);color:#04223a;border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:11px 24px;border-radius:999px;min-height:44px;">▶ شغّل مرور السنين</button>
+      <div class="qv" style="margin-top:16px;font-size:clamp(16px,2.6vw,21px);line-height:1.9;color:#fff;">وَلَبِثُوا فِي كَهْفِهِمْ ثَلَاثَ مِائَةٍ سِنِينَ وَازْدَادُوا تِسْعًا</div>
+      <div style="color:#bfa9ff;font-size:12.5px;margin-top:4px;">الكهف: ٢٥</div>
+    </section>
+
+    <!-- verses 17-18 tafsir -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ ayat }}" as="a" hint-placeholder-count="2">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(32,0,88,.04);">
+          <button onClick="{{ a.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:14px;align-items:flex-start;padding:clamp(16px,2.6vw,22px);text-align:right;">
+            <span style="flex:none;min-width:clamp(46px,8vw,60px);height:clamp(40px,6.4vw,50px);padding:0 8px;border-radius:12px;border:2px solid var(--scene);color:var(--scene);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(12px,1.8vw,14px);">{{ a.n }}</span>
+            <span class="qv" style="flex:1;font-size:clamp(15px,2.5vw,20px);line-height:2;color:var(--c-ink);">{{ a.verse }}</span>
+            <span style="flex:none;color:var(--scene);font-size:20px;transform:{{ a.chev }};">⌄</span>
+          </button>
+          <sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px);">
+              <div style="background:var(--c-tint);border-radius:14px;padding:14px 16px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">{{ a.tafsir }}</div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { t:0.15, playing:false, dir:1, flip:false, years:0, open:{}, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+  componentWillUnmount(){ if(this._t) clearInterval(this._t); if(this._c) clearInterval(this._c); }
+
+  startPlay(){
+    var self = this;
+    if(this._t) clearInterval(this._t);
+    this._t = setInterval(function(){
+      var t = self.state.t + self.state.dir*0.012;
+      var dir = self.state.dir;
+      if(t>=1){ t=1; dir=-1; } else if(t<=0){ t=0; dir=1; }
+      self.setState({ t:t, dir:dir });
+    }, 70);
+  }
+  startCount(){
+    var self = this;
+    if(this._c) clearInterval(this._c);
+    self.setState({ years:0 });
+    this._c = setInterval(function(){
+      var y = self.state.years + 7;
+      if(y>=309){ y=309; clearInterval(self._c); self._c=null; }
+      self.setState({ years:y });
+    }, 30);
+  }
+
+  ayatData(){
+    return [
+      { n:'١٧', verse:'وَتَرَى الشَّمْسَ إِذَا طَلَعَتْ تَزَاوَرُ عَنْ كَهْفِهِمْ ذَاتَ الْيَمِينِ وَإِذَا غَرَبَتْ تَقْرِضُهُمْ ذَاتَ الشِّمَالِ وَهُمْ فِي فَجْوَةٍ مِنْهُ …',
+        tafsir:'كان الناظر إليهم يراهم منتبهين لانفتاح عيونهم وكثرة تقليبهم، وهم في الحقيقة نيامٌ بقلبهم الله تعالى؛ يميناً مرّة ويساراً أخرى حتى لا تؤثر الأرض في أجسادهم، فتحفظ بذلك أجسامهم من تأثير طول الزمن. وكان كهفهم فتحةً واسعةً متّجهةً إلى الشمال، فتميل الشمس عنه عند طلوعها وغروبها فلا تصيبهم حرارتها، وذلك من رعاية الله وحمايته وعنايته؛ فمن يهدِه الله فهو المهتدي، ومن يُضلِلْ فلن تجد له وليّاً مرشداً.' },
+      { n:'١٨', verse:'وَتَحْسَبُهُمْ أَيْقَاظًا وَهُمْ رُقُودٌ وَنُقَلِّبُهُمْ ذَاتَ الْيَمِينِ وَذَاتَ الشِّمَالِ وَكَلْبُهُمْ بَاسِطٌ ذِرَاعَيْهِ بِالْوَصِيدِ …',
+        tafsir:'تحسبهم أيقاظاً وهم نيامٌ لانفتاح أعينهم، وكلبهم باسطٌ ذراعيه عند باب الكهف. ولو اطّلعت عليهم لولّيت منهم فراراً ولمُلئت منهم رعباً؛ فقد حماهم الله تعالى وألقى عليهم المهابة، لئلّا يقربهم أحدٌ مدّة بقائهم في الكهف.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, t = this.state.t;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===2 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    // sun position along an arc: t=1 -> right(sunrise), t=0 -> left(sunset)
+    var ang = Math.PI * (1 - t);           // t=1 -> 0 (right), t=0 -> PI (left)
+    var sunLeftPct = 50 - 43*Math.cos(ang); // t=1 -> 50-43=7? cos0=1 ->7 (left)... fix below
+    // We want t=1 (sunrise) on RIGHT (high left%). Recompute:
+    var x = 50 + 43*Math.cos(ang);          // ang=0 (t=1) -> 93 (right); ang=PI (t=0) -> 7 (left)
+    var y = 82 - 70*Math.sin(ang);          // ang=PI/2 (t=.5) -> 12 (top); ends -> 82 (low)
+    var sunLeft = x.toFixed(1)+'%';
+    var sunTop = y.toFixed(1)+'%';
+    // ray tilts away from cave (center): if sun on right, ray leans right; on left, leans left
+    var rayRot = ((x-50)*0.5).toFixed(0)+'deg';
+
+    // sky gradient by height of sun (day vs dawn/dusk)
+    var mid = Math.sin(ang); // 0 at horizon, 1 at noon
+    var skyStyle;
+    if(mid>0.55) skyStyle='background:linear-gradient(180deg,#7ec8 f2,#bfe6fb 60%);';
+    else skyStyle='background:linear-gradient(180deg,#f4a76b,#ffd7a8 60%);';
+    skyStyle = mid>0.55 ? 'background:linear-gradient(180deg,#7ec8f2,#cdeafb 62%);' : 'background:linear-gradient(180deg,#e88a55,#ffd7a8 62%);';
+
+    var phaseVerse, phaseDesc;
+    if(t>0.66){ phaseVerse='تَزَاوَرُ عَنْ كَهْفِهِمْ ذَاتَ الْيَمِينِ'; phaseDesc='عند الشروق: تميل الشمس عن الكهف جهة اليمين فلا تدخل عليهم.'; }
+    else if(t<0.34){ phaseVerse='تَقْرِضُهُمْ ذَاتَ الشِّمَالِ'; phaseDesc='عند الغروب: تتجاوزهم الشمس جهة الشمال فلا تصيبهم.'; }
+    else { phaseVerse='وَهُمْ فِي فَجْوَةٍ مِنْهُ'; phaseDesc='في وسط النهار: هم في متّسعٍ من الكهف بعيداً عن أشعة الشمس.'; }
+
+    var flip = this.state.flip;
+    var sleepers = [0,1,2].map(function(i){
+      return { style:'display:inline-block;transition:transform .45s ease;transform:scaleX('+(flip?'-1':'1')+') rotate('+(flip?'4deg':'-4deg')+');' };
+    });
+
+    var ayat = this.ayatData().map(function(a,i){
+      var open=!!self.state.open[i];
+      return { n:a.n, verse:a.verse, tafsir:a.tafsir, open:open, chev:open?'rotate(180deg)':'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['كانت تدخل الكهف وتصيبهم مباشرة.','كانت تميل عنهم يميناً وشمالاً فلا تصيبهم.','لم تكن هناك شمسٌ أصلاً.'];
+    var options = opts.map(function(tx,i){
+      var chosen=picked===i, isC=i===correct;
+      var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:tx, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:st+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'كيف تعامل الله بالشمس مع أصحاب الكهف (الآية ١٧)؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'قال تعالى ﴿ تَزَاوَرُ عَنْ كَهْفِهِمْ ذَاتَ الْيَمِينِ وَإِذَا غَرَبَتْ تَقْرِضُهُمْ ذَاتَ الشِّمَالِ ﴾ — تميل عنهم فلا تصيبهم، رعايةً من الله.'
+        :'الآية بيّنت أنّ الشمس تميل عن كهفهم يميناً عند الطلوع وشمالاً عند الغروب، فلا تصيبهم؛ حمايةً من الله.';
+    }
+
+    return {
+      pips:pips, skyStyle:skyStyle, sunLeft:sunLeft, sunTop:sunTop, rayRot:rayRot,
+      sleepers:sleepers, phaseVerse:phaseVerse, phaseDesc:phaseDesc,
+      sliderVal: Math.round(t*100),
+      onSlide:function(e){ if(self._t){clearInterval(self._t);self._t=null;} self.setState({ t: (+e.target.value)/100, playing:false }); },
+      onPlay:function(){ var np=!self.state.playing; self.setState({playing:np}); if(np) self.startPlay(); else if(self._t){clearInterval(self._t);self._t=null;} },
+      playLabel: this.state.playing ? '⏸ إيقاف' : '▶ حرّك الشمس',
+      onFlip:function(){ self.setState({flip:!self.state.flip}); },
+      flipLabel: flip ? 'شمالاً' : 'يميناً',
+      years: this.state.years,
+      onCount:function(){ self.startCount(); },
+      ayat:ayat, check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

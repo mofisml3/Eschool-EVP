@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#200058;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes ripple{0%{transform:translateX(0);}100%{transform:translateX(-24px);}}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(var(--rot,0deg));}50%{transform:translateY(-4px) rotate(var(--rot,0deg));}}
+  @keyframes rise{0%{transform:translateY(0);}100%{transform:translateY(-30px);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Maryam%20L2%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">السيّدة مريم بنت عمران (ع)</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ١ من ٥ · النذر وولادة مريم</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Maryam%20L2%20Blueprint.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Maryam%20L2%20Scene%202%20-%20Mihrab.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,34px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">القصّة · الجزء الأوّل</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">النذر ومولد مريم</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        قبل مولدها بسنوات، جرى نذرٌ ودعاءٌ صادق. تتبّع القصّة خطوةً خطوة، ثمّ أجرِ القرعة لتعرف مَن كفَل مريم (ع).
+      </p>
+    </div>
+
+    <!-- STORY STEPPER -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(32,0,88,.06);">
+      <!-- step dots -->
+      <div style="display:flex;gap:6px;padding:clamp(14px,2.4vw,18px) clamp(16px,3vw,26px) 0;flex-wrap:wrap;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="6">
+          <button onClick="{{ d.onClick }}" style="{{ d.style }}">{{ d.n }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ gridCols }};gap:clamp(16px,3vw,28px);padding:clamp(16px,3vw,26px);align-items:center;">
+        <!-- illustration -->
+        <div style="background:linear-gradient(150deg,#1a0350,#3a1290);border-radius:18px;min-height:clamp(200px,30vw,260px);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;opacity:.1;background-image:repeating-linear-gradient(45deg,#00c3fe 0 1px,transparent 1px 26px),repeating-linear-gradient(-45deg,#00c3fe 0 1px,transparent 1px 26px);"></div>
+          <div style="position:relative;z-index:2;width:100%;padding:18px;display:flex;align-items:center;justify-content:center;">{{ illustration }}</div>
+        </div>
+        <!-- text -->
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:8px;background:var(--c-tint);color:var(--c-primary);font-weight:700;font-size:13px;padding:5px 13px;border-radius:999px;margin-bottom:12px;font-family:'El Messiri';">{{ stepBadge }}</div>
+          <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(20px,2.9vw,27px);margin:0 0 10px;color:var(--c-primary);line-height:1.3;">{{ stepTitle }}</h2>
+          <p style="margin:0;font-size:clamp(14.5px,1.95vw,17px);line-height:2.05;color:var(--c-ink);">{{ stepBody }}</p>
+
+          <sc-if value="{{ hasVerse }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;background:rgba(32,0,88,.04);border-right:4px solid var(--scene);border-radius:12px;padding:14px 16px;">
+              <div class="qv" style="font-size:clamp(16px,2.3vw,20px);line-height:2;color:var(--c-primary);">{{ verseText }}</div>
+              <div style="color:var(--c-inkSoft);font-size:12.5px;margin-top:8px;">{{ verseRef }}</div>
+            </div>
+          </sc-if>
+
+          <!-- QURAA interactive (only on last step) -->
+          <sc-if value="{{ isQuraa }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;">
+              <div style="position:relative;height:96px;border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#0a2740,#0e3a5c);border:1px solid rgba(0,195,254,.3);">
+                <!-- water ripples -->
+                <div style="position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(90deg,rgba(0,195,254,.18) 0 2px,transparent 2px 24px);animation:ripple 2.4s linear infinite;"></div>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:52%;background:linear-gradient(180deg,rgba(0,195,254,.12),rgba(0,195,254,.28));"></div>
+                <!-- pens -->
+                <sc-for list="{{ pens }}" as="pen" hint-placeholder-count="3">
+                  <div style="{{ pen.wrap }}">
+                    <div style="{{ pen.stick }}"></div>
+                    <sc-if value="{{ pen.isZ }}" hint-placeholder-val="{{ false }}">
+                      <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'El Messiri';font-weight:700;font-size:12px;color:#bfeaff;">زكريّا</div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px;">
+                <button onClick="{{ onCast }}" style="cursor:pointer;background:var(--scene);color:#fff;border:none;font-family:'El Messiri';font-weight:700;font-size:14px;padding:11px 22px;border-radius:12px;min-height:44px;">{{ castLabel }}</button>
+                <sc-if value="{{ castDone }}" hint-placeholder-val="{{ false }}">
+                  <span style="color:#177564;background:rgba(31,158,139,.1);border:1px solid var(--c-good);border-radius:10px;padding:9px 14px;font-size:13.5px;font-weight:600;line-height:1.7;">طفا قلم زكريّا وثبت — فكَفَلها زكريّا ورعاها، وكان رأس الأحبار ونبيّهم.</span>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;gap:10px;margin-top:20px;">
+            <button onClick="{{ onPrev }}" style="{{ prevStyle }}"><span>→</span><span>السابق</span></button>
+            <button onClick="{{ onNext }}" style="{{ nextStyle }}"><span>{{ nextLabel }}</span><span>{{ nextArrow }}</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- key figures -->
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(12px,2vw,18px);">
+      <div style="background:#fff;border:1px solid var(--c-line);border-top:4px solid var(--scene);border-radius:16px;padding:clamp(16px,2.4vw,20px);">
+        <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);margin:0 0 6px;font-size:17px;">عمران</h3>
+        <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">أبو مريم، كان إمام قومه، وقد مات قبل ولادتها.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-top:4px solid var(--r-idhhar);border-radius:16px;padding:clamp(16px,2.4vw,20px);">
+        <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);margin:0 0 6px;font-size:17px;">حنّة</h3>
+        <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">أمّ مريم، خالة النبيّ يحيى (ع)، من العابدات الصالحات، هي التي نذرت.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-top:4px solid var(--r-idgham);border-radius:16px;padding:clamp(16px,2.4vw,20px);">
+        <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);margin:0 0 6px;font-size:17px;">زكريّا (ع)</h3>
+        <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">من ولد سليمان بن داود، رأس الأحبار ونبيّهم، كفَل مريم بعد القرعة.</p>
+      </div>
+    </section>
+
+    <div style="display:flex;justify-content:center;">
+      <a href="Maryam%20L2%20Scene%202%20-%20Mihrab.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,18px);padding:13px 32px;border-radius:999px;min-height:44px;" style-hover="filter:brightness(1.06);"><span>◀</span><span>المشهد التالي: مريم في المحراب</span></a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step:0, cast:false };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.primary);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  arch(label){
+    return React.createElement('svg',{viewBox:'0 0 120 130',style:{width:'clamp(120px,22vw,160px)',height:'auto'}},
+      React.createElement('path',{d:'M20,124 L20,58 Q20,20 60,20 Q100,20 100,58 L100,124 Z',fill:'none',stroke:'#5ad8ff',strokeWidth:2}),
+      React.createElement('path',{d:'M32,124 L32,60 Q32,32 60,32 Q88,32 88,60 L88,124 Z',fill:'rgba(0,195,254,.08)'}),
+      React.createElement('circle',{cx:60,cy:60,r:12,fill:'none',stroke:'#bfeaff',strokeWidth:1.6}),
+      label
+    );
+  }
+
+  illus(i){
+    // 0 imam/mihrab, 1 revelation ray, 2 nadhr knot, 3 star(أنثى), 4 name مريم
+    if(i===0) return this.arch(React.createElement('text',{x:60,y:66,fill:'#bfeaff',fontFamily:'El Messiri',fontWeight:'700',fontSize:'13',textAnchor:'middle'},'إمام'));
+    if(i===1) return React.createElement('svg',{viewBox:'0 0 120 120',style:{width:'clamp(120px,22vw,160px)',height:'auto'}},
+        React.createElement('circle',{cx:60,cy:34,r:16,fill:'#00c3fe',opacity:.9}),
+        React.createElement('circle',{cx:60,cy:34,r:24,fill:'none',stroke:'#00c3fe',strokeWidth:1.3,opacity:.4}),
+        [0,1,2,3,4].map(function(k){var a=(k-2)*16*Math.PI/180;return React.createElement('line',{key:k,x1:60+Math.sin(a)*24,y1:50,x2:60+Math.sin(a)*44,y2:104,stroke:'#bfeaff',strokeWidth:1.4,opacity:.55});})
+      );
+    if(i===2) return React.createElement('svg',{viewBox:'0 0 120 120',style:{width:'clamp(110px,20vw,150px)',height:'auto'}},
+        React.createElement('path',{d:'M40,40 C20,60 20,88 44,88 C60,88 60,64 48,64 C40,64 40,76 50,78',fill:'none',stroke:'#f6848e',strokeWidth:3,strokeLinecap:'round'}),
+        React.createElement('path',{d:'M80,40 C100,60 100,88 76,88 C60,88 60,64 72,64 C80,64 80,76 70,78',fill:'none',stroke:'#00c3fe',strokeWidth:3,strokeLinecap:'round'}),
+        React.createElement('circle',{cx:60,cy:60,r:6,fill:'#bfeaff'})
+      );
+    if(i===3) return React.createElement('svg',{viewBox:'0 0 120 120',style:{width:'clamp(110px,20vw,150px)',height:'auto'}},
+        React.createElement('polygon',{points:'60,20 68,50 100,50 74,68 84,100 60,80 36,100 46,68 20,50 52,50',fill:'#00c3fe',opacity:.92}),
+        React.createElement('circle',{cx:60,cy:60,r:8,fill:'#fff'})
+      );
+    return React.createElement('svg',{viewBox:'0 0 160 120',style:{width:'clamp(140px,26vw,180px)',height:'auto'}},
+        React.createElement('rect',{x:20,y:40,width:120,height:44,rx:12,fill:'rgba(0,195,254,.12)',stroke:'#5ad8ff',strokeWidth:1.6}),
+        React.createElement('text',{x:80,y:72,fill:'#fff',fontFamily:'Amiri',fontWeight:'700',fontSize:'30',textAnchor:'middle'},'مَرْيَم')
+      );
+  }
+
+  renderVals(){
+    var self=this, s=this.state.step;
+    var steps=[
+      { badge:'الخطوة ١', title:'أبوان صالحان', body:'كان عمران إمام قومه، وزوجته حنّة خالةَ النبيّ يحيى (ع)، وهي من العابدات الصالحات. مضت سنواتٌ على زواجهما ولم يُرزقا ولدًا.' },
+      { badge:'الخطوة ٢', title:'وحيٌ ببشارة', body:'أوحى الله إلى عمران أنّه سيهبه ولدًا مباركًا يشفي المرضى الميؤوس من شفائهم، ويحيي الموتى بإذن الله، ويرسله نبيًّا إلى بني إسرائيل. فأخبر عمرانُ زوجتَه حنّة بذلك.' },
+      { badge:'الخطوة ٣', title:'النذر لبيت المقدس', body:'فلمّا حملت، ظنّت حنّة أنّ ما تحمله هو الابن الموعود، فنذرت ما في بطنها مُحرَّرًا للخدمة في بيت الله «بيت المقدس» — ولم تكن تعلم أنّ الموعود هو ابن مريم لا مريم نفسها.' },
+      { badge:'الخطوة ٤', title:'﴿رَبِّ إِنِّي وَضَعْتُهَا أُنْثَىٰ﴾', body:'فلمّا وَلَدَتْها أنثى تحسّرت، لأنّ الأنثى أضعف في خدمة بيت الله، ﴿وَاللَّهُ أَعْلَمُ بِمَا وَضَعَتْ﴾ فهو الذي خلقها وصوّرها.',
+        verse:'﴿ رَبِّ إِنِّي وَضَعْتُهَا أُنْثَىٰ وَاللَّهُ أَعْلَمُ بِمَا وَضَعَتْ وَلَيْسَ الذَّكَرُ كَالْأُنْثَىٰ ﴾', vref:'آل عمران: ٣٦' },
+      { badge:'الخطوة ٥', title:'تسميتها والاستعاذة', body:'ثمّ سمّتها «مريم» — وهي بلغتهم العابدة الخادمة — ودعت الله أن يُجنّبها وذرّيتها الشيطان الرجيم: ﴿وَإِنِّي أُعِيذُهَا بِكَ وَذُرِّيَّتَهَا مِنَ الشَّيْطَانِ الرَّجِيمِ﴾.' },
+      { badge:'الخطوة ٦', title:'القرعة على كفالتها', body:'تنافس الأحبار على رعاية مريم لأنّها بنت إمامهم عمران، وقد مات. قال زكريّا: أنا أحقّ بها لأنّ خالتها عندي. فاتّفقوا على القرعة: يُلقون أقلامهم في النهر، فتكون عند مَن يثبت قلمه. أجرِ القرعة بنفسك:' },
+    ];
+    var st=steps[s];
+
+    var dots=steps.map(function(_,i){
+      var active=i===s, done=i<s;
+      var bg=active?'var(--scene)':(done?'var(--r-idgham)':'#fff');
+      var col=(active||done)?'#fff':'var(--c-inkSoft)';
+      var bd=(active||done)?'transparent':'var(--c-line)';
+      return { n:['١','٢','٣','٤','٥','٦'][i],
+        style:'cursor:pointer;width:36px;height:36px;border-radius:10px;border:1px solid '+bd+';background:'+bg+';color:'+col+';font-family:El Messiri;font-weight:700;font-size:14px;',
+        onClick:function(){ self.setState({step:i}); } };
+    });
+
+    // pens for quraa
+    var pos=[{l:'24%',rot:'-18deg'},{l:'50%',rot:'8deg'},{l:'74%',rot:'-6deg'}];
+    var pens=pos.map(function(p,i){
+      var isZ=i===1;
+      var cast=self.state.cast;
+      var wrap='position:absolute;bottom:'+(cast&&isZ?'54%':'34%')+';left:'+p.l+';--rot:'+p.rot+';transform:translateX(-50%);transition:bottom .8s ease;'
+        + (cast? (isZ?'animation:bob 1.6s ease-in-out infinite;':'') : 'animation:bob 2.4s ease-in-out infinite;');
+      if(cast&&!isZ){ wrap='position:absolute;bottom:20%;left:'+p.l+';--rot:'+p.rot+';transform:translateX(-50%);opacity:.4;transition:all .8s ease;'; }
+      var stick='width:6px;height:'+(isZ?'46px':'38px')+';border-radius:3px;background:'+(cast&&isZ?'linear-gradient(180deg,#00c3fe,#bfeaff)':'#caa46a')+';box-shadow:'+(cast&&isZ?'0 0 16px rgba(0,195,254,.8)':'none')+';';
+      return { wrap:wrap, stick:stick, isZ:isZ };
+    });
+
+    return {
+      pips:[0,1,2,3,4].map(function(i){return {bg:i===0?'var(--scene)':'var(--c-line)'};}),
+      dots:dots, gridCols: (typeof window!=='undefined'&&window.innerWidth<720)?'1fr':'minmax(0,42%) 1fr',
+      illustration:this.illus(s),
+      stepBadge:st.badge, stepTitle:st.title, stepBody:st.body,
+      hasVerse:!!st.verse, verseText:st.verse||'', verseRef:st.vref||'',
+      isQuraa:s===5, pens:pens, castDone:this.state.cast,
+      castLabel:this.state.cast?'أُجريت القرعة ✓':'ألقِ الأقلام في النهر',
+      onCast:function(){ self.setState({cast:true}); },
+      onPrev:function(){ self.setState({step:Math.max(0,self.state.step-1)}); },
+      onNext:function(){ self.setState({step:Math.min(5,self.state.step+1)}); },
+      prevStyle:'cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--c-line);color:'+(s===0?'#c9c3dd':'var(--c-primary)')+';font-family:Readex Pro;font-weight:600;font-size:13.5px;padding:10px 18px;border-radius:11px;min-height:44px;'+(s===0?'pointer-events:none;':''),
+      nextStyle:'cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:'+(s===5?'var(--c-good)':'var(--scene)')+';border:none;color:#fff;font-family:El Messiri;font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:11px;min-height:44px;'+(s===5?'pointer-events:none;opacity:.85;':''),
+      nextLabel:s===5?'انتهت القصّة':'التالي', nextArrow:s===5?'✓':'←'
+    };
+  }
+}
+</script>
+</body>
+</html>

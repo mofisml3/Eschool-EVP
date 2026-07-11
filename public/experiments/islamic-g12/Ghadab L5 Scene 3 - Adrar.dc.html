@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes lavaRise{0%{transform:translateY(6px) scaleY(.9);opacity:.85;}100%{transform:translateY(-6px) scaleY(1.05);opacity:1;}}
+  @keyframes emberFloat{0%{transform:translateY(0) scale(1);opacity:0;}30%{opacity:1;}100%{transform:translateY(-40px) scale(.5);opacity:0;}}
+  @keyframes flameSteady{0%,100%{transform:scaleY(1);}50%{transform:scaleY(1.12);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">النهي عن الغضب</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٥ · أضرار الغضب</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Ghadab%20L5%20Scene%202%20-%20Bawaith.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Ghadab%20L5%20Scene%204%20-%20Ilaj.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="6">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الحكم الثاني</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">أضرار الغضب ونوعاه</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        للغضب أضرارٌ جسيمةٌ فادحةٌ تضرّ بالإنسان فرداً ومجتمعاً، جسمياً ونفسياً، مادياً وأدبياً. والغضب <b style="color:var(--scene);">يُحيل الإنسان بركاناً ثائراً</b> يتفجّر غيظاً وشرّاً، فإذا هو وحشٌ في صورة إنسان. جرّب المؤشّر لترى.
+    </p>
+    </div>
+
+    <!-- ===== INTERACTIVE: volcano of anger ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#7a2b34,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🌋 بركان الغضب</h2>
+          <p style="margin:0;color:#ffe0e3;font-size:clamp(12px,1.7vw,14px);">ارفع مستوى الغضب لترى كيف يتحوّل الإنسان وما أضراره.</p>
+        </div>
+        <button onClick="{{ onToggleAuto }}" style="cursor:pointer;background:rgba(255,255,255,.16);color:#fff;border:none;padding:9px 16px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:40px;">{{ autoLabel }}</button>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <div style="display:flex;justify-content:center;margin-bottom:16px;">
+          <div style="position:relative;width:min(100%,360px);">
+            {{ volcano }}
+          </div>
+        </div>
+
+        <!-- level slider -->
+        <div style="max-width:520px;margin:0 auto;">
+          <input type="range" min="0" max="100" value="{{ level }}" onInput="{{ onLevel }}" step="1"
+            style="width:100%;height:34px;accent-color:{{ levelColor }};cursor:pointer;">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--c-inkSoft);margin-top:2px;">
+            <span>حِلم وسكينة</span><span>ثورة وغضب</span>
+          </div>
+        </div>
+
+        <!-- state readout -->
+        <div style="margin-top:18px;text-align:center;">
+          <div style="display:inline-flex;align-items:center;gap:10px;background:{{ stateBg }};color:{{ stateColor }};border:1.5px solid {{ stateColor }};border-radius:999px;padding:10px 20px;font-weight:700;font-family:'El Messiri';font-size:clamp(15px,2.3vw,18px);transition:all .3s;">
+            <span style="font-size:20px;">{{ stateIcon }}</span>{{ stateLabel }}
+          </div>
+        </div>
+
+        <!-- harms revealed by level -->
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;min-height:40px;">
+          <sc-for list="{{ harms }}" as="h" hint-placeholder-count="0">
+            <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(246,132,142,.13);color:#c0505c;border:1px solid var(--c-alert);border-radius:999px;padding:7px 14px;font-size:clamp(12px,1.7vw,14px);font-weight:600;animation:fadeUp .35s ease;">
+              <span style="width:7px;height:7px;border-radius:50%;background:var(--c-alert);"></span>{{ h }}
+            </span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- harms detail -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 10px;">كم غضبةٍ...</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.9;color:#e4dff5;">جرحت العواطف، وشحنت النفوس بالأضغان، وفكّكت أواصر التحابّ والتآلف بين الناس.</div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.9;color:#e4dff5;">زجّت أناساً في السجون، وعرّضتهم للمهالك.</div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.9;color:#e4dff5;">أثارت الحروب وسفكت الدماء، فراح ضحيّتها الآلاف من الأبرياء، وقد تؤدّي إلى موت الفجأة.</div>
+      </div>
+    </section>
+
+    <!-- ===== TWO TYPES toggle ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(32,0,88,.06);">
+      <div style="padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--c-line);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(17px,2.4vw,22px);margin:0;">الغضب ينقسم على قسمين</h2>
+        <div style="display:inline-flex;background:var(--c-tint);border-radius:999px;padding:4px;gap:4px;">
+          <sc-for list="{{ typeBtns }}" as="t" hint-placeholder-count="2">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="padding:clamp(18px,3vw,28px);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <span style="font-size:28px;">{{ typeIcon }}</span>
+          <h3 style="font-family:'El Messiri';font-weight:700;margin:0;color:{{ typeColor }};font-size:clamp(18px,2.6vw,22px);">{{ typeTitle }}</h3>
+        </div>
+        <p style="margin:0 0 14px;font-size:clamp(15px,2vw,17px);line-height:2;color:var(--c-ink);">{{ typeText }}</p>
+        <sc-if value="{{ hasVerse }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div class="qv" style="background:var(--c-tint);border-radius:14px;padding:14px 16px;color:var(--c-primary);font-size:clamp(16px,2.5vw,20px);line-height:1.9;text-align:center;">{{ typeVerse }}</div>
+            <div style="text-align:center;color:var(--c-inkSoft);font-size:12.5px;margin-top:6px;">{{ typeRef }}</div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { level:10, auto:false, type:'mathmum', picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+  componentWillUnmount(){ if(this._t) clearInterval(this._t); }
+
+  toggleAuto(){
+    var self = this;
+    if(this.state.auto){ clearInterval(this._t); this._t=null; this.setState({auto:false}); return; }
+    this.setState({auto:true});
+    this._t = setInterval(function(){
+      var l = self.state.level + 2;
+      if(l>100) l=0;
+      self.setState({ level:l });
+    }, 90);
+  }
+
+  renderVals(){
+    var self = this, R = React.createElement, B = window.BRAND || { rules:{} };
+    var level = this.state.level;
+    var pips = [0,1,2,3,4,5].map(function(i){ return { bg: i===2 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var alert = B.alert || '#f6848e';
+    var good = B.good || '#1f9e8b';
+    var primary = B.primary || '#200058';
+    var iqlab = (B.rules&&B.rules.iqlab) || '#f2707c';
+
+    // color interpolation cool->hot
+    var t = level/100;
+    var levelColor = level < 33 ? good : (level < 66 ? '#e0a53c' : alert);
+
+    // volcano SVG: lava height grows with level, embers when high
+    var lavaH = 10 + t*70;              // 10..80
+    var mouthGlow = 0.15 + t*0.85;
+    var embers = [];
+    if(level>60){
+      for(var i=0;i<4;i++){
+        embers.push(R('circle', { key:'e'+i, cx:120 + (i-1.5)*16, cy:70, r:3+ (i%2), fill:alert,
+          style:{ transformOrigin:'120px 70px', animation:'emberFloat '+(1.1+ i*0.25)+'s ease-in infinite', animationDelay:(i*0.2)+'s' } }));
+      }
+    }
+    var volcano = R('svg', { viewBox:'0 0 240 200', style:{ width:'100%', height:'auto', maxWidth:'360px' } },
+      // sky glow
+      R('ellipse', { cx:120, cy:74, rx:60, ry:30, fill:alert, opacity: (level>50? (t-0.5)*0.5 : 0) }),
+      embers,
+      // mountain
+      R('path', { d:'M40 190 L96 78 Q120 60 144 78 L200 190 Z', fill:'#3a2e66' }),
+      R('path', { d:'M40 190 L96 78 Q120 60 144 78 L200 190 Z', fill:'none', stroke:primary, strokeWidth:2, opacity:0.5 }),
+      // crater lava (clipped by mouth)
+      R('path', { d:'M96 80 Q120 64 144 80 L138 96 Q120 86 102 96 Z', fill:iqlab, opacity: mouthGlow }),
+      // lava column rising from mouth
+      R('rect', { x:110, y: 92 - (lavaH-10)*0.0, width:20, height: lavaH*0.0, fill:'transparent' }),
+      R('path', { d:'M104 92 Q120 '+(92-lavaH)+' 136 92 Z', fill:alert, opacity:0.9,
+        style:{ transformOrigin:'120px 92px', animation: level>40 ? 'lavaRise .9s ease-in-out infinite alternate' : 'none' } }),
+      // lava flows down sides when high
+      (level>70 ? R('path', { key:'flow', d:'M118 92 Q112 140 100 190 M122 92 Q130 140 142 190', stroke:alert, strokeWidth:6, fill:'none', strokeLinecap:'round', opacity:0.85 }) : null),
+      // base ground
+      R('rect', { x:20, y:186, width:200, height:8, rx:4, fill:'#2c2158' })
+    );
+
+    // state by level
+    var state;
+    if(level<33) state = { label:'حِلمٌ وسكينة', icon:'🌿', color:good, bg:'rgba(31,158,139,.12)' };
+    else if(level<66) state = { label:'توتّرٌ وتهيّج', icon:'⚠️', color:'#c98a1e', bg:'rgba(224,165,60,.14)' };
+    else state = { label:'ثورةٌ وغضب: وحشٌ في صورة إنسان', icon:'🌋', color:alert, bg:'rgba(246,132,142,.14)' };
+
+    var allHarms = ['اللسان بالفُحش والبذاء','هتك الأعراض','اليدان بالضرب والتنكيل','قد يُفضي إلى القتل','تمزيق الثوب ولطم الرأس'];
+    var harmCount = level<33 ? 0 : (level<50 ? 1 : (level<66 ? 2 : (level<85 ? 4 : 5)));
+    var harms = allHarms.slice(0, harmCount);
+
+    // two types
+    var typeMathmum = this.state.type==='mathmum';
+    var type;
+    if(typeMathmum){
+      type = { title:'الغضب المذموم', icon:'🚫', color:iqlab,
+        text:'وهو الغضب الدنيوي الذي حذّرنا النبيّ (ص) إيّاه؛ ينبعث عن غريزةٍ ثائرة، فيتفجّر الإنسان غيظاً وشرّاً، ويجرّ إلى الفُحش والضرب وربّما القتل.',
+        verse:'', ref:'', hasVerse:false };
+    } else {
+      type = { title:'الغضب الممدوح', icon:'🛡️', color:good,
+        text:'وهو الغضب المحمود الذي يكون لله وللحقّ ودفاعاً عن العقيدة؛ يُستحبّ إذا انتهكت حرمات الله تعالى، فينبع من غريزةٍ سليمةٍ وقيمٍ عليا تُلهب روح الحميّة والإباء، وتبعث على التضحية والفداء.',
+        verse:'﴿ ذَٰلِكَ وَمَنْ يُعَظِّمْ حُرُمَاتِ اللَّهِ فَهُوَ خَيْرٌ لَهُ عِنْدَ رَبِّهِ ﴾', ref:'الحج: ٣٠', hasVerse:true };
+    }
+    var mkType = function(key,label){
+      var on = self.state.type===key;
+      return { label:label, onClick:function(){ self.setState({type:key}); },
+        style:'border:none;cursor:pointer;padding:8px 16px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:36px;transition:all .25s;'
+          + (on?'background:#fff;color:var(--c-primary);box-shadow:0 3px 10px rgba(32,0,88,.12);':'background:transparent;color:var(--c-inkSoft);') };
+    };
+    var typeBtns = [ mkType('mathmum','المذموم'), mkType('mamduh','الممدوح') ];
+
+    // check
+    var picked = this.state.picked, correct = 1;
+    var opts = ['الغضب الممدوح لله ودفاعاً عن العقيدة.','الغضب المذموم الدنيوي الذي حذّر منه النبي (ص).','لا فرق بينهما.'];
+    var options = opts.map(function(tx,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:tx, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'أيُّ الغضب يُحيل الإنسان بركاناً ثائراً ووحشاً في صورة إنسان؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'هو الغضب المذموم الدنيوي الذي حذّر منه النبي (ص)؛ أمّا الممدوح فيكون لله ودفاعاً عن العقيدة.'
+        :'الذي يُحيل الإنسان وحشاً هو الغضب المذموم؛ والغضب الممدوح لله محمودٌ يُستحبّ عند انتهاك حرمات الله.';
+    }
+
+    return {
+      pips:pips,
+      volcano:volcano, level:level, levelColor:levelColor,
+      onLevel:function(e){ if(self.state.auto){ clearInterval(self._t); self._t=null; self.setState({auto:false}); } self.setState({ level: parseInt(e.target.value,10) }); },
+      onToggleAuto:function(){ self.toggleAuto(); }, autoLabel: this.state.auto ? '⏸ إيقاف' : '▶ تشغيل تلقائي',
+      stateLabel:state.label, stateIcon:state.icon, stateColor:state.color, stateBg:state.bg,
+      harms:harms,
+      typeBtns:typeBtns, typeTitle:type.title, typeIcon:type.icon, typeColor:type.color, typeText:type.text,
+      hasVerse:type.hasVerse, typeVerse:type.verse, typeRef:type.ref,
+      check:check
+    };
+  }
+}
+</script>
+</body>
+</html>

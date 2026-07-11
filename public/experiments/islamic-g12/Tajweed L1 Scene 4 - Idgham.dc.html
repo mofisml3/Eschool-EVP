@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes pop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <a href="Tajweed%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+         style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+         style-hover="border-color:var(--c-accent);">🏠</a>
+      <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">أحكام النون الساكنة والتنوين</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٦ · الإدغام</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Tajweed%20L1%20Scene%203%20-%20Iqlab.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Tajweed%20L1%20Scene%205%20-%20Ikhfa.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">الحكم الثالث</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">الإدغام</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        هو قلب النون الساكنة أو التنوين في آخر الكلمة الأولى إلى جنس الكلمة الثانية لتصبح حرفاً واحداً مُشدَّداً. وحروفه ستّةٌ مجموعةٌ في كلمة <b class="qv" style="color:var(--scene);">(يَرْمَلُون)</b>، وينقسم قسمين.
+      </p>
+    </div>
+
+    <!-- ===== INTERACTIVE: merge ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#3a1a66,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0;">🔗 مُدمِج الإدغام</h2>
+        <div style="display:inline-flex;background:rgba(255,255,255,.12);border-radius:999px;padding:4px;gap:4px;">
+          <sc-for list="{{ groupBtns }}" as="g" hint-placeholder-count="2">
+            <button onClick="{{ g.onClick }}" style="{{ g.style }}">{{ g.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="padding:clamp(18px,3vw,30px);">
+        <p style="text-align:center;color:var(--c-inkSoft);font-size:14px;margin:0 0 16px;">{{ groupHint }}</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;">
+          <sc-for list="{{ letters }}" as="l" hint-placeholder-count="4">
+            <button onClick="{{ l.onClick }}" style="{{ l.style }}">{{ l.ch }}</button>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:clamp(8px,2.4vw,20px);flex-wrap:wrap;background:var(--c-tint);border-radius:16px;padding:clamp(16px,2.6vw,24px);">
+          <div class="qv" style="font-size:clamp(28px,6vw,46px);color:var(--c-primary);">{{ sel.w1 }}</div>
+          <div class="qv" style="font-size:clamp(28px,6vw,46px);color:var(--c-primary);">{{ sel.w2 }}</div>
+          <div style="font-size:clamp(24px,5vw,38px);color:var(--scene);">←</div>
+          <div class="qv" style="font-size:clamp(30px,6.4vw,50px);color:var(--scene);font-weight:700;animation:pop .4s ease;" key="{{ sel.merged }}">{{ sel.merged }}</div>
+        </div>
+
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;">
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;{{ ghunnahChip }}">
+            <span style="width:10px;height:10px;border-radius:50%;background:currentColor;"></span>{{ ghunnahLabel }}
+          </span>
+          <span style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;background:rgba(123,63,212,.1);color:var(--scene);">
+            حرفٌ واحدٌ مُشدَّد
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- two kinds cards + tanwin examples -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(14px,2.4vw,22px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--scene);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(17px,2.3vw,21px);margin:0 0 6px;color:var(--c-primary);">أ – إدغام بغُنّة</h2>
+        <p style="margin:0 0 10px;font-size:14px;line-height:1.9;color:var(--c-inkSoft);">حروفه أربعة في كلمة <b class="qv" style="color:var(--c-ink);">(يَنْمُو)</b>، ولا يقع إلا في كلمتين.</p>
+        <div class="qv" style="font-size:clamp(16px,2.3vw,19px);line-height:2.3;color:var(--c-ink);">
+          وُجُوهٌ يَوْمَئِذٍ <span style="color:var(--scene);">←</span> وُجُوهِيَّوْمَئِذٍ<br>
+          تَوْبَةً نَصُوحًا <span style="color:var(--scene);">←</span> تَوْبَتَنَّصُوحًا<br>
+          مَاءً مَهِينًا <span style="color:var(--scene);">←</span> مَاءَمَّهِينًا<br>
+          رَحِيمٌ وَدُود <span style="color:var(--scene);">←</span> رَحِيمُوَّدُود
+        </div>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-top:5px solid var(--r-ikhfa);border-radius:18px;padding:clamp(18px,2.8vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(17px,2.3vw,21px);margin:0 0 6px;color:var(--c-primary);">ب – إدغام بغير غُنّة</h2>
+        <p style="margin:0 0 10px;font-size:14px;line-height:1.9;color:var(--c-inkSoft);">حرفاه <b class="qv" style="color:var(--c-ink);">(ل، ر)</b>، وتُدغم النون فيهما من دون غُنّة.</p>
+        <div class="qv" style="font-size:clamp(16px,2.3vw,19px);line-height:2.3;color:var(--c-ink);">
+          مِنْ رَبِّهِم <span style="color:var(--r-ikhfa);">←</span> مِرَّبِّهِم<br>
+          مِنْ لَدُنْه <span style="color:var(--r-ikhfa);">←</span> مِلَّدُنْه<br>
+          رَؤُوفٌ رَحِيم <span style="color:var(--r-ikhfa);">←</span> رَؤُوفُرَّحِيم<br>
+          هُمَزَةٍ لُمَزَة <span style="color:var(--r-ikhfa);">←</span> هُمَزَةٍلُّمَزَة
+        </div>
+      </section>
+    </div>
+
+    <!-- worked example -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <span style="background:var(--scene);color:#fff;font-family:'El Messiri';font-weight:700;padding:4px 12px;border-radius:8px;font-size:13px;">مثال محلول</span>
+        <span style="color:#d6d0ee;font-size:14px;">عيّن الإدغام واذكر السبب</span>
+      </div>
+      <div class="qv" style="font-size:clamp(22px,4vw,32px);line-height:2;text-align:center;margin-bottom:8px;">
+        ﴿ أَيَحْسَبُ الْإِنْسَانُ أَلَّنْ نَجْمَعَ عِظَامَهُ ﴾
+      </div>
+      <div style="text-align:center;color:#bfa9ff;font-size:13px;margin-bottom:18px;">القيامة: 3</div>
+      <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:16px;max-width:640px;margin:0 auto;">
+        <p style="margin:0;color:#e4dff5;font-size:clamp(14px,1.9vw,16px);line-height:2;">
+          النون الساكنة في <b class="qv" style="font-size:18px;">(أَلَّنْ)</b> أُدغِمت في النون من كلمة <b class="qv" style="font-size:18px;">(نَجْمَعَ)</b>؛ فهو <b>إدغامٌ بغُنّة</b>؛ لأنّ النون من حروف <span class="qv">(يَنْمُو)</span>.
+        </p>
+      </div>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { group:'gh', sel:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  groups(){
+    return {
+      gh: { hint:'إدغامٌ بغُنّة — حروف (يَنْمُو)، ولا يقع إلا في كلمتين.',
+        letters:[
+          { ch:'ي', w1:'لَنْ', w2:'يَنَال', merged:'لَيَّنَال' },
+          { ch:'ن', w1:'مِنْ', w2:'نَشَاء', merged:'مِنَّشَاء' },
+          { ch:'م', w1:'مِنْ', w2:'مَاء', merged:'مِمَّاء' },
+          { ch:'و', w1:'مِنْ', w2:'وَالٍ', merged:'مِوَّالٍ' },
+        ] },
+      no: { hint:'إدغامٌ بغير غُنّة — حرفا (ل، ر).',
+        letters:[
+          { ch:'ل', w1:'مِنْ', w2:'لَدُنْه', merged:'مِلَّدُنْه' },
+          { ch:'ر', w1:'مِنْ', w2:'رَبِّهِم', merged:'مِرَّبِّهِم' },
+        ] },
+    };
+  }
+
+  renderVals(){
+    var self = this, G = this.groups(), gk = this.state.group, grp = G[gk];
+    var sel = grp.letters[Math.min(this.state.sel, grp.letters.length-1)];
+    var isGh = gk==='gh';
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===3 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var mkG = function(key,label){
+      var on = gk===key;
+      return { label:label, onClick:function(){ self.setState({group:key, sel:0}); },
+        style:'border:none;cursor:pointer;padding:8px 16px;border-radius:999px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:36px;transition:all .25s;'
+          + (on?'background:#fff;color:#200058;':'background:transparent;color:#e3d9f7;') };
+    };
+    var groupBtns = [ mkG('gh','بغُنّة (يَنْمُو)'), mkG('no','بغير غُنّة (ل ر)') ];
+
+    var letters = grp.letters.map(function(l,i){
+      var on = self.state.sel===i;
+      return { ch:l.ch, onClick:function(){ self.setState({sel:i}); },
+        style:'cursor:pointer;width:clamp(52px,11vw,64px);height:clamp(52px,11vw,64px);border-radius:16px;font-family:Amiri;font-weight:700;font-size:clamp(24px,5vw,30px);transition:all .25s;min-height:44px;'
+          + (on?'background:var(--scene);color:#fff;border:2px solid var(--scene);box-shadow:0 8px 20px rgba(123,63,212,.4);transform:translateY(-2px);'
+                :'background:#fff;color:var(--c-primary);border:2px solid var(--c-line);') };
+    });
+
+    var ghunnahChip = isGh ? 'background:rgba(31,158,139,.12);color:var(--c-good);' : 'background:rgba(246,132,142,.12);color:#c0505c;';
+    var ghunnahLabel = isGh ? 'مع الغُنّة' : 'بلا غُنّة';
+
+    // check
+    var picked = this.state.picked, correct = 0;
+    var opts = ['إدغامٌ بغير غُنّة؛ لأنّ اللام من حرفي (ل، ر).','إدغامٌ بغُنّة؛ لأنّ اللام من (يَنْمُو).','إظهارٌ؛ لأنّ اللام من حروف الحَلْق.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var st='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:st+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ما نوع الإدغام في قوله تعالى ﴿ مِنْ لَدُنْهُ ﴾؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'اللام (ل) من حرفي الإدغام بغير غُنّة (ل، ر)، فتُدغم النون فيها دون غُنّة: (مِلَّدُنْه).'
+        :'اللام من حرفي الإدغام بغير غُنّة (ل، ر)، فالإدغام هنا بغير غُنّة، لا بغُنّة ولا إظهار.';
+    }
+
+    return { pips:pips, groupBtns:groupBtns, groupHint:grp.hint, letters:letters, sel:sel,
+      ghunnahChip:ghunnahChip, ghunnahLabel:ghunnahLabel, check:check };
+  }
+}
+</script>
+</body>
+</html>

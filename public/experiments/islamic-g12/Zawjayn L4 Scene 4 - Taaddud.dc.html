@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --scene:#d55fa6;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes popIn{0%{transform:scale(.6);opacity:0;}100%{transform:scale(1);opacity:1;}}
+  @keyframes ringBreathe{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">حقوق الزوجين وواجباتهما</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٤ من ٥ · تعدّد الزوجات</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Zawjayn%20L4%20Scene%203%20-%20Qawama.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Zawjayn%20L4%20Scene%205%20-%20Munaqasha.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">تعدّد الزوجات</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">الحُكمُ والحِكمة</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:76ch;">
+        المقصودُ بتعدُّد الزوجات أن يكون للرجل في وقتٍ واحدٍ أكثرُ من زوجةٍ واحدة. ولا بدّ من بيان <b>حُكمِه</b> ثمّ بيان <b>حِكمتِه</b>.
+      </p>
+    </div>
+
+    <!-- ruling: the justice gate -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;padding:clamp(20px,3vw,30px);box-shadow:0 8px 30px rgba(32,0,88,.06);">
+      <h2 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(19px,2.7vw,25px);margin:0 0 14px;">أوّلاً: الحُكم — إباحةٌ مشروطةٌ بالعدل</h2>
+      <div style="background:var(--c-tint);border-radius:16px;padding:16px 18px;text-align:center;margin-bottom:18px;">
+        <div class="qv" style="font-size:clamp(16px,2.6vw,21px);line-height:2.1;color:var(--c-primary);">فَانكِحُوا مَا طَابَ لَكُم مِّنَ النِّسَاءِ مَثْنَىٰ وَثُلَاثَ وَرُبَاعَ ۖ فَإِنْ خِفْتُمْ أَلَّا تَعْدِلُوا فَوَاحِدَةً</div>
+        <div style="color:var(--c-inkSoft);font-size:12px;margin-top:6px;">النساء: ٣</div>
+      </div>
+
+      <div style="background:linear-gradient(160deg,#3a1638,#25102a);border-radius:18px;padding:clamp(18px,2.8vw,26px);color:#fff;text-align:center;">
+        <p style="margin:0 0 16px;color:#f4cfe6;font-size:clamp(14px,1.9vw,16px);line-height:1.9;">هل يقدر الرجلُ على العدل بين الزوجات؟ اختر لترى الحكم.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;">
+          <button onClick="{{ setYes }}" style="{{ yesBtn }}">نعم، يقدر على العدل</button>
+          <button onClick="{{ setNo }}" style="{{ noBtn }}">لا يأمن الجَوْر</button>
+        </div>
+
+        <sc-if value="{{ showRings }}" hint-placeholder-val="{{ false }}">
+          <div style="animation:fadeUp .4s ease;">
+            <div style="display:flex;gap:clamp(10px,2.5vw,18px);justify-content:center;margin-bottom:14px;">
+              <sc-for list="{{ rings }}" as="ring" hint-placeholder-count="4">
+                <span style="{{ ring.style }}">{{ ring.mark }}</span>
+              </sc-for>
+            </div>
+            <div style="font-family:'El Messiri';font-weight:700;font-size:clamp(17px,2.6vw,22px);color:{{ verdictColor }};">{{ verdict }}</div>
+            <p style="margin:8px auto 0;max-width:52ch;color:#e9d6e4;font-size:clamp(13px,1.8vw,15px);line-height:1.9;">{{ verdictNote }}</p>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- the two kinds of justice -->
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+      <div style="background:#fff;border:1px solid var(--c-good);border-top:4px solid var(--c-good);border-radius:16px;padding:clamp(16px,2.4vw,22px);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <span style="font-size:22px;">⚖️</span>
+          <h3 style="font-family:'El Messiri';font-weight:700;color:#177564;font-size:clamp(16px,2.2vw,19px);margin:0;">العدلُ المادّيُّ — مطلوب</h3>
+        </div>
+        <p style="margin:0;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">يُقصد بالعدل الأمورُ المادّية: السكنُ واللباسُ والطعامُ والشرابُ ونحوُها. فمن عَلِم أنّه لا يقدر عليه لم يجُز له أن يتزوّج بأكثر من واحدة.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--c-line);border-top:4px solid var(--c-inkSoft);border-radius:16px;padding:clamp(16px,2.4vw,22px);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <span style="font-size:22px;">🤍</span>
+          <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-inkSoft);font-size:clamp(16px,2.2vw,19px);margin:0;">العدلُ في الحبّ — غيرُ مستطاع</h3>
+        </div>
+        <p style="margin:0;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">المساواةُ في الحبّ من الأمور الوجدانيّة التي لا تُستطاع، فلا يُسأل عنها الزوج. لكنّه يؤاخَذ إن رتَّب عليها نتيجةً مادّية — كأن يُنقِص نفقةَ إحداهنّ لقلّة ميله إليها.</p>
+        <div class="qv" style="margin-top:10px;background:var(--c-tint);border-radius:10px;padding:8px 12px;font-size:clamp(13px,2vw,16px);line-height:1.9;color:var(--c-primary);text-align:center;">وَلَن تَسْتَطِيعُوا أَن تَعْدِلُوا بَيْنَ النِّسَاءِ وَلَوْ حَرَصْتُمْ<span style="color:var(--c-inkSoft);font-family:Readex Pro;font-size:11px;"> — النساء: ١٢٩</span></div>
+      </div>
+    </section>
+
+    <!-- wisdom -->
+    <section>
+      <h2 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(20px,2.9vw,27px);margin:0 0 6px;">ثانياً: حكمةُ التعدّد</h2>
+      <p style="margin:0 0 clamp(14px,2.2vw,18px);color:var(--c-inkSoft);font-size:clamp(13px,1.8vw,15px);line-height:1.9;">يحسبها خصومُ الإسلام منقصةً، وهي في الحقيقة من محاسن الشريعة وأدلّةِ واقعيّتها وصلاحيّتها للبقاء. اضغط كلّ بطاقةٍ لكشف بيانها.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ wisdom }}" as="w" hint-placeholder-count="4">
+          <div style="{{ w.cardStyle }}">
+            <button onClick="{{ w.onToggle }}" style="width:100%;display:flex;align-items:center;gap:12px;cursor:pointer;background:none;border:none;text-align:right;padding:clamp(14px,2.2vw,20px);">
+              <span style="flex:none;width:40px;height:40px;border-radius:12px;background:var(--scene);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:18px;">{{ w.letter }}</span>
+              <h3 style="flex:1;font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(15px,2.2vw,19px);margin:0;">{{ w.title }}</h3>
+              <span style="flex:none;color:var(--scene);font-size:18px;transition:transform .3s;transform:rotate({{ w.rot }}deg);">▾</span>
+            </button>
+            <sc-if value="{{ w.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 clamp(14px,2.2vw,20px) clamp(16px,2.4vw,22px);animation:fadeUp .35s ease;">
+                <p style="margin:0;border-top:1px solid var(--c-line);padding-top:14px;color:var(--c-ink);font-size:clamp(13px,1.8vw,15px);line-height:2;">{{ w.body }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- conclusion -->
+    <section style="background:var(--c-tint);border-right:5px solid var(--scene);border-radius:0 18px 18px 0;padding:clamp(18px,2.8vw,26px);">
+      <h3 style="font-family:'El Messiri';font-weight:700;color:var(--c-primary);font-size:clamp(16px,2.3vw,20px);margin:0 0 8px;">الخلاصة</h3>
+      <p style="margin:0;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">إباحةُ التعدّد في الشريعة الإسلامية تُعدّ من محاسنها وبُعدِ نظرها، ووضعِها الحلولَ والأحكامَ لاحتمالات المستقبل ولظروف الأفراد والجماعات التي تستلزم التعدّد.</p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { just:null, open:-1 };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--scene', (B.rules&&B.rules.ikhfa)||'#d55fa6');
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals(){
+    var self=this, S=this.state;
+    var pips=[0,1,2,3,4].map(function(i){ return { bg: i<=3 ? 'var(--scene)' : 'var(--c-line)' }; });
+    var yes = S.just==='yes', no = S.just==='no';
+
+    var btnBase='cursor:pointer;border-radius:12px;padding:12px 22px;font-family:El Messiri;font-weight:700;font-size:clamp(13px,1.8vw,15px);min-height:44px;transition:all .25s;border:1px solid transparent;';
+    var yesBtn = btnBase + (yes ? 'background:var(--c-accent);color:#04223a;' : 'background:rgba(255,255,255,.08);color:#f4cfe6;border-color:rgba(213,95,166,.45);');
+    var noBtn  = btnBase + (no  ? 'background:var(--c-alert);color:#fff;' : 'background:rgba(255,255,255,.08);color:#f4cfe6;border-color:rgba(213,95,166,.45);');
+
+    // rings: 4 if just, 1 if not
+    var allowed = yes ? 4 : (no ? 1 : 0);
+    var rings=[0,1,2,3].map(function(i){
+      var on = i<allowed;
+      return { mark: on ? '◉' : '◯',
+        style:'width:clamp(38px,9vw,50px);height:clamp(38px,9vw,50px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(20px,5vw,26px);animation:popIn .3s ease '+(i*0.08)+'s both'+(on?', ringBreathe 3.6s ease-in-out '+(0.4+i*0.18)+'s infinite':'')+';'
+          +(on ? 'background:rgba(0,195,254,.18);border:2px solid #5ad8ff;color:#5ad8ff;' : 'background:transparent;border:2px dashed rgba(255,255,255,.18);color:rgba(255,255,255,.25);') };
+    });
+
+    var verdict = yes ? 'إلى حدِّ الأربع' : 'فَوَاحِدَةً';
+    var verdictColor = yes ? '#5ad8ff' : '#ffd0d6';
+    var verdictNote = yes
+      ? 'أباحت الآيةُ التعدّدَ إلى أربعِ زوجاتٍ لمن أمِنَ العدلَ بينهنّ في الأمور المادّية.'
+      : 'فمن خاف ألّا يعدِل بين الزوجات لم يجُز له التعدّد، واكتفى بواحدةٍ صوناً للحقوق من الضياع.';
+
+    var wData=[
+      { letter:'أ', title:'إباحةٌ لا فرضٌ ولا وجوب',
+        body:'التعدّد ليس فرضاً ولا واجباً ولا مستحبّاً، بل درجتُه الإباحةُ؛ والمباحُ متروكٌ أمرُه للإنسان إن شاء فعله وإن شاء تركه بحسب المصلحة. فيستطيع المسلمُ أن يكتفيَ بزوجةٍ واحدةٍ ولا لومَ عليه، ولوليِّ الأمر أن يمنع الشخصَ من التعدّد إذا لم يرَ حاجةً إليه.' },
+      { letter:'ب', title:'حاجاتٌ تدعو إليه',
+        body:'من ضروب الحاجة: عقمُ الزوجة ورغبةُ الزوج في الذرّية، وابتلاؤها بمرضٍ يمنعها من متطلّبات الحياة الزوجية — والتعدّدُ أولى من الطلاق. ومنها أن يضمَّ الزوجُ الكريمُ إلى بيته منقطعةً أو يتيمةً أو قريبةً له فيتّخذَها زوجةً، فتحيا حياةً حرّةً معزّزةً مكرّمة.' },
+      { letter:'ج', title:'حلٌّ لحالاتٍ خاصّةٍ كثيرةِ الوقوع',
+        body:'ففي أوقات الحروب يقلُّ الرجالُ وتكثرُ النساء، فتبرز مشكلةٌ خطيرة. والحلُّ إمّا أن يقعَ الاتّصالُ بالحرام (لو حُرّم التعدّد)، وإمّا إباحةُ التعدّد في ظلِّ القانون وتحريمُ العلاقات غير الشرعية — وهو ما أخذت به الشريعة: إكرامٌ للمرأة، وأنفعُ للمجتمع، وأحفظُ للشرف.' },
+      { letter:'د', title:'إكثارُ النسل',
+        body:'في التعدّد إكثارٌ للنسل، وهو في بعض المجتمعات أمرٌ مهمٌّ وضروريّ، لا سبيلَ إليه إلّا بإباحة التعدّد في ظلّ القانون وعلمِه وإقرارِه.' },
+    ];
+    var wisdom=wData.map(function(x,i){
+      var open=S.open===i;
+      return { letter:x.letter, title:x.title, body:x.body, open:open, rot:open?180:0,
+        cardStyle:'background:#fff;border:1px solid '+(open?'var(--scene)':'var(--c-line)')+';border-radius:18px;box-shadow:0 5px 18px rgba(32,0,88,'+(open?'.1':'.04')+');overflow:hidden;transition:border-color .3s;',
+        onToggle:function(){ self.setState({open: self.state.open===i ? -1 : i}); } };
+    });
+
+    return {
+      pips:pips, yesBtn:yesBtn, noBtn:noBtn,
+      showRings: S.just!==null, rings:rings,
+      verdict:verdict, verdictColor:verdictColor, verdictNote:verdictNote,
+      wisdom:wisdom,
+      setYes:function(){ self.setState({just:'yes'}); },
+      setNo:function(){ self.setState({just:'no'}); }
+    };
+  }
+}
+</script>
+</body>
+</html>

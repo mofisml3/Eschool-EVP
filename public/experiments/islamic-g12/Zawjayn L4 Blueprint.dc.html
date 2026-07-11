@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-primary-dark:#12002f; --c-tint:#EDEAF7;
+    --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b; --c-ink:#211842; --c-inkSoft:#6b6288;
+    --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes ringPulse{0%,100%{opacity:.35;transform:scale(1);}50%{opacity:.7;transform:scale(1.06);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:relative;overflow:hidden;color:#fff;background:
+       radial-gradient(700px 420px at 82% 20%, #2a0a6e 0%, rgba(42,10,110,0) 60%),
+       linear-gradient(150deg,#1a0350 0%,#12002f 100%);
+       padding:clamp(18px,3.4vw,30px) clamp(20px,5vw,60px) clamp(30px,5vw,50px);">
+    <div style="position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:
+         repeating-linear-gradient(45deg,#00c3fe 0 1px,transparent 1px 44px),
+         repeating-linear-gradient(-45deg,#00c3fe 0 1px,transparent 1px 44px);"></div>
+    <div style="position:absolute;left:7%;top:50%;transform:translateY(-50%);width:clamp(110px,18vw,180px);height:clamp(110px,18vw,180px);border-radius:50%;background:radial-gradient(circle,rgba(0,195,254,.5),transparent 68%);animation:ringPulse 5s ease-in-out infinite;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:1100px;margin:0 auto;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+        <a href="Chapter%201%20Hub.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#bfeaff;font-weight:500;font-size:clamp(13px,1.6vw,15px);min-height:44px;"
+           style-hover="color:#fff;">
+          <span style="font-size:1.1em;">→</span><span>الوحدة الثانية</span>
+        </a>
+        <img src="brand/logo-white.svg?v=2" alt="تعليم" style="height:clamp(30px,3.4vw,44px);width:auto;filter:brightness(0) invert(1) drop-shadow(0 4px 14px rgba(0,195,254,.35));">
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:clamp(14px,2.5vw,24px);flex-wrap:wrap;">
+        <span style="font-family:'El Messiri';font-weight:700;color:#04223a;background:var(--c-accent);padding:4px 14px;border-radius:9px;font-size:clamp(14px,1.8vw,17px);">الدرس ٢-٤</span>
+        <span style="color:#bfeaff;font-size:clamp(13px,1.6vw,15px);">مُخطّط الدرس · Blueprint</span>
+      </div>
+      <h1 style="font-family:'El Messiri';font-weight:700;margin:12px 0 4px;font-size:clamp(26px,4.6vw,46px);line-height:1.14;">
+        الأبحاث الاجتماعية — حقوق الزوجين وواجباتهما</h1>
+      <p style="margin:0;color:#d6d0ee;font-size:clamp(14px,1.8vw,18px);">حقوق الزوجة والزوج، والقوامة، وتعدّد الزوجات وحكمته</p>
+    </div>
+  </header>
+
+  <main style="max-width:1100px;margin:0 auto;padding:clamp(24px,4vw,44px) clamp(20px,5vw,60px) 90px;
+       display:flex;flex-direction:column;gap:clamp(20px,3vw,32px);">
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(16px,2.5vw,22px);">
+      <section style="background:#fff;border:1px solid var(--c-line);border-right:5px solid var(--c-accent);border-radius:18px;padding:clamp(20px,3vw,28px);box-shadow:0 6px 24px rgba(32,0,88,.05);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:22px;">🎯</span>
+          <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.4vw,23px);margin:0;color:var(--c-primary);">الهدف التعليمي</h2>
+        </div>
+        <p style="margin:0;font-size:clamp(15px,1.9vw,17px);line-height:2;color:var(--c-ink);">
+          أن يبيّن الطالب حقوق كلٍّ من الزوجة والزوج وواجباتهما، ويوضّح معنى القوامة بوصفها تكليفاً لا تشريفاً، ويعرف حكم تعدّد الزوجات وشروطه وحكمته، مستدلّاً بالآيات والأحاديث الشريفة.
+        </p>
+      </section>
+      <section style="background:#fff;border:1px solid var(--c-line);border-right:5px solid var(--r-idgham);border-radius:18px;padding:clamp(20px,3vw,28px);box-shadow:0 6px 24px rgba(32,0,88,.05);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <span style="font-size:22px;">📌</span>
+          <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.4vw,23px);margin:0;color:var(--c-primary);">المتطلّبات السابقة</h2>
+        </div>
+        <ul style="margin:0;padding-inline-start:22px;font-size:clamp(14px,1.8vw,16px);line-height:2.1;color:var(--c-ink);">
+          <li>معرفة أنّ الزواج عقدٌ وميثاقٌ غليظ.</li>
+          <li>الإلمام بأسس الأسرة في الإسلام (درس نظام الأسرة).</li>
+          <li>القدرة على الاستدلال بالآيات والأحاديث الشريفة.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section>
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(22px,3vw,28px);margin:0 0 6px;color:var(--c-primary);">مشاهد الدرس</h2>
+      <p style="margin:0 0 clamp(16px,2.5vw,22px);color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);">من عقد الزواج إلى الحقوق والواجبات والقوامة فتعدّد الزوجات وحكمته — اضغط أيّ مشهدٍ للانتقال إليه.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ scenes }}" as="sc" hint-placeholder-count="6">
+          <a href="{{ sc.href }}"
+             style="display:flex;align-items:center;gap:clamp(14px,2.2vw,20px);background:#fff;border:1px solid var(--c-line);border-radius:16px;padding:clamp(14px,2.2vw,18px) clamp(16px,2.5vw,22px);box-shadow:0 4px 16px rgba(32,0,88,.04);transition:transform .2s, box-shadow .2s;"
+             style-hover="transform:translateX(-4px);box-shadow:0 10px 28px rgba(32,0,88,.12);">
+            <span style="flex:none;width:clamp(42px,7vw,52px);height:clamp(42px,7vw,52px);border-radius:14px;background:{{ sc.color }};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(18px,3vw,24px);box-shadow:0 6px 16px {{ sc.shadow }};">{{ sc.num }}</span>
+            <div style="flex:1;min-width:0;">
+              <h3 style="font-family:'El Messiri';font-weight:600;font-size:clamp(17px,2.3vw,21px);margin:0 0 3px;color:var(--c-primary);">{{ sc.title }}</h3>
+              <p style="margin:0;color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,15px);line-height:1.7;">{{ sc.desc }}</p>
+            </div>
+            <span style="flex:none;color:var(--c-accent);font-size:22px;">←</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="background:var(--c-tint);border-radius:20px;padding:clamp(20px,3.4vw,32px);">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(20px,2.7vw,26px);margin:0 0 clamp(16px,2.5vw,22px);color:var(--c-primary);">تصميم الدرس باختصار</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(14px,2vw,20px);">
+        <div style="background:#fff;border-radius:14px;padding:18px;">
+          <h3 style="font-family:'El Messiri';font-weight:600;margin:0 0 8px;color:var(--c-primary);font-size:17px;">الوسائط</h3>
+          <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">خاتمان متشابكان يرمزان لعقد الزواج، وميزان القوامة (تكليفٌ لا تشريف)، ومشهدٌ حيٌّ لشرط العدل في التعدّد، وبطاقاتٌ للحقوق والواجبات.</p>
+        </div>
+        <div style="background:#fff;border-radius:14px;padding:18px;">
+          <h3 style="font-family:'El Messiri';font-weight:600;margin:0 0 8px;color:var(--c-primary);font-size:17px;">التفاعل</h3>
+          <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">كشف حقوق الزوجة والزوج بأدلّتها، وتحريك كفّتَي ميزان القوامة، وضبط شرط العدل بين الزوجات، وتصنيف حالات الحاجة إلى التعدّد.</p>
+        </div>
+        <div style="background:#fff;border-radius:14px;padding:18px;">
+          <h3 style="font-family:'El Messiri';font-weight:600;margin:0 0 8px;color:var(--c-primary);font-size:17px;">التغذية الراجعة</h3>
+          <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">فوريّة بعد كل تفاعل، تشرح <b>سبب</b> الحكم من الآية أو الحديث أو حكمة التشريع.</p>
+        </div>
+        <div style="background:#fff;border-radius:14px;padding:18px;">
+          <h3 style="font-family:'El Messiri';font-weight:600;margin:0 0 8px;color:var(--c-primary);font-size:17px;">النشاط الختامي</h3>
+          <p style="margin:0;color:var(--c-inkSoft);font-size:14px;line-height:1.9;">أسئلة المناقشة الثماني مع توجيه الإجابة، ثمّ تقويمٌ من ستّة أسئلةٍ يقيس تحقّق الهدف.</p>
+        </div>
+      </div>
+    </section>
+
+    <div style="display:flex;justify-content:center;margin-top:clamp(8px,2vw,16px);">
+      <a href="Zawjayn%20L4%20Scene%201%20-%20Tamheed.dc.html"
+         style="display:inline-flex;align-items:center;gap:12px;background:var(--c-accent);color:#04223a;
+          font-family:'El Messiri';font-weight:700;font-size:clamp(18px,2.2vw,22px);padding:16px 40px;border-radius:999px;
+          box-shadow:0 12px 34px rgba(0,195,254,.4);min-height:44px;"
+         style-hover="filter:brightness(1.06);box-shadow:0 16px 42px rgba(0,195,254,.55);">
+        <span style="font-size:1.1em;">◀</span><span>ابدأ الدرس</span>
+      </a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-primary-dark', B.primaryDark);
+    r.setProperty('--c-tint', B.tint); r.setProperty('--c-accent', B.accent);
+    r.setProperty('--c-alert', B.alert); r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals() {
+    var B = window.BRAND || { primary:'#200058', accent:'#00c3fe', rules:{} };
+    var rk = B.rules || {};
+    var scenes = [
+      { num:'١', title:'تمهيد — الزواج عقدٌ وشراكة', desc:'الزواج عقدٌ وثيقٌ وشراكةٌ بارك الله فيها، وبيان أنّ إهمال الحقوق والواجبات يعكّر صفو الحياة الزوجية.',
+        href:'Zawjayn%20L4%20Scene%201%20-%20Tamheed.dc.html', color:B.primary, shadow:'rgba(32,0,88,.3)' },
+      { num:'٢', title:'حقوق الزوجة', desc:'المهرُ حقٌّ خالصٌ لها، والنفقةُ واجبةٌ عليه وإن كانت غنيّة، وحسنُ المعاملة والمعاشرة بالمعروف — بأدلّتها.',
+        href:'Zawjayn%20L4%20Scene%202%20-%20HuqooqZawja.dc.html', color:rk.idhhar, shadow:'rgba(0,166,214,.35)' },
+      { num:'٣', title:'حقوق الزوج والقوامة وواجبات الزوجة', desc:'الطاعةُ في غير معصية، والقوامةُ تكليفٌ لا تشريف، وواجباتُ الزوجة: الحفظُ والمعاونةُ ورعايةُ الأولاد.',
+        href:'Zawjayn%20L4%20Scene%203%20-%20Qawama.dc.html', color:rk.idgham, shadow:'rgba(123,63,212,.35)' },
+      { num:'٤', title:'تعدّد الزوجات وحكمته', desc:'الحكمُ: إباحةٌ إلى الأربع مشروطةٌ بالعدل، ثمّ حكمةُ التشريع وحاجاتُه في ضوء واقعيّة الشريعة.',
+        href:'Zawjayn%20L4%20Scene%204%20-%20Taaddud.dc.html', color:rk.ikhfa, shadow:'rgba(213,95,166,.35)' },
+      { num:'٥', title:'المناقشة', desc:'ثماني أسئلةٍ للحوار حول حقوق الزوجين والقوامة والنفقة والتعدّد، مع توجيه الإجابة.',
+        href:'Zawjayn%20L4%20Scene%205%20-%20Munaqasha.dc.html', color:B.primary, shadow:'rgba(32,0,88,.3)' },
+      { num:'✓', title:'التقويم', desc:'ستّة أسئلة اختيارٍ من متعدّد على الحقوق والواجبات والقوامة والتعدّد، مع تغذيةٍ راجعة.',
+        href:'Zawjayn%20L4%20Check.dc.html', color:B.accent, shadow:'rgba(0,195,254,.35)' },
+    ];
+    return { scenes: scenes };
+  }
+}
+</script>
+</body>
+</html>

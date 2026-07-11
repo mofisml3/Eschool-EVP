@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#f2707c;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes leafSway{0%,100%{transform:rotate(var(--a,0deg));}50%{transform:rotate(calc(var(--a,0deg) + 3deg));}}
+  @keyframes dateFall{0%{transform:translate(var(--dx,0),0) rotate(0);opacity:0;}15%{opacity:1;}100%{transform:translate(var(--dx,0),var(--dy,120px)) rotate(180deg);opacity:0;}}
+  @keyframes streamFlow{0%{background-position:0 0;}100%{background-position:-40px 0;}}
+  @keyframes ariseGlow{0%,100%{opacity:.5;}50%{opacity:1;}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Maryam%20L2%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">السيّدة مريم بنت عمران (ع)</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٥ · بشارة الملَك وولادة عيسى</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Maryam%20L2%20Scene%202%20-%20Mihrab.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Maryam%20L2%20Scene%204%20-%20Mahd.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="5">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(22px,3.4vw,34px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">القصّة · الجزء الثالث</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(27px,4.8vw,44px);margin:0 0 10px;color:var(--c-primary);line-height:1.16;">بشارة الملَك وولادة عيسى (ع)</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        انتبذت مريم مكانًا شرقيًّا، فأرسل الله إليها الروح الأمين جبريل (ع) فتمثّل لها بشرًا سويًّا، فبشّرها بغلامٍ زكيّ. تتبّع البشارة، ثمّ هُزّ النخلة عند الولادة.
+      </p>
+    </div>
+
+    <!-- ANNUNCIATION dialogue reveal -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(32,0,88,.06);">
+      <div style="padding:clamp(18px,2.8vw,26px);border-bottom:1px solid var(--c-line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,2.7vw,24px);margin:0 0 4px;color:var(--c-primary);">بشارة الروح الأمين</h2>
+          <p style="margin:0;color:var(--c-inkSoft);font-size:clamp(13px,1.7vw,14.5px);">اضغط «التالي» لتكشف حوار البشارة آيةً آية.</p>
+        </div>
+        <span style="font-family:'El Messiri';font-weight:700;color:var(--scene);font-size:15px;">{{ counter }}</span>
+      </div>
+      <div style="padding:clamp(16px,2.8vw,26px);display:flex;flex-direction:column;gap:12px;min-height:clamp(220px,30vw,240px);">
+        <sc-for list="{{ dialogue }}" as="d" hint-placeholder-count="4">
+          <div style="{{ d.rowStyle }}">
+            <span style="{{ d.tagStyle }}">{{ d.who }}</span>
+            <div style="flex:1;">
+              <div class="qv" style="font-size:clamp(16px,2.3vw,20px);line-height:2;color:{{ d.color }};">{{ d.verse }}</div>
+              <p style="margin:6px 0 0;color:var(--c-inkSoft);font-size:13px;line-height:1.8;">{{ d.gloss }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:10px;padding:0 clamp(16px,2.8vw,26px) clamp(18px,2.8vw,24px);">
+        <button onClick="{{ onReset }}" style="cursor:pointer;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-family:Readex Pro;font-weight:600;font-size:13px;padding:10px 18px;border-radius:11px;min-height:44px;">↺ من البداية</button>
+        <button onClick="{{ onNext }}" style="{{ nextStyle }}">{{ nextLabel }}</button>
+      </div>
+    </section>
+
+    <!-- Isa like Adam -->
+    <section style="background:var(--c-tint);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">🌱</span>
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(19px,2.7vw,24px);margin:0;color:var(--c-primary);">مَثَل عيسى كمَثَل آدم</h2>
+      </div>
+      <p style="margin:0 0 16px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">في خلق عيسى (ع) بيانٌ لكمال خلق الله وتنوّع قدراته — اضغط كلّ حالةٍ لترى كيف خلقها الله:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(10px,1.8vw,16px);">
+        <sc-for list="{{ creation }}" as="c" hint-placeholder-count="4">
+          <button onClick="{{ c.onClick }}" style="{{ c.style }}">
+            <span style="font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,17px);">{{ c.who }}</span>
+            <span style="font-size:12.5px;line-height:1.7;opacity:.9;">{{ c.how }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;background:#fff;border-right:4px solid var(--scene);border-radius:12px;padding:14px 16px;">
+        <div class="qv" style="font-size:clamp(15px,2.2vw,19px);line-height:2;color:var(--c-primary);">﴿ إِنَّ مَثَلَ عِيسَىٰ عِنْدَ اللَّهِ كَمَثَلِ آدَمَ ۖ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كُنْ فَيَكُونُ ﴾</div>
+        <div style="color:var(--c-inkSoft);font-size:12px;margin-top:8px;">آل عمران: ٥٩</div>
+      </div>
+    </section>
+
+    <!-- PALM TREE interactive -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(32,0,88,.06);">
+      <div style="padding:clamp(18px,2.8vw,26px);border-bottom:1px solid var(--c-line);">
+        <h2 style="font-family:'El Messiri';font-weight:700;font-size:clamp(20px,2.9vw,26px);margin:0 0 6px;color:var(--c-primary);">الولادة عند النخلة</h2>
+        <p style="margin:0;color:var(--c-inkSoft);font-size:clamp(13px,1.8vw,15px);line-height:1.8;">أجاءها المخاض إلى جذع النخلة، فناداها ألّا تحزن، وجعل تحتها سريًّا (جدولًا). هُزّ النخلة ليتساقط عليك الرُّطَب.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ gridCols }};gap:0;">
+        <!-- palm scene -->
+        <div style="background:linear-gradient(180deg,#123049,#0e2338);min-height:clamp(280px,42vw,360px);position:relative;overflow:hidden;">
+          <!-- ground + stream -->
+          <div style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,#1a3a24,#122a1a);"></div>
+          <div style="position:absolute;left:0;right:0;bottom:8%;height:12px;background:repeating-linear-gradient(90deg,#00c3fe 0 6px,#5ad8ff 6px 12px);opacity:.55;animation:streamFlow 1.2s linear infinite;"></div>
+          <!-- palm trunk -->
+          <div style="position:absolute;left:50%;bottom:34%;transform:translateX(-50%);width:16px;height:clamp(120px,20vw,170px);background:linear-gradient(90deg,#6b4a22,#8a6330);border-radius:6px;"></div>
+          <!-- crown (sways when shaking) -->
+          <div style="position:absolute;left:50%;bottom:calc(34% + clamp(112px,19vw,160px));transform:translateX(-50%);width:0;height:0;z-index:3;{{ crownStyle }}">
+            <sc-for list="{{ fronds }}" as="fr" hint-placeholder-count="7">
+              <div style="{{ fr.style }}"></div>
+            </sc-for>
+            <div style="position:absolute;left:50%;top:-6px;transform:translateX(-50%);display:flex;gap:3px;">
+              <sc-for list="{{ bunch }}" as="b" hint-placeholder-count="4">
+                <span style="width:8px;height:11px;border-radius:50%;background:{{ b.c }};display:inline-block;"></span>
+              </sc-for>
+            </div>
+          </div>
+          <!-- falling dates -->
+          <sc-if value="{{ shaking }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;left:50%;bottom:calc(34% + clamp(96px,16vw,140px));transform:translateX(-50%);z-index:4;">
+              <sc-for list="{{ dates }}" as="dt" hint-placeholder-count="6">
+                <span style="{{ dt.style }}"></span>
+              </sc-for>
+            </div>
+          </sc-if>
+          <!-- nida caption -->
+          <div style="position:absolute;top:12px;left:0;right:0;text-align:center;z-index:5;">
+            <span style="background:rgba(0,0,0,.32);color:#bfeaff;font-family:'El Messiri';font-weight:600;font-size:clamp(12px,1.8vw,14px);padding:6px 14px;border-radius:999px;animation:ariseGlow 2.4s ease-in-out infinite;">﴿ أَلَّا تَحْزَنِي قَدْ جَعَلَ رَبُّكِ تَحْتَكِ سَرِيًّا ﴾</span>
+          </div>
+        </div>
+        <!-- controls + verse -->
+        <div style="padding:clamp(18px,2.8vw,26px);display:flex;flex-direction:column;">
+          <button onClick="{{ onShake }}" style="cursor:pointer;background:var(--scene);color:#fff;border:none;font-family:'El Messiri';font-weight:700;font-size:15px;padding:13px 22px;border-radius:12px;min-height:48px;margin-bottom:16px;">🌴 هُزّي إليكِ بجذع النخلة</button>
+          <sc-if value="{{ gotDates }}" hint-placeholder-val="{{ false }}">
+            <div style="background:rgba(31,158,139,.09);border:1px solid var(--c-good);border-radius:12px;padding:13px 16px;margin-bottom:16px;color:#177564;font-size:14px;line-height:1.9;">تساقط عليكِ رُطَبٌ جنيّ! فكُلي واشربي وقرّي عينًا — رزقٌ من الله ليمنحها أفضل غذاءٍ عند الولادة.</div>
+          </sc-if>
+          <div style="background:rgba(242,112,124,.06);border-right:4px solid var(--scene);border-radius:12px;padding:14px 16px;">
+            <div class="qv" style="font-size:clamp(15px,2.2vw,19px);line-height:2.1;color:var(--c-primary);">﴿ وَهُزِّي إِلَيْكِ بِجِذْعِ النَّخْلَةِ تُسَاقِطْ عَلَيْكِ رُطَبًا جَنِيًّا * فَكُلِي وَاشْرَبِي وَقَرِّي عَيْنًا ﴾</div>
+            <div style="color:var(--c-inkSoft);font-size:12px;margin-top:8px;">مريم: ٢٥ – ٢٦</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="display:flex;justify-content:center;">
+      <a href="Maryam%20L2%20Scene%204%20-%20Mahd.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--c-accent);color:#04223a;font-family:'El Messiri';font-weight:700;font-size:clamp(15px,2vw,18px);padding:13px 32px;border-radius:999px;min-height:44px;" style-hover="filter:brightness(1.06);"><span>◀</span><span>المشهد التالي: معجزة النطق في المهد</span></a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { revealed:1, creation:0, shaking:false, gotDates:false };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.iqlab);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  renderVals(){
+    var self=this;
+    var lines=[
+      { who:'مريم', verse:'﴿ إِنِّي أَعُوذُ بِالرَّحْمَٰنِ مِنْكَ إِنْ كُنْتَ تَقِيًّا ﴾', gloss:'استعاذت مريم بالله حين تمثّل لها الملَك بشرًا سويًّا في مكانٍ منعزل.', who2:'م' },
+      { who:'الملَك', verse:'﴿ إِنَّمَا أَنَا رَسُولُ رَبِّكِ لِأَهَبَ لَكِ غُلَامًا زَكِيًّا ﴾', gloss:'طمأنها جبريل أنّه رسولٌ من ربّها ليهبها غلامًا طاهرًا زكيًّا.', who2:'k' },
+      { who:'مريم', verse:'﴿ أَنَّىٰ يَكُونُ لِي غُلَامٌ وَلَمْ يَمْسَسْنِي بَشَرٌ وَلَمْ أَكُ بَغِيًّا ﴾', gloss:'تعجّبت: كيف يكون لها ولدٌ وهي عذراء لم يمسسها بشر؟ (مريم ٢٠).', who2:'م' },
+      { who:'الملَك', verse:'﴿ كَذَٰلِكِ قَالَ رَبُّكِ هُوَ عَلَيَّ هَيِّنٌ ۖ وَلِنَجْعَلَهُ آيَةً لِلنَّاسِ وَرَحْمَةً مِنَّا ﴾', gloss:'خلقُ غلامٍ من غير أبٍ هيّنٌ على الله، وليكون آيةً للناس ورحمةً منه (مريم ٢١).', who2:'k' },
+    ];
+    var n=this.state.revealed;
+    var dialogue=lines.slice(0,n).map(function(l){
+      var isMaryam=l.who==='مريم';
+      return {
+        who:l.who,
+        color: isMaryam?'var(--c-primary)':'var(--r-iqlab)',
+        rowStyle:'display:flex;gap:12px;align-items:flex-start;background:'+(isMaryam?'rgba(32,0,88,.04)':'rgba(242,112,124,.06)')+';border-radius:14px;padding:14px 16px;',
+        tagStyle:'flex:none;font-family:El Messiri;font-weight:700;font-size:13px;color:#fff;background:'+(isMaryam?'var(--c-primary)':'var(--r-iqlab)')+';padding:5px 12px;border-radius:999px;',
+        verse:l.verse, gloss:l.gloss
+      };
+    });
+
+    // creation modes
+    var cmodes=[
+      { who:'آدم (ع)', how:'من غير أبٍ ولا أمّ — من تراب' },
+      { who:'حوّاء (ع)', how:'من رجلٍ بلا أمّ — من آدم' },
+      { who:'عيسى (ع)', how:'من أمٍّ بلا أب — بكلمة «كُن»' },
+      { who:'سائر الناس', how:'من أبٍ وأمّ' },
+    ];
+    var sel=this.state.creation;
+    var creation=cmodes.map(function(m,i){
+      var on=i===sel;
+      return { who:m.who, how:m.how,
+        onClick:function(){ self.setState({creation:i}); },
+        style:'cursor:pointer;display:flex;flex-direction:column;gap:6px;text-align:center;padding:14px 12px;border-radius:14px;min-height:80px;justify-content:center;transition:all .2s;'
+          +(on?'background:var(--scene);color:#fff;border:2px solid var(--scene);box-shadow:0 8px 20px rgba(242,112,124,.3);':'background:#fff;color:var(--c-ink);border:2px solid var(--c-line);') };
+    });
+
+    // palm crown fronds
+    var frondAngles=[-78,-52,-26,0,26,52,78];
+    var fronds=frondAngles.map(function(a){
+      return { style:'position:absolute;left:0;bottom:0;width:46px;height:12px;--a:'+a+'deg;transform-origin:0% 50%;transform:rotate('+a+'deg);border-radius:0 8px 8px 0;background:linear-gradient(90deg,#2f7d4a,#3fae64);animation:leafSway 3s ease-in-out infinite;' };
+    });
+    var bunch=[{c:'#c9772e'},{c:'#a85a1e'},{c:'#d98a3a'},{c:'#b96a24'}];
+
+    var dateColors=['#c9772e','#a85a1e','#d98a3a','#b96a24','#c9772e','#a85a1e'];
+    var dates=dateColors.map(function(c,i){
+      var dx=(i-2.5)*14, dy=120+Math.random()*30, dur=1.1+Math.random()*0.6, del=Math.random()*0.5;
+      return { style:'position:absolute;left:0;top:0;width:8px;height:12px;border-radius:50%;background:'+c+';--dx:'+dx+'px;--dy:'+dy+'px;animation:dateFall '+dur+'s ease-in '+del+'s infinite;' };
+    });
+
+    var crownStyle = this.state.shaking ? 'animation:leafSway .28s ease-in-out 6;' : '';
+
+    return {
+      pips:[0,1,2,3,4].map(function(i){return {bg:i===2?'var(--scene)':'var(--c-line)'};}),
+      gridCols:(typeof window!=='undefined'&&window.innerWidth<720)?'1fr':'minmax(0,46%) 1fr',
+      dialogue:dialogue, counter:'('+['','١','٢','٣','٤'][n]+' / ٤)',
+      onNext:function(){ self.setState({revealed:Math.min(4,self.state.revealed+1)}); },
+      onReset:function(){ self.setState({revealed:1}); },
+      nextLabel: n>=4?'اكتمل الحوار ✓':'التالي ←',
+      nextStyle:'cursor:pointer;background:'+(n>=4?'var(--c-good)':'var(--scene)')+';border:none;color:#fff;font-family:El Messiri;font-weight:700;font-size:14px;padding:10px 22px;border-radius:11px;min-height:44px;'+(n>=4?'pointer-events:none;opacity:.85;':''),
+      creation:creation,
+      fronds:fronds, bunch:bunch, dates:dates, crownStyle:crownStyle,
+      shaking:this.state.shaking, gotDates:this.state.gotDates,
+      onShake:function(){
+        self.setState({shaking:true, gotDates:true});
+        setTimeout(function(){ self.setState({shaking:false}); }, 1700);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<script src="brand/palette.js"></script>
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  :root{
+    --c-primary:#200058; --c-tint:#EDEAF7; --c-accent:#00c3fe; --c-alert:#f6848e; --c-good:#1f9e8b;
+    --c-ink:#211842; --c-inkSoft:#6b6288; --c-paper:#F7F6FC; --c-line:#E2DDF0;
+    --r-idhhar:#00a6d6; --r-idgham:#7b3fd4; --r-ikhfa:#d55fa6; --r-iqlab:#f2707c;
+    --scene:#7b3fd4;
+  }
+  body{font-family:'Readex Pro',system-ui,sans-serif;background:var(--c-paper);color:var(--c-ink);}
+  a{color:var(--c-primary);text-decoration:none;}
+  a:hover{color:var(--c-accent);}
+  .qv{font-family:'Amiri Quran',serif;}
+  @keyframes pop{0%{transform:scale(.7);opacity:0;}60%{transform:scale(1.08);}100%{transform:scale(1);opacity:1;}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+</style>
+</helmet>
+<div dir="rtl" style="min-height:100vh;width:100%;background:var(--c-paper);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(247,246,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line);">
+    <div style="max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px clamp(14px,4vw,34px);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Blueprint.dc.html" title="مخطّط الدرس"
+           style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--c-line);font-size:19px;"
+           style-hover="border-color:var(--c-accent);">🏠</a>
+        <img src="brand/logo-color.svg" alt="تعليم" style="height:clamp(26px,3.4vw,34px);width:auto;">
+      </div>
+      <div style="text-align:center;min-width:0;flex:1;">
+        <div style="font-family:'El Messiri';font-weight:600;color:var(--c-primary);font-size:clamp(13px,2vw,16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">من سورة البقرة</div>
+        <div style="color:var(--c-inkSoft);font-size:clamp(10px,1.6vw,12px);">المشهد ٣ من ٦ · المعنى العام (١٥٣–١٥٧)</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="Baqarah%20L1%20Scene%202%20-%20Mufradat.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:12px;background:#fff;border:1px solid var(--c-line);color:var(--c-inkSoft);font-weight:600;font-size:13px;"
+           style-hover="border-color:var(--c-accent);color:var(--c-primary);"><span>السابق</span><span>→</span></a>
+        <a href="Baqarah%20L1%20Scene%204%20-%20Maana2.dc.html"
+           style="display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 16px;border-radius:12px;background:var(--c-accent);color:#04223a;font-weight:700;font-size:13px;box-shadow:0 6px 16px rgba(0,195,254,.35);"
+           style-hover="filter:brightness(1.05);"><span>←</span><span>التالي</span></a>
+      </div>
+    </div>
+    <div style="display:flex;gap:5px;max-width:1040px;margin:0 auto;padding:0 clamp(14px,4vw,34px) 9px;">
+      <sc-for list="{{ pips }}" as="p" hint-placeholder-count="7">
+        <span style="height:4px;flex:1;border-radius:3px;background:{{ p.bg }};"></span>
+      </sc-for>
+    </div>
+  </header>
+
+  <main style="max-width:1040px;margin:0 auto;padding:clamp(20px,3.5vw,40px) clamp(16px,4vw,40px) 90px;display:flex;flex-direction:column;gap:clamp(20px,3vw,30px);">
+
+    <div>
+      <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:#fff;background:var(--scene);padding:4px 14px;border-radius:9px;font-size:14px;margin-bottom:12px;">المعنى العام</span>
+      <h1 style="font-family:'El Messiri';font-weight:700;font-size:clamp(28px,5vw,46px);margin:0 0 10px;color:var(--c-primary);line-height:1.15;">الاستعانة والصبر</h1>
+      <p style="margin:0;font-size:clamp(15px,2vw,18px);line-height:2;color:var(--c-ink);max-width:74ch;">
+        نادى اللهُ عباده المؤمنين ليأمرهم بالاستعانة بالصبر والصلاة، وبيّن أنّ الشهداء أحياءٌ عند ربهم، ثمّ أخبر أنّه يبتليهم بأنواعٍ من الشدائد وبشّر الصابرين. اضغط كلّ آيةٍ لتقرأ معناها.
+      </p>
+    </div>
+
+    <!-- verse-by-verse reveal cards -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ ayat }}" as="a" hint-placeholder-count="3">
+        <section style="background:#fff;border:1px solid var(--c-line);border-radius:18px;overflow:hidden;box-shadow:0 4px 16px rgba(32,0,88,.04);">
+          <button onClick="{{ a.onToggle }}" style="cursor:pointer;width:100%;border:none;background:transparent;display:flex;gap:14px;align-items:flex-start;padding:clamp(16px,2.6vw,22px);text-align:right;">
+            <span style="flex:none;width:clamp(40px,6.4vw,50px);height:clamp(40px,6.4vw,50px);border-radius:50%;border:2px solid var(--scene);color:var(--scene);display:flex;align-items:center;justify-content:center;font-family:'El Messiri';font-weight:700;font-size:clamp(13px,2vw,15px);">{{ a.n }}</span>
+            <span class="qv" style="flex:1;font-size:clamp(17px,2.9vw,24px);line-height:2.1;color:var(--c-ink);">{{ a.verse }}</span>
+            <span style="flex:none;color:var(--scene);font-size:20px;transition:transform .2s;transform:{{ a.chev }};">⌄</span>
+          </button>
+          <sc-if value="{{ a.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px) clamp(16px,2.6vw,22px);">
+              <div style="background:var(--c-tint);border-radius:14px;padding:14px 16px;color:var(--c-ink);font-size:clamp(14px,1.9vw,16px);line-height:2;">
+                <span style="display:inline-block;font-family:'El Messiri';font-weight:700;color:var(--scene);margin-bottom:6px;">المعنى:</span>
+                {{ a.tafsir }}
+              </div>
+            </div>
+          </sc-if>
+        </section>
+      </sc-for>
+    </div>
+
+    <!-- ===== INTERACTIVE: cycle of trial & patience ===== -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:22px;box-shadow:0 8px 30px rgba(32,0,88,.06);overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#3a1a66,var(--scene));padding:clamp(16px,2.6vw,22px) clamp(18px,3vw,26px);">
+        <h2 style="font-family:'El Messiri';font-weight:600;color:#fff;font-size:clamp(17px,2.4vw,22px);margin:0 0 4px;">🔁 دورة الابتلاء والصبر</h2>
+        <p style="margin:0;color:#e3d9f7;font-size:clamp(12px,1.7vw,14px);">اختر نوع الابتلاء الذي ذكرته الآية ١٥٥، وتابِع كيف يستجيب الصابر وما جزاؤه.</p>
+      </div>
+      <div style="padding:clamp(18px,3vw,30px);">
+        <!-- trial chips -->
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;">
+          <sc-for list="{{ trials }}" as="t" hint-placeholder-count="5">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}"><span style="font-size:18px;">{{ t.icon }}</span><span>{{ t.label }}</span></button>
+          </sc-for>
+        </div>
+        <!-- 3-step flow -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;align-items:stretch;">
+          <div style="background:rgba(242,112,124,.1);border:1px solid var(--r-iqlab);border-radius:16px;padding:18px;text-align:center;">
+            <div style="font-size:30px;margin-bottom:6px;animation:floaty 3.5s ease-in-out infinite;">{{ sel.icon }}</div>
+            <div style="font-family:'El Messiri';font-weight:700;color:#c0505c;font-size:16px;">① الابتلاء</div>
+            <div style="color:var(--c-ink);font-size:13.5px;margin-top:6px;line-height:1.7;">{{ sel.desc }}</div>
+          </div>
+          <div style="background:rgba(123,63,212,.08);border:1px solid var(--scene);border-radius:16px;padding:18px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'El Messiri';font-weight:700;color:var(--scene);font-size:16px;">② موقف الصابر</div>
+            <div class="qv" style="color:var(--c-primary);font-size:clamp(17px,2.6vw,21px);margin-top:8px;line-height:1.9;">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
+          </div>
+          <div style="background:rgba(31,158,139,.1);border:1px solid var(--c-good);border-radius:16px;padding:18px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'El Messiri';font-weight:700;color:#177564;font-size:16px;">③ الجزاء</div>
+            <div style="color:var(--c-ink);font-size:13.5px;margin-top:8px;line-height:1.8;">صَلَوَاتٌ مِن ربّهم ورحمة، <b style="color:#177564;">وأولئك هم المهتدون</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- two pillars result box -->
+    <section style="background:linear-gradient(135deg,#200058,#3a1290);border-radius:20px;padding:clamp(20px,3.2vw,30px);color:#fff;">
+      <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(19px,2.6vw,24px);margin:0 0 6px;">ركيزتا الاستعانة</h2>
+      <p style="margin:0 0 16px;color:#d6d0ee;font-size:14px;">أمر الله بالاستعانة بأمرين على طاعته وتحمّل الشدائد:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:18px;">
+          <div style="font-family:'El Messiri';font-weight:700;font-size:19px;margin-bottom:6px;color:#bfeaff;">الصبر</div>
+          <p style="margin:0;color:#e4dff5;font-size:14px;line-height:1.9;">حبس النفس على الطاعات، وهو يقود إلى الفضائل ويعين على تحمّل البلاء.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:18px;">
+          <div style="font-family:'El Messiri';font-weight:700;font-size:19px;margin-bottom:6px;color:#bfeaff;">الصلاة</div>
+          <p style="margin:0;color:#e4dff5;font-size:14px;line-height:1.9;">تنهى عن كل رذيلةٍ، وتطمئنّ بها النفس، والله مع المؤمنين والصابرين.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- real-life tie-in -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-right:5px solid var(--c-accent);border-radius:18px;padding:clamp(18px,2.8vw,24px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;"><span style="font-size:20px;">🌱</span><h3 style="font-family:'El Messiri';font-weight:600;margin:0;color:var(--c-primary);font-size:clamp(16px,2.2vw,19px);">من واقع الحياة</h3></div>
+      <p style="margin:0;font-size:clamp(14px,1.9vw,16px);line-height:2;color:var(--c-ink);">حين يفقد الطالب شيئاً يحبّه — كرسوبٍ أو فقد عزيز — فإنّ استعانته بالصبر والصلاة، وقوله «إنّا لله وإنّا إليه راجعون»، تجعله من الصابرين الذين وعدهم الله بالرحمة والهداية.</p>
+    </section>
+
+    <!-- check -->
+    <section style="background:#fff;border:1px solid var(--c-line);border-radius:20px;padding:clamp(20px,3.2vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span style="font-size:20px;">💡</span>
+        <h2 style="font-family:'El Messiri';font-weight:600;font-size:clamp(18px,2.4vw,22px);margin:0;color:var(--c-primary);">تحقّق سريع</h2>
+      </div>
+      <p style="margin:0 0 16px;font-size:clamp(15px,2vw,18px);line-height:1.9;color:var(--c-ink);">{{ check.q }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ check.options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">
+            <span style="{{ o.badgeStyle }}">{{ o.badge }}</span>
+            <span style="flex:1;text-align:right;">{{ o.text }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ check.showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ check.fbStyle }}"><b>{{ check.fbTitle }}</b><span>{{ check.fbText }}</span></div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:{0:true}, trial:0, picked:null };
+
+  syncVars() {
+    var B = window.BRAND; if (!B) return;
+    var r = document.documentElement.style;
+    r.setProperty('--c-primary', B.primary); r.setProperty('--c-tint', B.tint);
+    r.setProperty('--c-accent', B.accent); r.setProperty('--c-alert', B.alert);
+    r.setProperty('--c-good', B.good); r.setProperty('--c-ink', B.ink);
+    r.setProperty('--c-inkSoft', B.inkSoft); r.setProperty('--c-paper', B.paper);
+    r.setProperty('--c-line', B.line);
+    r.setProperty('--r-idhhar', B.rules.idhhar); r.setProperty('--r-idgham', B.rules.idgham);
+    r.setProperty('--r-ikhfa', B.rules.ikhfa); r.setProperty('--r-iqlab', B.rules.iqlab);
+    r.setProperty('--scene', B.rules.idgham);
+  }
+  componentDidMount(){ this.syncVars(); }
+
+  ayatData(){
+    return [
+      { n:'١٥٣', verse:'يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ',
+        tafsir:'نادى اللهُ — تبارك وتعالى — عباده المؤمنين بلفظ الإيمان ليستنهض هممهم إلى امتثال الأوامر الإلهية، قائلاً: اطلبوا العون من الله في كل أموركم، واستعينوا بالصبر على الطاعات، وبالصلاة التي تنهى عن كل رذيلةٍ وتطمئنّ بها النفس، والله مع المؤمنين والصابرين بعونه وتوفيقه وحفظه وتأييده.' },
+      { n:'١٥٤', verse:'وَلَا تَقُولُوا لِمَنْ يُقْتَلُ فِي سَبِيلِ اللَّهِ أَمْوَاتٌ بَلْ أَحْيَاءٌ وَلَٰكِنْ لَا تَشْعُرُونَ',
+        tafsir:'ولا تقولوا — أيها المؤمنون — فيمن يُقتلون في سبيل الله: هم أموات، بل هم أحياءٌ عند ربّهم يُرزقون، ولكن لا تشعرون بذلك.' },
+      { n:'١٥٥–١٥٧', verse:'وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِنَ الْأَمْوَالِ وَالْأَنْفُسِ وَالثَّمَرَاتِ وَبَشِّرِ الصَّابِرِينَ',
+        tafsir:'ولنختبرنّكم بشيءٍ من الخوف والجوع، ونقص بعض المال أو ذهابه، وموت بعض الأحباب أو استشهادهم في سبيل الله، وضياع بعض الثمار والزروع بقلّة نتاجها أو فسادها. وبشّر — أيها النبي — الصابرين الذين إذا أصابهم شيءٌ يكرهونه قالوا: إنّا عبيد الله يفعل بنا ما يشاء، وإنّا إليه راجعون بالموت ثم بالبعث للحساب والجزاء. أولئك الصابرون لهم ثناءٌ من ربّهم ورحمةٌ عظيمة، وأولئك هم المهتدون إلى الرشاد.' },
+    ];
+  }
+
+  trialData(){
+    return [
+      { icon:'😨', label:'الخوف', desc:'شيءٌ من الخوف من العدوّ أو المستقبل.' },
+      { icon:'🍽️', label:'الجوع', desc:'شيءٌ من الجوع ونقص القوت.' },
+      { icon:'💰', label:'نقص الأموال', desc:'ذهاب بعض المال أو نقصانه.' },
+      { icon:'🕊️', label:'نقص الأنفس', desc:'موت بعض الأحباب أو استشهادهم في سبيل الله.' },
+      { icon:'🌾', label:'نقص الثمرات', desc:'ضياع بعض الثمار والزروع بقلّة نتاجها أو فسادها.' },
+    ];
+  }
+
+  renderVals(){
+    var self = this, open = this.state.open;
+    var pips = [0,1,2,3,4,5,6].map(function(i){ return { bg: i===2 ? 'var(--scene)' : 'var(--c-line)' }; });
+
+    var ayat = this.ayatData().map(function(a,i){
+      var isOpen = !!open[i];
+      return { n:a.n, verse:a.verse, tafsir:a.tafsir, open:isOpen,
+        chev: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        onToggle:function(){ var o=Object.assign({},self.state.open); o[i]=!o[i]; self.setState({open:o}); } };
+    });
+
+    var td = this.trialData(), sel = td[this.state.trial];
+    var trials = td.map(function(t,i){
+      var on = self.state.trial===i;
+      return { icon:t.icon, label:t.label, onClick:function(){ self.setState({trial:i}); },
+        style:'cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;font-family:Readex Pro;font-weight:600;font-size:13px;min-height:44px;transition:all .2s;'
+          +(on?'background:var(--scene);color:#fff;border:1.5px solid var(--scene);box-shadow:0 6px 16px rgba(123,63,212,.35);':'background:#fff;color:var(--c-primary);border:1.5px solid var(--c-line);') };
+    });
+
+    var picked = this.state.picked, correct = 1;
+    var opts = ['هم أمواتٌ لا يُرزقون.','هم أحياءٌ عند ربّهم يُرزقون ولكن لا نشعر.','هم نائمون حتى يوم القيامة.'];
+    var options = opts.map(function(t,i){
+      var chosen=picked===i, isC=i===correct;
+      var s='display:flex;align-items:center;gap:12px;cursor:pointer;text-align:right;width:100%;padding:14px 16px;border-radius:14px;font-family:Readex Pro;font-size:clamp(14px,1.9vw,16px);min-height:44px;transition:all .2s;';
+      var bg='#fff',bd='var(--c-line)',bBg='var(--c-tint)',bC='var(--c-primary)';
+      if(picked!==null){ if(isC){bg='rgba(31,158,139,.08)';bd='var(--c-good)';bBg='var(--c-good)';bC='#fff';} else if(chosen){bg='rgba(246,132,142,.1)';bd='var(--c-alert)';bBg='var(--c-alert)';bC='#fff';} }
+      return { text:t, badge:['أ','ب','ج'][i], onClick:function(){ if(self.state.picked===null) self.setState({picked:i}); },
+        style:s+'background:'+bg+';border:2px solid '+bd+';',
+        badgeStyle:'flex:none;width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:El Messiri;font-weight:700;background:'+bBg+';color:'+bC+';' };
+    });
+    var check = { q:'ماذا قالت الآية ١٥٤ عمّن يُقتل في سبيل الله؟', options:options, showFeedback:picked!==null };
+    if(picked!==null){
+      var ok=picked===correct;
+      check.fbStyle='margin-top:16px;padding:14px 18px;border-radius:14px;line-height:1.8;font-size:14px;display:flex;flex-direction:column;gap:4px;'
+        +(ok?'background:rgba(31,158,139,.1);color:#177564;border:1px solid var(--c-good);':'background:rgba(246,132,142,.12);color:#b0454f;border:1px solid var(--c-alert);');
+      check.fbTitle=ok?'✓ إجابة صحيحة':'✗ راجع الإجابة';
+      check.fbText=ok?'قال تعالى ﴿ بَلْ أَحْيَاءٌ وَلَٰكِنْ لَا تَشْعُرُونَ ﴾ — فالشهداء أحياءٌ عند ربّهم يُرزقون.'
+        :'الآية نفت عنهم الموت وأثبتت لهم الحياة: ﴿ بَلْ أَحْيَاءٌ وَلَٰكِنْ لَا تَشْعُرُونَ ﴾.';
+    }
+
+    return { pips:pips, ayat:ayat, trials:trials, sel:sel, check:check };
+  }
+}
+</script>
+</body>
+</html>
