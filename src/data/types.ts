@@ -211,6 +211,7 @@ export type FeaturedLesson = {
   gradeLabel: string;
   durationMinutes: number;
   youtubeUrl?: string;
+  embedDisabled?: boolean;
 };
 
 export type TopWatchedLesson = {

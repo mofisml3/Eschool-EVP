@@ -103,7 +103,9 @@ function Inner({ lessons }: { lessons: FeaturedLesson[] }) {
               </div>
             </>
           );
-          if (l.youtubeUrl && toYouTubeEmbed(l.youtubeUrl)) {
+          const canEmbed =
+            !!l.youtubeUrl && !l.embedDisabled && !!toYouTubeEmbed(l.youtubeUrl);
+          if (canEmbed) {
             return (
               <button
                 type="button"
@@ -114,6 +116,20 @@ function Inner({ lessons }: { lessons: FeaturedLesson[] }) {
               >
                 {inner}
               </button>
+            );
+          }
+          if (l.youtubeUrl) {
+            return (
+              <a
+                key={l.id}
+                href={l.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${cardClass} no-underline text-inherit`}
+                aria-label={`${l.title} — يوتيوب`}
+              >
+                {inner}
+              </a>
             );
           }
           return (
@@ -165,6 +181,16 @@ function VideoModal({
               <span dir="ltr">{lesson.durationMinutes}</span>{' '}
               {t('videos.featured.minutes')}
             </p>
+            {lesson.youtubeUrl && (
+              <a
+                href={lesson.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-xs text-brand-primary hover:underline mt-1"
+              >
+                افتح في يوتيوب ↗
+              </a>
+            )}
           </div>
           <button
             type="button"

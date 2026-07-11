@@ -15,7 +15,8 @@
     "stageLabel": "إعدادي",
     "gradeLabel": "السادس الإعدادي",
     "durationMinutes": 45,
-    "youtubeUrl": "https://www.youtube.com/live/J6PcpSj9a5M?si=-GcTg0ny_klvzQcY"
+    "youtubeUrl": "https://www.youtube.com/live/J6PcpSj9a5M?si=-GcTg0ny_klvzQcY",
+    "embedDisabled": true
   },
   {
     "id": "lesson-chemistry-g12-live",
@@ -33,7 +34,8 @@
     "stageLabel": "إعدادي",
     "gradeLabel": "السادس الإعدادي",
     "durationMinutes": 45,
-    "youtubeUrl": "https://www.youtube.com/live/PhjM0Cp9l8I?si=8c_7LAd6WYvDO38A"
+    "youtubeUrl": "https://www.youtube.com/live/PhjM0Cp9l8I?si=8c_7LAd6WYvDO38A",
+    "embedDisabled": true
   },
   {
     "id": "lesson-social-studies-g12-live",
@@ -42,7 +44,8 @@
     "stageLabel": "إعدادي",
     "gradeLabel": "السادس الإعدادي",
     "durationMinutes": 45,
-    "youtubeUrl": "https://www.youtube.com/live/Iio4SRE7UrA?si=6xBuE4s5JEIp11Dd"
+    "youtubeUrl": "https://www.youtube.com/live/Iio4SRE7UrA?si=6xBuE4s5JEIp11Dd",
+    "embedDisabled": true
   },
   {
     "id": "lesson-primary-g2-cartoon",
