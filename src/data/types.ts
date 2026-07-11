@@ -210,6 +210,7 @@ export type FeaturedLesson = {
   stageLabel: string;
   gradeLabel: string;
   durationMinutes: number;
+  youtubeUrl?: string;
 };
 
 export type TopWatchedLesson = {
