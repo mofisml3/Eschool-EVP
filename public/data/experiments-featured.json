@@ -10,13 +10,13 @@
     "launchPath": "experiments/physics-g12-l1/Physics Book.dc.html"
   },
   {
-    "id": "exp-arabic-mulazima-lil-idafa",
-    "title": "اللغة العربية: الأسماء الملازمة للإضافة",
+    "id": "exp-arabic-g12-book",
+    "title": "اللغة العربية: كتاب تفاعلي للسادس الإعدادي",
     "disciplineName": "اللغة العربية",
-    "typeLabel": "درس تفاعلي",
+    "typeLabel": "كتاب تفاعلي",
     "stageLabel": "إعدادي",
-    "gradeLabel": "السادس الإعدادي — الدرس الثاني",
-    "durationMinutes": 30,
+    "gradeLabel": "السادس الإعدادي — الفصلان الأول والثاني",
+    "durationMinutes": 45,
     "launchPath": "experiments/arabic-g12-l2/Book Cover.dc.html"
   },
   {

@@ -8,33 +8,191 @@
 <body>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="brand/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="brand/theme.css">
-<script src="brand/palette.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
-body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
-.card{background:#fff;border-radius:24px;padding:56px 40px;max-width:520px;text-align:center;box-shadow:0 8px 32px rgba(35,27,61,0.08);}
-h1{font-size:26px;margin:0 0 12px;color:#200058;}
-p{font-size:16px;line-height:1.7;margin:0 0 24px;color:#4b4670;}
-.badge{display:inline-block;background:#efeaf9;color:#200058;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;margin-bottom:18px;}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#200058;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:500;font-size:15px;margin:6px;}
-.btn.alt{background:transparent;color:#200058;border:1px solid #200058;}
-.btn:hover{background:#00c3fe;color:#fff;}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
 </style>
 </helmet>
-<div dir="rtl" style="width:100%;">
-<div class="card">
-<span class="badge">التقييم النهائي</span>
-<h1>اختبار الدرس قيد الإعداد</h1>
-<p>تمّ إنجاز مشاهد الدرس الاثني عشر بنجاح. اختبار التحقق النهائي قيد التطوير وسيُتاح في الإصدار القادم.</p>
-<a class="btn" href="Arabic L2 Blueprint.dc.html">مراجعة مخطط الدرس</a>
-<a class="btn alt" href="Chapter 1 Hub.dc.html">العودة إلى الفصل</a>
-</div>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">التقويم النهائيّ</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="{{ barStyle }}"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%209%20-%20Ayy.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Chapter%201%20Hub.dc.html" title="دروس الوحدة" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:18px;">☰</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:760px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:24px;">
+
+    <div style="text-align:center; animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">التقويم النهائيّ · أسلوب الاستفهام</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,40px); color:var(--primary); line-height:1.2;">اختبر إتقانَك للدرس</h1>
+    </div>
+
+    <sc-if value="{{ inQuiz }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,34px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <span style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:15px;">السؤال <span style="direction:ltr; unicode-bidi:isolate;">{{ qNum }}</span></span>
+        <span style="font-size:13px; color:var(--muted);">النتيجة: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ scoreText }}</span></span>
+      </div>
+      <p style="font-size:clamp(17px,2.6vw,21px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:20px;">{{ question }}</p>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+        </div>
+        <div style="display:flex; justify-content:flex-start; margin-top:16px;">
+          <button onClick="{{ nextQ }}" style="padding:13px 30px; min-height:44px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px; cursor:pointer;">{{ nextLabel }}</button>
+        </div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ showResult }}" hint-placeholder-val="{{ false }}">
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(24px,4vw,40px); text-align:center; box-shadow:0 16px 40px -30px rgba(32,0,88,.5); animation:popIn .35s ease;">
+      <div style="font-size:clamp(48px,10vw,72px); line-height:1;">{{ resultEmoji }}</div>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(24px,4vw,34px); color:var(--primary); margin:14px 0 6px;">{{ resultTitle }}</h2>
+      <p style="font-size:clamp(16px,2.3vw,19px); color:var(--muted); margin-bottom:20px;">أجبتَ عن <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ finalScore }}</span> إجابةً صحيحة.</p>
+      <div style="display:inline-flex; align-items:center; gap:6px; padding:10px 22px; border-radius:999px; background:var(--tint); font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(20px,4vw,28px); margin-bottom:24px;">
+        <span style="direction:ltr; unicode-bidi:isolate;">{{ percent }}</span>٪
+      </div>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.9; color:var(--ink); max-width:520px; margin:0 auto 26px;">{{ resultMsg }}</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        <button onClick="{{ restart }}" style="padding:14px 28px; min-height:44px; border-radius:12px; border:none; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:16px; cursor:pointer;">↺ أعِد التقويم</button>
+        <a href="Chapter%201%20Hub.dc.html" style="padding:14px 28px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px; display:inline-flex; align-items:center;">دروس الوحدة ←</a>
+      </div>
+    </section>
+    </sc-if>
+
+  </main>
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx:0, picked:null, correctCount:0, done:false };
+
+  QUESTIONS = [
+    { q:'أسلوبُ الاستفهام أسلوبٌ من الأساليب:',
+      options:['الخبريّة', 'الطلبيّة', 'التعجبيّة', 'الشرطيّة'], correct:1,
+      why:['ليس خبريًّا؛ الاستفهامُ طلبٌ لا إخبار.',
+           'أحسنت! الاستفهامُ من الأساليب الطلبيّة؛ يُطلَب به العلمُ بمجهول.',
+           'ليس تعجبيًّا؛ هو طلبٌ للعلم.',
+           'ليس شرطيًّا؛ هو من الأساليب الطلبيّة.'] },
+    { q:'حرفا الاستفهام هما:',
+      options:['مَن وما', 'الهمزة وهل', 'متى وأين', 'كم وأيّ'], correct:1,
+      why:['«مَن» و«ما» اسمان لا حرفان.',
+           'أحسنت! حرفا الاستفهام هما «الهمزة» و«هل»، وبقيّةُ الأدوات أسماء.',
+           '«متى» و«أين» اسمان لا حرفان.',
+           '«كم» و«أيّ» اسمان لا حرفان.'] },
+    { q:'الاستفهامُ التصوُّريّ يُطلَب به:',
+      options:['الإجابةُ بنعم أو لا', 'تعيينُ المفرد', 'إثباتُ النسبة', 'نفيُ النسبة'], correct:1,
+      why:['هذا جوابُ التصديقيّ، لا التصوّريّ.',
+           'أحسنت! التصوّريّ طلبُ معرفة المفرد بالتعيين، لا بالنفي أو الإثبات.',
+           'إثباتُ النسبة من شأن التصديقيّ.',
+           'نفيُ النسبة من شأن التصديقيّ.'] },
+    { q:'الأداةُ التي تُستعمل للتصديق فقط هي:',
+      options:['الهمزة', 'هَلْ', 'أيّ', 'كيف'], correct:1,
+      why:['الهمزةُ تُستعمل للتصديق والتصوّر معًا.',
+           'أحسنت! «هل» للتصديق فقط، والهمزةُ للنوعين، وأسماءُ الاستفهام للتصوّر.',
+           '«أيّ» اسمُ استفهامٍ للتصوّر.',
+           '«كيف» اسمُ استفهامٍ للتصوّر.'] },
+    { q:'أسماءُ الاستفهام مبنيّةٌ كلُّها ما عدا:',
+      options:['مَنْ', 'أيّ', 'كيف', 'كم'], correct:1,
+      why:['«مَن» مبنيّة.',
+           'أحسنت! «أيّ» وحدَها مُعرَبة (مرفوعة/منصوبة/مجرورة)، وبقيّةُ الأسماء مبنيّة.',
+           '«كيف» مبنيّة.',
+           '«كم» مبنيّة.'] },
+    { q:'في جملة «مَنْ كافأتَ؟» يُعرَب «مَنْ»:',
+      options:['مبتدأ', 'مفعولًا به مقدَّمًا', 'خبرًا مقدَّمًا', 'مجرورًا'], correct:1,
+      why:['ليس مبتدأً؛ تلاه فعلٌ متعدٍّ لم يستوفِ مفعولَه.',
+           'أحسنت! تلاه فعلٌ متعدٍّ لم يستوفِ مفعولَه (كافأتَ)، فهو مفعولٌ به مقدَّم وجوبًا.',
+           'ليس خبرًا؛ لا فعلَ ناقصًا هنا.',
+           'ليس مجرورًا؛ لم يسبقه حرفُ جرٍّ ولا إضافة.'] },
+    { q:'في جملة «بأيِّ ذنبٍ قُتِلت؟» تُعرَب «أيّ»:',
+      options:['مبتدأ', 'مفعولًا مطلقًا', 'مجرورةً بحرف الجرّ', 'ظرفًا'], correct:2,
+      why:['ليست مبتدأً؛ سبقها حرفُ جرٍّ.',
+           'ليست مفعولًا مطلقًا؛ «ذنب» ليس مصدرًا من لفظ الفعل.',
+           'أحسنت! سبقها حرفُ الجرِّ (الباء)، فهي مجرورةٌ به.',
+           'ليست ظرفًا؛ «ذنب» ليس ظرفَ زمانٍ أو مكان.'] },
+    { q:'في جملة «أيَّ قراءةٍ قرأتَ؟» تُعرَب «أيّ»:',
+      options:['مفعولًا به', 'مفعولًا مطلقًا', 'مفعولًا فيه (ظرفًا)', 'مبتدأ'], correct:1,
+      why:['ليست مفعولًا به؛ «قراءة» مصدرٌ من لفظ الفعل.',
+           'أحسنت! أُضيفت إلى مصدرٍ من لفظ الفعل (قراءة ← قرأ)، فتُعرَب مفعولًا مطلقًا.',
+           'ليست ظرفًا؛ «قراءة» مصدرٌ لا ظرف.',
+           'ليست مبتدأً؛ دلّت على الحَدَث وأُضيفت إلى مصدر.'] }
+  ];
+
+  answer = (i) => () => {
+    if (this.state.picked != null) return;
+    const c = i === this.QUESTIONS[this.state.idx].correct;
+    this.setState(s => ({ picked:i, correctCount: s.correctCount + (c?1:0) }));
+  };
+  nextQ = () => this.setState(s => (s.idx >= this.QUESTIONS.length-1 ? { done:true } : { idx:s.idx+1, picked:null }));
+  restart = () => this.setState({ idx:0, picked:null, correctCount:0, done:false });
+
+  renderVals(){
+    const { idx, picked, correctCount, done } = this.state;
+    const total = this.QUESTIONS.length;
+    const AR = ['٠','١','٢','٣','٤','٥','٦','٧','٨'];
+    const Q = this.QUESTIONS[idx];
+    const barPct = done ? 100 : (idx/total)*100;
+
+    const options = Q.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===Q.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:15px 18px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(15px,2vw,18px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.6;`;
+      return { label, style, onClick: this.answer(i) };
+    });
+    const correct = picked === Q.correct;
+    const isLast = idx >= total-1;
+    const pct = Math.round((correctCount/total)*100);
+    let resultEmoji='🌟', resultTitle='ممتاز!', resultMsg='';
+    if (pct >= 84){ resultEmoji='🌟'; resultTitle='ممتاز!'; resultMsg='أتقنتَ أسلوبَ الاستفهام وأدواتِه وإعرابَ أسمائه إتقانًا رائعًا. واصِل تألّقك!'; }
+    else if (pct >= 50){ resultEmoji='👍'; resultTitle='جيّدٌ جدًّا'; resultMsg='فهمُك جيّد. راجِع مشاهدَ الإعراب التي أخطأتَ فيها ثم أعِد المحاولة لترفعَ نتيجتك.'; }
+    else { resultEmoji='📚'; resultTitle='تحتاج إلى مراجعة'; resultMsg='لا بأس! عُد إلى مشاهد الدرس، وركّز على القاعدة الذهبيّة في الإعراب، ثم أعِد التقويم.'; }
+
+    return {
+      inQuiz: !done, showResult: done,
+      barStyle: `width:${barPct}%; height:100%; background:var(--accent); transition:width .3s ease;`,
+      qNum: `${AR[idx]} / ${AR[total-1]}`,
+      scoreText: `${AR[correctCount]} / ${AR[total-1]}`,
+      question: Q.q, options,
+      feedback: picked==null ? null : Q.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ إجابةٌ غير صحيحة',
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (correct ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      nextQ: this.nextQ,
+      nextLabel: isLast ? 'إظهار النتيجة ←' : 'السؤال التالي ←',
+      restart: this.restart,
+      finalScore: `${AR[correctCount]} / ${AR[total-1]}`,
+      percent: String(pct).replace(/[0-9]/g, d=>AR[+d]||d),
+      resultEmoji, resultTitle, resultMsg
+    };
+  }
+}
+</script>
 </body>
 </html>

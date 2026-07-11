@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٦ من ١٦ · خصيصتا «ليس»</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:37.5%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%205%20-%20Khabar.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%207%20-%20Ghayr.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">عملُ «ليس» · خصيصتان</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">خصيصتا «ليس»</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">تمتاز «ليس» بأنّها <strong style="color:var(--primary);">تبقى عاملةً</strong> في حالتين تُبطلان عملَ أخواتها غالبًا: إذا تقدّم خبرُها على اسمها، وإذا انتُقِض نفيُها بـ«إلّا». استكشِف كلَّ خصيصةٍ بشاهدها.</p>
+    </div>
+
+    <!-- tabs -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+        <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <!-- figure -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(18px,2.6vw,22px); margin-bottom:6px;">{{ activeTitle }}</h2>
+      <p style="font-size:clamp(15px,2.1vw,17px); line-height:1.9; color:var(--ink); margin-bottom:18px;">{{ activeDesc }}</p>
+
+      <div style="background:linear-gradient(160deg,#fbfaff,#f2effb); border:1px solid var(--line); border-radius:16px; padding:clamp(18px,3vw,28px); text-align:center;">
+        <p style="font-family:'Cairo',serif; font-size:clamp(19px,3.2vw,28px); color:var(--primary); line-height:2; margin-bottom:6px;">{{ verse1 }}</p>
+        <p style="font-family:'Cairo',serif; font-size:clamp(19px,3.2vw,28px); color:var(--primary); line-height:2;">{{ verse2 }}</p>
+        <span style="display:inline-block; margin-top:10px; font-size:13px; color:var(--muted); font-weight:600;">{{ poet }}</span>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px;">
+          <button onClick="{{ reveal }}" style="height:44px; padding:0 20px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-size:15px; cursor:pointer;">{{ revealLabel }}</button>
+        </div>
+
+        <sc-if value="{{ shown }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px; animation:popIn .3s ease;">
+            <span style="padding:8px 16px; border-radius:12px; background:var(--accent-tint); color:#0378a3; font-family:'Cairo',sans-serif; font-weight:700; font-size:14px;">{{ ismChip }}</span>
+            <span style="padding:8px 16px; border-radius:12px; background:var(--alert-tint); color:#c0455a; font-family:'Cairo',sans-serif; font-weight:700; font-size:14px;">{{ khabarChip }}</span>
+          </div>
+          <p style="margin-top:14px; font-size:clamp(14px,2vw,16px); line-height:1.9; color:var(--ink); max-width:600px; margin-inline:auto;">{{ note }}</p>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق سريع</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:16px;">ماذا يحدث لعمل «ليس» إذا انتُقِض نفيُها بـ«إلّا»، كقولنا: «ليس الذُّخرُ إلّا صنيعةً»؟</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%205%20-%20Khabar.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ خبر «ليس»</a>
+      <a href="Arabic%20C2%20L2%20Scene%207%20-%20Ghayr.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الاسم «غير» ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab:0, shown:false, picked:null };
+
+  CASES = [
+    { title:'الخصيصةُ الأولى: تقدُّمُ الخبر على الاسم',
+      desc:'تبقى «ليس» عاملةً وإن تقدّم خبرُها على اسمها.',
+      verse1:'ليس جُودي عطيّةً بسؤالٍ', verse2:'قد يهُزُّ السؤالُ غيرَ الجوادِ', poet:'أبو فراس الحمدانيّ',
+      ism:'اسمُ ليس: «عطيّةٌ» (تأخّر) مرفوع', khabar:'خبرُ ليس: «جُودي» (تقدّم) منصوب',
+      note:'رفعت «ليس» الاسمَ «عطيّةً» ونصبت الخبرَ «جُودًا» رغم تقدُّم الخبر على الاسم؛ فبقيت عاملة.' },
+    { title:'الخصيصةُ الثانية: انتقاضُ النفي بـ«إلّا»',
+      desc:'تبقى «ليس» عاملةً وإن انتُقِض نفيُها بـ«إلّا».',
+      verse1:'خليليَّ ليس الذُّخرُ إلّا صنيعةً', verse2:'ولا صنعَ إلّا ما تكون الدراهمُ', poet:'أبو هلال العسكريّ',
+      ism:'اسمُ ليس: «الذُّخرُ» مرفوع', khabar:'خبرُ ليس: «صنيعةً» منصوب',
+      note:'بقيت «ليس» عاملةً فرفعت «الذُّخرَ» ونصبت «صنيعةً» رغم انتقاض النفي بـ«إلّا».' }
+  ];
+
+  MCQ = { correct:0, options:[
+    'تبقى عاملةً: ترفع الاسمَ وتنصب الخبر',
+    'يبطُل عملُها فيصير ما بعدها مرفوعًا',
+    'تتحوّل إلى حرفِ جرّ'
+  ], why:[
+    'أحسنت! من خصائص «ليس» أنّها تبقى عاملةً حتى مع انتقاض النفي بـ«إلّا».',
+    'خطأ؛ «ليس» تمتاز بأنّها تبقى عاملةً في هذه الحال، بخلاف غيرها.',
+    'خطأ؛ «ليس» فعلٌ ناسخ ولا تتحوّل إلى حرف جرّ.'
+  ] };
+
+  setTab = (i) => () => this.setState({ tab:i, shown:false });
+  reveal = () => this.setState(s => ({ shown:!s.shown }));
+  pick = (i) => () => { if (this.state.picked==null) this.setState({ picked:i }); };
+  retry = () => this.setState({ picked:null });
+
+  renderVals(){
+    const { tab, shown, picked } = this.state;
+    const c = this.CASES[tab];
+
+    const tabs = this.CASES.map((cc,i) => {
+      const active = i===tab;
+      const label = i===0 ? 'تقدُّمُ الخبر' : 'انتقاضُ النفي بـ«إلّا»';
+      const style = `cursor:pointer; padding:10px 18px; min-height:44px; border-radius:12px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(14px,2vw,16px); transition:all .18s ease; ${active?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`;
+      return { label, style, onClick:this.setTab(i) };
+    });
+
+    const options = this.MCQ.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style=`text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:14px 16px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(14px,2vw,17px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.7;`;
+      return { label, style, onClick:this.pick(i) };
+    });
+    const correct = picked===this.MCQ.correct;
+
+    return {
+      tabs,
+      activeTitle:c.title, activeDesc:c.desc,
+      verse1:c.verse1, verse2:c.verse2, poet:c.poet,
+      shown, revealLabel: shown ? '🙈 إخفاء الإعراب' : '🔍 أظهِر الاسمَ والخبر',
+      ismChip:c.ism, khabarChip:c.khabar, note:c.note,
+      options,
+      retry:this.retry,
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      feedbackStyle:'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(correct?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reveal:this.reveal
+    };
+  }
+}
+</script>
+</body>
+</html>

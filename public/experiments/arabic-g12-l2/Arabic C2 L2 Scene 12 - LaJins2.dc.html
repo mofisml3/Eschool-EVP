@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ١٢ من ١٦ · اسم لا وخبرها</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:75%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%2011%20-%20LaJins1.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%2013%20-%20Dimni.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">٣) الحروفُ · اسمُ «لا» وخبرُها</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">اسمُ «لا» النافية للجنس وخبرُها</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">يأتي اسمُ «لا» على وجهين: <strong style="color:var(--primary);">مُعرَبٌ منصوبٌ</strong> (إذا كان مضافًا أو شبيهًا بالمضاف)، و<strong style="color:var(--primary);">مبنيٌّ</strong> على ما يُنصَب به (إذا كان مفردًا). اختر الحالةَ لتراها.</p>
+    </div>
+
+    <!-- ism explorer -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <div style="background:linear-gradient(160deg,#fbfaff,#f2effb); border:1px solid var(--line); border-radius:16px; padding:clamp(16px,3vw,26px);">
+        <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:13px; margin-bottom:12px;">{{ stateLabel }}</span>
+        <p style="font-family:'Amiri',serif; font-size:clamp(19px,3.4vw,28px); color:var(--primary); line-height:1.9; text-align:center;">{{ example }}</p>
+        <div style="margin-top:14px; padding:14px 16px; border-radius:12px; background:#fff; border:1px solid var(--line);">
+          <p style="font-size:clamp(14px,2vw,16px); line-height:1.9;"><strong style="color:var(--accent);">إعرابُ اسم «لا»:</strong> {{ i3rab }}</p>
+        </div>
+        <p style="margin-top:12px; font-size:clamp(14px,2vw,16px); line-height:1.9; color:var(--ink);">{{ note }}</p>
+      </div>
+    </section>
+
+    <!-- khabar -->
+    <section style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--gold); border-radius:18px; padding:20px;">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(18px,2.6vw,21px); margin-bottom:8px;">خبرُ «لا» النافية للجنس</h2>
+      <p style="font-size:clamp(15px,2.1vw,17px); line-height:1.95;">حكمُه <strong style="color:#8a6a1e;">الرَّفعُ</strong>، ويجوز <strong style="color:#8a6a1e;">حذفُه</strong> بشرط أن يكون معلومًا لا يُسبِّب حذفُه لَبسًا، كقوله تعالى: ﴿ لا إله إلّا هو ﴾؛ فالخبرُ محذوفٌ جوازًا تقديرُه (موجودٌ).</p>
+      <p style="margin-top:10px; font-size:clamp(14px,2vw,16px); line-height:1.9; color:var(--muted);">وقد كثُر حذفُ خبرها في كلام العرب لأنّه معلومٌ، مثل: (لا بُدَّ)، و(لا ضَيْرَ)، و(لا جِدالَ)، و(لا شكَّ)، و(لا رَيْبَ).</p>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق سريع</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:16px;">في «لا قاطعَ رحِمٍ محمودٌ»، كيف يُعرَب اسمُ «لا» (قاطعَ)؟</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%2011%20-%20LaJins1.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ العمل والشرطان</a>
+      <a href="Arabic%20C2%20L2%20Scene%2013%20-%20Dimni.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">النفي الضمنيّ ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab:'mudaf', picked:null };
+
+  CASES = {
+    mudaf: { label:'مُعرَبٌ — مضافٌ', stateLabel:'مُعرَبٌ منصوبٌ (مضاف)',
+      example:'لا قاطعَ رحِمٍ محمودٌ',
+      i3rab:'«قاطعَ» اسمُ «لا» منصوبٌ (مُعرَبٌ) وعلامةُ نصبه الفتحة؛ لأنّه مضافٌ، و«رحِمٍ» مضافٌ إليه مجرور.',
+      note:'ما دام اسمُ «لا» مضافًا فهو مُعرَبٌ منصوبٌ لا مبنيّ.' },
+    shibh: { label:'مُعرَبٌ — شبيهٌ بالمضاف', stateLabel:'مُعرَبٌ منصوبٌ (شبيهٌ بالمضاف)',
+      example:'لا قاطعًا رحمًا محمودٌ',
+      i3rab:'«قاطعًا» اسمُ «لا» منصوبٌ (مُعرَبٌ) منوَّنٌ؛ لأنّه شبيهٌ بالمضاف (اسمٌ مشتقٌّ نصَب ما بعده «رحمًا»).',
+      note:'الشبيهُ بالمضاف يلحقه التنوينُ، بخلاف المضاف.' },
+    mufrad: { label:'مبنيٌّ — مفردٌ', stateLabel:'مبنيٌّ على ما يُنصَب به (مفرد)',
+      example:'لا طالبَ مُهمِلٌ',
+      i3rab:'«طالبَ» اسمُ «لا» مبنيٌّ على الفتح في محلّ نصب؛ لأنّه مفردٌ (لا مضافٌ ولا شبيهٌ بالمضاف).',
+      note:'المفردُ يُبنى على ما يُنصَب به: الفتحُ (مفرد/جمع تكسير)، والياءُ (مثنّى/جمع مذكّر سالم)، والكسرُ (جمع مؤنّث سالم).' }
+  };
+
+  MCQ = { correct:0, options:[
+    'اسمُ «لا» منصوبٌ (مُعرَبٌ) لأنّه مضاف',
+    'اسمُ «لا» مبنيٌّ على الفتح',
+    'مضافٌ إليه مجرور'
+  ], why:[
+    'أحسنت! «قاطعَ» مضافٌ، فاسمُ «لا» هنا مُعرَبٌ منصوبٌ بالفتحة، و«رحِمٍ» مضافٌ إليه مجرور.',
+    'خطأ؛ يُبنى اسمُ «لا» إذا كان مفردًا، أمّا هنا فهو مضافٌ فيكون مُعرَبًا منصوبًا.',
+    'خطأ؛ «قاطعَ» اسمُ «لا»، والمضافُ إليه هو «رحِمٍ».'
+  ] };
+
+  setTab = (k) => () => this.setState({ tab:k });
+  pick = (i) => () => { if (this.state.picked==null) this.setState({ picked:i }); };
+  retry = () => this.setState({ picked:null });
+
+  renderVals(){
+    const { tab, picked } = this.state;
+    const c = this.CASES[tab];
+    const tabs = [ {k:'mudaf',label:'مضافٌ'}, {k:'shibh',label:'شبيهٌ بالمضاف'}, {k:'mufrad',label:'مفردٌ (مبنيّ)'} ].map(t => {
+      const active = t.k===tab;
+      const style = `cursor:pointer; padding:9px 16px; min-height:44px; border-radius:12px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(13px,1.9vw,15px); transition:all .18s ease; ${active?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`;
+      return { label:t.label, style, onClick:this.setTab(t.k) };
+    });
+
+    const options = this.MCQ.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style=`text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:14px 16px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(14px,2vw,17px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.7;`;
+      return { label, style, onClick:this.pick(i) };
+    });
+    const correct = picked===this.MCQ.correct;
+
+    return {
+      tabs,
+      stateLabel:c.stateLabel, example:c.example, i3rab:c.i3rab, note:c.note,
+      options, retry:this.retry,
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      feedbackStyle:'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(correct?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

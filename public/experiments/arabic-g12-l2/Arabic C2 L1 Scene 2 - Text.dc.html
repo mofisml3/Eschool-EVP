@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L1%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٢ من ٥ · قراءة النص</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:40%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L1%20Scene%201%20-%20Tamheed.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L1%20Scene%203%20-%20Vocab.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">نصّ المطالعة</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">التَّضحيةُ طريقُ النَّصر</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:640px;">اقرأ النصَّ على مهل. اكشف الفقراتِ واحدةً تِلوَ الأخرى، وفعِّل «الأفكار الرئيسة» لتلتقط جوهرَ كلِّ فقرة.</p>
+    </div>
+
+    <!-- controls -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px clamp(16px,3vw,24px); display:flex; flex-wrap:wrap; align-items:center; gap:12px; justify-content:space-between; position:sticky; top:76px; z-index:20; box-shadow:0 10px 26px -22px rgba(32,0,88,.5);">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button onClick="{{ prev }}" aria-label="أخفِ فقرة" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">→</button>
+        <button onClick="{{ toggle }}" style="min-width:120px; height:44px; padding:0 16px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-size:15px; cursor:pointer;">{{ playLabel }}</button>
+        <button onClick="{{ next }}" aria-label="اكشف فقرة" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">←</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px; font-weight:600; color:var(--ink); user-select:none;">
+          <input type="checkbox" checked="{{ ideasOn }}" onChange="{{ toggleIdeas }}" style="width:18px; height:18px; accent-color:#00c3fe; cursor:pointer;">
+          إبراز الأفكار الرئيسة
+        </label>
+        <span style="font-size:13px; color:var(--muted);">الفقرة <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ progressText }}</span></span>
+      </div>
+    </section>
+
+    <!-- the text -->
+    <article style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,40px); box-shadow:0 16px 40px -30px rgba(32,0,88,.4);">
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <sc-for list="{{ paras }}" as="p" hint-placeholder-count="6">
+          <div style="{{ p.wrapStyle }}">
+            <p style="{{ p.textStyle }}">{{ p.text }}</p>
+            <sc-if value="{{ p.showIdea }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex; align-items:center; gap:8px; margin-top:8px; padding:8px 14px; border-radius:10px; background:var(--accent-tint); border-right:3px solid var(--accent);">
+                <span style="font-size:14px;">💡</span>
+                <span style="font-size:14px; font-weight:700; color:#08536f; line-height:1.6;">{{ p.idea }}</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- closing verse couplet -->
+      <sc-if value="{{ showVerse }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:18px; padding:18px 16px; border-radius:16px; background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); animation:popIn .3s ease;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; text-align:center; font-family:'Cairo',sans-serif; font-size:clamp(16px,2.4vw,21px); color:var(--primary); line-height:2;">
+            <span>ما نال مرتبةَ الخُلودِ</span>
+            <span>بغيرِ تضحيةٍ رَضِيّهْ</span>
+            <span>عاشت نفوسٌ في سبيـ</span>
+            <span>ـلِ بلادها ذهبت ضحيّهْ</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:18px; display:flex; align-items:center; justify-content:space-between; gap:10px; border-top:1px dashed var(--line); padding-top:14px;">
+        <button onClick="{{ showAll }}" style="background:none; border:none; color:var(--accent); font-size:14px; font-weight:700; cursor:pointer;">⇊ اكشف النصَّ كاملًا</button>
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-size:14px; font-weight:600; cursor:pointer;">↺ من البداية</button>
+      </div>
+    </article>
+
+    <!-- margin note 1: في أثناء النص -->
+    <aside style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,24px);">
+      <h3 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:17px; margin-bottom:8px;">✦ في أثناء النص</h3>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.95;">هل لاحظت أنّ التضحيةَ مفهومٌ مرتبطٌ بـ<strong style="color:var(--accent);">الشجاعة والكرم والإيثار والفداء</strong>؟ فمن غير المعقول أن يُضحِّي إنسانٌ بشيءٍ غالٍ عليه من دون التحلّي بهذه الصفات. وهل لاحظت أنّ التضحية بالنفس <strong style="color:var(--accent);">تُخلِّد صاحبها</strong>؟</p>
+    </aside>
+
+    <!-- Quranic verse -->
+    <aside style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--gold); border-radius:16px; padding:clamp(18px,3vw,26px); text-align:center;">
+      <p style="font-family:'Amiri',serif; font-size:clamp(19px,3vw,26px); line-height:2.1; color:var(--primary); margin-bottom:8px;">﴿ وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا ۚ بَلْ أَحْيَاءٌ عِندَ رَبِّهِمْ يُرْزَقُونَ ﴾</p>
+      <span style="display:inline-block; font-size:14px; color:var(--muted); font-weight:600;">(آل عمران: <span style="direction:ltr; unicode-bidi:isolate;">١٦٩</span>)</span>
+    </aside>
+
+    <!-- quick check -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق من الفهم</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">تحت أيِّ مُسمًّى واحدٍ تجمَّع العراقيون للدفاع عن وطنهم كما ورد في النص؟</p>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">عُد إلى الفقرة الثانية من النص.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L1%20Scene%201%20-%20Tamheed.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ التمهيد</a>
+      <a href="Arabic%20C2%20L1%20Scene%203%20-%20Vocab.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">معاني المفردات ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 0, playing:false, ideas:true, picked:null };
+
+  PARAS = [
+    { text:'التَّضحيةُ بذلُ النفسِ أو الوقتِ أو المالِ أو كلِّ ما يحبُّ الإنسانُ؛ من أجل غايةٍ أَسمى وهدفٍ أَرجى. ومظاهرُها لا حصرَ لها، ولعلَّ من أبرز تلك المظاهر التضحيةَ من أجل الوطنِ، وهذا ما حصل على أرض الواقع في عراقنا الحبيب حينما غزَتْه قوى الظالم في شهر حزيران من عام ٢٠١٤م، واحتلَّت ما احتلَّت من أرضه الطاهرة ودنَّسَتْها، وقتلت الرجالَ، وسبَت النساءَ، ورَوَّعت الأطفالَ، ولم تترك فعلًا قبيحًا ولا عملًا شائنًا إلا قامت به، فهبَّ العراقيون من كلِّ حدبٍ وصوبٍ مُلبِّين نداءَ الوطن وشعبه.', idea:'التضحيةُ بذلٌ لأجل غايةٍ أسمى، وأبرزُها التضحيةُ للوطن — كما حدث عام ٢٠١٤م.' },
+    { text:'لقد تجمَّع العراقيون تحت مُسمًّى واحدٍ وهو (الحشدُ الشعبيُّ)، ووقفوا جنبًا إلى جنبٍ مع الجيش العراقيّ البطل والقوّات الأمنيّة الباسلة. احتشد العراقيون وتوحَّدوا ضدَّ الهجمة الهمجيّة التي تعرَّض لها بلدُنا الحبيب غيرَ مبالين بما تؤول إليه الأمورُ، إذ كان شعارُهم (إمّا النصرُ وإمّا الشهادةُ)؛ لأنّ انتصار العدوِّ يعني هَتْكَ كلِّ القيم الإنسانيّة، وقتلَ حاضرِ العراق ومستقبلِه، بل حتى ماضيه لن يسلمَ من شرورهم؛ لذا ضحُّوا بالغالي والنفيس.', idea:'توحَّد الشعبُ تحت (الحشد الشعبيّ) مع الجيش، شعارُهم: إمّا النصرُ وإمّا الشهادة.' },
+    { text:'كانوا كِرامًا وبلغوا الغايةَ القُصوى في الكرمِ، سخَوا بأنفسهم فرسموا أروعَ البطولات وسطَّروها في معارك التحرير، وكتبوا ملاحمهم بحروفٍ من ذهبٍ، تلك الملاحمُ التي نُقِشَت على صفحات التاريخ بصورٍ خالدةٍ لا تُنسى. وما كانوا ليأملوا شيئًا من حُطام الدنيا سوى العِزّة والكرامة وصون الأرض والعِرض، وهذه المعاني من أسمى الغايات التي يُضحِّي من أجلها الإنسانُ.', idea:'بذلوا أنفسهم لا طمعًا في دنيا، بل للعِزّة والكرامة وصون الأرض والعِرض.' },
+    { text:'كان النداءُ صرخةً في وجه الظلم والهمجيّة التي ما أرادت بشعبنا إلا الأذى، وبمقدَّساتنا إلا الهَتْكَ، وبعراقنا إلا الخرابَ والدمارَ، ولكنَّ العراقيين عزَموا على ألّا يحصل ذلك، فتناخَوا فيما بينهم، وشدَّ بعضُهم أزرَ بعضٍ، واستحضروا بطولاتهم التي ملأت الخافقين على مرِّ التاريخ، وكانت تضحياتُ الإمام الحسين بن عليٍّ (عليهما السلام) شعلةً تُضيء لهم الدربَ؛ فلم يخافوا ولم يضعفوا، وهم ليس لهم ناصرٌ ولا مُعينٌ إلا إيمانُهم بالله وحبُّهم لوطنهم وشعبهم.', idea:'استمدُّوا القوّةَ من وحدتهم ومن تضحية الإمام الحسين (عليه السلام) وإيمانِهم وحبِّهم للوطن.' },
+    { text:'لم تقتصر تلك الحربُ والتضحياتُ الكبيرةُ على طيفٍ واحدٍ من أطياف الشعبِ، بل توحَّد الشعبُ العراقيُّ بجميع أطيافه وأصبح يدًا واحدةً، فلم تشارك فيها فئةٌ معيّنةٌ بل كان المُضحُّون من كلِّ فئات الشعبِ: رجالًا ونساءً، شيوخًا وشبابًا وفِتيةً لمّا يبلغوا الحُلُمَ؛ فحبُّ الوطن أمرٌ مشتركٌ يجمعهم كلَّهم. وما المُضحِّي إلا مُحبٌّ قبل كلِّ شيءٍ، عشِق الآخرين فتفانى فيهم وضحَّى من أجلهم، وعشِقه الآخرون فخلَّدوا ذِكرَه.', idea:'التضحيةُ وحّدت الشعبَ بكلِّ أطيافه وفئاته؛ فالمُضحِّي مُحبٌّ يخلِّده الآخرون.' },
+    { text:'إنّ الهدفَ سامٍ والغايةَ ليست كالغايات، فقد سوَّغ ما قدَّمه هؤلاء الأبطالُ من بذل النفس، وتحمُّل فراق الأهل والأحبّة، والجوع والعطش، والحرِّ والبرد، والجراحاتِ التي أصبحت وسامًا لهم، ولولا تضحياتُهم تلك وإيثارُهم وفداؤهم ما تحقَّق النصرُ الذي صار درسًا للإنسانيّة جمعاء.', idea:'سُموُّ الهدف سوَّغ كلَّ ما بُذِل؛ فبالتضحية والإيثار تحقَّق النصرُ — درسًا للإنسانيّة.' }
+  ];
+
+  MCQ = {
+    correct: 1,
+    options: ['الجيشُ العراقيّ', 'الحشدُ الشعبيّ', 'القوّاتُ الأمنيّة', 'المتطوّعون'],
+    why: [
+      'الجيشُ العراقيّ البطل وقف جنبًا إلى جنبٍ معهم، لكنّ المُسمَّى الجامع الذي تجمَّعوا تحته هو غيرُه.',
+      'أحسنت! نصَّ الكتابُ: «تجمَّع العراقيون تحت مُسمًّى واحدٍ وهو (الحشدُ الشعبيُّ)».',
+      'القوّاتُ الأمنيّة الباسلة شاركت في الدفاع، لكنّها ليست المُسمَّى الذي تجمَّعوا تحته.',
+      'هذا وصفٌ عامّ، والنصُّ ذكر مُسمًّى محدَّدًا هو (الحشد الشعبيّ).'
+    ]
+  };
+
+  componentWillUnmount(){ this._stop(); }
+  _stop(){ if (this._t){ clearInterval(this._t); this._t=null; } }
+  _play(){
+    this._stop();
+    this._t = setInterval(() => {
+      this.setState(s => {
+        if (s.step >= this.PARAS.length - 1){ this._stop(); return { playing:false }; }
+        return { step: s.step + 1 };
+      });
+    }, 3600);
+  }
+  toggle = () => this.setState(s => {
+    const playing = !s.playing; let step = s.step;
+    if (playing && step >= this.PARAS.length - 1) step = 0;
+    return { playing, step };
+  }, () => this.state.playing ? this._play() : this._stop());
+  next = () => { this._stop(); this.setState(s => ({ step: Math.min(s.step+1, this.PARAS.length-1), playing:false })); };
+  prev = () => { this._stop(); this.setState(s => ({ step: Math.max(s.step-1, 0), playing:false })); };
+  showAll = () => { this._stop(); this.setState({ step: this.PARAS.length-1, playing:false }); };
+  reset = () => { this._stop(); this.setState({ step:0, playing:false }); };
+  toggleIdeas = () => this.setState(s => ({ ideas: !s.ideas }));
+
+  renderVals(){
+    const { step, playing, ideas, picked } = this.state;
+    const paras = this.PARAS.map((p, i) => {
+      const on = i <= step, cur = i === step;
+      const wrapStyle = [
+        'padding:12px 14px','border-radius:14px','transition:all .5s ease',
+        cur ? 'background:var(--tint)' : 'background:transparent',
+        cur ? 'border-right:4px solid var(--accent)' : 'border-right:4px solid transparent',
+        on ? 'opacity:1' : 'opacity:.22',
+        on ? 'filter:none' : 'filter:blur(3px)',
+        on ? 'max-height:900px' : 'max-height:0','overflow:hidden',
+        on ? 'margin-bottom:2px':'margin-bottom:0'
+      ].join(';');
+      const textStyle = 'margin:0; font-family:"Cairo",sans-serif; font-size:clamp(17px,2.6vw,22px); line-height:2.05; color:var(--ink); text-align:justify;';
+      return { text:p.text, idea:p.idea, wrapStyle, textStyle, showIdea: on && ideas };
+    });
+
+    const options = this.MCQ.options.map((label, i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `cursor:${picked!=null?'default':'pointer'}; padding:14px 12px; min-height:44px; border-radius:14px; font-family:"Cairo",sans-serif; font-size:clamp(15px,2vw,18px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+      return { label, style, onClick: () => { if (this.state.picked==null) this.setState({ picked:i }); } };
+    });
+    const correct = picked === this.MCQ.correct;
+
+    return {
+      paras, options,
+      ideasOn: ideas,
+      showVerse: step >= this.PARAS.length - 1,
+      playLabel: playing ? '⏸ إيقاف' : '▶ قراءة تلقائيّة',
+      progressText: `${Math.min(step+1, this.PARAS.length)} / ${this.PARAS.length}`,
+      prev:this.prev, next:this.next, toggle:this.toggle, showAll:this.showAll, reset:this.reset, toggleIdeas:this.toggleIdeas,
+      retry: () => this.setState({ picked:null }),
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ راجِع النص',
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (correct ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

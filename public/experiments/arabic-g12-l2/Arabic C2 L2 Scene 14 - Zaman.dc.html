@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+  @keyframes dropIn { from{opacity:0; transform:translateY(-22px) scale(.8)} to{opacity:1; transform:translateY(0) scale(1)} }
+  @keyframes fadeSwap { from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ١٤ من ١٦ · النفي والزمن</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:87.5%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%2013%20-%20Dimni.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%2015%20-%20Khulasa.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">جدولُ الكتاب · تطبيقٌ حيّ</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">كيف تختارُ أداةَ النفي؟</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">أداةُ النفي تُختار بحسب <strong style="color:var(--primary);">زمن الفعل</strong> و<strong style="color:var(--primary);">القرينة</strong> في الجملة. مرِّر خلال حالات الكتاب لترى الأداةَ المناسبةَ تدخلُ فتُحوِّل الجملةَ المثبتةَ إلى منفيّة.</p>
+    </div>
+
+    <!-- machine -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary);">⚙️ آلةُ النفي</h2>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button onClick="{{ prev }}" aria-label="السابق" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">→</button>
+          <button onClick="{{ toggle }}" style="min-width:118px; height:44px; padding:0 18px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-size:15px; cursor:pointer;">{{ playLabel }}</button>
+          <button onClick="{{ next }}" aria-label="التالي" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">←</button>
+        </div>
+      </div>
+
+      <!-- mothbita -->
+      <div style="text-align:center; margin-bottom:6px;">
+        <span style="display:inline-block; font-size:12.5px; font-weight:700; color:var(--muted); margin-bottom:8px;">الجملةُ المثبتة</span>
+        <p style="font-family:'Cairo',serif; font-size:clamp(20px,3.6vw,32px); color:var(--ink); line-height:1.85;">{{ mothbita }}</p>
+        <sc-if value="{{ qarina }}" hint-placeholder-val="{{ true }}">
+          <span style="display:inline-block; margin-top:8px; padding:5px 14px; border-radius:999px; background:#f7efd8; color:#8a6a1e; font-family:'Cairo',sans-serif; font-weight:700; font-size:13px;">القرينة: <span style="direction:ltr; unicode-bidi:isolate;">{{ qarina }}</span></span>
+        </sc-if>
+      </div>
+
+      <!-- tool drops in -->
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px; margin:14px 0;">
+        <span style="color:var(--accent); font-size:22px;">↓</span>
+        <div key="{{ toolKey }}" style="animation:dropIn .4s ease-out; display:inline-flex; align-items:center; gap:10px; padding:10px 22px; border-radius:14px; background:var(--primary); color:#fff; box-shadow:0 10px 26px -12px rgba(32,0,88,.7);">
+          <span style="font-family:'Cairo',serif; font-weight:700; font-size:clamp(22px,3.4vw,30px);">{{ adaa }}</span>
+          <span style="font-size:12.5px; opacity:.85; font-family:'Cairo',sans-serif;">{{ adaaType }}</span>
+        </div>
+        <span style="color:var(--accent); font-size:22px;">↓</span>
+      </div>
+
+      <!-- manfiya -->
+      <div key="{{ toolKey }}" style="text-align:center; animation:fadeSwap .4s ease-out; background:linear-gradient(160deg,#e2f6fe,#f2effb); border:1px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,26px);">
+        <span style="display:inline-block; font-size:12.5px; font-weight:700; color:#0378a3; margin-bottom:8px;">الجملةُ المنفيّة</span>
+        <p style="font-family:'Cairo',serif; font-size:clamp(21px,3.8vw,34px); color:var(--primary); line-height:1.85;">{{ manfiya }}</p>
+      </div>
+
+      <!-- sabab -->
+      <div key="{{ toolKey }}" style="animation:fadeSwap .5s ease-out; margin-top:14px; padding:14px 18px; border-radius:14px; background:var(--tint); border-right:4px solid var(--accent);">
+        <strong style="font-family:'Cairo',sans-serif; color:var(--primary);">السبب:</strong>
+        <span style="font-size:clamp(14px,2vw,16px); line-height:1.9;"> {{ sabab }}</span>
+      </div>
+
+      <div style="margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span style="font-size:14px; color:var(--muted);">الحالة <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ progressText }}</span></span>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="11">
+            <button onClick="{{ d.onClick }}" aria-label="حالة" style="{{ d.style }}"></button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- drag match: mothbita -> adaa -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary); margin-bottom:6px;">🧲 طابِق الأداةَ بالجملة</h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">اسحب أداةَ النفي المناسبة إلى كلّ جملةٍ بحسب زمنها وقرينتها — أو اضغط الأداةَ ثمّ الجملة.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:52px; margin-bottom:18px;">
+        <sc-for list="{{ tray }}" as="t" hint-placeholder-count="4">
+          <button onPointerDown="{{ t.onDown }}" onClick="{{ t.onTap }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+        <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}">
+          <span style="color:var(--muted); font-size:14px; align-self:center;">طابقتَ كلَّ الأدوات ✓</span>
+        </sc-if>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ slots }}" as="s" hint-placeholder-count="4">
+          <div data-bucket="{{ s.id }}" onClick="{{ s.onTap }}" style="{{ s.style }}">
+            <div style="min-width:0;">
+              <p style="font-family:'Cairo',serif; font-size:clamp(17px,2.6vw,22px); color:var(--ink); line-height:1.8;">{{ s.text }}</p>
+              <span style="font-size:12.5px; color:var(--muted);">{{ s.hint }}</span>
+            </div>
+            <sc-if value="{{ s.filled }}" hint-placeholder-val="{{ false }}">
+              <span style="{{ s.chipStyle }}">{{ s.chip }}</span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">{{ feedback }}</div>
+      </sc-if>
+      <div style="margin-top:12px; text-align:left;">
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--accent); font-size:14px; font-weight:700; cursor:pointer;">↺ إعادة</button>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%2013%20-%20Dimni.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ النفي الضمنيّ</a>
+      <a href="Arabic%20C2%20L2%20Scene%2015%20-%20Khulasa.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">خلاصة القواعد ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { i:0, playing:false, placed:{}, selected:null, feedback:null, ok:false };
+
+  ROWS = [
+    { moth:'يكتُبُ الطالبُ الدرسَ', qarina:null, adaa:'لَمْ', type:'نفي وجزم وقلب', manfiya:'لَمْ يكتُبِ الطالبُ الدرسَ',
+      sabab:'الفعلُ ماضٍ متحقّقٌ نفيُه بـ«لَمْ»؛ لأنّها تجزمُ المضارعَ وتقلبُ زمنَه إلى الماضي.' },
+    { moth:'قد كتبَ الطالبُ الدرسَ', qarina:'قد', adaa:'لمّا', type:'نفي وجزم وقلب', manfiya:'لمّا يكتُبِ الطالبُ الدرسَ',
+      sabab:'الفعلُ ماضٍ قريبٌ من الحاضر لوجود «قد» قبله، فأداةُ نفيه «لمّا»؛ لأنّها تقلبُ الزمنَ إلى الماضي المتّصل بالحاضر.' },
+    { moth:'يكتُبُ الطالبُ الدرسَ', qarina:null, adaa:'لا', type:'نافية غير عاملة', manfiya:'لا يكتُبُ الطالبُ الدرسَ',
+      sabab:'الفعلُ مضارعٌ دالٌّ على الحال والاستقبال، فأداةُ نفيه «لا»؛ لأنّها تنفي الحالَ والاستقبالَ معًا.' },
+    { moth:'يكتُبُ الطالبُ الدرسَ الآنَ', qarina:'الآن', adaa:'ما', type:'نافية', manfiya:'ما يكتُبُ الطالبُ الدرسَ الآنَ',
+      sabab:'الفعلُ مضارعٌ دالٌّ على الحال بقرينة «الآن»، فأداةُ نفيه «ما»؛ لأنّها تنفي الحالَ من دون قرينةٍ زمنيّة.' },
+    { moth:'قد يكتُبُ الطالبُ الدرسَ', qarina:'قد', adaa:'قد لا', type:'لا مسبوقة بـ«قد»', manfiya:'قد لا يكتُبُ الطالبُ الدرسَ',
+      sabab:'الفعلُ مضارعٌ دالٌّ على الحال بقرينة «قد»، فأداةُ نفيه «لا» مسبوقةً بـ«قد».' },
+    { moth:'يكتُبُ الطالبُ الدرسَ غدًا', qarina:'غدًا', adaa:'لا', type:'نافية غير عاملة', manfiya:'لا يكتُبُ الطالبُ الدرسَ غدًا',
+      sabab:'الفعلُ مضارعٌ دالٌّ على الاستقبال بقرينة «غدًا»، فأداةُ نفيه «لا»، وقد نفت الاستقبالَ فقط بقرينة «غدًا».' },
+    { moth:'سيكتُبُ الطالبُ الدرسَ', qarina:'السين', adaa:'لَنْ', type:'نفي ونصب', manfiya:'لَنْ يكتُبَ الطالبُ الدرسَ',
+      sabab:'الفعلُ مضارعٌ دالٌّ على الاستقبال بقرينة «السين»، فأداةُ نفيه «لَنْ»؛ لأنّها تنفي المستقبلَ نفيًا مؤكّدًا.' },
+    { moth:'سوفَ يكتُبُ الطالبُ الدرسَ', qarina:'سوف', adaa:'لَنْ', type:'نفي ونصب', manfiya:'لَنْ يكتُبَ الطالبُ الدرسَ',
+      sabab:'الفعلُ مضارعٌ دالٌّ على الاستقبال بقرينة «سوف»، فأداةُ نفيه «لَنْ»؛ لأنّها تنفي المستقبلَ نفيًا مؤكّدًا.' },
+    { moth:'المُتَّهَمُ بريءٌ', qarina:null, adaa:'ليسَ / ما', type:'جملة اسميّة', manfiya:'ليسَ المُتَّهَمُ بريئًا  ·  ما المُتَّهَمُ بريئًا',
+      sabab:'جملةٌ اسميّة، فمن أدوات نفيها «ليس» و«ما الحجازيّة»، وكلتاهما تعملان عملَ «ليس».' },
+    { moth:'إنَّ الطالبَ حاضرٌ', qarina:'إنّ', adaa:'ليسَ / لا', type:'اسميّة مؤكّدة', manfiya:'ليسَ الطالبُ بحاضرٍ  ·  لا طالبَ حاضرٌ',
+      sabab:'جملةٌ اسميّة مؤكّدة بـ«إنّ»، فتُنفى بـ«ليس/ما» مؤكّدةً بالباء الزائدة في الخبر، أو بـ«لا» النافية للجنس المؤكِّدة للنفي.' },
+    { moth:'لقد كُنتُ مُتَّهَمًا', qarina:'قد + لام القسم', adaa:'واللهِ ما', type:'ما مسبوقة بقسم', manfiya:'واللهِ ما كُنتُ مُتَّهَمًا',
+      sabab:'جملةٌ فعليّة فعلُها ماضٍ مؤكّدٌ بـ«قد» ولام القسم، فأداةُ نفيها «ما» مسبوقةً بالقسم لتوكيد النفي.' }
+  ];
+
+  MATCH = [
+    { id:'m1', text:'يكتُبُ الطالبُ الدرسَ الآنَ', hint:'مضارع · قرينة «الآن»', adaa:'ما' },
+    { id:'m2', text:'سيكتُبُ الطالبُ الدرسَ', hint:'مضارع · قرينة «السين» (استقبال)', adaa:'لَنْ' },
+    { id:'m3', text:'قد كتبَ الطالبُ الدرسَ', hint:'ماضٍ قريب · قرينة «قد»', adaa:'لمّا' },
+    { id:'m4', text:'المُتَّهَمُ بريءٌ', hint:'جملة اسميّة', adaa:'ليسَ' }
+  ];
+  ORDER = ['t_ma','t_lan','t_lamma','t_laysa'];
+  TOOLS = { t_ma:'ما', t_lan:'لَنْ', t_lamma:'لمّا', t_laysa:'ليسَ' };
+  ADAA2ID = { 'ما':'t_ma', 'لَنْ':'t_lan', 'لمّا':'t_lamma', 'ليسَ':'t_laysa' };
+
+  componentWillUnmount(){ this._stop(); }
+  _stop(){ if (this._t){ clearInterval(this._t); this._t=null; } }
+  _play(){ this._stop(); this._t=setInterval(()=>{ this.setState(s=>{ if(s.i>=this.ROWS.length-1){ this._stop(); return {playing:false}; } return {i:s.i+1}; }); }, 3000); }
+  toggle = () => this.setState(s=>{ const playing=!s.playing; let i=s.i; if(playing&&i>=this.ROWS.length-1)i=0; return {playing,i}; }, ()=>{ this.state.playing?this._play():this._stop(); });
+  next = () => { this._stop(); this.setState(s=>({ i:Math.min(s.i+1,this.ROWS.length-1), playing:false })); };
+  prev = () => { this._stop(); this.setState(s=>({ i:Math.max(s.i-1,0), playing:false })); };
+  goTo = (n) => () => { this._stop(); this.setState({ i:n, playing:false }); };
+
+  place = (toolId, slotId) => {
+    if (this.state.placed[slotId]) return;
+    const slot = this.MATCH.find(m=>m.id===slotId);
+    const correctId = this.ADAA2ID[slot.adaa];
+    if (toolId === correctId){
+      this.setState(s => {
+        const placed = { ...s.placed, [slotId]:toolId };
+        const done = Object.keys(placed).length === this.MATCH.length;
+        return { placed, selected:null, ok:true,
+          feedback: done ? '✓ ممتاز! طابقتَ كلَّ أداةٍ بجملتها الصحيحة.' : '«'+this.TOOLS[toolId]+'» مناسبةٌ لهذه الجملة ✓' };
+      });
+    } else {
+      this.setState({ selected:null, ok:false, feedback:'راجِع زمنَ الفعل والقرينة: «الآن»→ما، «السين/سوف»→لَنْ، «قد»(ماضٍ)→لمّا، الجملةُ الاسميّة→ليسَ.' });
+    }
+  };
+
+  startDrag = (toolId, label) => (e) => {
+    const used = Object.values(this.state.placed).includes(toolId);
+    if (used) return;
+    e.preventDefault();
+    const ghost = document.createElement('div');
+    ghost.textContent = label;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:10px 20px;border-radius:14px;background:#200058;color:#fff;font-family:Cairo,serif;font-weight:700;font-size:20px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ ghost.style.left=x+'px'; ghost.style.top=y+'px'; };
+    place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{
+      const el=document.elementFromPoint(ev.clientX,ev.clientY);
+      const b=el&&el.closest&&el.closest('[data-bucket]');
+      ghost.remove();
+      window.removeEventListener('pointermove',move);
+      window.removeEventListener('pointerup',up);
+      if (b) this.place(toolId, b.getAttribute('data-bucket'));
+    };
+    window.addEventListener('pointermove',move);
+    window.addEventListener('pointerup',up);
+    this.setState({ selected:toolId });
+  };
+  tapTool = (id) => () => { const used=Object.values(this.state.placed).includes(id); if(!used) this.setState(s=>({ selected:s.selected===id?null:id, feedback:null })); };
+  tapSlot = (sid) => () => { if (this.state.selected) this.place(this.state.selected, sid); };
+  reset = () => this.setState({ placed:{}, selected:null, feedback:null, ok:false });
+
+  renderVals(){
+    const { i, playing, placed, selected, feedback, ok } = this.state;
+    const r = this.ROWS[i];
+
+    const dots = this.ROWS.map((_,n) => ({
+      style:`width:${n===i?'26px':'12px'}; height:12px; border-radius:999px; border:none; cursor:pointer; transition:all .2s ease; background:${n===i?'var(--accent)':(n<i?'var(--primary)':'var(--line)')};`,
+      onClick:this.goTo(n)
+    }));
+
+    const usedIds = Object.values(placed);
+    const tray = this.ORDER.filter(id => !usedIds.includes(id)).map(id => {
+      const sel = selected===id;
+      const style = `cursor:grab; touch-action:none; padding:10px 20px; min-height:44px; border-radius:14px; font-family:'Cairo',serif; font-weight:700; font-size:clamp(17px,2.2vw,21px); transition:all .15s ease; ${sel?'background:var(--primary); color:#fff; border:2px solid var(--primary); transform:scale(1.05)':'background:#fff; color:var(--ink); border:2px solid var(--line)'}`;
+      return { label:this.TOOLS[id], style, onDown:this.startDrag(id, this.TOOLS[id]), onTap:this.tapTool(id) };
+    });
+
+    const slots = this.MATCH.map(m => {
+      const filledId = placed[m.id];
+      const canDrop = selected && !filledId;
+      const style = `display:flex; align-items:center; justify-content:space-between; gap:14px; border-radius:16px; padding:14px 18px; transition:all .2s ease; cursor:${canDrop?'pointer':'default'}; ${filledId?'background:var(--accent-tint); border:2px solid var(--accent)':(canDrop?'background:#fbfaff; border:2px dashed var(--accent)':'background:var(--tint); border:2px solid transparent')}`;
+      return { id:m.id, text:m.text, hint:m.hint, filled:!!filledId,
+        chip: filledId?this.TOOLS[filledId]:'', 
+        chipStyle:'flex:none; padding:8px 18px; border-radius:12px; background:var(--primary); color:#fff; font-family:"Cairo",serif; font-weight:700; font-size:clamp(16px,2vw,20px);',
+        style, onTap:this.tapSlot(m.id) };
+    });
+
+    return {
+      mothbita:r.moth, qarina:r.qarina, adaa:r.adaa, adaaType:r.type, manfiya:r.manfiya, sabab:r.sabab,
+      toolKey:'r'+i,
+      playLabel: playing ? '⏸ إيقاف' : '▶ تشغيل',
+      progressText:`${i+1} / ${this.ROWS.length}`,
+      dots, prev:this.prev, next:this.next, toggle:this.toggle,
+      tray, slots, trayEmpty: this.ORDER.every(id=>usedIds.includes(id)),
+      feedback, reset:this.reset,
+      feedbackStyle:'margin-top:16px; padding:14px 16px; border-radius:12px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); line-height:1.8; background:'+(ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٢ من ٧ · قراءة النص</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:28.6%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Scene%201%20-%20Tamheed.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L1%20Scene%203%20-%20Map.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">نصّ المطالعة</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">بغداد حاضرةُ الدُّنيا</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:640px;">اقرأ النصَّ على مهل. اكشف الفقراتِ واحدةً تِلوَ الأخرى، وفعِّل «الأفكار الرئيسة» لتلتقط جوهرَ كلِّ فقرة.</p>
+    </div>
+
+    <!-- controls -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px clamp(16px,3vw,24px); display:flex; flex-wrap:wrap; align-items:center; gap:12px; justify-content:space-between; position:sticky; top:76px; z-index:20; box-shadow:0 10px 26px -22px rgba(32,0,88,.5);">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button onClick="{{ prev }}" aria-label="أخفِ فقرة" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">→</button>
+        <button onClick="{{ toggle }}" style="min-width:120px; height:44px; padding:0 16px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-size:15px; cursor:pointer;">{{ playLabel }}</button>
+        <button onClick="{{ next }}" aria-label="اكشف فقرة" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">←</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px; font-weight:600; color:var(--ink); user-select:none;">
+          <input type="checkbox" checked="{{ ideasOn }}" onChange="{{ toggleIdeas }}" style="width:18px; height:18px; accent-color:#00c3fe; cursor:pointer;">
+          إبراز الأفكار الرئيسة
+        </label>
+        <span style="font-size:13px; color:var(--muted);">الفقرة <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ progressText }}</span></span>
+      </div>
+    </section>
+
+    <!-- the text -->
+    <article style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,40px); box-shadow:0 16px 40px -30px rgba(32,0,88,.4);">
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <sc-for list="{{ paras }}" as="p" hint-placeholder-count="9">
+          <div style="{{ p.wrapStyle }}">
+            <p style="{{ p.textStyle }}">{{ p.text }}</p>
+            <sc-if value="{{ p.showIdea }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex; align-items:center; gap:8px; margin-top:8px; padding:8px 14px; border-radius:10px; background:var(--accent-tint); border-right:3px solid var(--accent);">
+                <span style="font-size:14px;">💡</span>
+                <span style="font-size:14px; font-weight:700; color:#08536f; line-height:1.6;">{{ p.idea }}</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:18px; display:flex; align-items:center; justify-content:space-between; gap:10px; border-top:1px dashed var(--line); padding-top:14px;">
+        <button onClick="{{ showAll }}" style="background:none; border:none; color:var(--accent); font-size:14px; font-weight:700; cursor:pointer;">⇊ اكشف النصَّ كاملًا</button>
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-size:14px; font-weight:600; cursor:pointer;">↺ من البداية</button>
+      </div>
+    </article>
+
+    <!-- side note from book: laqab -->
+    <aside style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--alert); border-radius:16px; padding:clamp(16px,3vw,24px);">
+      <h3 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:18px; margin-bottom:8px;">✦ ألقابُ بغداد</h3>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.9;">أُطلِقَت على بغداد ألقابٌ تعبِّر عن مكانتها: فهي <strong style="color:var(--alert);">المدينةُ المدوَّرة</strong> لإحاطتها بسورٍ مدوَّرٍ يحميها، وهي <strong style="color:var(--alert);">الزوراءُ</strong> لانحراف نهر دجلة فيها وتعرُّجه، وهي <strong style="color:var(--alert);">دارُ السلام</strong>؛ فبقيت منارةً للعلوم والفنون والآداب قرونًا متعدّدة.</p>
+    </aside>
+
+    <!-- fill in the blanks (drag / tap) -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:12px; font-weight:700; margin-bottom:10px;">نشاطٌ تفاعليّ · املأ الفراغ</span>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(17px,2.5vw,21px); margin-bottom:6px;">أكمِلْ خُلاصةَ النصّ</h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">اسحب الكلمةَ إلى مكانها الصحيح، أو انقُر الكلمةَ ثمّ الفراغ، ثمّ اضغط «تحقّق».</p>
+      <div style="background:var(--tint); border-radius:16px; padding:clamp(16px,3vw,22px); font-size:clamp(16px,2.6vw,20px); line-height:2.7; color:var(--ink); text-align:justify;">
+        بنى مدينةَ بغدادَ الخليفةُ <span data-slot="s1" onClick="{{ fib.s1.onTap }}" style="{{ fib.s1.style }}">{{ fib.s1.text }}</span> سنةَ <span data-slot="s2" onClick="{{ fib.s2.onTap }}" style="{{ fib.s2.style }}">{{ fib.s2.text }}</span> للهجرة، ويشطرُها نهرُ <span data-slot="s3" onClick="{{ fib.s3.onTap }}" style="{{ fib.s3.style }}">{{ fib.s3.text }}</span> إلى <span data-slot="s4" onClick="{{ fib.s4.onTap }}" style="{{ fib.s4.style }}">{{ fib.s4.text }}</span> غربًا و<span data-slot="s5" onClick="{{ fib.s5.onTap }}" style="{{ fib.s5.style }}">{{ fib.s5.text }}</span> شرقًا.
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; min-height:48px;">
+        <sc-for list="{{ fib.chips }}" as="c" hint-placeholder-count="7">
+          <span data-chip="{{ c.id }}" onPointerDown="{{ c.onDown }}" onClick="{{ c.onTap }}" style="{{ c.style }}">{{ c.w }}</span>
+        </sc-for>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px; margin-top:16px;">
+        <button onClick="{{ fib.onCheck }}" style="{{ fib.checkStyle }}">تحقّق</button>
+        <button onClick="{{ fib.onReset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button>
+      </div>
+      <sc-if value="{{ fib.feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ fib.feedbackStyle }}">{{ fib.feedback }}</div>
+      </sc-if>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق من الفهم</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">متى بُنِيت بغداد كما ورد في النص؟</p>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">انتبه إلى التاريخ الهجريّ وما يوافقه بالميلاديّ.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}"><span style="direction:ltr; unicode-bidi:isolate;">{{ o.label }}</span></button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L1%20Scene%201%20-%20Tamheed.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ التمهيد</a>
+      <a href="Arabic%20L1%20Scene%203%20-%20Map.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">خريطة بغداد ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 0, playing:false, ideas:true, picked:null, placed:{}, sel:null, checked:false };
+
+  PARAS = [
+    { text:'بغدادُ عاصمةُ العراق اليوم، وحاضرةُ الدولة العربيّة الإسلاميّة عبْر العصور، وهي أكبرُ مُدن العراق من حيث عددُ السُّكّان، وثاني أكبر مدينةٍ عربيّةٍ بعد القاهرة، وتأتي في المرتبة الأربعين عالميًّا.', idea:'بغداد عاصمةُ العراق وثاني أكبر مدينةٍ عربيّة.' },
+    { text:'تُعَدُّ بغدادُ المركزَ الاقتصاديَّ والإداريَّ والثقافيَّ في العراق منذ تأسيسها حتى اليوم. فمَن أمَرَ ببنائها؟ وأين تقعُ؟ ومتى؟ وكيف نشأت؟ أسئلةٌ تتوارد إلى الأذهان فنبحثُ عن أهميّتها الجغرافيّة والتاريخيّة والعمرانيّة.', idea:'بغداد مركزٌ اقتصاديٌّ وإداريٌّ وثقافيٌّ منذ تأسيسها.' },
+    { text:'أمَرَ الخليفةُ أبو جعفرٍ المنصورُ ببنائها، وهنا تكمُنُ أهميّتها الجغرافيّة؛ إذ تتوافر في موقعها المياهُ، وتتناقصُ أخطارُ الفيضانات، مما أدّى إلى اتّساع رقعتها وزيادة نفوذها. وقد بُنِيت سنة ١٤٥ﻫ الموافق ٧٦٢م، وأظهرت التنقيباتُ الأثريّة أنّها كانت موطنًا بشريًّا مهمًّا في العصور القديمة، ولا سيّما العصر الآشوريّ.', idea:'بناها المنصورُ سنة ١٤٥ﻫ / ٧٦٢م لموقعها المائيّ الآمن.' },
+    { text:'يشطرُ نهرُ دجلة المدينةَ شطريْن: فالجانبُ الغربيُّ منها هو الكرخُ، والجانبُ الشرقيُّ منها هو الرصافةُ.', idea:'دجلةُ يقسم بغداد إلى الكرخ (غربًا) والرصافة (شرقًا).' },
+    { text:'تمتاز بغدادُ بأهميّتها الثقافيّة؛ إذ تضمُّ آثارًا إسلاميّةً كأسوارها ودار الخلافة والمدرسة المستنصريّة، وصروحًا ثقافيّةً كالمتاحف والمسارح والمكتبات، وشوارعَ ثقافيّةً كشارع المتنبّي وشارع الرشيد.', idea:'ثراءٌ ثقافيّ: آثارٌ إسلاميّة وصروحٌ وشوارعُ ثقافيّة.' },
+    { text:'أمّا أهميّتها الدينيّة فقد احتوت معالمَ كثيرة، أهمُّها مرقدُ الإمامَيْن الكاظمَيْن موسى بن جعفرٍ ومحمد الجواد (عليهما السلام) في الكرخ، ومرقدُ أبي حنيفة النعمان والشيخ عبد القادر الكيلانيّ في الرصافة، فضلًا عن المساجد الكبيرة، وكنائسَ قديمةٍ فيها قبرُ العالِم اللغويّ الأب أنستاس ماري الكرمليّ.', idea:'معالمُ دينيّةٌ إسلاميّةٌ ومسيحيّةٌ تتعايش في المدينة.' },
+    { text:'كانت بغدادُ لقرونٍ رمزًا للتحضّر والتمدّن، تنزل كلَّ عصرٍ في ثوبٍ قشيبٍ رغم المِحَن. فقد مرّت عليها صروفُ الزمان كما لم تمرَّ على غيرها، وغزاها المغولُ وتنازعها الطامعون، وما فقَدَت هيبتَها التاريخيّة ولا ضاعت هُويّتُها العربيّة الإسلاميّة.', idea:'صمدت بغداد أمام المِحَن دون أن تفقد هُويّتها.' },
+    { text:'وكم من شاعرٍ قديمًا وحديثًا تغنّى بها؛ لِما وجدوه فيها من راحةٍ وطمأنينةٍ وسكينة، ولِما أودعته في القلوب من محبّةٍ ومودّةٍ وروعة.', idea:'ألهمت الشعراءَ لِما تبعثه من طمأنينةٍ ومحبّة.' },
+    { text:'فهي المدينةُ التي تجمعُ ولا تُفرّق؛ إذ يقطنها مختلفُ أبناء الشعب العراقيّ، مما جعلها بوتقةَ التنوّع الثقافيّ، ومصنعَ الهُويّة الوطنيّة.', idea:'بغداد بوتقةُ التنوّع ومصنعُ الهُويّة الوطنيّة.' }
+  ];
+
+  MCQ = {
+    correct: 1,
+    options: ['٢٠٠ﻫ / ٨١٥م', '١٤٥ﻫ / ٧٦٢م', '١٦٣٩ﻫ / ٢٢٦٠م'],
+    why: [
+      'ليس هذا التاريخ. عُد إلى الفقرة الثالثة: بُنِيت سنة ١٤٥ﻫ.',
+      'أحسنت! نصَّ الكتابُ على أنّها بُنِيت سنة ١٤٥ﻫ الموافق ٧٦٢م في عهد المنصور.',
+      'هذا الرقمُ يخصُّ سنةَ بناء إحدى الكنائس (١٦٣٩م)، لا سنةَ بناء المدينة.'
+    ]
+  };
+
+  CHIPS = [
+    { id:'c1', w:'المنصورُ', slot:'s1' },
+    { id:'c2', w:'دجلةَ', slot:'s3' },
+    { id:'c3', w:'الكرخِ', slot:'s4' },
+    { id:'c4', w:'١٤٥', slot:'s2' },
+    { id:'c5', w:'الرصافةِ', slot:'s5' },
+    { id:'c6', w:'هارونُ الرشيد', slot:null },
+    { id:'c7', w:'الفراتُ', slot:null }
+  ];
+
+  place = (slotId, chipId) => {
+    this.setState(s => {
+      const placed = { ...s.placed };
+      for (const k in placed){ if (placed[k]===chipId) delete placed[k]; }
+      placed[slotId] = chipId;
+      return { placed, sel:null, checked:false };
+    });
+  };
+  tapChip = (id) => () => this.setState(s => ({ sel: s.sel===id ? null : id }));
+  tapSlot = (slotId) => () => {
+    const s = this.state;
+    if (s.sel != null){ this.place(slotId, s.sel); return; }
+    if (s.placed[slotId] != null){ this.setState(st => { const p = { ...st.placed }; delete p[slotId]; return { placed:p, checked:false }; }); }
+  };
+  startDrag = (chip) => (e) => {
+    e.preventDefault();
+    const ghost = document.createElement('div'); ghost.textContent = chip.w;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:999px;background:#200058;color:#fff;font-family:Cairo,sans-serif;font-weight:700;font-size:17px;box-shadow:0 12px 26px rgba(0,0,0,.35);transform:translate(-50%,-50%);';
+    document.body.appendChild(ghost);
+    const move = (ev) => { ghost.style.left = ev.clientX+'px'; ghost.style.top = ev.clientY+'px'; };
+    move(e);
+    const up = (ev) => {
+      document.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerup', up);
+      ghost.remove();
+      const el = document.elementFromPoint(ev.clientX, ev.clientY);
+      const slot = el && el.closest && el.closest('[data-slot]');
+      if (slot){ this.place(slot.getAttribute('data-slot'), chip.id); }
+    };
+    document.addEventListener('pointermove', move);
+    document.addEventListener('pointerup', up);
+  };
+  check = () => { const ok = ['s1','s2','s3','s4','s5'].every(id => this.state.placed[id]!=null); if (ok) this.setState({ checked:true, sel:null }); };
+  resetFib = () => this.setState({ placed:{}, sel:null, checked:false });
+
+  componentWillUnmount(){ this._stop(); }
+  _stop(){ if (this._t){ clearInterval(this._t); this._t=null; } }
+  _play(){
+    this._stop();
+    this._t = setInterval(() => {
+      this.setState(s => {
+        if (s.step >= this.PARAS.length - 1){ this._stop(); return { playing:false }; }
+        return { step: s.step + 1 };
+      });
+    }, 3200);
+  }
+  toggle = () => this.setState(s => {
+    const playing = !s.playing; let step = s.step;
+    if (playing && step >= this.PARAS.length - 1) step = 0;
+    return { playing, step };
+  }, () => this.state.playing ? this._play() : this._stop());
+  next = () => { this._stop(); this.setState(s => ({ step: Math.min(s.step+1, this.PARAS.length-1), playing:false })); };
+  prev = () => { this._stop(); this.setState(s => ({ step: Math.max(s.step-1, 0), playing:false })); };
+  showAll = () => { this._stop(); this.setState({ step: this.PARAS.length-1, playing:false }); };
+  reset = () => { this._stop(); this.setState({ step:0, playing:false }); };
+  toggleIdeas = () => this.setState(s => ({ ideas: !s.ideas }));
+
+  renderVals(){
+    const { step, playing, ideas, picked } = this.state;
+    const paras = this.PARAS.map((p, i) => {
+      const on = i <= step, cur = i === step;
+      const wrapStyle = [
+        'padding:12px 14px','border-radius:14px','transition:all .5s ease',
+        cur ? 'background:var(--tint)' : 'background:transparent',
+        cur ? 'border-right:4px solid var(--accent)' : 'border-right:4px solid transparent',
+        on ? 'opacity:1' : 'opacity:.22',
+        on ? 'filter:none' : 'filter:blur(3px)',
+        on ? 'max-height:600px' : 'max-height:0','overflow:hidden',
+        on ? 'margin-bottom:2px':'margin-bottom:0'
+      ].join(';');
+      const textStyle = 'margin:0; font-family:"Cairo",serif; font-size:clamp(17px,2.6vw,22px); line-height:2.05; color:var(--ink); text-align:justify;';
+      return { text:p.text, idea:p.idea, wrapStyle, textStyle, showIdea: on && ideas };
+    });
+
+    const options = this.MCQ.options.map((label, i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `cursor:${picked!=null?'default':'pointer'}; padding:14px 12px; min-height:44px; border-radius:14px; font-family:"Cairo",sans-serif; font-size:clamp(15px,2vw,18px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+      return { label, style, onClick: () => { if (this.state.picked==null) this.setState({ picked:i }); } };
+    });
+    const correct = picked === this.MCQ.correct;
+
+    const { placed, sel, checked } = this.state;
+    const chipById = (id) => this.CHIPS.find(c => c.id===id);
+    const usedIds = Object.values(placed);
+    const SLOTS = ['s1','s2','s3','s4','s5'];
+    const slotView = (id, minW) => {
+      const cid = placed[id]; const chip = cid ? chipById(cid) : null;
+      let bg='#fff', color='var(--muted)', bd='2px dashed var(--line)';
+      if (chip){ bg='var(--tint)'; color='var(--primary)'; bd='2px solid var(--accent)'; }
+      if (checked && chip){ const good = chip.slot===id; bg = good?'var(--accent-tint)':'var(--alert-tint)'; color = good?'#0378a3':'#c0455a'; bd = '2px solid '+(good?'var(--accent)':'var(--alert)'); }
+      const ltr = id==='s2';
+      const style = `display:inline-flex; align-items:center; justify-content:center; min-width:${minW}; min-height:42px; margin:0 5px; padding:2px 12px; border-radius:12px; background:${bg}; color:${color}; border:${bd}; font-weight:700; cursor:pointer; vertical-align:middle; ${ltr?'direction:ltr; unicode-bidi:isolate;':''} ${(sel!=null&&!checked)?'box-shadow:0 0 0 3px rgba(0,195,254,.28);':''}`;
+      return { text: chip ? chip.w : '▁▁▁', style, onTap: this.tapSlot(id) };
+    };
+    const fibChips = this.CHIPS.filter(c => !usedIds.includes(c.id)).map(c => {
+      const on = sel===c.id;
+      const style = `touch-action:none; user-select:none; -webkit-user-select:none; cursor:grab; display:inline-flex; align-items:center; min-height:42px; padding:8px 16px; border-radius:999px; font-weight:700; font-size:clamp(14px,2vw,17px); border:1px solid ${on?'var(--accent)':'var(--line)'}; background:${on?'var(--accent-tint)':'#fff'}; color:${on?'#0378a3':'var(--primary)'}; box-shadow:${on?'0 0 0 3px rgba(0,195,254,.2)':'0 4px 12px -8px rgba(32,0,88,.5)'};`;
+      return { id:c.id, w:c.w, style, onDown:this.startDrag(c), onTap:this.tapChip(c.id) };
+    });
+    const allFilled = SLOTS.every(id => placed[id]!=null);
+    const correctCount = SLOTS.filter(id => { const cid=placed[id]; const c=cid?chipById(cid):null; return c && c.slot===id; }).length;
+    const fib = {
+      s1:slotView('s1','104px'), s2:slotView('s2','64px'), s3:slotView('s3','96px'), s4:slotView('s4','96px'), s5:slotView('s5','104px'),
+      chips: fibChips, onCheck:this.check, onReset:this.resetFib,
+      checkStyle: `padding:12px 28px; min-height:44px; border-radius:12px; border:none; font-family:'Cairo',sans-serif; font-weight:700; font-size:15px; cursor:${allFilled?'pointer':'not-allowed'}; background:${allFilled?'var(--primary)':'var(--line)'}; color:${allFilled?'#fff':'var(--muted)'};`,
+      feedback: checked ? (correctCount===5 ? 'ممتاز! أكملتَ الخُلاصةَ صحيحةً: بناها المنصورُ سنةَ ١٤٥ﻫ، ويشطرُها دجلةُ إلى الكرخِ غربًا والرصافةِ شرقًا.' : `أصبتَ ${correctCount} من ٥. الفراغاتُ الحمراءُ خاطئة — انقُرها لإفراغها، وأعِد وضعَ الكلمة الصحيحة (المنصورُ · ١٤٥ · دجلةَ · الكرخِ · الرصافةِ) ثمّ تحقّق ثانية.`) : null,
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); line-height:1.9; background:'+(checked&&correctCount===5?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+
+    return {
+      paras, options, fib,
+      ideasOn: ideas,
+      playLabel: playing ? '⏸ إيقاف' : '▶ قراءة تلقائيّة',
+      progressText: `${Math.min(step+1, this.PARAS.length)} / ${this.PARAS.length}`,
+      prev:this.prev, next:this.next, toggle:this.toggle, showAll:this.showAll, reset:this.reset, toggleIdeas:this.toggleIdeas,
+      retry: () => this.setState({ picked:null }),
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ راجِع النص',
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (correct ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

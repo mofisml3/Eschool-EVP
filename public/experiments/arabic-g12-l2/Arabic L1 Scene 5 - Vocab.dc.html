@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٥ من ٧ · المفردات</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:71.5%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Scene%204%20-%20Timeline.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L1%20Scene%206%20-%20Grammar.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">ما بعد النص · معاني المفردات</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">اقلِب البطاقةَ لتعرف المعنى</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:640px;">أربعُ مفرداتٍ من النص. اضغط كلَّ بطاقةٍ لترى معناها ومثالًا عليها، ثم طابِق كلَّ مفردةٍ بمعناها في التمرين.</p>
+    </div>
+
+    <!-- ===== flip cards ===== -->
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:16px;">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+        <div onClick="{{ c.onFlip }}" style="position:relative; cursor:pointer; height:230px;">
+            <sc-if value="{{ c.showFront }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute; inset:0; border-radius:18px; padding:20px; animation:popIn .35s ease; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:linear-gradient(155deg,#2a0a6a,#200058); color:#fff; box-shadow:0 16px 36px -24px rgba(32,0,88,.7);">
+              <span style="font-family:'Cairo',serif; font-weight:700; font-size:clamp(24px,4vw,34px);">{{ c.word }}</span>
+              <span style="font-size:12px; color:#9fd9f5; letter-spacing:.05em;">↻ اضغط لقلب البطاقة</span>
+            </div>
+            </sc-if>
+            <sc-if value="{{ c.showBack }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; inset:0; border-radius:18px; padding:18px 20px; animation:popIn .35s ease; display:flex; flex-direction:column; justify-content:center; gap:10px; background:#fff; border:1px solid var(--line); border-top:5px solid var(--accent); color:var(--ink); box-shadow:0 16px 36px -26px rgba(32,0,88,.5);">
+              <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:17px;">{{ c.word }}</strong>
+              <p style="font-size:14.5px; line-height:1.75;">{{ c.meaning }}</p>
+              <p style="font-size:13px; line-height:1.7; color:var(--muted); border-top:1px dashed var(--line); padding-top:8px;"><span style="color:var(--accent); font-weight:700;">مثال:</span> {{ c.example }}</p>
+            </div>
+            </sc-if>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- ===== matching activity ===== -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700;">تمرين المطابقة</span>
+        <span style="font-size:14px; color:var(--muted);">تمّت مطابقة <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ matchedCount }} / 4</span></span>
+      </div>
+      <p style="font-size:clamp(15px,2.1vw,17px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">اسحب المفردةَ (أو اضغطها ثم اضغط المعنى) إلى تعريفها الصحيح.</p>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:18px;">يعمل بالسحب على الحاسوب واللمس على الجوّال.</p>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:20px;">
+        <!-- word chips -->
+        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:52px;">
+          <sc-for list="{{ chips }}" as="w" hint-placeholder-count="4">
+            <button onPointerDown="{{ w.onDown }}" onClick="{{ w.onTap }}" style="{{ w.style }}">{{ w.label }}</button>
+          </sc-for>
+        </div>
+        <!-- meaning drop zones -->
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <sc-for list="{{ zones }}" as="z" hint-placeholder-count="4">
+            <div data-zone="{{ z.id }}" onClick="{{ z.onTap }}" style="{{ z.style }}">
+              <span style="{{ z.slotStyle }}">{{ z.slotText }}</span>
+              <span style="flex:1; font-size:14.5px; line-height:1.7; color:var(--ink);">{{ z.meaning }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+        </div>
+      </sc-if>
+      <div style="margin-top:14px; text-align:left;">
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة التمرين</button>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L1%20Scene%204%20-%20Timeline.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الخط الزمنيّ</a>
+      <a href="Arabic%20L1%20Scene%206%20-%20Grammar.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">النشاط النحويّ ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flipped:{}, matched:{}, dragging:null, selected:null, feedback:null, ok:false };
+
+  WORDS = [
+    { id:'karkh',  word:'الكرخ',      meaning:'الجانبُ الغربيُّ من بغداد؛ ومنه كَرْخُ الماء: سَوقُه في النهر.', example:'مرقدُ الإمامَيْن الكاظمَيْن يقع في الكرخ.' },
+    { id:'rusafa', word:'الرصافة',    meaning:'الجانبُ الشرقيُّ من بغداد، وهي على وزن «فَعالة» من الفعل رَصَفَ.', example:'المدرسةُ المستنصريّةُ في الرصافة.' },
+    { id:'surouf', word:'صُروف الدهر', meaning:'تقلّباتُ الزمن ونوائبُه وأحوالُه المتغيّرة.', example:'صمدت بغدادُ أمام صروف الدهر.' },
+    { id:'qibla',  word:'قِبلة',       meaning:'الجهةُ التي يُتوجَّه إليها؛ ووِجهةٌ يقصدها الناس.', example:'صارت بغدادُ قِبلةً للعلماء والأدباء.' }
+  ];
+  CHIP_ORDER = ['qibla','karkh','surouf','rusafa'];
+
+  flip = (id) => this.setState(s => ({ flipped: { ...s.flipped, [id]: !s.flipped[id] } }));
+
+  attempt = (wordId, zoneId) => {
+    if (this.state.matched[wordId]) return;
+    if (wordId === zoneId){
+      this.setState(s => ({ matched: { ...s.matched, [wordId]:true }, selected:null,
+        feedback: this.WORDS.find(w=>w.id===wordId).word + ' ✓ مطابقةٌ صحيحة — أحسنت!', ok:true }));
+      const total = Object.keys(this.state.matched).length + 1;
+      if (total === this.WORDS.length){
+        setTimeout(()=> this.setState({ feedback:'🎉 رائع! طابقتَ جميعَ المفردات بمعانيها بنجاح.', ok:true }), 50);
+      }
+    } else {
+      const w = this.WORDS.find(x=>x.id===wordId);
+      this.setState({ selected:null, feedback: 'المفردة «'+w.word+'» لا تناسب هذا المعنى. اقرأ التعريف جيّدًا وحاول مرّة أخرى.', ok:false });
+    }
+  };
+
+  startDrag = (word) => (e) => {
+    if (this.state.matched[word.id]) return;
+    e.preventDefault();
+    const ghost = document.createElement('div');
+    ghost.textContent = word.word;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:12px 18px;border-radius:999px;background:#200058;color:#fff;font-family:Reem Kufi,sans-serif;font-weight:700;font-size:16px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place = (x,y) => { ghost.style.left = x+'px'; ghost.style.top = y+'px'; };
+    place(e.clientX, e.clientY);
+    const move = (ev) => place(ev.clientX, ev.clientY);
+    const up = (ev) => {
+      const el = document.elementFromPoint(ev.clientX, ev.clientY);
+      const zone = el && el.closest && el.closest('[data-zone]');
+      ghost.remove();
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      this.setState({ dragging:null });
+      if (zone) this.attempt(word.id, zone.getAttribute('data-zone'));
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+    this.setState({ dragging: word.id, selected: word.id });
+  };
+
+  tapChip = (id) => () => { if (!this.state.matched[id]) this.setState(s => ({ selected: s.selected===id?null:id, feedback:null })); };
+  tapZone = (zoneId) => () => { if (this.state.selected) this.attempt(this.state.selected, zoneId); };
+  reset = () => this.setState({ matched:{}, selected:null, feedback:null, ok:false });
+
+  renderVals(){
+    const { flipped, matched, selected } = this.state;
+
+    const cards = this.WORDS.map(w => {
+      const f = !!flipped[w.id];
+      return { word:w.word, meaning:w.meaning, example:w.example, showFront: !f, showBack: f, onFlip: () => this.flip(w.id) };
+    });
+
+    const chips = this.CHIP_ORDER.map(id => {
+      const w = this.WORDS.find(x=>x.id===id);
+      const done = matched[id];
+      const sel = selected === id;
+      const style = `touch-action:none; user-select:none; cursor:${done?'default':'grab'}; padding:12px 20px; min-height:44px; border-radius:999px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(15px,2vw,18px); transition:all .18s ease; ${done?'background:var(--tint); color:var(--muted); border:1px dashed var(--line); opacity:.45':(sel?'background:var(--primary); color:#fff; border:2px solid var(--primary); box-shadow:0 8px 20px -8px rgba(32,0,88,.6)':'background:#fff; color:var(--primary); border:2px solid var(--primary)')}`;
+      return { label:w.word, style, onDown: done?null:this.startDrag(w), onTap: this.tapChip(id) };
+    });
+
+    const zones = this.WORDS.map(w => {
+      const done = matched[w.id];
+      const canDrop = selected && !done;
+      const style = `display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; transition:all .2s ease; cursor:${canDrop?'pointer':'default'}; ${done?'background:var(--accent-tint); border:2px solid var(--accent)':(canDrop?'background:#fbfaff; border:2px dashed var(--accent)':'background:var(--tint); border:2px dashed var(--line)')}`;
+      const slotStyle = `flex:none; display:flex; align-items:center; justify-content:center; min-width:84px; height:40px; border-radius:10px; font-family:'Cairo',sans-serif; font-weight:700; font-size:15px; ${done?'background:var(--accent); color:#08123a':'background:#fff; color:var(--muted); border:1px solid var(--line)'}`;
+      return { id:w.id, meaning:w.meaning, slotText: done? w.word : '؟', slotStyle, style, onTap: this.tapZone(w.id) };
+    });
+
+    const feedback = this.state.feedback;
+    const ok = this.state.ok;
+    return {
+      cards, chips, zones,
+      matchedCount: Object.keys(matched).length,
+      feedback,
+      feedbackTitle: ok ? '✓ ممتاز' : '✗ حاول مجدّدًا',
+      feedbackStyle: 'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (ok ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset: this.reset
+    };
+  }
+}
+</script>
+</body>
+</html>

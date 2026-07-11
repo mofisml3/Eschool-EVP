@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:translateY(0)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(18px,5vw,56px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20;">
+    <a href="Chapter%202%20Hub.dc.html" style="display:inline-flex; align-items:center; gap:10px; color:var(--muted); font-weight:500; font-size:15px;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; background:var(--tint); color:var(--primary); font-size:18px;">⌂</span>
+      دروس الوحدة
+    </a>
+    <img src="brand/logo.svg" alt="تعليم" style="height:36px; width:auto;">
+  </header>
+
+  <section style="background:radial-gradient(120% 130% at 88% 0%, #2c0a6e 0%, #200058 48%, #0c0030 100%); color:#fff; padding:clamp(30px,5vw,60px) clamp(18px,5vw,56px);">
+    <div style="max-width:960px; margin:0 auto;">
+      <span style="display:inline-flex; gap:8px; align-items:center; padding:6px 16px; border-radius:999px; background:rgba(0,195,254,.12); border:1px solid rgba(0,195,254,.4); color:#bfe9fb; font-size:14px; font-weight:500; margin-bottom:16px;">مخطط الدرس · الدرس ٢-٢ · القواعد</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(34px,6vw,64px); line-height:1.1; margin-bottom:14px;">أسلوبُ النَّفي</h1>
+      <p style="max-width:640px; font-size:clamp(15px,2vw,19px); line-height:1.9; color:#d7d1ee;">أسلوبٌ خبريٌّ يُراد به نقضُ الفكرة وإنكارُها، فهو خلافُ الإثبات. نتعلّم أوّلًا النفيَ الصريحَ: أدواتِه، وعملَ «ليس» ومعناها، واسمَها وخبرَها، وخصيصتَيها، والاسمَ «غير»؛ ثم حروفَ النفي: «ما» و«إنْ»، و«لَمْ» و«لمّا» و«لَنْ»، و«لا» النافية غيرَ العاملة وأنواعَها، و«لا» النافية للجنس وعملَها واسمَها وخبرَها.</p>
+    </div>
+  </section>
+
+  <main style="max-width:960px; margin:0 auto; padding:clamp(24px,4vw,48px) clamp(18px,5vw,56px); display:flex; flex-direction:column; gap:26px;">
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:18px;">
+      <div style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:24px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <span style="font-size:22px;">🎯</span>
+          <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:19px; color:var(--primary);">الهدف التعليميّ</h2>
+        </div>
+        <p style="font-size:16px; line-height:1.95;">أن يتعرّف الطالبُ أسلوبَ النفي وقسميه، ويميّزَ أدواتِ النفي الصريح (فعلًا واسمًا وحروفًا)، ويوضّحَ عملَ «ليس» ومعناها، ويُعربَ اسمَها وخبرَها بحالاتهما، ويتبيّنَ خصيصتَي «ليس»، ويُعربَ «غير» بحسب موقعها.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--alert); border-radius:16px; padding:24px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <span style="font-size:22px;">🔑</span>
+          <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:19px; color:var(--primary);">المتطلّبات السابقة</h2>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:16px; line-height:1.7;">
+          <li style="display:flex; gap:10px;"><span style="color:var(--alert);">◂</span> الجملةُ الاسميّة: المبتدأ والخبر.</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--alert);">◂</span> عملُ «كان وأخواتها» (رفعُ الاسم ونصبُ الخبر) — من الدرس ٢-١.</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--alert);">◂</span> حرفُ الجرّ الزائد وأثرُه في الإعراب (لفظًا/محلًّا).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(20px,3vw,26px); color:var(--primary); margin-bottom:6px;">مسار المشاهد <span style="color:var(--muted); font-weight:400; font-size:.7em;">(١٦ مشهدًا — من الأبسط إلى الأعمق)</span></h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">اضغط أيّ مشهد للانتقال إليه مباشرة.</p>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+
+        <a href="Arabic%20C2%20L2%20Scene%201%20-%20Tamheed.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">التمهيد وقسْمَا النفي</strong><span style="color:var(--muted); font-size:14px;">معنى أسلوب النفي، وأمثلتُه من نصّ المطالعة، والفرق بين الصريح والضمنيّ.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%202%20-%20Adawat.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٢</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">أدوات النفي الصريح</strong><span style="color:var(--muted); font-size:14px;">تصنيفٌ بالسحب: أفعال (ليس)، أسماء (غير)، حروف (ما، إنْ، لات، لَم…).</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%203%20-%20Laysa.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٣</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">«ليس»: التأثيران المعنويّ والإعرابيّ</strong><span style="color:var(--muted); font-size:14px;">آلةٌ تفاعليّة: أدخِل «ليس» على الجملة وشاهِد تغيّرَ الإعراب متحرّكًا.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%204%20-%20Ism.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٤</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">اسمُ «ليس» وحالاتُه</strong><span style="color:var(--muted); font-size:14px;">الاسمُ الظاهر والضمير، والجرُّ بـ«مِن» الزائدة، وفائدةُ «الزائد».</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%205%20-%20Khabar.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٥</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">خبرُ «ليس»: ثلاثُ حالات</strong><span style="color:var(--muted); font-size:14px;">مفردٌ (والباءُ الزائدة)، وجملةٌ، وشبهُ جملة — تصنيفٌ بالسحب مع الشواهد.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%206%20-%20Khasisatan.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٦</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">خصيصتا «ليس»</strong><span style="color:var(--muted); font-size:14px;">بقاؤها عاملةً إذا تقدّم خبرُها، وإذا انتقض نفيُها بـ«إلّا» — بالشواهد.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%207%20-%20Ghayr.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٧</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">الاسمُ «غير»</strong><span style="color:var(--muted); font-size:14px;">ينفي المضافَ إليه، ويُعرَب بحسب موقعه — غيِّر الموقعَ وشاهِد الإعراب.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%208%20-%20Ma-In.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٨</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">الحروف: «ما» و«إنْ»</strong><span style="color:var(--muted); font-size:14px;">«ما» غيرُ عاملةٍ مع الفعل، وعاملةٌ عملَ «ليس» مع الاسم (الحجازيّة)، و«إنْ» النافية.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%209%20-%20Jawazim.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٩</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">«لَمْ» و«لمّا» و«لَنْ»</strong><span style="color:var(--muted); font-size:14px;">أثرُها في المضارع: الجزم والنصب وقلب الزمن — مقارنةٌ تفاعليّة.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2010%20-%20LaGhayrAmila.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١٠</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">«لا» النافية غير العاملة</strong><span style="color:var(--muted); font-size:14px;">أنواعها الخمسة (أفعال، مصادر، زائدة، عاطفة، معترِضة) — مستكشِفٌ وتصنيف.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2011%20-%20LaJins1.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١١</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">«لا» النافية للجنس: العملُ والشرطان</strong><span style="color:var(--muted); font-size:14px;">عملُها عملَ «إنّ» متحرّكًا، وشرطا إعمالها، والإهمالُ والتكرار.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2012%20-%20LaJins2.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١٢</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">«لا» النافية للجنس: اسمُها وخبرُها</strong><span style="color:var(--muted); font-size:14px;">الاسمُ المُعرَب (مضاف/شبيه) والمبنيّ (مفرد)، وخبرُها ورفعُه وجوازُ حذفه.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2013%20-%20Dimni.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١٣</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">النفيُ الضمنيّ</strong><span style="color:var(--muted); font-size:14px;">نفيٌ بلا أداةٍ يُفهَم من السياق (الاستفهام والشرط) — كاشفٌ وتصنيفٌ بالسحب.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2014%20-%20Zaman.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١٤</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">النفي والزمن</strong><span style="color:var(--muted); font-size:14px;">آلةٌ حيّة تختار الأداةَ بحسب الزمن والقرينة (١١ حالة من الكتاب) + مطابقةٌ بالسحب.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2015%20-%20Khulasa.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١٥</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">خلاصةُ القواعد</strong><span style="color:var(--muted); font-size:14px;">بطاقاتُ مراجعةٍ للأدوات العشر، وتذكّر وتعلّمت، وتقويمُ اللسان.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2016%20-%20I3rab.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١٦</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">الإعراب التطبيقيّ</strong><span style="color:var(--muted); font-size:14px;">إعرابُ الحديث «ليس المؤمنُ…» خطوةً خطوة، والنشاطُ الختاميّ.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20C2%20L2%20Scene%2017%20-%20Tamareen.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:linear-gradient(150deg,#fff,#f7f4ff); border:1px solid var(--accent); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)';" onmouseout="this.style.transform='translateX(0)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--accent-tint); color:#0378a3; font-size:22px;">✎</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">بنك التمرينات <span style="font-size:12px; color:#0378a3; background:var(--accent-tint); padding:2px 8px; border-radius:999px; font-weight:700;">الجزء الرابع</span></strong><span style="color:var(--muted); font-size:14px;">تمريناتُ الكتاب الثمانية كاملةً (ص ٦٦–٧٣) مع لعبة تصنيفٍ تفاعليّة وإجاباتٍ نموذجيّة.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+      </div>
+    </div>
+
+    <div style="background:#fff; border:1px solid var(--line); border-radius:18px; padding:clamp(20px,3vw,30px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:20px; color:var(--primary); margin-bottom:18px;">لمحةٌ عن الدرس</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:18px;">
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">المحتوى المعروض</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">تعريفُ أسلوب النفي وقسماه، أدواتُ النفي الصريح، عملُ «ليس» ومعناها، اسمُها وخبرُها، خصيصتاها، والاسمُ «غير»؛ ثم حروفُ النفي: «ما» و«إنْ»، «لَمْ» و«لمّا» و«لَنْ»، و«لا» النافية غيرُ العاملة و«لا» النافية للجنس.</p></div>
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">الوسائط والتفاعلات</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">أشكالٌ متحرّكة لعمل «ليس»، وتصنيفٌ بالسحب للأدوات وحالات الخبر، وشواهدُ قرآنيّة وشعريّة مُعرَبة.</p></div>
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">الأسئلة والتغذية الراجعة</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">أسئلةٌ سريعة داخل المشاهد + تقويمٌ نهائيّ، بتغذيةٍ راجعة تشرح الصواب والخطأ وتتيح إعادة المحاولة.</p></div>
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">النشاط الختاميّ</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">تقويمٌ يقيس تمييزَ أدوات النفي وحروفِه وإعرابَ «ليس» و«غير» و«لا» النافية للجنس في شواهد جديدة.</p></div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:center; padding:10px 0 20px;">
+      <a href="Arabic%20C2%20L2%20Scene%201%20-%20Tamheed.dc.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 40px; min-height:44px; border-radius:999px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:20px; box-shadow:0 14px 34px -14px rgba(32,0,88,.7); transition:transform .18s ease;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
+        ▶ ابدأ الدرس
+      </a>
+    </div>
+
+  </main>
+</div>
+</x-dc>
+</body>
+</html>

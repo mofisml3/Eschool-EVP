@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="audio-player.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.97)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٤ من ٥ · الحبّوبي</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:80%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Scene%203%20-%20Ihyaa.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L3%20Scene%205%20-%20Sharqi.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">من روّاد الإحياء</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,42px); color:var(--primary); line-height:1.18; margin-bottom:10px;">محمد سعيد الحبّوبي</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">شاعرٌ مجدِّدٌ ومجاهد. تعرَّف سيرتَه، ثم اقرأ موشّحتَه «يا غزالَ الكرخ» وحلّلها.</p>
+    </div>
+
+    <!-- bio -->
+    <section style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(18px,3vw,24px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:18px; margin-bottom:8px;">🕮 سيرتُه</h2>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.95;">هو السيّد محمد سعيد بن محمود بن قاسم، وُلِد في مدينة النجف عام <span style="direction:ltr; unicode-bidi:isolate;">١٨٤٩م</span>، وهو أشهرُ شخصيّات عصره؛ كان مجدِّدًا كبيرًا في الشعر العربيّ، بعث فيه روحَ الإبداع والتجديد، واشتُهر بفنِّ الموشّحات. ولمّا بدأ الجيشُ البريطانيّ باحتلال البصرة كان ممّن لبّى نداءَ الجهاد، وقاد بنفسه مقاومةَ المحتلّ، وسطّر أسمى آيات البطولة، توفّي في مدينة الناصريّة عام <span style="direction:ltr; unicode-bidi:isolate;">١٩١٥م</span> ودُفِن في النجف الأشرف.</p>
+    </section>
+
+    <!-- poem -->
+    <section style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3.5vw,32px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(19px,2.8vw,24px); text-align:center; margin-bottom:6px;">موشّحةُ «يا غزالَ الكرخ»</h2>
+      <p style="text-align:center; color:var(--muted); font-size:13px; margin-bottom:12px;">للحفظ من المطلع إلى «وكفَّ المجتني»</p>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; padding:12px 16px; background:var(--tint); border-radius:14px;">
+        <span style="font-size:22px;">🔊</span>
+        <div style="flex:1; min-width:0;">
+          <div style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:14px; margin-bottom:7px;">استمع إلى إنشاد الموشّحة — اضغط ▶</div>
+          <sound-bar src="audio/muwashah.mp3" style="display:block; width:100%;"></sound-bar>
+        </div>
+      </div>
+      <div ref="{{ poemRef }}" style="display:flex; flex-direction:column; gap:14px;">
+        <sc-for list="{{ verses }}" as="v" hint-placeholder-count="10">
+          <div style="{{ v.style }}">
+            <span style="font-family:'Cairo',serif; font-size:clamp(16px,2.5vw,21px); line-height:1.9; color:var(--ink);"><sc-for list="{{ v.aWords }}" as="w" hint-placeholder-count="4"><span data-wi="{{ w.wi }}" style="transition:color .12s ease;">{{ w.t }} </span></sc-for></span>
+            <span style="font-family:'Cairo',serif; font-size:clamp(16px,2.5vw,21px); line-height:1.9; color:var(--primary);"><sc-for list="{{ v.bWords }}" as="w" hint-placeholder-count="4"><span data-wi="{{ w.wi }}" style="transition:color .12s ease;">{{ w.t }} </span></sc-for></span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- flip cards vocab -->
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary); margin-bottom:4px;">معاني المفردات</h2>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:14px;">اضغط البطاقةَ لقلبها ومعرفة المعنى.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:14px;">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="7">
+          <div onClick="{{ c.onFlip }}" style="position:relative; cursor:pointer; height:150px;">
+            <sc-if value="{{ c.showFront }}" hint-placeholder-val="{{ true }}">
+              <div style="position:absolute; inset:0; border-radius:16px; padding:16px; animation:popIn .3s ease; display:flex; align-items:center; justify-content:center; background:linear-gradient(155deg,#2a0a6a,#200058); color:#fff; box-shadow:0 12px 30px -20px rgba(32,0,88,.7);"><span style="font-family:'Cairo',serif; font-weight:700; font-size:clamp(20px,3vw,26px);">{{ c.word }}</span></div>
+            </sc-if>
+            <sc-if value="{{ c.showBack }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; inset:0; border-radius:16px; padding:14px 16px; animation:popIn .3s ease; display:flex; align-items:center; justify-content:center; text-align:center; background:#fff; border:1px solid var(--line); border-top:4px solid var(--accent);"><span style="font-size:14px; line-height:1.7; color:var(--ink);">{{ c.meaning }}</span></div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- drag match -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary);">🎯 طابِق المفردةَ بمعناها</h2>
+        <span style="font-size:14px; color:var(--muted);">تمّ: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ matchedCount }} / 5</span></span>
+      </div>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:16px;">اسحب المفردةَ إلى معناها.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:52px; margin-bottom:18px;">
+        <sc-for list="{{ chips }}" as="w" hint-placeholder-count="5">
+          <button onPointerDown="{{ w.onDown }}" style="{{ w.style }}">{{ w.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="5">
+          <div data-zone="{{ z.id }}" style="{{ z.style }}">
+            <span style="{{ z.slotStyle }}">{{ z.slotText }}</span>
+            <span style="flex:1; text-align:right; font-size:14.5px; line-height:1.7; color:var(--ink); pointer-events:none;">{{ z.meaning }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}"><div style="{{ feedbackStyle }}">{{ feedback }}</div></sc-if>
+      <div style="margin-top:12px; text-align:left;"><button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button></div>
+    </section>
+
+    <!-- critical analysis accordion -->
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary); margin-bottom:12px;">التعليقُ النقديّ</h2>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
+          <div style="background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden;">
+            <button onClick="{{ n.onToggle }}" style="{{ n.headStyle }}"><span>{{ n.title }}</span><span style="color:var(--accent); transform:rotate({{ n.rot }}); transition:transform .2s;">⌄</span></button>
+            <sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}"><div style="padding:0 18px 16px; animation:popIn .25s ease;"><p style="font-size:14.5px; line-height:1.95; color:var(--ink);">{{ n.body }}</p></div></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,20px); color:var(--primary); margin-bottom:12px;">💬 أسئلة المناقشة</h2>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ discussion }}" as="d" hint-placeholder-count="6">
+          <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px;">
+            <p style="font-size:15px; font-weight:700; color:var(--ink); line-height:1.7;">{{ d.q }}</p>
+            <button onClick="{{ d.onReveal }}" style="margin-top:8px; background:none; border:none; color:var(--accent); font-weight:700; font-size:13.5px; cursor:pointer;">{{ d.btn }}</button>
+            <sc-if value="{{ d.shown }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px; padding:12px 14px; border-radius:10px; background:var(--tint); border-right:3px solid var(--accent); font-size:14.5px; line-height:1.9;">{{ d.a }}</div></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L3%20Scene%203%20-%20Ihyaa.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ مدرسة الإحياء</a>
+      <a href="Arabic%20L3%20Scene%205%20-%20Sharqi.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الشرقيّ وقصيدته ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { flipped:{}, matched:{}, selected:null, feedback:null, ok:false, open:0 };
+
+  VERSES = [
+    { a:'هزَّتِ الزَّوراءُ أعطافَ الصَّبا', b:'فصَفَتْ لي رَغْدةُ العيشِ الهَني' },
+    { a:'فارِعْ مِنْ عَهْدِكَ ما قَدْ سَلَفا', b:'وأعِدْ يا فِتنةَ المُفتَتِنِ', sep:true },
+    { a:'عارِضِ الشَّمسَ جَبينًا بِجَبينْ', b:'لِنَرَى أيَّكُما أَسْنى سَنا' },
+    { a:'واسِبْ في عِطْفِكَ عَطْفَ الياسمينْ', b:'وانْثَنِ غُصْنًا إذا الغُصْنُ انثنى' },
+    { a:'حبَّذا لَوْ قَلْبُكَ القاسي يَلينْ', b:'إنَّما عَطْفُكَ كان الأليَنا' },
+    { a:'فانعَطِفْ أنتَ إذا ما انعَطَفا', b:'قَدُّكَ المَهْزوزُ هزَّ الغُصُنا' },
+    { a:'إنَّ في خَدِّكَ رَوْضًا شَغَفا', b:'مُقلةَ الرَّائي وكفَّ المُجتَني', sep:true },
+    { a:'أيُّها العُذّالُ كُفُّوا عَذْلَكُمْ', b:'بالهَوى العُذريِّ عُذْري اتَّضَحا' },
+    { a:'وامنَحوا يا أهلَ نَجْدٍ وَصْلَكُمْ', b:'مُستَهامًا يَتَشكّى البَرَحا' },
+    { a:'واذكُروني مِثلَ ذِكْرايَ لَكُمْ', b:'رُبَّ ذِكْرى قَرَّبَتْ مَنْ نَزَحا' },
+    { a:'الوَفا يا عُربَ يا أهلَ الوَفا', b:'لا تَخونوا عَهدَ مَنْ لَمْ يَخُنِ' },
+    { a:'لا تَقولوا صَدَّ عنَّا وَجَفا', b:'عندَكُمْ روحي وعندي بَدَني' }
+  ];
+
+  WORDS = [
+    { id:'itf', word:'العِطْف', meaning:'جانبُ الإنسان من أسفل رأسه حتى وركه؛ ومعناه اللِّينُ والرأفةُ والانحناء.' },
+    { id:'qad', word:'القدُّ', meaning:'قامةُ الإنسان أو قوامُه.' },
+    { id:'muqla', word:'المُقلةُ', meaning:'العينُ.' },
+    { id:'athl', word:'العذلُ', meaning:'اللومُ.' },
+    { id:'uthri', word:'الهوى العُذريُّ', meaning:'العشقُ الطاهرُ المنسوبُ إلى بني عُذْرة.' },
+    { id:'must', word:'المستهامُ', meaning:'شديدُ الحبِّ والوجد.' },
+    { id:'barh', word:'البرحُ', meaning:'الشِّدَّةُ والأذى.' }
+  ];
+  MATCH_IDS = ['qad','athl','must','muqla','barh'];
+
+  NOTES = [
+    { title:'ما الموشّح؟', body:'نوعٌ من الشعر العربيّ نشأ في مشرق الدولة العربيّة وتطوّر في مغربها، ولا سيّما الأندلس. ومن أشهر الوشّاحين: أبو الحسن الحصريّ، ولسان الدين بن الخطيب، وابن زُمُرك، والتُّطَيليّ الأعمى. وقد كان لِدَعة الحياة في القصور ووسائلِ الترفيه (الغناء والموسيقى) أثرٌ في نشأته؛ إذ تناسب بنيتُه طبيعةَ الغناء والألحان.' },
+    { title:'بنيةُ الموشّح', body:'يتألّف من مطلعٍ، ثم أدوارٍ (مقاطع)، وكلُّ دورٍ من أغصانٍ يجمعها وزنٌ واحدٌ وقافيةٌ واحدة، وبعد الأدوار جميعًا يُختَم بـ«الخرجة» وهي القفلُ الذي تنتهي به الموشّحة.' },
+    { title:'الدراسةُ الموضوعيّة والفنيّة', body:'الدراسةُ الموضوعيّة: تناوُلُ الموضوعات والأغراض التي تعبّر عنها القصيدة (كوصف بغداد الزوراء وذكرِ العيش الرغيد ووصفِ الحبيبة). أمّا الدراسةُ الفنيّة: فتتناول بناءَ القصيدة الفنيَّ وطبيعةَ التصوير البيانيّ (المحسّنات والتشبيه وتنوّع القوافي).' },
+    { title:'الصورُ البيانيّة', body:'التشبيهُ البليغ في «إنَّ في خدِّكَ روضًا شغفا مقلةَ الرائي وكفَّ المجتني»؛ شبّه الخدَّ بالروض وحذف الأداةَ ووجهَ الشبه. والجناسُ في «العُذريِّ» و«عُذري»؛ لفظان متجانسان صوتًا مختلفان معنًى: الأوّل نسبةٌ إلى بني عُذرة، والثاني العُذرُ.' }
+  ];
+
+  componentDidMount(){ try{ fetch('audio/muwashah.mp3').then(r=>r.blob()).then(b=>{ const a=document.querySelector('audio'); if(a) a.src=URL.createObjectURL(b); }).catch(function(){}); }catch(e){} }
+  componentWillUnmount(){ this._cleanup && this._cleanup(); }
+  poemRef = React.createRef();
+  onTime = (e) => {
+    const a = e.target; if (!a || !a.duration) return;
+    const idx = Math.floor((a.currentTime / a.duration) * (this.totalWords || 1));
+    const root = this.poemRef.current; if (!root) return;
+    root.querySelectorAll('[data-wi]').forEach(s => {
+      const wi = +s.getAttribute('data-wi');
+      if (wi === idx){ s.style.background='#ffe08a'; s.style.color='#7a4e00'; s.style.fontWeight='700'; s.style.borderRadius='4px'; s.style.padding='0 2px'; }
+      else if (wi < idx){ s.style.background='transparent'; s.style.color='#0378a3'; s.style.fontWeight='700'; s.style.padding='0'; }
+      else { s.style.background='transparent'; s.style.color=''; s.style.fontWeight=''; s.style.padding='0'; }
+    });
+  };
+  flip = (id) => () => this.setState(s=>({ flipped:{...s.flipped,[id]:!s.flipped[id]} }));
+  startDrag = (wordId) => (e) => {
+    if (this.state.matched[wordId]) return; e.preventDefault();
+    const w=this.WORDS.find(x=>x.id===wordId);
+    const ghost=document.createElement('div'); ghost.textContent=w.word;
+    ghost.style.cssText='position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:999px;background:#200058;color:#fff;font-family:Cairo,serif;font-weight:700;font-size:17px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ghost.style.left=x+'px';ghost.style.top=y+'px';}; place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{ const el=document.elementFromPoint(ev.clientX,ev.clientY); const z=el&&el.closest&&el.closest('[data-zone]'); ghost.remove(); window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); this._cleanup=null; if(z) this.attempt(wordId, z.getAttribute('data-zone')); };
+    this._cleanup=()=>{ghost.remove();window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);};
+    window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  };
+  attempt = (wordId, zoneId) => {
+    if (this.state.matched[wordId]) return;
+    const w=this.WORDS.find(x=>x.id===wordId);
+    if (wordId===zoneId){ this.setState(s=>({ matched:{...s.matched,[wordId]:true}, ok:true, feedback:w.word+' ✓ مطابقةٌ صحيحة.' })); }
+    else { this.setState({ ok:false, feedback:'«'+w.word+'» لا يناسب هذا المعنى؛ حاول مجدّدًا.' }); }
+  };
+  reset = () => this.setState({ matched:{}, feedback:null, ok:false });
+  toggle = (i) => () => this.setState(s=>({ open: s.open===i?-1:i }));
+
+  DISCQ = [
+    { q:'أمقيمًا كان الحبّوبي في مدينةٍ واحدة أم متنقّلًا في مدنٍ أخرى؟ وما سببُ ذلك؟', a:'كان متنقّلًا؛ إذ رافق الجهادَ وانتقل إلى البصرة ثم الناصريّة دفاعًا عن الأرض، ودُفن في النجف الأشرف.' },
+    { q:'هل تجد ثمّةَ علاقةٍ بين الموشّحة والغناء؟', a:'نعم؛ نشأ الموشّحُ متأثّرًا بوسائل الترفيه كالغناء والموسيقى، وبنيتُه تناسب الألحانَ والترديد.' },
+    { q:'ما الفرقُ بين الدراسة الفنيّة والدراسة الموضوعيّة؟', a:'الموضوعيّةُ تتناول موضوعاتِ القصيدة وأغراضَها، والفنيّةُ تتناول بناءها الفنيَّ وتصويرَها البيانيَّ ومحسّناتِها.' },
+    { q:'مَن أشهرُ شعراء الموشّحات؟', a:'الحصريّ، ولسان الدين بن الخطيب، وابن زُمُرك، والتُّطَيليّ الأعمى.' },
+    { q:'ما الفرقُ بين الغزل الحسّيّ والغزل العذريّ؟ وما نوعُ الغزل في الموشّحة؟', a:'الحسّيُّ يصف مفاتنَ المرأة ويكشفها، والعذريُّ عفيفٌ طاهر؛ والغزلُ في الموشّحة عذريٌّ عفيف.' },
+    { q:'هل أثّرت الموشّحةُ بتعدّد قوافيها ومقاطعها في القارئ أكثرَ من القصيدة ذات القافية الواحدة؟', a:'نعم؛ تنوّعُ القوافي والمقاطع يُحفّز خيالَ القارئ ويؤثّر فيه أكثرَ من القافية الواحدة.' }
+  ];
+  dReveal = (i) => () => this.setState(s => ({ dq: { ...s.dq, [i]: !(s.dq && s.dq[i]) } }));
+  renderVals(){
+    const { flipped, matched, feedback, ok, open, dq } = this.state;
+    let wi = 0;
+    const verses = this.VERSES.map(v=>{
+      const aWords = v.a.split(/\s+/).filter(Boolean).map(t=>({t,wi:wi++}));
+      const bWords = (v.b||'').split(/\s+/).filter(Boolean).map(t=>({t,wi:wi++}));
+      return { a:v.a, b:v.b, aWords, bWords, style:`display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 30px; padding:10px 14px; border-radius:10px; background:rgba(255,255,255,.6); ${v.sep?'border-bottom:2px dotted var(--line);':''}` };
+    });
+    this.totalWords = wi;
+    const cards = this.WORDS.map(w=>{ const f=!!flipped[w.id]; return { word:w.word, meaning:w.meaning, showFront:!f, showBack:f, onFlip:this.flip(w.id) }; });
+    const chips = this.MATCH_IDS.filter(id=>!matched[id]).map(id=>{ const w=this.WORDS.find(x=>x.id===id); return { label:w.word, style:'touch-action:none; user-select:none; cursor:grab; padding:10px 16px; min-height:44px; border-radius:999px; background:#fff; color:var(--primary); border:2px solid var(--primary); font-family:"Cairo",serif; font-weight:700; font-size:clamp(15px,2vw,18px);', onDown:this.startDrag(id) }; });
+    const zones = this.MATCH_IDS.map(id=>{ const w=this.WORDS.find(x=>x.id===id); const done=matched[id]; return { id, meaning:w.meaning, slotText: done?w.word:'؟', slotStyle:`flex:none; display:flex; align-items:center; justify-content:center; min-width:96px; height:40px; border-radius:10px; font-family:'Cairo',serif; font-weight:700; font-size:15px; ${done?'background:var(--accent); color:#08123a':'background:#fff; color:var(--muted); border:1px solid var(--line)'}`, style:`display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; transition:all .2s ease; ${done?'background:var(--accent-tint); border:2px solid var(--accent)':'background:var(--tint); border:2px dashed var(--line)'}` }; });
+    const notes = this.NOTES.map((n,i)=>{ const on=open===i; return { title:n.title, body:n.body, open:on, rot:on?'180deg':'0deg', headStyle:`width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:15px 18px; background:${on?'var(--tint)':'#fff'}; border:none; cursor:pointer; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(14px,2vw,16px); color:var(--primary); text-align:right;`, onToggle:this.toggle(i) }; });
+    return {
+      verses, poemRef:this.poemRef, onTime:this.onTime, cards, chips, zones, notes,
+      matchedCount:Object.keys(matched).length,
+      feedback, feedbackStyle:'margin-top:14px; padding:12px 16px; border-radius:12px; animation:popIn .25s ease; font-size:14.5px; font-weight:600; background:'+(ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset:this.reset,
+      discussion: this.DISCQ.map((d,i)=>({ q:d.q, a:d.a, shown:!!(dq&&dq[i]), btn:(dq&&dq[i])?'▲ إخفاء':'▼ الإجابة', onReveal:this.dReveal(i) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

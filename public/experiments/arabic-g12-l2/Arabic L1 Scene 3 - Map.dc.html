@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+  @keyframes flowDash { to { stroke-dashoffset:-40; } }
+  @keyframes pulse { 0%,100%{ transform:translate(-50%,-50%) scale(1) } 50%{ transform:translate(-50%,-50%) scale(1.12) } }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٣ من ٧ · الخريطة</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:42.9%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Scene%202%20-%20Text.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L1%20Scene%204%20-%20Timeline.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:960px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">الموقع الجغرافيّ</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">نهرُ دجلة يشطرُ المدينة</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:640px;">يشطرُ نهرُ دجلة بغدادَ شطريْن: <strong style="color:var(--alert);">الكرخُ</strong> غربًا، و<strong style="color:#0378a3;">الرصافةُ</strong> شرقًا. اضغط النقاطَ لتتعرّف معالمَ كلِّ ضفّة، وبدِّل الضفّةَ لتراها وحدها.</p>
+    </div>
+
+    <!-- ===== interactive map ===== -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(14px,2.5vw,22px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <!-- bank filter -->
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; justify-content:center;">
+        <sc-for list="{{ bankBtns }}" as="b" hint-placeholder-count="3">
+          <button onClick="{{ b.onClick }}" style="{{ b.style }}">{{ b.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:1px solid var(--line);">
+        <svg viewBox="0 0 800 560" preserveAspectRatio="xMidYMid meet" style="display:block; width:100%; height:auto; background:#f4f1fb;">
+          <!-- karkh region (west/left) -->
+          <path d="M0,0 L420,0 C380,60 320,90 340,140 C360,190 500,230 470,280 C445,325 330,375 360,420 C385,465 460,510 430,560 L0,560 Z" fill="#fbdfe3" style="{{ karkhFill }}"></path>
+          <!-- rusafa region (east/right) -->
+          <path d="M420,0 C380,60 320,90 340,140 C360,190 500,230 470,280 C445,325 330,375 360,420 C385,465 460,510 430,560 L800,560 L800,0 Z" fill="#d3f0fb" style="{{ rusafaFill }}"></path>
+          <!-- bridges -->
+          <line x1="300" y1="140" x2="392" y2="140" stroke="#b7addb" stroke-width="7" stroke-linecap="round"></line>
+          <line x1="392" y1="340" x2="486" y2="340" stroke="#b7addb" stroke-width="7" stroke-linecap="round"></line>
+          <!-- river dijla -->
+          <path d="M420,0 C380,60 320,90 340,140 C360,190 500,230 470,280 C445,325 330,375 360,420 C385,465 460,510 430,560" fill="none" stroke="#0aa7d8" stroke-width="26" stroke-linecap="round"></path>
+          <path d="M420,0 C380,60 320,90 340,140 C360,190 500,230 470,280 C445,325 330,375 360,420 C385,465 460,510 430,560" fill="none" stroke="#54cdf3" stroke-width="14" stroke-linecap="round" stroke-dasharray="6 16" style="animation:flowDash 1.6s linear infinite;"></path>
+        </svg>
+
+        <!-- HTML overlays (percentage coords) -->
+        <span style="position:absolute; top:5%; left:6%; padding:5px 12px; border-radius:999px; background:rgba(246,132,142,.16); color:#c0455a; font-weight:700; font-size:clamp(12px,1.8vw,15px); font-family:'Cairo',sans-serif;">الكرخ · غربًا</span>
+        <span style="position:absolute; top:5%; right:6%; padding:5px 12px; border-radius:999px; background:rgba(0,195,254,.16); color:#0378a3; font-weight:700; font-size:clamp(12px,1.8vw,15px); font-family:'Cairo',sans-serif;">الرصافة · شرقًا</span>
+        <span style="position:absolute; bottom:5%; left:50%; transform:translateX(-50%); padding:4px 12px; border-radius:999px; background:rgba(10,167,216,.14); color:#0378a3; font-weight:700; font-size:clamp(11px,1.6vw,14px);">🌊 نهر دجلة</span>
+
+        <sc-for list="{{ pins }}" as="p" hint-placeholder-count="7">
+          <button onClick="{{ p.onClick }}" style="{{ p.style }}">
+            <span style="{{ p.dotStyle }}">{{ p.emoji }}</span>
+            <span style="{{ p.labelStyle }}">{{ p.name }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <!-- info panel -->
+      <div style="margin-top:16px; min-height:96px;">
+        <sc-if value="{{ active }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ infoStyle }}">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span style="font-size:22px;">{{ active.emoji }}</span>
+              <strong style="font-family:'Cairo',sans-serif; font-size:clamp(17px,2.4vw,20px); color:var(--primary);">{{ active.name }}</strong>
+              <span style="{{ active.tagStyle }}">{{ active.bankLabel }}</span>
+            </div>
+            <p style="font-size:clamp(14px,2vw,16px); line-height:1.85;">{{ active.note }}</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noActive }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:18px; border-radius:14px; background:var(--tint); text-align:center; color:var(--muted); font-size:15px;">👆 اضغط أيَّ نقطةٍ على الخريطة لعرض معلومة عنها.</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق من الفهم</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:16px;">على أيِّ ضفّةٍ يقع مرقدُ <span style="color:var(--primary);">أبي حنيفة النعمان</span>؟</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="2">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L1%20Scene%202%20-%20Text.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ قراءة النص</a>
+      <a href="Arabic%20L1%20Scene%204%20-%20Timeline.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الخط الزمنيّ ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: null, bank: 'all', picked: null };
+
+  PINS = [
+    { id:'kadhim', name:'الكاظميّة', emoji:'🕌', bank:'karkh', x:22, y:16, note:'في الكرخ؛ مرقدُ الإمامَيْن الكاظمَيْن موسى بن جعفرٍ ومحمد الجواد (عليهما السلام).' },
+    { id:'round',  name:'المدينة المدوّرة', emoji:'🏛️', bank:'karkh', x:16, y:54, note:'دارُ السلام؛ بناها المنصورُ على شكلٍ مدوّرٍ يُحيط بها سورٌ يحميها من الغزوات.' },
+    { id:'adham',  name:'الأعظميّة', emoji:'🕌', bank:'rusafa', x:74, y:15, note:'في الرصافة؛ مرقدُ الإمام أبي حنيفة النعمان، أحدِ أئمّة الفقه الكبار.' },
+    { id:'gilani', name:'الشيخ الكيلانيّ', emoji:'🕌', bank:'rusafa', x:85, y:41, note:'في الرصافة؛ مرقدُ الشيخ عبد القادر الكيلانيّ.' },
+    { id:'mustansiriya', name:'المدرسة المستنصريّة', emoji:'📜', bank:'rusafa', x:60, y:53, note:'من أقدم المدارس الإسلاميّة؛ صرحٌ علميٌّ عريقٌ في الرصافة.' },
+    { id:'mutanabbi', name:'شارع المتنبّي', emoji:'📚', bank:'rusafa', x:64, y:70, note:'شارعٌ ثقافيٌّ يشتهر ببيع الكتب، رمزٌ لثقافة بغداد في الرصافة.' },
+    { id:'rasheed', name:'شارع الرشيد', emoji:'🏙️', bank:'rusafa', x:80, y:78, note:'من أعرق شوارع بغداد الثقافيّة والتجاريّة في الرصافة.' }
+  ];
+
+  MCQ = { correct:1, options:['الكرخ', 'الرصافة'], why:[
+    'ليست الكرخ. مرقدُ أبي حنيفة يقع في الأعظميّة على ضفّة الرصافة (الشرقيّة).',
+    'أحسنت! مرقدُ أبي حنيفة النعمان في الأعظميّة على ضفّة الرصافة الشرقيّة.'
+  ] };
+
+  renderVals(){
+    const { active, bank, picked } = this.state;
+
+    const bankBtns = [
+      { key:'all', label:'كامل المدينة' },
+      { key:'karkh', label:'الكرخ فقط' },
+      { key:'rusafa', label:'الرصافة فقط' }
+    ].map(b => {
+      const on = bank === b.key;
+      const accent = b.key==='karkh' ? 'var(--alert)' : (b.key==='rusafa' ? '#0aa7d8' : 'var(--primary)');
+      const style = `cursor:pointer; padding:9px 16px; min-height:44px; border-radius:999px; font-family:"Cairo",sans-serif; font-weight:600; font-size:14px; transition:all .18s ease; ${on?`background:${accent};color:#fff;border:1px solid ${accent}`:'background:#fff;color:var(--ink);border:1px solid var(--line)'}`;
+      return { label:b.label, style, onClick: () => this.setState({ bank:b.key }) };
+    });
+
+    const karkhOn = bank==='all' || bank==='karkh';
+    const rusafaOn = bank==='all' || bank==='rusafa';
+    const karkhFill = `opacity:${karkhOn?1:0.28}; transition:opacity .3s ease;`;
+    const rusafaFill = `opacity:${rusafaOn?1:0.28}; transition:opacity .3s ease;`;
+
+    const pins = this.PINS.map(p => {
+      const visible = bank==='all' || bank===p.bank;
+      const isActive = active === p.id;
+      const bankColor = p.bank==='karkh' ? '#f6848e' : '#0aa7d8';
+      const dim = !visible;
+      const style = `position:absolute; left:${p.x}%; top:${p.y}%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:5px; background:none; border:none; cursor:${dim?'default':'pointer'}; opacity:${dim?0.25:1}; transition:opacity .3s ease; padding:0; z-index:${isActive?5:3};`;
+      const dotStyle = `display:flex; align-items:center; justify-content:center; width:clamp(34px,6vw,46px); height:clamp(34px,6vw,46px); border-radius:50%; font-size:clamp(15px,2.6vw,20px); background:#fff; border:3px solid ${bankColor}; box-shadow:0 6px 16px -6px rgba(32,0,88,.5); ${isActive?`animation:pulse 1.3s ease-in-out infinite; box-shadow:0 0 0 6px ${p.bank==='karkh'?'rgba(246,132,142,.25)':'rgba(0,195,254,.25)'};`:''}`;
+      const labelStyle = `font-family:'Cairo',sans-serif; font-size:clamp(10px,1.6vw,13px); font-weight:700; color:${isActive?'#fff':'var(--ink)'}; background:${isActive?bankColor:'rgba(255,255,255,.85)'}; padding:2px 8px; border-radius:8px; white-space:nowrap; box-shadow:0 2px 6px -2px rgba(32,0,88,.3);`;
+      return { ...p, style, dotStyle, labelStyle, onClick: () => { if (!dim) this.setState(s => ({ active: s.active===p.id?null:p.id })); } };
+    });
+
+    const act = this.PINS.find(p => p.id === active) || null;
+    const activeObj = act ? {
+      emoji: act.emoji, name: act.name, note: act.note,
+      bankLabel: act.bank==='karkh' ? 'الكرخ' : 'الرصافة',
+      tagStyle: `padding:3px 12px; border-radius:999px; font-size:13px; font-weight:700; ${act.bank==='karkh'?'background:var(--alert-tint);color:#c0455a':'background:var(--accent-tint);color:#0378a3'}`
+    } : null;
+    const infoStyle = act ? `padding:18px 20px; border-radius:14px; animation:popIn .25s ease-out; background:${act.bank==='karkh'?'#fff6f7':'#f3fbfe'}; border:1px solid ${act.bank==='karkh'?'#f7c4ca':'#b9e8f8'};` : '';
+
+    const options = this.MCQ.options.map((label, i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `cursor:${picked!=null?'default':'pointer'}; padding:14px 12px; min-height:44px; border-radius:14px; font-family:"Cairo",sans-serif; font-size:clamp(15px,2vw,18px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+      return { label, style, onClick: () => { if (this.state.picked==null) this.setState({ picked:i }); } };
+    });
+    const correct = picked === this.MCQ.correct;
+
+    return {
+      bankBtns, pins, karkhFill, rusafaFill,
+      active: activeObj, noActive: !activeObj,
+      infoStyle, options,
+      retry: () => this.setState({ picked:null }),
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (correct ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

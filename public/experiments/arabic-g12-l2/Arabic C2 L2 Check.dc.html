@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">التقويم النهائيّ</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="{{ barStyle }}"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%207%20-%20Ghayr.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Chapter%202%20Hub.dc.html" title="دروس الوحدة" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:18px;">☰</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:760px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:24px;">
+
+    <div style="text-align:center; animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">التقويم النهائيّ · أسلوب النفي</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,40px); color:var(--primary); line-height:1.2;">اختبر فهمَك للدرس</h1>
+    </div>
+
+    <sc-if value="{{ inQuiz }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,34px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <span style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:15px;">السؤال <span style="direction:ltr; unicode-bidi:isolate;">{{ qNum }}</span></span>
+        <span style="font-size:13px; color:var(--muted);">النتيجة حتى الآن: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ scoreText }}</span></span>
+      </div>
+      <p style="font-size:clamp(17px,2.6vw,22px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:20px;">{{ question }}</p>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+        </div>
+        <div style="display:flex; justify-content:flex-start; margin-top:16px;">
+          <button onClick="{{ nextQ }}" style="padding:13px 30px; min-height:44px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px; cursor:pointer;">{{ nextLabel }}</button>
+        </div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ showResult }}" hint-placeholder-val="{{ false }}">
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(24px,4vw,40px); text-align:center; box-shadow:0 16px 40px -30px rgba(32,0,88,.5); animation:popIn .35s ease;">
+      <div style="font-size:clamp(48px,10vw,72px); line-height:1;">{{ resultEmoji }}</div>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(24px,4vw,34px); color:var(--primary); margin:14px 0 6px;">{{ resultTitle }}</h2>
+      <p style="font-size:clamp(16px,2.3vw,19px); color:var(--muted); margin-bottom:20px;">أجبتَ عن <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ finalScore }}</span> إجابةً صحيحة.</p>
+      <div style="display:inline-flex; align-items:center; gap:6px; padding:10px 22px; border-radius:999px; background:var(--tint); font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(20px,4vw,28px); margin-bottom:24px;">
+        <span style="direction:ltr; unicode-bidi:isolate;">{{ percent }}</span>٪
+      </div>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.9; color:var(--ink); max-width:520px; margin:0 auto 26px;">{{ resultMsg }}</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        <button onClick="{{ restart }}" style="padding:14px 28px; min-height:44px; border-radius:12px; border:none; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:16px; cursor:pointer;">↺ أعِد التقويم</button>
+        <a href="Chapter%202%20Hub.dc.html" style="padding:14px 28px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px; display:inline-flex; align-items:center;">دروس الوحدة ←</a>
+      </div>
+    </section>
+    </sc-if>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx:0, picked:null, correctCount:0, done:false };
+
+  QUESTIONS = [
+    { q:'ما تعريفُ أسلوب النفي؟',
+      options:['أسلوبٌ إنشائيٌّ لطلب الفعل','أسلوبٌ خبريٌّ يُراد به نقضُ فكرةٍ وإنكارُها','أسلوبٌ لتأكيد الإثبات','أسلوبٌ للتعجّب'],
+      correct:1,
+      why:['خطأ؛ النفيُ أسلوبٌ خبريٌّ لا إنشائيّ.',
+           'أحسنت! النفيُ أسلوبٌ خبريٌّ يُراد به نقضُ الفكرة وإنكارُها، وهو خلافُ الإثبات.',
+           'خطأ؛ النفيُ خلافُ الإثبات لا تأكيدٌ له.',
+           'خطأ؛ التعجّبُ أسلوبٌ آخر.'] },
+    { q:'أيُّ هذه الأدوات فعلٌ من أدوات النفي؟',
+      options:['غير','ليس','ما','لا'],
+      correct:1,
+      why:['«غير» اسمٌ من أدوات النفي لا فعل.',
+           'أحسنت! «ليس» الفعلُ الوحيد من أدوات النفي، وهو ماضٍ ناقصٌ جامد.',
+           '«ما» حرفٌ من حروف النفي.',
+           '«لا» حرفٌ من حروف النفي.'] },
+    { q:'ما التأثيرُ المعنويُّ لـ«ليس»؟',
+      options:['تنفي اتّصافَ اسمها بخبرها','تؤكّد اتّصافَ الاسم بالخبر','تحوّل الجملة إلى استفهام','تطلب القيامَ بالفعل'],
+      correct:0,
+      why:['أحسنت! «ليس» تنفي اتّصافَ اسمها بخبرها، كـ«ليس المقاتلُ جبانًا».',
+           'خطأ؛ هي تنفي لا تؤكّد.',
+           'خطأ؛ لا علاقة لها بالاستفهام.',
+           'خطأ؛ النفيُ أسلوبٌ خبريّ لا طلبيّ.'] },
+    { q:'في «ليس الجوُّ صحوًا»، ما إعرابُ «صحوًا»؟',
+      options:['اسمُ ليس مرفوع','خبرُ ليس منصوب','مبتدأ مرفوع','مفعولٌ به'],
+      correct:1,
+      why:['خطأ؛ اسمُ ليس هو «الجوُّ» المرفوع.',
+           'أحسنت! «ليس» تعمل عملَ «كان»؛ فتنصب الخبرَ «صحوًا».',
+           'خطأ؛ نسخت «ليس» الابتداء فلا مبتدأ.',
+           'خطأ؛ ليست مفعولًا به، بل خبرَ ليس منصوب.'] },
+    { q:'في «ليس في المصنعِ مِن عاملٍ»، ما إعرابُ «عاملٍ»؟',
+      options:['اسمُ ليس مجرورٌ لفظًا مرفوعٌ محلًّا','خبرُ ليس منصوب','مضافٌ إليه مجرور','فاعلٌ مرفوع'],
+      correct:0,
+      why:['أحسنت! «مِن» حرفُ جرٍّ زائدٌ لتوكيد النفي، فـ«عاملٍ» اسمُ ليس مجرورٌ لفظًا مرفوعٌ محلًّا.',
+           'خطأ؛ «عاملٍ» اسمُ ليس لا خبرُها.',
+           'خطأ؛ «مِن» هنا زائدةٌ لا تُحدِث إضافة.',
+           'خطأ؛ لا فاعلَ في الجملة الاسميّة المنسوخة.'] },
+    { q:'خبرُ «ليس» في «ليس لهم ناصرٌ» هو:',
+      options:['خبرٌ مفردٌ منصوب','خبرٌ جملةٌ فعليّة','شبهُ جملةٍ (جارّ ومجرور) في محلّ نصب','ليس لها خبرٌ'],
+      correct:2,
+      why:['خطأ؛ «ناصرٌ» اسمُ ليس مؤخّرٌ، والخبرُ شبهُ الجملة المتقدّم.',
+           'خطأ؛ ليست جملةً فعليّة.',
+           'أحسنت! «لهم» جارٌّ ومجرورٌ شبهُ جملةٍ في محلّ نصب خبر «ليس» (تقدّم على الاسم).',
+           'خطأ؛ لها خبرٌ وهو شبهُ الجملة «لهم».'] },
+    { q:'من خصائص «ليس» أنّها تبقى عاملةً إذا:',
+      options:['تأخّر خبرُها فقط','تقدّم خبرُها أو انتُقِض نفيُها بـ«إلّا»','دخلت على فعلٍ','سبقها حرفُ جرّ'],
+      correct:1,
+      why:['ليس دقيقًا؛ الخصيصةُ في تقدُّم الخبر لا تأخّره.',
+           'أحسنت! تبقى «ليس» عاملةً إذا تقدّم خبرُها على اسمها، وإذا انتُقِض نفيُها بـ«إلّا».',
+           'خطأ؛ «ليس» تختصّ بالدخول على الجملة الاسميّة.',
+           'خطأ؛ هذا يخصّ اسمَها لا بقاءَ عملها.'] },
+    { q:'في «العالِمُ غيرُ الجاهلِ»، ما إعرابُ «غير»؟',
+      options:['خبرٌ مرفوع','مفعولٌ به منصوب','مضافٌ إليه مجرور','مبتدأ مرفوع'],
+      correct:0,
+      why:['أحسنت! وقعت «غير» خبرًا للمبتدأ «العالِمُ» فرُفِعت، و«الجاهلِ» مضافٌ إليه مجرور.',
+           'خطأ؛ لا فعلَ هنا ينصبها.',
+           'خطأ؛ «غير» هي المضافُ لا المضافُ إليه.',
+           'خطأ؛ المبتدأ هو «العالِمُ»، و«غير» خبرُه.'] },
+    { q:'إذا دخلت «ما» على جملةٍ اسميّة (ما الحجازيّة) عمِلت عملَ:',
+      options:['«إنّ»','«ليس»','«كاد»','لم تعمل شيئًا'],
+      correct:1,
+      why:['خطأ؛ «إنّ» تنصب الاسمَ وترفع الخبر، وهذا عكسُ عمل «ما» الحجازيّة.',
+           'أحسنت! «ما» الحجازيّة تعمل عملَ «ليس»: ترفع الاسمَ وتنصب الخبر، كـ﴿ما هذا بشرًا﴾.',
+           'خطأ؛ «كاد» من أفعال المقاربة لا صلةَ لها بعمل «ما».',
+           'خطأ؛ «ما» الحجازيّة عاملةٌ عملَ «ليس».'] },
+    { q:'أيُّ الحروف يجزم المضارعَ ويقلب زمنَه إلى المُضيّ مع بقاء النفي مستمرًّا إلى الحاضر؟',
+      options:['لَمْ','لمّا','لَنْ','لا'],
+      correct:1,
+      why:['«لَمْ» تجزم وتقلب الزمنَ لكنّ نفيَها منقطعٌ لا مستمرّ.',
+           'أحسنت! «لمّا» تجزم المضارعَ وتقلب زمنَه، ونفيُها مستمرٌّ إلى الحاضر والفعلُ متوقَّع.',
+           '«لَنْ» تنصب المضارعَ ولا تجزمه، وتخلِّصه للاستقبال.',
+           '«لا» النافية غير العاملة لا تجزم المضارع.'] },
+    { q:'في «فلا صدَّقَ ولا صلَّى»، نوعُ «لا» هو:',
+      options:['نافيةٌ داخلةٌ على الفعل الماضي (مكرّرة)','نافيةٌ للجنس','عاطفةٌ','عاملةٌ عملَ ليس'],
+      correct:0,
+      why:['أحسنت! دخلت على الماضي «صدَّق» مع تكرارها فنفت حدوثَه، وهي غيرُ عاملة.',
+           'خطأ؛ النافية للجنس تدخل على الاسم لا الفعل.',
+           'خطأ؛ لم تَعطِف بعد إثبات، بل نفت الفعلَ مكرّرة.',
+           'خطأ؛ «لا» هنا غيرُ عاملةٍ داخلةٌ على فعلٍ ماضٍ.'] },
+    { q:'في «لا طالبَ مُهمِلٌ»، كيف يُعرَب اسمُ «لا» النافية للجنس (طالبَ)؟',
+      options:['مُعرَبٌ منصوبٌ لأنّه مضاف','مبنيٌّ على الفتح في محلّ نصب','مرفوعٌ على الابتداء','مضافٌ إليه مجرور'],
+      correct:1,
+      why:['خطأ؛ «طالبَ» مفردٌ لا مضاف، فيكون مبنيًّا لا مُعرَبًا.',
+           'أحسنت! اسمُها مفردٌ فيُبنى على الفتح في محلّ نصب، و«مُهمِلٌ» خبرُها مرفوع.',
+           'خطأ؛ عمِلت «لا» عملَ «إنّ» فنصبت الاسمَ (بناءً).',
+           'خطأ؛ «طالبَ» اسمُ «لا» لا مضافٌ إليه.'] },
+    { q:'«ولو شاءَ اللهُ لجمعَهم على الهُدى»: أسلوبُ نفيٍ ضمنيّ عن طريق:',
+      options:['الاستفهام','الشرط','التعجّب','التمنّي'],
+      correct:1,
+      why:['خطأ؛ لا أداةَ استفهام هنا، بل «لو» الشرطية.',
+           'أحسنت! «لو» أسلوبُ شرطٍ يتضمّن النفي، والمعنى: لم يشأِ اللهُ جمعَهم.',
+           'خطأ؛ ليس تعجّبًا.',
+           'خطأ؛ ليس تمنّيًا.'] },
+    { q:'لنفي «يكتُبُ الطالبُ الدرسَ الآنَ» نستعملُ:',
+      options:['لَمْ','لَنْ','ما','لمّا'],
+      correct:2,
+      why:['خطأ؛ «لَمْ» تقلبُ الزمنَ إلى الماضي، والقرينة «الآن» تدلّ على الحال.',
+           'خطأ؛ «لَنْ» للمستقبل لا للحال.',
+           'أحسنت! الفعلُ مضارعٌ دالّ على الحال بقرينة «الآن»، فأداةُ نفيه «ما».',
+           'خطأ؛ «لمّا» تقلبُ الزمنَ إلى الماضي المتّصل بالحاضر.'] },
+    { q:'في «ليسَ المؤمنُ بالطعّانِ ولا اللعّانِ»، ما نوعُ «لا» في «ولا اللعّانِ»؟',
+      options:['نافيةٌ للجنس','نافيةٌ غيرُ عاملةٍ زائدةٌ للتوكيد','عاملةٌ عملَ «ليس»','نافيةٌ تجزمُ الفعل'],
+      correct:1,
+      why:['خطأ؛ لا تعملُ عملَ الجنس هنا، وما بعدها معرفةٌ معطوفةٌ مجرورة.',
+           'أحسنت! «الواو» حرفُ عطف، و«لا» نافيةٌ غيرُ عاملةٍ زائدةٌ للتوكيد، و«اللعّانِ» معطوفٌ مجرور.',
+           'خطأ؛ لم تعملْ عملَ «ليس»، بل هي زائدةٌ للتوكيد.',
+           'خطأ؛ دخلت على اسمٍ معرفةٍ لا فعل، وهي غيرُ عاملة.'] }
+  ];
+
+  answer = (i) => () => {
+    if (this.state.picked != null) return;
+    const c = i === this.QUESTIONS[this.state.idx].correct;
+    this.setState(s => ({ picked:i, correctCount: s.correctCount + (c?1:0) }));
+  };
+  nextQ = () => this.setState(s => {
+    if (s.idx >= this.QUESTIONS.length - 1) return { done:true };
+    return { idx:s.idx+1, picked:null };
+  });
+  restart = () => this.setState({ idx:0, picked:null, correctCount:0, done:false });
+
+  renderVals(){
+    const { idx, picked, correctCount, done } = this.state;
+    const total = this.QUESTIONS.length;
+    const AR = ['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠','١١','١٢','١٣','١٤','١٥','١٦'];
+    const Q = this.QUESTIONS[idx];
+
+    const barPct = done ? 100 : (idx/total)*100;
+    const barStyle = `width:${barPct}%; height:100%; background:var(--accent); transition:width .3s ease;`;
+
+    const options = Q.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===Q.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style=`text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:15px 18px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(15px,2vw,18px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.6;`;
+      return { label, style, onClick:this.answer(i) };
+    });
+
+    const correct = picked===Q.correct;
+    const isLast = idx >= total-1;
+    const pct = Math.round((correctCount/total)*100);
+    let resultEmoji='🌟', resultTitle='عملٌ رائع!', resultMsg='';
+    if (pct>=85){ resultEmoji='🌟'; resultTitle='ممتاز!'; resultMsg='أتقنتَ أسلوبَ النفي: أدواتِه، وعملَ «ليس» ومعناها، واسمَها وخبرَها، وخصيصتَيها، و«غير». واصِل تألّقك!'; }
+    else if (pct>=50){ resultEmoji='👍'; resultTitle='جيّدٌ جدًّا'; resultMsg='فهمُك جيّد. راجِع المشاهدَ التي أخطأتَ فيها — خاصّةً إعرابَ «ليس» و«غير» — ثم أعِد المحاولة.'; }
+    else { resultEmoji='📚'; resultTitle='تحتاج إلى مراجعة'; resultMsg='لا بأس! عُد إلى مشاهد الدرس، ثم أعِد التقويم — ستتحسّن نتيجتُك بإذن الله.'; }
+
+    return {
+      inQuiz: !done, showResult: done,
+      barStyle,
+      qNum:`${AR[idx]} / ${AR[total-1]}`,
+      scoreText:`${AR[correctCount]} / ${AR[total-1]}`,
+      question:Q.q, options,
+      feedback: picked==null ? null : Q.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ إجابةٌ غير صحيحة',
+      feedbackStyle:'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(correct?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      nextQ:this.nextQ,
+      nextLabel: isLast ? 'إظهار النتيجة ←' : 'السؤال التالي ←',
+      restart:this.restart,
+      finalScore:`${AR[correctCount]} / ${AR[total-1]}`,
+      percent:String(pct).replace(/[0-9]/g,d=>AR[+d]||d),
+      resultEmoji, resultTitle, resultMsg
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,11 +1,31 @@
-/* Brand A — "تعليم" Ta3leem — 5 working roles derived from the 3 brand colors */
+/* ===========================================================
+   Brand A — "تعليم" Ta3leem  ·  Interactive Arabic Curriculum
+   3 source colors → 5 working roles (all derived, on-brand).
+   Swap a brand = edit this file + brand/palette.js + the 3 SVGs.
+   =========================================================== */
 :root{
-  --brand-primary:#200058;       /* deep violet */
-  --brand-primary-dark:#140038;  /* ink / headers / gradients */
-  --brand-tint:#e9e3f7;          /* light fills, borders */
-  --brand-tint-2:#f7f4fd;        /* card backgrounds */
-  --brand-accent:#00c3fe;        /* secondary highlight (cyan) */
-  --brand-alert:#f6848e;         /* warnings / limits (coral) */
-  --brand-paper:#fffdf8;         /* book page paper */
-  --brand-ink:#231b3d;           /* body text on paper */
+  /* --- source (from brand-a) --- */
+  --brand-indigo:#200058;
+  --brand-cyan:#00c3fe;
+  --brand-coral:#f6848e;
+
+  /* --- 5 working roles --- */
+  --primary:#200058;        /* main brand — headers, key UI            */
+  --primary-dark:#0c0030;   /* ink / deep gradients / dark backgrounds */
+  --tint:#efecf8;           /* light fills, card backgrounds           */
+  --accent:#00c3fe;         /* secondary highlight, actions, "correct" */
+  --alert:#f6848e;          /* warnings, limits, "incorrect"           */
+
+  /* --- derived support tones --- */
+  --ink:#1c1436;            /* body text on light                      */
+  --muted:#6a6389;          /* secondary text                          */
+  --line:#e2ddf1;           /* hairlines / borders                     */
+  --paper:#ffffff;
+  --accent-tint:#e2f6fe;    /* light cyan fill                         */
+  --alert-tint:#fdeaec;     /* light coral fill                        */
+  --gold:#e0b64b;           /* derived warm highlight for reveals      */
 }
+
+/* link defaults from palette (users add links later) */
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ color:var(--primary); }

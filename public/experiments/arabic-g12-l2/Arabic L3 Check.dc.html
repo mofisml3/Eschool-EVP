@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">التقويم النهائيّ</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="{{ barStyle }}"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Scene%205%20-%20Sharqi.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Chapter%201%20Hub.dc.html" title="دروس الوحدة" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:18px;">☰</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:760px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:24px;">
+
+    <div style="text-align:center; animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">التقويم النهائيّ · الأدب الحديث</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,40px); color:var(--primary); line-height:1.2;">اختبر فهمَك للدرس</h1>
+    </div>
+
+    <sc-if value="{{ inQuiz }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,34px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <span style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:15px;">السؤال <span style="direction:ltr; unicode-bidi:isolate;">{{ qNum }}</span></span>
+        <span style="font-size:13px; color:var(--muted);">النتيجة: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ scoreText }}</span></span>
+      </div>
+      <p style="font-size:clamp(17px,2.6vw,21px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:20px;">{{ question }}</p>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}"><strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong><p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p></div>
+        <div style="display:flex; justify-content:flex-start; margin-top:16px;"><button onClick="{{ nextQ }}" style="padding:13px 30px; min-height:44px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px; cursor:pointer;">{{ nextLabel }}</button></div>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ showResult }}" hint-placeholder-val="{{ false }}">
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(24px,4vw,40px); text-align:center; box-shadow:0 16px 40px -30px rgba(32,0,88,.5); animation:popIn .35s ease;">
+      <div style="font-size:clamp(48px,10vw,72px); line-height:1;">{{ resultEmoji }}</div>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(24px,4vw,34px); color:var(--primary); margin:14px 0 6px;">{{ resultTitle }}</h2>
+      <p style="font-size:clamp(16px,2.3vw,19px); color:var(--muted); margin-bottom:20px;">أجبتَ عن <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ finalScore }}</span> إجابةً صحيحة.</p>
+      <div style="display:inline-flex; align-items:center; gap:6px; padding:10px 22px; border-radius:999px; background:var(--tint); font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(20px,4vw,28px); margin-bottom:24px;"><span style="direction:ltr; unicode-bidi:isolate;">{{ percent }}</span>٪</div>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.9; color:var(--ink); max-width:520px; margin:0 auto 26px;">{{ resultMsg }}</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        <button onClick="{{ restart }}" style="padding:14px 28px; min-height:44px; border-radius:12px; border:none; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:16px; cursor:pointer;">↺ أعِد التقويم</button>
+        <a href="Chapter%201%20Hub.dc.html" style="padding:14px 28px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px; display:inline-flex; align-items:center;">دروس الوحدة ←</a>
+      </div>
+    </section>
+    </sc-if>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx:0, picked:null, correctCount:0, done:false };
+
+  QUESTIONS = [
+    { q:'أيُّ عامٍ يُعَدُّ بدايةً للأدب العربيّ الحديث؟', options:['١٩١٥م','١٧٩٨م','١٩٠٩م','١٨٤٩م'], correct:1, why:['هو عامُ وفاة الحبّوبي، لا بداية الأدب الحديث.','أحسنت! سنةُ دخول نابليون مصرَ، وإيقاظِ الشعور بالنهضة.','هو عامُ صدور مجلّة العرفان.','هو عامُ ولادة الحبّوبي.'] },
+    { q:'ما الذي كان له أبلغُ الأثر في نهضة الحياة الثقافيّة والأدبيّة؟', options:['الحروبُ والفتوحات','انتشارُ المطابع والصحافة','هجرةُ الشعراء','بناءُ القصور'], correct:1, why:['ليس الحروب؛ بل الوسائلُ الثقافيّة.','أحسنت! انتشارُ المطابع والصحافة كان أبلغَ الأثر.','ليست الهجرة.','ليس بناء القصور.'] },
+    { q:'وحدةُ القصيدة في الشعر الحرّ هي:', options:['البيتُ','التفعيلةُ','القافيةُ','الشطرُ'], correct:1, why:['البيتُ وحدةُ الشعر العموديّ.','أحسنت! استجدّت وحدةُ التفعيلة في القصيدة الحرّة.','القافيةُ ليست وحدةً بنائيّة.','الشطرُ من بناء العموديّ.'] },
+    { q:'ماثلت مدرسةُ الإحياء النزعةَ:', options:['الرومانسيّة','الكلاسيكيّة الغربيّة','الرمزيّة','الواقعيّة'], correct:1, why:['ليست الرومانسيّة.','أحسنت! نشأت مماثلةً للنزعة الكلاسيكيّة الغربيّة في إحياء التقاليد.','ليست الرمزيّة.','ليست الواقعيّة.'] },
+    { q:'اشتُهر محمد سعيد الحبّوبي بفنِّ:', options:['الروايةِ','الموشّحاتِ','المسرحِ','المقالةِ'], correct:1, why:['لم يشتهر بالرواية.','أحسنت! اشتُهر بفنّ الموشّحات، ومنها «يا غزالَ الكرخ».','لم يشتهر بالمسرح.','لم يشتهر بالمقالة.'] },
+    { q:'البيتُ الذي تُختَم به الموشّحةُ ويُسمّى القفلَ هو:', options:['المطلعُ','الغصنُ','الخرجةُ','الدورُ'], correct:2, why:['المطلعُ في أوّلها.','الغصنُ جزءٌ من الدور.','أحسنت! الخرجةُ هي القفلُ الذي تنتهي به الموشّحة.','الدورُ هو المقطع.'] },
+    { q:'في قول الحبّوبي «إنَّ في خدِّكَ روضًا شغفا...» الصورةُ البيانيّة:', options:['استعارةٌ مكنيّة','تشبيهٌ بليغ','كنايةٌ','مجازٌ مرسل'], correct:1, why:['ليست استعارةً مكنيّة.','أحسنت! تشبيهٌ بليغ؛ شبّه الخدَّ بالروض وحذف الأداةَ ووجهَ الشبه.','ليست كناية.','ليس مجازًا مرسلًا.'] },
+    { q:'في قول الشرقيّ «يُثلَمُ ... غيرُ مُنثَلِمِ» المحسّنُ البديعيّ:', options:['جناسٌ','طباقُ سلبٍ','سجعٌ','طباقُ إيجابٍ'], correct:1, why:['ليس جناسًا.','أحسنت! طباقُ سلبٍ بين الإثبات والنفي (يُثلَم / غير منثلم).','ليس سجعًا.','طباقُ الإيجاب بين ضدّين مثبتين مثل (الوغى/السلم).'] }
+  ];
+
+  answer = (i) => () => { if (this.state.picked!=null) return; const c=i===this.QUESTIONS[this.state.idx].correct; this.setState(s=>({ picked:i, correctCount:s.correctCount+(c?1:0) })); };
+  nextQ = () => this.setState(s => (s.idx>=this.QUESTIONS.length-1 ? {done:true} : {idx:s.idx+1, picked:null}));
+  restart = () => this.setState({ idx:0, picked:null, correctCount:0, done:false });
+
+  renderVals(){
+    const { idx, picked, correctCount, done } = this.state;
+    const total = this.QUESTIONS.length;
+    const AR = ['٠','١','٢','٣','٤','٥','٦','٧','٨'];
+    const Q = this.QUESTIONS[idx];
+    const options = Q.options.map((label,i)=>{
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){ if(i===Q.correct){bg='var(--accent-tint)';color='#0378a3';border='2px solid var(--accent)';} else if(i===picked){bg='var(--alert-tint)';color='#c0455a';border='2px solid var(--alert)';} else color='var(--muted)'; }
+      return { label, style:`text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:15px 18px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(15px,2vw,18px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.6;`, onClick:this.answer(i) };
+    });
+    const correct = picked===Q.correct;
+    const isLast = idx>=total-1;
+    const pct = Math.round((correctCount/total)*100);
+    let resultEmoji='🌟', resultTitle='ممتاز!', resultMsg='';
+    if (pct>=84){ resultEmoji='🌟'; resultTitle='ممتاز!'; resultMsg='أتقنتَ الأدبَ الحديث ومدرسةَ الإحياء وتحليلَ النصّين. عملٌ رائع!'; }
+    else if (pct>=50){ resultEmoji='👍'; resultTitle='جيّدٌ جدًّا'; resultMsg='فهمُك جيّد. راجِع المشاهدَ التي أخطأتَ فيها ثم أعِد المحاولة.'; }
+    else { resultEmoji='📚'; resultTitle='تحتاج إلى مراجعة'; resultMsg='لا بأس! عُد إلى مشاهد الدرس، وركّز على التحليل الموضوعيّ والفنيّ، ثم أعِد التقويم.'; }
+    return {
+      inQuiz:!done, showResult:done,
+      barStyle:`width:${done?100:(idx/total)*100}%; height:100%; background:var(--accent); transition:width .3s ease;`,
+      qNum:`${AR[idx]} / ${AR[total-1]}`, scoreText:`${AR[correctCount]} / ${AR[total-1]}`,
+      question:Q.q, options,
+      feedback: picked==null?null:Q.why[picked],
+      feedbackTitle: correct?'✓ إجابةٌ صحيحة':'✗ إجابةٌ غير صحيحة',
+      feedbackStyle:'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(correct?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      nextQ:this.nextQ, nextLabel: isLast?'إظهار النتيجة ←':'السؤال التالي ←',
+      restart:this.restart, finalScore:`${AR[correctCount]} / ${AR[total-1]}`,
+      percent:String(pct).replace(/[0-9]/g,d=>AR[+d]||d),
+      resultEmoji, resultTitle, resultMsg
+    };
+  }
+}
+</script>
+</body>
+</html>

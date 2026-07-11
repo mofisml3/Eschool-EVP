@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ١٠ من ١٦ · «لا» غير العاملة</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:62.5%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%209%20-%20Jawazim.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%2011%20-%20LaJins1.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">٣) الحروفُ · «لا» النافية غيرُ العاملة</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">«لا» النافيةُ غيرُ العاملة</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">تأتي «لا» غيرُ العاملة على <strong style="color:var(--primary);">خمسة أنواع</strong>. اضغط كلَّ نوعٍ لتقرأ حكمَه وشاهدَه، ثم صنِّف الشواهدَ في التمرين.</p>
+    </div>
+
+    <!-- explorer chips -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <div style="background:linear-gradient(160deg,#fbfaff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,24px);">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(17px,2.4vw,20px); margin-bottom:8px;">{{ activeTitle }}</h2>
+        <p style="font-size:clamp(14px,2vw,16px); line-height:1.95; margin-bottom:12px;">{{ activeDesc }}</p>
+        <p style="padding:12px 16px; border-radius:12px; background:#fff; border:1px solid var(--line); font-family:'Amiri',serif; font-size:clamp(17px,2.6vw,22px); color:var(--primary); line-height:1.9;">{{ activeShahid }}</p>
+      </div>
+    </section>
+
+    <!-- classify -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700;">صنِّف نوعَ «لا»</span>
+        <span style="font-size:14px; color:var(--muted);">صُنِّف <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ answeredCount }} / 4</span></span>
+      </div>
+      <p style="font-size:clamp(15px,2.1vw,17px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:16px;">حدِّد نوعَ «لا» في كلِّ شاهد.</p>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
+          <div style="background:#fbfaff; border:1px solid var(--line); border-radius:14px; padding:14px 16px;">
+            <p style="font-family:'Amiri',serif; font-size:clamp(16px,2.4vw,21px); color:var(--primary); line-height:1.9; margin-bottom:12px;">{{ it.shahid }}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <sc-for list="{{ it.choices }}" as="ch" hint-placeholder-count="3">
+                <button onClick="{{ ch.onClick }}" style="{{ ch.style }}">{{ ch.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ it.feedback }}" hint-placeholder-val="{{ true }}">
+              <div style="{{ it.feedbackStyle }}">{{ it.feedback }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%209%20-%20Jawazim.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ لَمْ · لمّا · لَنْ</a>
+      <a href="Arabic%20C2%20L2%20Scene%2011%20-%20LaJins1.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">«لا» النافية للجنس ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab:0, picks:{} };
+
+  TYPES = [
+    { key:'fi3l', label:'الداخلةُ على الأفعال', title:'الداخلةُ على الأفعال',
+      desc:'تدخل على الماضي (ويُشترَط تكرارُها) فتنفي حدوثَه، وعلى المضارع فتنفي الحاضرَ والمستقبل. وهي غيرُ عاملةٍ.',
+      shahid:'﴿ فلا صدَّقَ ولا صلَّى ﴾ (القيامة)' },
+    { key:'masdar', label:'الداخلةُ على المصادر', title:'الداخلةُ على المصادر المنصوبة (الدعاء)',
+      desc:'تدخل على مصدرٍ منصوبٍ فتفيد الدعاء، وما بعدها مفعولٌ مطلقٌ منصوب.',
+      shahid:'﴿ قالوا بل أنتم لا مرحبًا بكم ﴾ (ص: ٦٠)' },
+    { key:'zaida', label:'الزائدةُ', title:'الزائدةُ (للتوكيد)',
+      desc:'مسبوقةٌ بواوٍ عاطفةٍ بعد نفيٍ أو نهيٍ، تدخل على مفردٍ أو شبه جملةٍ، وتفيد التوكيد. وردت في المطالعة: «لم تترك فعلًا قبيحًا ولا عملًا شائنًا».',
+      shahid:'﴿ وما يستوي الأحياءُ ولا الأمواتُ ﴾ (فاطر: ٢٢)' },
+    { key:'atifa', label:'العاطفةُ', title:'العاطفةُ',
+      desc:'تَعطِف ما بعدها على ما قبلها وتجعلُه تابعًا له في الإعراب، بشرط أن يتقدّمها كلامٌ مُثبَتٌ ولا تُسبَق بواوٍ.',
+      shahid:'اعمَلْ خيرًا لا شرًّا' },
+    { key:'mu3t', label:'المُعترِضةُ', title:'المُعترِضةُ',
+      desc:'تعترِض بين المتلازمَيْن (كالمبتدأ والخبر، أو الجارّ والمجرور، أو الحال وصاحبها…) ولا تؤثّر فيما بعدها.',
+      shahid:'أنا لا غاضبٌ ولا متسرِّعٌ' }
+  ];
+
+  ITEMS = [
+    { id:'q1', shahid:'اعمَلْ خيرًا لا شرًّا', kind:'atifa',
+      why:{ atifa:'أحسنت! تقدّمها كلامٌ مُثبَتٌ (اعمَلْ خيرًا)، فعطفت «شرًّا» على «خيرًا» ونصبته مثلَه.',
+            zaida:'ليست زائدةً؛ لم تُسبَق بواوٍ بعد نفيٍ، بل عطفت بعد إثبات.',
+            masdar:'ليست داخلةً على مصدر دعاء؛ هي عاطفةٌ بعد كلامٍ مُثبَت.' } },
+    { id:'q2', shahid:'﴿ وما يستوي الأحياءُ ولا الأمواتُ ﴾', kind:'zaida',
+      why:{ zaida:'أحسنت! مسبوقةٌ بواوٍ عاطفةٍ بعد نفيٍ («ما يستوي»)، فهي زائدةٌ للتوكيد.',
+            atifa:'ليست عاطفةً محضةً؛ سبقها نفيٌ وواوٌ فأفادت التوكيد (زائدة).',
+            fi3l:'لم تدخل على فعلٍ لتنفيَه ابتداءً، بل جاءت زائدةً للتوكيد بعد واوٍ.' } },
+    { id:'q3', shahid:'أنا لا غاضبٌ ولا متسرِّعٌ', kind:'mu3t',
+      why:{ mu3t:'أحسنت! «لا» الأولى اعترضت بين المبتدأ «أنا» والخبر «غاضبٌ»، والثانية زائدةٌ للتوكيد.',
+            atifa:'ليست عاطفةً؛ اعترضت بين المبتدأ والخبر ولم تُتبِعْ إعرابًا.',
+            zaida:'الأولى معترِضةٌ، والزائدةُ هي الثانية بعد الواو.' } },
+    { id:'q4', shahid:'﴿ فلا صدَّقَ ولا صلَّى ﴾', kind:'fi3l',
+      why:{ fi3l:'أحسنت! دخلت على الفعل الماضي «صدَّق» مع تكرارها فنفت حدوثَه، وهي غيرُ عاملة.',
+            masdar:'لم تدخل على مصدرٍ منصوب، بل على فعلٍ ماضٍ.',
+            atifa:'ليست عاطفةً؛ دخلت على فعلٍ ماضٍ منفيٍّ مكرّرة.' } }
+  ];
+  KINDS = [ {k:'fi3l',label:'داخلة على فعل'}, {k:'masdar',label:'مع مصدر (دعاء)'}, {k:'zaida',label:'زائدة'}, {k:'atifa',label:'عاطفة'}, {k:'mu3t',label:'معترِضة'} ];
+
+  setTab = (i) => () => this.setState({ tab:i });
+  pick = (id,k) => () => { if (!this.state.picks[id]) this.setState(s => ({ picks:{ ...s.picks, [id]:k } })); };
+
+  renderVals(){
+    const { tab, picks } = this.state;
+    const tabs = this.TYPES.map((t,i) => {
+      const active = i===tab;
+      const style = `cursor:pointer; padding:9px 16px; min-height:44px; border-radius:999px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(13px,1.9vw,15px); transition:all .18s ease; ${active?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`;
+      return { label:t.label, style, onClick:this.setTab(i) };
+    });
+    const at = this.TYPES[tab];
+
+    const items = this.ITEMS.map(it => {
+      const picked = picks[it.id];
+      // choices limited to plausible kinds for compactness: use the item's own why keys
+      const kinds = this.KINDS.filter(kd => it.why && it.why[kd.k] !== undefined);
+      const choices = kinds.map(kd => {
+        let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+        if (picked){
+          if (kd.k===it.kind){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+          else if (kd.k===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+          else color='var(--muted)';
+        }
+        const style=`cursor:${picked?'default':'pointer'}; padding:9px 14px; min-height:44px; border-radius:12px; font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(13px,1.9vw,15px); background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+        return { label:kd.label, style, onClick:this.pick(it.id,kd.k) };
+      });
+      const ok = picked===it.kind;
+      const feedback = picked ? it.why[picked] : null;
+      const feedbackStyle='margin-top:12px; padding:12px 14px; border-radius:12px; animation:popIn .25s ease; font-size:clamp(13px,1.9vw,15px); line-height:1.8; background:'+(ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)');
+      return { shahid:it.shahid, choices, feedback, feedbackStyle };
+    });
+
+    return {
+      tabs,
+      activeTitle:at.title, activeDesc:at.desc, activeShahid:at.shahid,
+      items,
+      answeredCount: Object.keys(picks).length
+    };
+  }
+}
+</script>
+</body>
+</html>

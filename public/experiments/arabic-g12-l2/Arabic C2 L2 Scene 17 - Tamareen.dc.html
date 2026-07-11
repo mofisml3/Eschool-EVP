@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+  @keyframes floatA { 0%,100%{ transform:translate(0,0) rotate(0deg) } 50%{ transform:translate(-14px,16px) rotate(8deg) } }
+  @keyframes floatB { 0%,100%{ transform:translate(0,0) rotate(0deg) } 50%{ transform:translate(18px,-12px) rotate(-10deg) } }
+  @keyframes floatC { 0%,100%{ transform:translate(0,0) scale(1) } 50%{ transform:translate(-10px,-14px) scale(1.08) } }
+  @keyframes spinSlow { from{ transform:rotate(0deg) } to{ transform:rotate(360deg) } }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">التمرينات · بنك التطبيقات</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:100%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%2016%20-%20I3rab.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Check.dc.html" title="التقويم" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:18px;">✓</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:940px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(18px,3vw,28px);">
+
+    <!-- hero with animated shapes -->
+    <div style="position:relative; overflow:hidden; border-radius:24px; background:linear-gradient(150deg,#faf9ff,#f0ecfb); border:1px solid var(--line); padding:clamp(24px,4vw,40px);">
+      <div style="position:absolute; top:-30px; left:-24px; width:120px; height:120px; border-radius:38px; background:rgba(0,195,254,.16); animation:floatA 9s ease-in-out infinite;"></div>
+      <div style="position:absolute; bottom:-34px; left:30%; width:90px; height:90px; border-radius:28px; background:rgba(246,132,142,.18); animation:floatB 11s ease-in-out infinite;"></div>
+      <div style="position:absolute; top:14px; left:36%; width:52px; height:52px; border-radius:16px; background:rgba(32,0,88,.10); animation:floatC 8s ease-in-out infinite;"></div>
+      <div style="position:absolute; bottom:10px; left:8px; width:40px; height:40px; border:3px dashed rgba(0,195,254,.35); border-radius:12px; animation:spinSlow 24s linear infinite;"></div>
+      <div style="position:relative; z-index:1; animation:riseIn .5s ease-out both;">
+        <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">الجزء الرابع · التمرينات</span>
+        <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,42px); color:var(--primary); line-height:1.18; margin-bottom:10px;">طبِّق ما تعلّمتَ في أسلوب النفي</h1>
+        <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:700px;">تمريناتُ الكتاب الثمانية كاملةً (ص ٦٦–٧٣). ابدأ بلعبة التصنيف السريع لتُنشّط ذاكرتك، ثم افتح كلَّ تمرينٍ وحاوِل الإجابةَ بنفسك، ثم اكشِف الإجابةَ النموذجيّة لتقارن.</p>
+      </div>
+    </div>
+
+    <!-- interactive warm-up: classify نوع «لا» -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(17px,2.6vw,22px); color:var(--primary);">🎯 تسخين: صنِّف نوعَ «لا»</h2>
+        <span style="font-size:14px; color:var(--muted);">الصحيح: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ gameScore }}</span></span>
+      </div>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">اضغط الشاهدَ لتحديده، ثم اضغط الخانةَ المناسبة لنوع «لا» فيه.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:50px; margin-bottom:18px;">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.onPick }}" style="{{ c.style }}">{{ c.text }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ allSorted }}" hint-placeholder-val="{{ false }}">
+        <p style="text-align:center; color:#1F8A5B; font-weight:700; font-family:'Cairo',sans-serif; margin-bottom:14px; animation:popIn .3s ease;">✓ أحسنت! صنّفتَ كلَّ الشواهد.</p>
+      </sc-if>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
+        <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="3">
+          <div data-bucket="{{ b.key }}" onClick="{{ b.onDrop }}" style="{{ b.style }}">
+            <div style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:15px; margin-bottom:8px;">{{ b.label }}</div>
+            <div style="display:flex; flex-direction:column; gap:6px; min-height:30px;">
+              <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="2">
+                <span style="font-family:'Amiri',serif; font-size:15px; padding:6px 10px; border-radius:8px; background:#fff; border:1px solid var(--line); color:var(--ink);">{{ it }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="{{ gameFbStyle }}">{{ gameFb }}</p>
+    </section>
+
+    <!-- exercise bank -->
+    <section style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ exercises }}" as="ex" hint-placeholder-count="8">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden;">
+          <button onClick="{{ ex.onToggle }}" style="{{ ex.headStyle }}">
+            <span style="display:flex; align-items:center; gap:12px;"><span style="{{ ex.numStyle }}">{{ ex.num }}</span> {{ ex.title }}</span>
+            <span style="font-size:18px; color:var(--accent); transform:rotate({{ ex.rot }}); transition:transform .2s;">⌄</span>
+          </button>
+          <sc-if value="{{ ex.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(14px,3vw,20px) clamp(16px,3vw,20px); animation:popIn .25s ease;">
+              <p style="font-size:14.5px; color:var(--muted); line-height:1.8; margin-bottom:14px; padding-top:4px;">{{ ex.instruction }}</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <sc-for list="{{ ex.items }}" as="it" hint-placeholder-count="4">
+                  <div style="padding:12px 14px; border-radius:12px; background:var(--tint);">
+                    <p style="font-family:'Amiri',serif; font-size:clamp(16px,2.3vw,20px); line-height:1.9; color:var(--ink);"><span style="color:var(--primary); font-weight:700;">{{ it.num }}.</span> {{ it.text }}</p>
+                    <sc-if value="{{ it.hasAns }}" hint-placeholder-val="{{ false }}">
+                      <button onClick="{{ it.onReveal }}" style="{{ it.btnStyle }}">{{ it.btnLabel }}</button>
+                      <sc-if value="{{ it.shown }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:8px; padding:10px 14px; border-radius:10px; background:var(--accent-tint); border-right:3px solid var(--accent); font-size:14.5px; line-height:1.9; color:#0d4a63;">{{ it.ans }}</div>
+                      </sc-if>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%2016%20-%20I3rab.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الإعراب التطبيقيّ</a>
+      <a href="Arabic%20C2%20L2%20Check.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; min-height:44px; border-radius:12px; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:16px; box-shadow:0 12px 28px -12px rgba(0,195,254,.6);">التقويم النهائيّ ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:0, revealed:{}, picked:null, placed:{}, gScore:0, gFb:'' };
+
+  GAME = [
+    { id:'g1', text:'لا توفيقَ إلّا لمن يحترمُ جارَه', cat:'jins' },
+    { id:'g2', text:'أنتَ لا بخيلٌ ولا مسرفٌ', cat:'muhmala' },
+    { id:'g3', text:'بلا إثمٍ ولا حرجِ', cat:'zaida' },
+    { id:'g4', text:'فلا جُناحَ عليه', cat:'jins' },
+    { id:'g5', text:'ومَن لا يُصانِعْ في أمورٍ', cat:'muhmala' },
+    { id:'g6', text:'ذهبتُ لا خائفًا ولا مرتعبًا', cat:'zaida' }
+  ];
+  GB = [
+    { key:'jins',    label:'نافية للجنس' },
+    { key:'muhmala', label:'غير عاملة (مهمَلة)' },
+    { key:'zaida',   label:'زائدة للتوكيد' }
+  ];
+
+  EX = [
+    { title:'استخراج أدوات النفي ونوعها وعملها', instruction:'استخرج أداةَ النفي، وبيّن نوعَها وعملَها مع ذكر السبب.', items:[
+      { t:'قال تعالى: ﴿وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِنْ قَبْلِهِ الرُّسُلُ﴾ (آل عمران: ١٤٤)', a:'«ما»: حرفُ نفيٍ مُهمَل (غير عامل)؛ لانتقاض النفي بـ«إلّا» (نفيٌ وإثبات).' },
+      { t:'قال تعالى: ﴿مَا كَانَ لِيَأْخُذَ أَخَاهُ فِي دِينِ الْمَلِكِ﴾ (يوسف: ٧٦)', a:'«ما»: حرفُ نفيٍ غيرُ عامل، دخل على الفعل الماضي الناقص «كان» فنفى مضمونَه، واللامُ بعده لامُ الجحود المؤكِّدة للنفي.' },
+      { t:'قال تعالى: ﴿لَنْ نُؤْمِنَ لَكَ حَتَّى نَرَى اللَّهَ جَهْرَةً﴾ (البقرة: ٥٥)', a:'«لن»: حرفُ نفيٍ ونصبٍ واستقبال، نصبت المضارعَ «نؤمنَ» وخلّصته للاستقبال.' },
+      { t:'قال تعالى: ﴿وَيَقْتُلُونَ النَّبِيِّينَ بِغَيْرِ الْحَقِّ﴾ (البقرة: ٦١)', a:'«غير» في «بغير الحقّ»: اسمٌ يفيد النفيَ، مجرورٌ بالباء وهو مضاف، نفى صفةَ الحقّ عن القتل.' },
+      { t:'قال عنترة: وَلا تَجزَعي إِنْ لَجَّ قَومُكِ في دَمي / فَما لِيَ بَعدَ الهَجْرِ لحمٌ ولا دَمُ', a:'«لا تجزعي»: ناهيةٌ جازمة (طلب). «فما لي»: نافيةٌ غيرُ عاملة (مهمَلة). و«لا» في «ولا دمُ»: زائدةٌ عاطفةٌ لتوكيد النفي.' },
+      { t:'قال ابن الروميّ: … إِذا قُلْتَ لاتَ حِينَ الْتِئامِ', a:'«لاتَ»: تعمل عملَ «ليس» وتختصّ بأسماء الزمان؛ حُذف اسمُها ونُصب خبرُها الظرف «حينَ».' },
+      { t:'قال أبو العتاهية: أَلَمْ تَرَ أَنَّ الحَقَّ أَبْلَجُ لائِحٌ', a:'الهمزةُ للاستفهام التقريريّ، و«لم» حرفُ نفيٍ وجزمٍ وقلب، جزمت «تَرَ» وقلبت زمنَه إلى الماضي.' },
+      { t:'إِنْ يَنْجَحُ إِلَّا الـمُجْتَهِدُ.', a:'«إنْ»: نافيةٌ (بمعنى ما)، غيرُ عاملة، والنفيُ منقوضٌ بـ«إلّا».' },
+      { t:'لا فَرَّقَ اللهُ كلمةَ العراقيّين.', a:'«لا»: نافيةٌ غيرُ عاملة، دخلت على الماضي «فرّق» لإفادة الدعاء لا الإخبار.' },
+      { t:'كافأَ المديرُ الموظّفَ الـمُتسامحَ لا الـمُتعصّبَ.', a:'«لا»: عاطفةٌ نافية، عطفت «المتعصّبَ» على «المتسامحَ» بعد إثبات، فنفت الحكمَ عن الثاني.' },
+      { t:'لا تَغْتَبْ إنسانًا، فلا إيمانَ لـمُغْتابٍ.', a:'«لا تغتبْ»: ناهيةٌ جازمة. «فلا إيمانَ»: نافيةٌ للجنس تعمل عملَ «إنّ»، اسمُها «إيمانَ» مبنيٌّ على الفتح، وخبرُها شبه الجملة «لمُغتابٍ».' }
+    ]},
+    { title:'الفعل الذي أفاد النفي (ليس) ومعمولاه', instruction:'استخرج الفعلَ الذي أفاد النفيَ («ليس»)، ودُلّ على معموليه (اسمها وخبرها).', items:[
+      { t:'قال تعالى: ﴿وَوَكَّلْنَا بِهَا قَوْمًا لَيْسُوا بِهَا بِكَافِرِينَ﴾ (الأنعام: ٨٩)', a:'«ليسوا»: اسمُها الواو، وخبرُها «بكافرين» (الباء زائدة) مجرورٌ لفظًا منصوبٌ محلًّا.' },
+      { t:'قال تعالى: ﴿أَوَلَيْسَ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ بِقَادِرٍ﴾ (يس: ٨١)', a:'«ليس»: اسمُها «الذي»، وخبرُها «بقادرٍ» (الباء زائدة) مجرورٌ لفظًا منصوبٌ محلًّا.' },
+      { t:'قال عديّ بن ربيعة: لَيْسَ مِثلي يُخَبَّرُ الناسَ عَن / بائِهِم قُتِّلوا ويَنسى القَتالا', a:'«ليس»: اسمُها «مثلي»، وخبرُها جملةٌ فعليّة «يُخبَّر الناسَ» في محل نصب.' },
+      { t:'قال الحصين الفزاريّ: وَلَمّا رَأَيْتُ الوُدَّ لَيْسَ بِنافِعِي', a:'«ليس»: اسمُها ضميرٌ مستتر يعود على «الودّ»، وخبرُها «بنافعي» (الباء زائدة).' },
+      { t:'قال كُثيِّر: أَنْتَ إمامُ الحَقِّ لَسْنا نَمَتري', a:'«لسنا»: اسمُها «نا»، وخبرُها جملةٌ فعليّة «نمتري» في محل نصب.' },
+      { t:'قال أبو نواس: … والأيّامُ لَيْسَ تُضامُ', a:'«ليس»: اسمُها ضميرٌ مستتر يعود على «الأيّام»، وخبرُها جملةٌ فعليّة «تُضام» في محل نصب.' },
+      { t:'لَيْسَ في الجَفْنِ مَنْدَمٌ.', a:'«ليس»: اسمُها «مندمٌ» مؤخّرٌ مرفوع، وخبرُها شبهُ الجملة «في الجفن» متقدّمٌ في محل نصب.' },
+      { t:'لَيْسَ بيننا مُعْتَدٍ على حقوقِ الإنسانِ.', a:'«ليس»: اسمُها «معتدٍ» مؤخّرٌ مرفوع، وخبرُها شبهُ الجملة «بيننا» متقدّمٌ في محل نصب.' },
+      { t:'لَسْتُ مُصاحبًا الـمُتجاوِزَ على الممتلكاتِ العامّةِ.', a:'«لستُ»: اسمُها التاء، وخبرُها «مصاحبًا» منصوب، و«المتجاوزَ» مفعولٌ به لاسم الفاعل.' }
+    ]},
+    { title:'استخراج «لا» النافية وبيان نوعها', instruction:'استخرج «لا» النافية، وبيّن نوعَها مع ذكر السبب.', items:[
+      { t:'قال تعالى: ﴿لا يَذُوقُونَ فِيهَا بَرْدًا وَلا شَرَابًا﴾ (النبأ: ٢٤)', a:'الأولى: نافيةٌ غيرُ عاملة دخلت على المضارع «يذوقون». والثانية «ولا شرابًا»: زائدةٌ عاطفةٌ لتوكيد النفي.' },
+      { t:'قال تعالى: ﴿فَلا كُفْرَانَ لِسَعْيِهِ﴾ (الأنبياء: ٩٤)', a:'نافيةٌ للجنس؛ اسمُها «كفرانَ» مبنيٌّ على الفتح في محل نصب، وخبرُها شبهُ الجملة «لسعيه».' },
+      { t:'قال تعالى: ﴿فَمَا أَنْتَ بِنِعْمَةِ رَبِّكَ بِكَاهِنٍ وَلا مَجْنُونٍ﴾ (الطور: ٢٩)', a:'«ولا مجنونٍ»: زائدةٌ عاطفةٌ لتوكيد النفي، عطفت على خبر «ما» الحجازيّة «بكاهنٍ».' },
+      { t:'قال تعالى: ﴿لا جَرَمَ أَنَّ اللَّهَ يَعْلَمُ… إِنَّهُ لا يُحِبُّ الْمُسْتَكْبِرِينَ﴾ (النحل: ٢٣)', a:'«لا جرمَ»: نافيةٌ للجنس، اسمُها «جرمَ» مبنيٌّ على الفتح. و«لا يحبّ»: نافيةٌ غيرُ عاملة دخلت على المضارع.' },
+      { t:'قال زهير: وَمَنْ لا يُصانِعْ في أُمورٍ كثيرةٍ', a:'نافيةٌ غيرُ عاملة، دخلت على المضارع «يُصانِعْ» المجزوم بأداة الشرط.' },
+      { t:'قال ذو الرُّمّة: … رَقيقُ الحواشي لا هُراءٌ ولا نَزْرُ', a:'الأولى: نافيةٌ مُهمَلة (رُفع ما بعدها «هراءٌ»). والثانية «ولا نزرُ»: زائدةٌ عاطفةٌ لتوكيد النفي.' },
+      { t:'قال ابن الفارض: أنا القَتيلُ بِلا إِثْمٍ ولا حَرَجِ', a:'«بلا إثمٍ»: زائدةٌ لتوكيد النفي بعد الجارّ. و«ولا حرجِ»: زائدةٌ عاطفةٌ لتوكيد النفي.' },
+      { t:'لا توفيقَ إلّا لمن يحترمُ جارَهُ.', a:'نافيةٌ للجنس، اسمُها «توفيقَ» مبنيٌّ على الفتح، والنفيُ منقوضٌ بـ«إلّا».' },
+      { t:'أنتَ لا بخيلٌ ولا مُسرِفٌ.', a:'نافيةٌ غيرُ عاملة (مهمَلة)، رُفع ما بعدها «بخيلٌ». والثانية زائدةٌ عاطفةٌ لتوكيد النفي.' },
+      { t:'لا التَّعصُّبُ يُنجيكَ ولا التَّشدُّدُ.', a:'نافيةٌ غيرُ عاملة، دخلت على الجملة الاسميّة. والثانية زائدةٌ عاطفةٌ لتوكيد النفي.' }
+    ]},
+    { title:'انفِ ما تحته خطّ بأداةٍ مناسبة', instruction:'انفِ ما تحته خطّ بأداةِ نفيٍ مناسبةٍ مع ذكر القاعدة.', items:[
+      { t:'قال الأعشى: إِنَّ الرَّكْبَ (مُرْتَحِلُ)', a:'النفيُ بـ«ليس»: إنّ الركبَ ليس مرتحلًا. القاعدة: «ليس» تنفي الحالَ وتنصب الخبر.' },
+      { t:'قال عروة بن حزام: (وَيُظْهِرُ) قَلْبِي عُذْرَها', a:'«ما يُظهِرُ قلبي عذرَها». القاعدة: «ما» تنفي المضارعَ الدالَّ على الحال.' },
+      { t:'قال الفرزدق: أُمَنّي النَّفْسَ أَنْ (سَوْفَ نَلْتَقي)', a:'«لن نلتقيَ». القاعدة: «لن» تنفي المستقبلَ وتنصب المضارع.' },
+      { t:'قال بشّار: (نَقْضِي) سَوادَ اللَّيْلِ مُرْتَفِقًا', a:'«ما نقضي». القاعدة: «ما» لنفي المضارع في الحال.' },
+      { t:'قال أبو العتاهية: وَنَحْنُ (سَنَمْضِي) بَعدَهُنَّ', a:'«لن نمضيَ». القاعدة: «لن» تنفي المستقبلَ وتنصب المضارع.' },
+      { t:'قال المتنبّي: وَأَنْتَ حَياتُهُم (غَضِبْتَ) عَلَيْهِمُ', a:'«ما غضبتَ» (نفيُ الماضي) أو «لم تغضبْ» (جزمٌ وقلبُ الزمن إلى الماضي).' },
+      { t:'(قَدْ باشرَ) المهندسون العملَ.', a:'«ما باشرَ» (نفيُ الماضي) أو «لمّا يباشِرْ» (نفيٌ مع توقّع الحدوث).' },
+      { t:'الساعةُ (ساعةُ مراجعةِ) الأخطاءِ.', a:'«ليست الساعةُ ساعةَ مراجعةٍ». القاعدة: «ليس» تنفي وتنصب الخبر.' },
+      { t:'وصلَ الطلّابُ (وقد يتأخّرُ) سعيدٌ.', a:'«ولن يتأخّرَ سعيدٌ» (المستقبل) أو «ولا يتأخّرُ» (الحال).' },
+      { t:'(أَلْقى) الشاعرُ قصيدةً.', a:'«ما ألقى الشاعرُ قصيدةً» (الماضي) أو «لم يُلقِ الشاعرُ قصيدةً» (جزمٌ وقلبُ الزمن).' }
+    ]},
+    { title:'«ما» النافية: عاملة أم مهمَلة', instruction:'وردت «ما» النافية مرّةً عاملةً ومرّةً مُهمَلة، ميّز بينهما واذكر سببَ الإعمال أو الإهمال.', items:[
+      { t:'قال تعالى: ﴿وَمَا أَمْرُ السَّاعَةِ إِلَّا كَلَمْحِ الْبَصَرِ﴾ (النحل: ٧٧)', a:'مُهمَلة؛ لانتقاض النفي بـ«إلّا».' },
+      { t:'قال تعالى: ﴿وَمَا هِيَ مِنَ الظَّالِمِينَ بِبَعِيدٍ﴾ (هود: ٨٣)', a:'عاملةٌ عملَ «ليس»؛ رفعت الاسم «هي» ونصبت الخبر «ببعيدٍ» (الباء زائدة)؛ إذ لم يُنتقض النفي ولم يتقدّم الخبر.' },
+      { t:'قال تعالى: ﴿وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ﴾ (الحديد: ٢٠)', a:'مُهمَلة؛ لانتقاض النفي بـ«إلّا».' },
+      { t:'قال أبو تمّام: ما أنتَ حين تَعُدّ نارًا مِثلَها / إلّا كَتالي سُورةٍ لم تُنَزَّلِ', a:'مُهمَلة؛ لانتقاض النفي بـ«إلّا».' },
+      { t:'قال المتنبّي: ما الشَّوْقُ مُقتَنِعًا مِنّي بِذا الكَمَدِ … وقال: ما لِجُرحٍ بِمَيّتٍ إيلامُ', a:'«ما الشوقُ مقتنعًا»: عاملة؛ نصبت الخبر «مقتنعًا». و«ما لجرحٍ بميّتٍ إيلامُ»: مُهمَلة؛ لتقدّم الخبر (شبه الجملة) على الاسم «إيلامُ».' },
+      { t:'ما للظالمينَ مِن عَوْنٍ.', a:'مُهمَلة؛ لتقدّم الخبر (شبه الجملة «للظالمين») على الاسم.' },
+      { t:'ما المعتدي إلّا أَثِرٌ.', a:'مُهمَلة؛ لانتقاض النفي بـ«إلّا».' },
+      { t:'ما الإسرافُ بنافعٍ.', a:'عاملة؛ رفعت «الإسرافُ» ونصبت الخبر «بنافعٍ» (الباء زائدة).' }
+    ]},
+    { title:'معمول «لا» النافية للجنس ونوع اسمها', instruction:'استخرج معمولَ «لا» النافية للجنس، وبيّن نوعَ اسمها، وأعرِبه.', items:[
+      { t:'قال تعالى: ﴿أَنْ تَقُولَ لا مِسَاسَ﴾ (طه: ٩٧)', a:'«مِساسَ»: اسمُ «لا» مفردٌ مبنيٌّ على الفتح في محل نصب، وخبرُها محذوف.' },
+      { t:'قال تعالى: ﴿فَلا عُدْوَانَ إِلَّا عَلَى الظَّالِمِينَ﴾ (البقرة: ١٩٣)', a:'«عُدوانَ»: اسمُ «لا» مفردٌ مبنيٌّ على الفتح في محل نصب، وخبرُها محذوف تقديرُه «علينا».' },
+      { t:'قال لبيد: وَلا بُدَّ يومًا أَنْ تُرَدَّ الودائعُ', a:'«بدَّ»: اسمُ «لا» مفردٌ مبنيٌّ على الفتح في محل نصب، وخبرُها محذوف تقديرُه «موجود».' },
+      { t:'قال كعب بن مالك: فَلا ضَيْرَ إنَّ اللهَ أَعْطى', a:'«ضَيْرَ»: اسمُ «لا» مفردٌ مبنيٌّ على الفتح في محل نصب، وخبرُها محذوف.' },
+      { t:'لا مُنافقينَ محبوبونَ.', a:'«منافقينَ»: اسمُ «لا» شبيهٌ بالمفرد (جمع مذكر سالم)، مبنيٌّ على الياء في محل نصب، وخبرُها «محبوبونَ» مرفوع.' },
+      { t:'لا طالباتِ في المُختَبَرِ.', a:'«طالباتِ»: اسمُ «لا» (جمع مؤنث سالم) مبنيٌّ على الكسر في محل نصب، وخبرُها شبهُ الجملة «في المختبر».' },
+      { t:'لا نصيحتيْ إخلاصٍ أنفعُ من نصيحةِ الوالدينِ.', a:'«نصيحتيْ»: اسمُ «لا» مضافٌ، مُعرَبٌ منصوبٌ بالياء (مثنّى)، و«إخلاصٍ» مضافٌ إليه، وخبرُها «أنفعُ» مرفوع.' },
+      { t:'لا بقاءَ لإرهابٍ في بلدِنا.', a:'«بقاءَ»: اسمُ «لا» مفردٌ مبنيٌّ على الفتح في محل نصب، وخبرُها شبهُ الجملة «لإرهابٍ».' },
+      { t:'لا آكلينَ مالَ اليتيمِ ناجونَ.', a:'«آكلينَ»: اسمُ «لا» شبيهٌ بالمضاف، مُعرَبٌ منصوبٌ بالياء، و«مالَ» مفعولٌ به لاسم الفاعل، وخبرُها «ناجونَ» مرفوع.' },
+      { t:'لا عاملاتِ مُهمِلاتٍ.', a:'«عاملاتِ»: اسمُ «لا» (جمع مؤنث) مبنيٌّ على الكسر في محل نصب، و«مهملاتٍ» صفةٌ لها، والخبرُ محذوف.' }
+    ]},
+    { title:'أسئلة النفي المتنوّعة (تطبيقات)', instruction:'أجب عن الأسئلة الآتية المتعلّقة بأدوات النفي وأزمنتها وإعرابها.', items:[
+      { t:'﴿لَمْ أَكُنْ لِأَسْجُدَ لِبَشَرٍ﴾ (الحجر: ٣٣): دُلّ على النفي المؤكّد وأداة التوكيد.', a:'النفيُ المؤكّد في «لم أكن لأسجدَ»؛ أداةُ التوكيد لامُ الجحود الواقعة بعد «كان» المنفيّة، وتفيد توكيدَ النفي.' },
+      { t:'﴿لَمْ تُؤْمِنُوا … وَلَمَّا يَدْخُلِ الْإِيمَانُ﴾ (الحجرات: ١٤): ما الفرق بين «لم» و«لمّا»؟', a:'«لم» نفيٌ منقطعٌ للماضي. و«لمّا» نفيٌ مستمرٌّ إلى الحاضر مع توقّع حدوث الفعل.' },
+      { t:'﴿فَإِنْ لَمْ تَفْعَلُوا وَلَنْ تَفْعَلُوا﴾ (البقرة: ٢٤): فرّق بين «لم» و«لن» معنًى وعملًا.', a:'«لم» تجزم المضارعَ وتقلب زمنَه إلى الماضي (نفيُ الماضي). و«لن» تنصبه وتخلّصه للاستقبال (نفيُ المستقبل).' },
+      { t:'﴿لَمْ يَكُنِ اللَّهُ لِيَغْفِرَ لَهُمْ وَلا لِيَهْدِيَهُمْ طَرِيقًا﴾ (النساء: ١٦٨): ما نوعُ اللام في «ليغفرَ»؟ وما نوعُ «لا»؟', a:'أ- اللامُ لامُ الجحود؛ يُستدلّ عليها بوقوعها بعد «كان» المنفيّة، وفائدتُها توكيدُ النفي. ب- «لا» في «ولا ليهديَهم» زائدةٌ عاطفةٌ لتوكيد النفي.' },
+      { t:'﴿وَمَا كَانَ اللَّهُ لِيُعَذِّبَهُمْ … وَمَا كَانَ اللَّهُ مُعَذِّبَهُمْ﴾ (الأنفال: ٣٣): اذكر الفرقَ بين النفيين.', a:'الأوّل «ليعذّبَهم» نفيٌ مؤكّدٌ بلام الجحود. والثاني «معذّبَهم» نفيٌ مجرّدٌ من التوكيد.' },
+      { t:'﴿إِنْ هَذَا إِلَّا أَسَاطِيرُ الْأَوَّلِينَ﴾ (الأنعام: ٢٥) و«إنْ تجتهدْ تنجحْ»: ما الفرق بين «إنْ»؟', a:'«إنْ» في الآية نافيةٌ (بمعنى ما)، وفي «إنْ تجتهدْ تنجحْ» شرطيّةٌ جازمة.' },
+      { t:'«ولاتَ حينَ مناصٍ» (ص:٣) و﴿فَلا مَرَدَّ لَهُ﴾ (الرعد:١١): سمِّ المحذوف وقدّره مع حكم الحذف.', a:'في «لاتَ حينَ مناصٍ» حُذف اسمُ «لاتَ» تقديرُه «الحينُ». وفي «فلا مردَّ له» «مردَّ» اسمُ لا النافية للجنس والخبرُ محذوف «له». وحكمُ الحذف: يجوز في «لاتَ» حذفُ أحد معمولَيها والغالبُ حذفُ اسمها.' },
+      { t:'«وَما الـمَرْءُ إِلَّا الأَصْغَرانِ لِسانُهُ ومَعقُولُهُ»: استبدل (ليس) بـ(ما)، وغيّر ما يلزم.', a:'«ليس المرءُ إلّا الأصغرين…»؛ تبقى «ليس» مُهمَلةَ العملِ لانتقاض النفي بـ«إلّا»، ويُرفع ما بعدها اسمًا لها.' },
+      { t:'«لا يَسلَمُ الشَّرَفُ الرَّفيعُ مِنَ الأَذى»: ما الزمنُ الذي نفتْه «لا»؟ واجعلها للمستقبل بقرينةٍ وبلا قرينة.', a:'أ- نفت الحالَ والاستقبال (الاستمرار). ب- بقرينة: «لا يسلمُ غدًا الشرفُ»؛ وبلا قرينة تبقى دالّةً على الحال والاستقبال معًا.' },
+      { t:'«لا تَحلِفْ على صِدقٍ وَلا كَذِبٍ»: وردت «لا» مرّتين، فرّق بينهما معنًى وإعرابًا.', a:'الأولى «لا تحلفْ»: ناهيةٌ جازمة (طلب). والثانية «ولا كذبٍ»: زائدةٌ عاطفةٌ لتوكيد النفي، مجرورٌ ما بعدها بالعطف.' },
+      { t:'«كَيفَ الرُّقادُ وَلاتَ حينَ رُقادِ»: استبدل (ليس) بـ(لاتَ)، وبيّن الفرق.', a:'«كيف الرقادُ وليس حينُ رقادٍ»؛ الفرقُ: «لاتَ» تختصّ بأسماء الزمان ويُحذف أحدُ معمولَيها، و«ليس» عامّةٌ يُذكر معمولاها.' },
+      { t:'«لَيْسَ المؤمنُ بمُعْتَدٍ على الآخرينَ»: أعرِب (بمعتدٍ)، واستبدل (ما العاملة) بـ(ليس) مجرّدًا النفيَ من التوكيد.', a:'أ- «بمعتدٍ»: الباء حرفُ جرٍّ زائد، «معتدٍ» خبرُ «ليس» مجرورٌ لفظًا منصوبٌ محلًّا، وعلامةُ جرّه الكسرةُ المقدّرة على الياء المحذوفة. ب- «ما المؤمنُ بمعتدٍ» (الباء الزائدة توكيد؛ ولتجريد النفي: ما المؤمنُ معتديًا).' },
+      { t:'«لَيْسَ ولدٌ، ما لَهُ ولدٌ»: فرّق بين الجملتين في الإعراب، مؤكّدًا النفي.', a:'«ليس ولدٌ»: «ولدٌ» اسمُ ليس مرفوع وخبرُها محذوف. و«ما له ولدٌ»: «ما» نافيةٌ مهمَلة، «له» خبرٌ مقدّم، «ولدٌ» مبتدأٌ مؤخّر. توكيد النفي: «ليس ولدٌ البتّةَ» و«ما له مِن ولدٍ».' }
+    ]},
+    { title:'أعرِب ما تحته خطّ إعرابًا مفصّلًا', instruction:'أعرِب ما تحته خطّ إعرابًا مفصّلًا.', items:[
+      { t:'قال تعالى: ﴿(لا هُنَّ حِلٌّ لَهُمْ) وَلا هُمْ يَحِلُّونَ لَهُنَّ﴾ (الممتحنة: ١٠)', a:'«لا»: نافيةٌ غيرُ عاملة. «هنَّ»: ضميرٌ مبنيّ في محل رفع مبتدأ. «حِلٌّ»: خبرٌ مرفوعٌ بالضمّة.' },
+      { t:'قال تعالى: ﴿فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ (فَلا جُنَاحَ عَلَيْهِ)﴾ (البقرة: ١٥٨)', a:'«لا»: نافيةٌ للجنس. «جُناحَ»: اسمُها مبنيٌّ على الفتح في محل نصب. «عليه»: جارٌّ ومجرورٌ خبرُها في محل رفع.' },
+      { t:'قال تعالى: ﴿إِنَّهَا بَقَرَةٌ (لا فَارِضٌ وَلا بِكْرٌ) عَوَانٌ﴾ (البقرة: ٦٨)', a:'«لا» الأولى: نافيةٌ مُهمَلة، «فارضٌ» صفةٌ (خبر) مرفوعة. و«لا» الثانية: زائدةٌ لتوكيد النفي، «بِكرٌ» معطوفٌ مرفوع.' },
+      { t:'قال جرير: سَرَتِ الهُمومُ فَبِتْنَ (غَيرَ نِيامِ)', a:'«غيرَ»: حالٌ منصوبةٌ تفيد النفيَ، وهي مضاف. «نيامٍ»: مضافٌ إليه مجرورٌ بالكسرة.' },
+      { t:'قال البحتريّ: (لَيْسَ الزَّمانُ بِمُعْتِبٍ) قَذَريني', a:'«ليس»: فعلٌ ماضٍ ناقص. «الزمانُ»: اسمُها مرفوع. «بمعتِبٍ»: الباء زائدة، «معتِبٍ» خبرُها مجرورٌ لفظًا منصوبٌ محلًّا.' },
+      { t:'قال الشاعر: لَمْ يَشْفِ طَيْفُكِ (لـمّا زَارَني) أَلَمًا', a:'«لمّا»: ظرفُ زمانٍ بمعنى «حين» مبنيٌّ في محل نصب، مضافٌ إلى الجملة بعده. «زارَني»: فعلٌ ماضٍ والنون للوقاية والياء مفعولٌ به، والجملةُ في محل جرٍّ بالإضافة.' },
+      { t:'ذَهَبْتُ إلى الاختبارِ (لا خائفًا ولا مُرْتَعِبًا).', a:'«لا»: زائدةٌ لتوكيد النفي. «خائفًا»: حالٌ منصوبةٌ بالفتحة. و«لا» الثانية: عاطفةٌ زائدة، «مرتعبًا» معطوفٌ منصوب.' },
+      { t:'إلّا تَحْفَظْ حقوقَ المرأةِ (فَلَنْ أُكلِّمَك).', a:'«لن»: حرفُ نفيٍ ونصبٍ واستقبال. «أُكلّمَ»: مضارعٌ منصوبٌ بالفتحة، والفاعل مستتر «أنا». «الكاف»: ضميرٌ في محل نصب مفعولٍ به.' },
+      { t:'(ما الضَّعْفُ بِمانِعِ) الشُّجاعَ.', a:'«ما»: نافيةٌ عاملةٌ عملَ ليس. «الضعفُ»: اسمُها مرفوع. «بمانعِ»: الباء زائدة، «مانعِ» خبرُها مجرورٌ لفظًا منصوبٌ محلًّا، وهو مضاف. «الشجاعَ»: مفعولٌ به لاسم الفاعل «مانع».' },
+      { t:'نَدِمَ المُجرمُ (ولاتَ ساعةَ مَنْدَمٍ).', a:'«لاتَ»: حرفٌ يعمل عملَ ليس يختصّ بالزمن، اسمُها محذوف تقديرُه «الساعةُ». «ساعةَ»: خبرُها منصوب، وهو مضاف. «مندمٍ»: مضافٌ إليه مجرور.' }
+    ]}
+  ];
+
+  toggle = (i) => () => this.setState(s => ({ open: s.open===i?-1:i }));
+  reveal = (key) => () => this.setState(s => ({ revealed:{ ...s.revealed, [key]:!s.revealed[key] } }));
+
+  pick = (id) => () => this.setState(s => ({ picked: s.picked===id?null:id, gFb:'' }));
+  drop = (cat) => () => {
+    const id = this.state.picked;
+    if (!id) { this.setState({ gFb:'اختر شاهدًا أوّلًا.' }); return; }
+    const item = this.GAME.find(g => g.id===id);
+    const ok = item.cat === cat;
+    this.setState(s => {
+      if (!ok) return { gFb:'✗ ليس هذا نوعَها؛ أعِد المحاولة.', picked:null };
+      return { placed:{ ...s.placed, [id]:cat }, picked:null, gScore:s.gScore+1, gFb:'✓ تصنيفٌ صحيح!' };
+    });
+  };
+
+  renderVals(){
+    const { open, revealed, picked, placed, gScore, gFb } = this.state;
+    const AR = ['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠','١١','١٢','١٣'];
+
+    const chips = this.GAME.filter(g => !placed[g.id]).map(g => ({
+      text:g.text,
+      onPick:this.pick(g.id),
+      style:`font-family:'Amiri',serif; font-size:clamp(15px,2vw,18px); padding:8px 14px; border-radius:12px; cursor:pointer; transition:all .15s ease; border:1.5px solid ${picked===g.id?'var(--accent)':'var(--line)'}; background:${picked===g.id?'var(--accent-tint)':'#fff'}; color:var(--ink); box-shadow:${picked===g.id?'0 6px 16px -8px rgba(0,195,254,.6)':'none'};`
+    }));
+
+    const buckets = this.GB.map(b => ({
+      key:b.key, label:b.label, onDrop:this.drop(b.key),
+      items:this.GAME.filter(g => placed[g.id]===b.key).map(g => g.text),
+      style:`padding:14px; border-radius:16px; cursor:pointer; transition:all .15s ease; border:2px dashed ${picked?'var(--accent)':'var(--line)'}; background:${picked?'rgba(0,195,254,.05)':'var(--tint)'};`
+    }));
+
+    const allSorted = this.GAME.every(g => placed[g.id]);
+    const gOk = gFb.startsWith('✓');
+
+    const exercises = this.EX.map((ex, ei) => {
+      const isOpen = open === ei;
+      const items = ex.items.map((it, ii) => {
+        const key = ei + '-' + ii;
+        const shown = !!revealed[key];
+        return {
+          num: AR[ii], text: it.t,
+          hasAns: !!it.a, ans: it.a || '', shown,
+          btnLabel: shown ? '▲ إخفاء الإجابة' : '▼ الإجابة النموذجيّة',
+          btnStyle:'margin-top:8px; background:none; border:none; color:var(--accent); font-weight:700; font-size:13.5px; cursor:pointer; padding:2px 0;',
+          onReveal:this.reveal(key)
+        };
+      });
+      return {
+        num: AR[ei], title: ex.title, instruction: ex.instruction, items,
+        open:isOpen, rot:isOpen?'180deg':'0deg', onToggle:this.toggle(ei),
+        headStyle:`width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px clamp(14px,3vw,20px); background:${isOpen?'var(--tint)':'#fff'}; border:none; cursor:pointer; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(15px,2vw,17px); color:var(--primary); text-align:right;`,
+        numStyle:`flex:none; display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; font-size:14px; ${isOpen?'background:var(--accent); color:#08123a':'background:var(--tint); color:var(--primary)'}`
+      };
+    });
+
+    return {
+      chips, buckets, allSorted,
+      gameScore:`${AR[gScore]||gScore} / ٦`,
+      gameFb:gFb,
+      gameFbStyle:`margin-top:12px; text-align:center; font-weight:700; font-size:14px; min-height:20px; color:${gOk?'#1F8A5B':'var(--alert,#c0455a)'};`,
+      exercises
+    };
+  }
+}
+</script>
+</body>
+</html>

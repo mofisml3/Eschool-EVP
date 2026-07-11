@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ١ من ١٦ · التمهيد</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:6.25%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%202%20-%20Adawat.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">القواعد · تمهيد</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">ما أسلوبُ النَّفي؟</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">في درس المطالعة «التضحية طريق النصر» مرَّت بك جُملٌ كثيرة تُنكِر فكرةً وتنقُضها. هذا هو <strong style="color:var(--primary);">أسلوب النفي</strong>: أسلوبٌ خبريٌّ خلافُ الإثبات. شغّل الكشف التدريجيّ لتتبيّن معناه.</p>
+    </div>
+
+    <!-- gradual reveal -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary);">🪄 اكتشِف الفكرة سطرًا بسطر</h2>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button onClick="{{ prev }}" aria-label="السابق" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">→</button>
+          <button onClick="{{ toggle }}" style="min-width:112px; height:44px; padding:0 18px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-size:15px; cursor:pointer;">{{ playLabel }}</button>
+          <button onClick="{{ next }}" aria-label="التالي" style="width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-size:18px; cursor:pointer;">←</button>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; min-height:210px;">
+        <sc-for list="{{ beats }}" as="b" hint-placeholder-count="5">
+          <div style="{{ b.boxStyle }}">
+            <span style="{{ b.numStyle }}">{{ b.num }}</span>
+            <p style="margin:0; font-size:clamp(15px,2.2vw,18px); line-height:1.95; flex:1;">{{ b.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <span style="font-size:14px; color:var(--muted);">التقدّم: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ progressText }}</span></span>
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--accent); font-size:14px; font-weight:600; cursor:pointer;">↺ إعادة</button>
+      </div>
+    </section>
+
+    <!-- two kinds -->
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px;">
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--accent); border-radius:18px; padding:20px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:19px; margin-bottom:6px;">النفيُ الصريحُ</h2>
+        <p style="font-size:15px; line-height:1.9;">نفيٌ <strong style="color:#0378a3;">ظاهرٌ</strong> باستعمال إحدى أدوات النفي (فعلٍ أو اسمٍ أو حرف).</p>
+        <p style="margin-top:10px; padding:10px 14px; border-radius:10px; background:var(--accent-tint); font-family:'Cairo',serif; font-size:18px; color:#0378a3;">ليس لهم ناصرٌ.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--gold); border-radius:18px; padding:20px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:19px; margin-bottom:6px;">النفيُ الضمنيُّ</h2>
+        <p style="font-size:15px; line-height:1.9;">نفيٌ <strong style="color:#a5822a;">مفهومٌ من السياق</strong> دون أداةٍ ظاهرة، يُدرَك بالمعنى.</p>
+        <p style="margin-top:10px; padding:10px 14px; border-radius:10px; background:#f7efd8; font-family:'Cairo',serif; font-size:18px; color:#8a6a1e;">هيهاتَ أن يُهزَم الأبطالُ!</p>
+      </div>
+    </section>
+
+    <!-- classify check -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق سريع</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">وردت في نصّ المطالعة أدواتُ نفيٍ من أنواعٍ ثلاثة. صنِّف أداةَ النفي في كلِّ شاهدٍ: أهي حرفٌ، أم فعلٌ، أم اسمٌ؟</p>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">اضغط النوعَ الصحيح تحت كلِّ شاهد — تظهر التغذيةُ الراجعة فورًا.</p>
+
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="3">
+          <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px;">
+            <p style="font-family:'Cairo',serif; font-size:clamp(17px,2.5vw,22px); color:var(--primary); line-height:1.8; margin-bottom:12px;">{{ it.shahid }}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <sc-for list="{{ it.choices }}" as="ch" hint-placeholder-count="3">
+                <button onClick="{{ ch.onClick }}" style="{{ ch.style }}">{{ ch.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ it.feedback }}" hint-placeholder-val="{{ true }}">
+              <div style="{{ it.feedbackStyle }}">{{ it.feedback }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ مخطط الدرس</a>
+      <a href="Arabic%20C2%20L2%20Scene%202%20-%20Adawat.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">أدوات النفي الصريح ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step:0, playing:false, picks:{} };
+
+  BEATS = [
+    'أسلوبُ النفي أسلوبٌ من الأساليب الخبريّة، يُراد به نقضُ فكرةٍ وإنكارُها، فهو خلافُ الإثبات.',
+    'ولتحقيق هذا المعنى أدواتٌ متنوّعة، لكلٍّ منها وظيفةٌ دلاليّةٌ وعملٌ تركيبيٌّ في الجملة بحسب السياق.',
+    'وهذه الأدوات تجتمع كلُّها في معنى (النفي)، وأكثرُها حروفٌ، وفيها فعلٌ واحدٌ (ليس) واسمٌ واحدٌ (غير).',
+    'وقد مرّت بك أمثلتُها في نصّ المطالعة: «لم يخافوا ولم يضعفوا»، و«ليس لهم ناصرٌ»، و«النفاقُ سلوكٌ غيرُ مرغوبٍ فيه».',
+    'وينقسم أسلوبُ النفي قسمين: النفيُ الصريحُ (بأداةٍ ظاهرة)، والنفيُ الضمنيُّ (يُفهَم من السياق).'
+  ];
+
+  ITEMS = [
+    { id:'a', shahid:'«… لم يخافوا ولم يضعفوا …»', tool:'لم', kind:'harf',
+      why:{ harf:'أحسنت! «لم» حرفُ نفيٍ وجزمٍ وقلبٍ، يجزم الفعل المضارع ويقلب زمنه إلى الماضي.',
+            fi3l:'ليست فعلًا؛ «لم» حرفُ نفيٍ يدخل على الفعل المضارع فيجزمه.',
+            ism:'ليست اسمًا؛ «لم» حرفٌ من حروف النفي.' } },
+    { id:'b', shahid:'«… فليس لهم ناصرٌ ولا مُعينٌ …»', tool:'ليس', kind:'fi3l',
+      why:{ harf:'ليست حرفًا؛ «ليس» فعلٌ ماضٍ ناقصٌ جامدٌ يفيد النفي.',
+            fi3l:'أحسنت! «ليس» الفعلُ الوحيد من أدوات النفي، وهو ماضٍ ناقصٌ جامد.',
+            ism:'ليست اسمًا؛ «ليس» فعلٌ ماضٍ ناقص.' } },
+    { id:'c', shahid:'«النفاقُ سلوكٌ غيرُ مرغوبٍ فيه»', tool:'غير', kind:'ism',
+      why:{ harf:'ليست حرفًا؛ «غير» اسمٌ يفيد النفي وهو ملازمٌ للإضافة.',
+            fi3l:'ليست فعلًا؛ «غير» الاسمُ الوحيد من أدوات النفي.',
+            ism:'أحسنت! «غير» اسمٌ يفيد النفي، ينفي الاسمَ الواقعَ بعده (المضافَ إليه).' } }
+  ];
+  KINDS = [ {k:'harf',label:'حرفُ نفي'}, {k:'fi3l',label:'فعلٌ ناسخ'}, {k:'ism',label:'اسمٌ'} ];
+
+  componentWillUnmount(){ this._stop(); }
+  _stop(){ if (this._t){ clearInterval(this._t); this._t=null; } }
+  _play(){
+    this._stop();
+    this._t = setInterval(() => this.setState(s => {
+      if (s.step >= this.BEATS.length-1){ this._stop(); return { playing:false }; }
+      return { step:s.step+1 };
+    }), 2800);
+  }
+  toggle = () => this.setState(s => {
+    const playing=!s.playing; let step=s.step;
+    if (playing && step>=this.BEATS.length-1) step=0;
+    return { playing, step };
+  }, () => this.state.playing ? this._play() : this._stop());
+  next = () => { this._stop(); this.setState(s => ({ step:Math.min(s.step+1,this.BEATS.length-1), playing:false })); };
+  prev = () => { this._stop(); this.setState(s => ({ step:Math.max(s.step-1,0), playing:false })); };
+  reset = () => { this._stop(); this.setState({ step:0, playing:false }); };
+  pick = (id,k) => () => { if (!this.state.picks[id]) this.setState(s => ({ picks:{ ...s.picks, [id]:k } })); };
+
+  renderVals(){
+    const { step, playing, picks } = this.state;
+
+    const beats = this.BEATS.map((text,i) => {
+      const on=i<=step, cur=i===step;
+      const boxStyle=['display:flex','gap:12px','align-items:flex-start','padding:14px 16px','border-radius:14px','transition:all .45s ease',
+        cur?'background:var(--tint)':'background:transparent', cur?'border-right:4px solid var(--accent)':'border-right:4px solid transparent',
+        on?'opacity:1':'opacity:.28', on?'filter:none':'filter:blur(2px)'].join(';');
+      const numStyle=['flex:none','display:flex','align-items:center','justify-content:center','width:30px','height:30px','border-radius:50%','font-weight:700','font-size:14px','font-family:"Cairo",sans-serif',
+        cur?'background:var(--accent);color:#08123a':(on?'background:var(--primary);color:#fff':'background:var(--line);color:var(--muted)')].join(';');
+      return { num:['١','٢','٣','٤','٥'][i], text, boxStyle, numStyle };
+    });
+
+    const items = this.ITEMS.map(it => {
+      const picked = picks[it.id];
+      const choices = this.KINDS.map(kd => {
+        let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+        if (picked){
+          if (kd.k===it.kind){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+          else if (kd.k===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+          else color='var(--muted)';
+        }
+        const style=`cursor:${picked?'default':'pointer'}; padding:10px 16px; min-height:44px; border-radius:12px; font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(14px,2vw,16px); background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+        return { label:kd.label, style, onClick:this.pick(it.id,kd.k) };
+      });
+      const ok = picked===it.kind;
+      const feedback = picked ? it.why[picked] : null;
+      const feedbackStyle = 'margin-top:12px; padding:12px 14px; border-radius:12px; animation:popIn .25s ease; font-size:clamp(13px,1.9vw,15px); line-height:1.8; background:' +
+        (ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)');
+      return { shahid:it.shahid, choices, feedback, feedbackStyle };
+    });
+
+    return {
+      beats, items,
+      playLabel: playing?'⏸ إيقاف':'▶ تشغيل',
+      progressText:`${step+1} / ${this.BEATS.length}`,
+      prev:this.prev, next:this.next, toggle:this.toggle, reset:this.reset
+    };
+  }
+}
+</script>
+</body>
+</html>

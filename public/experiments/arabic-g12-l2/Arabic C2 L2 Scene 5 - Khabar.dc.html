@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٥ من ١٦ · خبر «ليس»</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:31.25%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%204%20-%20Ism.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%206%20-%20Khasisatan.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">عملُ «ليس» · خبرُها</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">خبرُ «ليس»: ثلاثُ حالات</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">يأتي خبرُ «ليس» على ثلاث صور: <strong style="color:var(--primary);">مفردًا</strong>، و<strong style="color:var(--primary);">جملةً</strong>، و<strong style="color:var(--primary);">شبهَ جملة</strong>. تعرَّفها ثم صنِّف الشواهدَ بنفسك.</p>
+    </div>
+
+    <!-- reference cards -->
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:14px;">
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--accent); border-radius:16px; padding:18px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:17px; margin-bottom:8px;">١) مفردٌ</h2>
+        <p style="font-size:14px; line-height:1.85; color:var(--ink);">اسمٌ منصوبٌ. ويجوز جرُّه بالباء الزائدة لتوكيد النفي، فيكون <strong style="color:#0378a3;">مجرورًا لفظًا منصوبًا محلًّا</strong>.</p>
+        <p style="margin-top:10px; padding:8px 12px; border-radius:10px; background:var(--accent-tint); font-family:'Amiri',serif; font-size:16px; color:#0378a3; line-height:1.9;">﴿ قُل لَّستُ عليكم بوكيلٍ ﴾</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--gold); border-radius:16px; padding:18px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:17px; margin-bottom:8px;">٢) جملةٌ</h2>
+        <p style="font-size:14px; line-height:1.85; color:var(--ink);">جملةٌ فعليّةٌ في محلّ نصب خبر «ليس».</p>
+        <p style="margin-top:10px; padding:8px 12px; border-radius:10px; background:#f7efd8; font-family:'Amiri',serif; font-size:16px; color:#8a6a1e; line-height:1.9;">حنينٌ إلى الأوطانِ ليس يزولُ</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--primary); border-radius:16px; padding:18px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:17px; margin-bottom:8px;">٣) شبهُ جملةٍ</h2>
+        <p style="font-size:14px; line-height:1.85; color:var(--ink);">جارٌّ ومجرورٌ أو ظرفٌ في محلّ نصب خبر «ليس».</p>
+        <p style="margin-top:10px; padding:8px 12px; border-radius:10px; background:var(--tint); font-family:'Amiri',serif; font-size:16px; color:var(--primary); line-height:1.9;">ليس لهم ناصرٌ</p>
+      </div>
+    </section>
+
+    <!-- drag classify -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700;">صنِّف خبرَ «ليس»</span>
+        <span style="font-size:14px; color:var(--muted);">صُنِّف <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ placedCount }} / 4</span></span>
+      </div>
+      <p style="font-size:clamp(15px,2.1vw,17px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">اسحب كلَّ شاهدٍ (أو اضغطه ثم اضغط الصندوق) إلى نوع خبر «ليس» فيه.</p>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:18px;">يعمل بالسحب على الحاسوب واللمس على الجوّال.</p>
+
+      <div style="display:flex; flex-direction:column; gap:10px; min-height:52px; margin-bottom:18px;">
+        <sc-for list="{{ tray }}" as="t" hint-placeholder-count="4">
+          <button onPointerDown="{{ t.onDown }}" onClick="{{ t.onTap }}" style="{{ t.style }}">{{ t.text }}</button>
+        </sc-for>
+        <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}">
+          <span style="color:var(--muted); font-size:14px;">تمّ توزيع كلِّ الشواهد ✓</span>
+        </sc-if>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:14px;">
+        <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="3">
+          <div data-bucket="{{ b.id }}" onClick="{{ b.onTap }}" style="{{ b.style }}">
+            <h3 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:16px; margin-bottom:10px;">{{ b.title }}</h3>
+            <div style="display:flex; flex-direction:column; gap:8px; min-height:50px;">
+              <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="1">
+                <span style="{{ it.style }}">{{ it.text }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+        </div>
+      </sc-if>
+      <div style="margin-top:14px; text-align:left;">
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة التصنيف</button>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%204%20-%20Ism.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ اسم «ليس»</a>
+      <a href="Arabic%20C2%20L2%20Scene%206%20-%20Khasisatan.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">خصيصتا «ليس» ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { placed:{}, selected:null, feedback:null, ok:false };
+
+  SHAWAHID = [
+    { id:'s1', text:'﴿ قُل لَّستُ عليكم بوكيلٍ ﴾', kind:'mufrad' },
+    { id:'s2', text:'حنينٌ إلى الأوطانِ ليس يزولُ', kind:'jumla' },
+    { id:'s3', text:'ليس منّا مَن شكا ظُلمَ علّتِه', kind:'shibh' },
+    { id:'s4', text:'ليس الإرهابُ بمنتصرٍ', kind:'mufrad' }
+  ];
+  ORDER = ['s3','s1','s2','s4'];
+  BUCKETS = [
+    { id:'mufrad', title:'خبرٌ مفردٌ' },
+    { id:'jumla',  title:'خبرٌ جملةٌ' },
+    { id:'shibh',  title:'شبهُ جملةٍ' }
+  ];
+  KNAME = { mufrad:'خبرٌ مفردٌ (منصوبٌ، وقد يُجَرُّ بالباء الزائدة)', jumla:'خبرٌ جملةٌ فعليّةٌ في محلّ نصب', shibh:'شبهُ جملةٍ (جارّ ومجرور) في محلّ نصب' };
+
+  place = (sid, bucket) => {
+    if (this.state.placed[sid]) return;
+    const s = this.SHAWAHID.find(x=>x.id===sid);
+    if (s.kind === bucket){
+      this.setState(st => ({ placed:{ ...st.placed, [sid]:bucket }, selected:null,
+        feedback:'أحسنت! هذا '+this.KNAME[s.kind]+'.', ok:true }));
+      const total = Object.keys(this.state.placed).length + 1;
+      if (total === this.SHAWAHID.length) setTimeout(()=> this.setState({ feedback:'🎉 ممتاز! صنّفتَ حالاتِ خبر «ليس» كلَّها تصنيفًا صحيحًا.', ok:true }), 50);
+    } else {
+      this.setState({ selected:null, feedback:'راجِع الشاهد: أخبرُ «ليس» فيه مفردٌ أم جملةٌ أم شبهُ جملةٍ؟ حاول مرّة أخرى.', ok:false });
+    }
+  };
+
+  startDrag = (s) => (e) => {
+    if (this.state.placed[s.id]) return;
+    e.preventDefault();
+    const ghost = document.createElement('div');
+    ghost.textContent = s.text;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:12px;background:#200058;color:#fff;font-family:Amiri,serif;font-weight:700;font-size:16px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;max-width:80vw;overflow:hidden;text-overflow:ellipsis;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ ghost.style.left=x+'px'; ghost.style.top=y+'px'; };
+    place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{
+      const el=document.elementFromPoint(ev.clientX,ev.clientY);
+      const b=el&&el.closest&&el.closest('[data-bucket]');
+      ghost.remove();
+      window.removeEventListener('pointermove',move);
+      window.removeEventListener('pointerup',up);
+      this.setState({ dragging:null });
+      if (b) this.place(s.id, b.getAttribute('data-bucket'));
+    };
+    window.addEventListener('pointermove',move);
+    window.addEventListener('pointerup',up);
+    this.setState({ dragging:s.id, selected:s.id });
+  };
+
+  tapS = (id) => () => { if (!this.state.placed[id]) this.setState(st => ({ selected:st.selected===id?null:id, feedback:null })); };
+  tapBucket = (bid) => () => { if (this.state.selected) this.place(this.state.selected, bid); };
+  reset = () => this.setState({ placed:{}, selected:null, feedback:null, ok:false });
+
+  renderVals(){
+    const { placed, selected } = this.state;
+
+    const tray = this.ORDER.filter(id => !placed[id]).map(id => {
+      const s = this.SHAWAHID.find(x=>x.id===id);
+      const sel = selected===id;
+      const style = `touch-action:none; user-select:none; cursor:grab; text-align:center; padding:12px 16px; min-height:44px; border-radius:12px; font-family:'Amiri',serif; font-weight:700; font-size:clamp(15px,2vw,19px); transition:all .18s ease; ${sel?'background:var(--primary); color:#fff; border:2px solid var(--primary); box-shadow:0 8px 20px -8px rgba(32,0,88,.6)':'background:#fff; color:var(--primary); border:2px solid var(--primary)'}`;
+      return { id, text:s.text, style, onDown:this.startDrag(s), onTap:this.tapS(id) };
+    });
+
+    const buckets = this.BUCKETS.map(b => {
+      const canDrop = selected && !placed[selected];
+      const style = `border-radius:16px; padding:16px; transition:all .2s ease; cursor:${canDrop?'pointer':'default'}; ${canDrop?'background:#fbfaff; border:2px dashed var(--accent)':'background:var(--tint); border:2px dashed var(--line)'}`;
+      const items = this.SHAWAHID.filter(s => placed[s.id]===b.id).map(s => ({
+        text:s.text,
+        style:'padding:8px 12px; border-radius:10px; background:var(--accent-tint); border:1px solid var(--accent); color:#0378a3; font-family:"Amiri",serif; font-weight:700; font-size:clamp(13px,1.9vw,16px); line-height:1.7;'
+      }));
+      return { id:b.id, title:b.title, items, style, onTap:this.tapBucket(b.id) };
+    });
+
+    return {
+      tray, buckets,
+      trayEmpty: tray.length===0,
+      placedCount: Object.keys(placed).length,
+      feedback:this.state.feedback,
+      feedbackTitle:this.state.ok?'✓ صحيح':'✗ حاول مجدّدًا',
+      feedbackStyle:'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(this.state.ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset:this.reset
+    };
+  }
+}
+</script>
+</body>
+</html>

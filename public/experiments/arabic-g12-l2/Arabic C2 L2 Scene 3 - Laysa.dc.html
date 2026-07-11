@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٣ من ١٦ · عمل «ليس»</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:18.75%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%202%20-%20Adawat.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%204%20-%20Ism.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">١) الأفعالُ · «ليس»</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">«ليس»: تأثيرٌ معنويٌّ وإعرابيٌّ</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">«ليس» فعلٌ ماضٍ ناقصٌ جامدٌ يفيد النفي، يختصّ بالدخول على الجملة الاسميّة. أدخِلْه على الجملة، وشاهِد كيف يغيّر <strong style="color:var(--primary);">المعنى</strong> و<strong style="color:var(--primary);">الإعراب</strong> معًا.</p>
+    </div>
+
+    <!-- interactive transformer -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary);">🔧 آلةُ «ليس»</h2>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <sc-for list="{{ exTabs }}" as="t" hint-placeholder-count="3">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:18px;">اضغط الزرَّ لإدخال «ليس» أو إزالتها، وشاهِد الأشكالَ تتحرّك.</p>
+
+      <!-- the stage -->
+      <div style="background:linear-gradient(160deg,#fbfaff,#f2effb); border:1px solid var(--line); border-radius:18px; padding:clamp(18px,3vw,30px); overflow:hidden;">
+        <div style="display:flex; align-items:stretch; justify-content:center; gap:clamp(8px,2vw,16px); flex-wrap:nowrap;">
+
+          <!-- laysa box -->
+          <div style="{{ laysaWrap }}">
+            <div style="{{ laysaBox }}">
+              <span style="font-family:'Cairo',serif; font-weight:700; font-size:clamp(22px,4vw,34px);">ليس</span>
+            </div>
+            <span style="display:block; text-align:center; margin-top:8px; font-size:clamp(11px,1.6vw,13px); font-weight:700; color:var(--primary);">فعلٌ ناسخ</span>
+          </div>
+
+          <!-- ism (mobtada) box -->
+          <div style="flex:none; display:flex; flex-direction:column; align-items:center;">
+            <div style="{{ ismBox }}">
+              <span style="font-family:'Cairo',serif; font-weight:700; font-size:clamp(22px,4vw,34px);">{{ ismWord }}</span>
+            </div>
+            <span style="{{ ismTag }}">{{ ismLabel }}</span>
+            <span style="{{ ismCase }}">{{ ismCaseText }}</span>
+          </div>
+
+          <!-- khabar box -->
+          <div style="flex:none; display:flex; flex-direction:column; align-items:center;">
+            <div style="{{ khBox }}">
+              <span style="font-family:'Cairo',serif; font-weight:700; font-size:clamp(22px,4vw,34px);">{{ khWord }}</span>
+            </div>
+            <span style="{{ khTag }}">{{ khLabel }}</span>
+            <span style="{{ khCase }}">{{ khCaseText }}</span>
+          </div>
+
+        </div>
+
+        <!-- reading line -->
+        <p style="text-align:center; margin-top:22px; font-family:'Cairo',serif; font-size:clamp(20px,3.4vw,30px); color:var(--primary); line-height:1.6;">{{ fullSentence }}</p>
+      </div>
+
+      <div style="margin-top:18px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
+        <button onClick="{{ toggleApply }}" style="min-width:180px; height:48px; padding:0 22px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-size:16px; cursor:pointer; box-shadow:0 10px 24px -12px rgba(32,0,88,.6);">{{ applyLabel }}</button>
+        <button onClick="{{ autoToggle }}" style="height:48px; padding:0 20px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--primary); font-family:'Cairo',sans-serif; font-size:15px; cursor:pointer;">{{ autoLabel }}</button>
+      </div>
+    </section>
+
+    <!-- two effects -->
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:16px;">
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--gold); border-radius:18px; padding:20px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:18px; margin-bottom:8px;">أوّلًا: التأثيرُ المعنويُّ</h2>
+        <p style="font-size:15px; line-height:1.95;">تنفي «ليس» اتّصافَ اسمها بخبرها؛ فقولُك «ليس المقاتلُ جبانًا» ينفي عنه صفةَ الجُبن.</p>
+        <p style="margin-top:10px; padding:10px 14px; border-radius:10px; background:#f7efd8; font-family:'Cairo',serif; font-size:clamp(15px,2vw,18px); color:#8a6a1e; line-height:1.9;">وليس حياءُ الوجهِ في الدُّبِّ شِيمةً … ولكنَّه من شِيمةِ الأسدِ الوردِ</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--accent); border-radius:18px; padding:20px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:18px; margin-bottom:8px;">ثانيًا: التأثيرُ الإعرابيُّ</h2>
+        <p style="font-size:15px; line-height:1.95;">تعمل «ليس» عملَ «كان»؛ فترفع المبتدأ <strong style="color:#0378a3;">اسمًا لها</strong>، وتنصب الخبر <strong style="color:#0378a3;">خبرًا لها</strong>.</p>
+        <p style="margin-top:10px; padding:10px 14px; border-radius:10px; background:var(--accent-tint); font-family:'Cairo',serif; font-size:clamp(15px,2vw,18px); color:#0378a3; line-height:1.9;">ليسَ المقاتلُ جبانًا.</p>
+      </div>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق سريع</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">في جملة «ليس الجوُّ صحوًا»، ما إعرابُ «صحوًا»؟</p>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">تذكّر: «ليس» تعمل عملَ «كان».</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%202%20-%20Adawat.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الأدوات</a>
+      <a href="Arabic%20C2%20L2%20Scene%204%20-%20Ism.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">اسمُ «ليس» ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { applied:false, exIdx:0, auto:false, picked:null };
+
+  EX = [
+    { mob:'المقاتلُ', mobBase:'المقاتل', kh:'جبانٌ', khNasb:'جبانًا', base:'المقاتلُ جبانٌ' },
+    { mob:'الجوُّ',   mobBase:'الجوّ',   kh:'صحوٌ',  khNasb:'صحوًا',  base:'الجوُّ صحوٌ' },
+    { mob:'الطالبُ',  mobBase:'الطالب',  kh:'كسولٌ', khNasb:'كسولًا', base:'الطالبُ كسولٌ' }
+  ];
+
+  MCQ = { correct:1, options:['اسمُ ليس مرفوع','خبرُ ليس منصوب','مبتدأ مرفوع'],
+    why:[ 'خطأ؛ اسمُ ليس هو «الجوُّ» المرفوع.',
+          'أحسنت! «ليس» تنصب الخبر؛ فـ«صحوًا» خبرُ ليس منصوب وعلامةُ نصبه الفتحة.',
+          'خطأ؛ دخلت «ليس» فنسخت الابتداء، فلا مبتدأ بعدها.' ] };
+
+  componentWillUnmount(){ this._stop(); }
+  _stop(){ if (this._t){ clearInterval(this._t); this._t=null; } }
+  toggleApply = () => { this._stop(); this.setState(s => ({ applied:!s.applied, auto:false })); };
+  autoToggle = () => {
+    this.setState(s => ({ auto:!s.auto }), () => {
+      if (this.state.auto){ this._t = setInterval(()=> this.setState(s => ({ applied:!s.applied })), 1800); }
+      else this._stop();
+    });
+  };
+  setEx = (i) => () => { this._stop(); this.setState({ exIdx:i, applied:false, auto:false }); };
+  pick = (i) => () => { if (this.state.picked==null) this.setState({ picked:i }); };
+  retry = () => this.setState({ picked:null });
+
+  renderVals(){
+    const { applied, exIdx, auto, picked } = this.state;
+    const ex = this.EX[exIdx];
+
+    const exTabs = this.EX.map((e,i) => {
+      const active = i===exIdx;
+      const style = `cursor:pointer; padding:8px 14px; min-height:40px; border-radius:10px; font-family:'Cairo',serif; font-weight:700; font-size:clamp(14px,1.9vw,17px); transition:all .18s ease; ${active?'background:var(--primary); color:#fff; border:1px solid var(--primary)':'background:#fff; color:var(--primary); border:1px solid var(--line)'}`;
+      return { label:e.base, style, onClick:this.setEx(i) };
+    });
+
+    // laysa slides in from the right when applied
+    const laysaWrap = `flex:none; display:flex; flex-direction:column; align-items:center; transition:all .5s cubic-bezier(.2,.7,.2,1); ${applied?'width:auto; opacity:1; transform:translateX(0); margin-inline-end:0':'width:0; opacity:0; transform:translateX(40px); margin-inline-end:-12px; overflow:hidden'}`;
+    const laysaBox = 'display:flex; align-items:center; justify-content:center; min-width:clamp(64px,12vw,96px); height:clamp(58px,10vw,84px); padding:0 12px; border-radius:14px; background:linear-gradient(150deg,#2a0a6a,#200058); color:#fff; box-shadow:0 10px 24px -12px rgba(32,0,88,.7);';
+
+    // ism box: accent, stays marfoo3; label changes مبتدأ→اسم ليس
+    const ismBox = `display:flex; align-items:center; justify-content:center; min-width:clamp(84px,16vw,140px); height:clamp(58px,10vw,84px); padding:0 14px; border-radius:14px; transition:all .5s ease; background:var(--accent-tint); border:2px solid var(--accent); color:#0378a3;`;
+    const ismTag = `display:block; margin-top:8px; padding:3px 12px; border-radius:999px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(11px,1.6vw,13px); transition:all .4s ease; background:var(--accent); color:#08123a;`;
+    const ismCase = 'display:block; margin-top:5px; font-size:clamp(11px,1.6vw,13px); color:var(--muted); font-weight:600;';
+    const ismLabel = applied ? 'اسمُ ليس' : 'مبتدأ';
+    const ismCaseText = 'مرفوعٌ (ضمّة)';
+
+    // khabar box: shifts to alert when applied; case ضمة→فتحة; word gets tanwin fath
+    const khBox = `display:flex; align-items:center; justify-content:center; min-width:clamp(84px,16vw,140px); height:clamp(58px,10vw,84px); padding:0 14px; border-radius:14px; transition:all .5s ease; ${applied?'background:var(--alert-tint); border:2px solid var(--alert); color:#c0455a; transform:translateY(-2px)':'background:var(--tint); border:2px solid var(--line); color:var(--primary)'}`;
+    const khTag = `display:block; margin-top:8px; padding:3px 12px; border-radius:999px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(11px,1.6vw,13px); transition:all .4s ease; ${applied?'background:var(--alert); color:#fff':'background:var(--line); color:var(--muted)'}`;
+    const khCase = `display:block; margin-top:5px; font-size:clamp(11px,1.6vw,13px); font-weight:700; transition:all .4s ease; ${applied?'color:var(--alert)':'color:var(--muted)'}`;
+    const khLabel = applied ? 'خبرُ ليس' : 'خبر';
+    const khCaseText = applied ? 'منصوبٌ (فتحة)' : 'مرفوعٌ (ضمّة)';
+
+    const options = this.MCQ.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style=`text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:14px 16px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(15px,2vw,17px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+      return { label, style, onClick:this.pick(i) };
+    });
+    const correct = picked===this.MCQ.correct;
+
+    return {
+      exTabs,
+      laysaWrap, laysaBox,
+      ismBox, ismTag, ismCase, ismLabel, ismCaseText, ismWord: ex.mob,
+      khBox, khTag, khCase, khLabel, khCaseText, khWord: applied ? ex.khNasb : ex.kh,
+      fullSentence: applied ? ('ليسَ ' + ex.mob + ' ' + ex.khNasb) : ex.base,
+      applyLabel: applied ? '↩ أزِل «ليس»' : '▶ أدخِل «ليس»',
+      autoLabel: auto ? '⏸ إيقاف العرض' : '⟳ عرض تلقائيّ',
+      options,
+      retry:this.retry,
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      feedbackStyle:'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(correct?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      toggleApply:this.toggleApply, autoToggle:this.autoToggle
+    };
+  }
+}
+</script>
+</body>
+</html>

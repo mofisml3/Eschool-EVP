@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="audio-player.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.97)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٥ من ٥ · الشرقيّ</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:100%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Scene%204%20-%20Habboubi.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L3%20Check.dc.html" title="التقويم" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:18px;">✓</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">شاعرٌ حديث</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,42px); color:var(--primary); line-height:1.18; margin-bottom:10px;">عليّ الشرقيّ</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">شاعرٌ نهض بالكلمة نصرةً للعلم. اقرأ قصيدتَه «السيفُ والقلمُ»، ثم اكتشف محسّناتها البديعيّة بالسحب.</p>
+    </div>
+
+    <section style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(18px,3vw,24px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:18px; margin-bottom:8px;">🕮 سيرتُه</h2>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.95;">هو الشيخ عليّ بن الشيخ جعفر الشرقيّ، وُلِد في النجف الأشرف عام <span style="direction:ltr; unicode-bidi:isolate;">١٨٩٠م</span>، ونشأ في بيت علمٍ وأدب، فدرس علومَ العربيّة والمنطق. قادته تطلّعاتُه إلى تقبُّل الثقافات المعاصرة، وأثْرَت أسفارُه إلى الخليج والحجاز وسوريا ولبنان شِعرَه بصورٍ ومعانٍ مُستحدَثة. رافق السيّدَ الحبّوبيَّ في مسيرته الجهاديّة ضدّ الإنكليز عام <span style="direction:ltr; unicode-bidi:isolate;">١٩١٥</span>. له ديوانُ «عواطفُ وعواصفُ» (<span style="direction:ltr; unicode-bidi:isolate;">١٩٥٣</span>)، توفّي عام <span style="direction:ltr; unicode-bidi:isolate;">١٩٦٤</span>.</p>
+    </section>
+
+    <section style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3.5vw,32px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(19px,2.8vw,24px); text-align:center; margin-bottom:4px;">قصيدةُ «السيفُ والقلمُ»</h2>
+      <p style="text-align:center; color:var(--muted); font-size:13px; margin-bottom:12px;">نُشِرت في مجلّة العِرفان عام ١٩١٠ — للحفظ سبعةُ أبيات (البحر البسيط)</p>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; padding:12px 16px; background:var(--tint); border-radius:14px;">
+        <span style="font-size:22px;">🔊</span>
+        <div style="flex:1; min-width:0;">
+          <div style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:14px; margin-bottom:7px;">استمع إلى إنشاد القصيدة — اضغط ▶</div>
+          <sound-bar src="audio/sayf.mp3" style="display:block; width:100%;"></sound-bar>
+        </div>
+      </div>
+      <div ref="{{ poemRef }}" style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ verses }}" as="v" hint-placeholder-count="7">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 30px; padding:10px 14px; border-radius:10px; background:rgba(255,255,255,.6);">
+            <span style="font-family:'Cairo',serif; font-size:clamp(16px,2.5vw,21px); line-height:1.9; color:var(--ink);"><sc-for list="{{ v.aWords }}" as="w" hint-placeholder-count="4"><span data-wi="{{ w.wi }}" style="transition:color .12s ease;">{{ w.t }} </span></sc-for></span>
+            <span style="font-family:'Cairo',serif; font-size:clamp(16px,2.5vw,21px); line-height:1.9; color:var(--primary);"><sc-for list="{{ v.bWords }}" as="w" hint-placeholder-count="4"><span data-wi="{{ w.wi }}" style="transition:color .12s ease;">{{ w.t }} </span></sc-for></span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- vocab reveal -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,26px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary); margin-bottom:12px;">معاني المفردات</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:12px;">
+        <sc-for list="{{ vocab }}" as="v" hint-placeholder-count="4">
+          <div style="padding:14px 16px; border-radius:12px; background:var(--tint);">
+            <strong style="font-family:'Cairo',serif; font-size:20px; color:var(--primary);">{{ v.word }}</strong>
+            <p style="font-size:14px; line-height:1.7; color:var(--ink); margin-top:4px;">{{ v.meaning }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- comparison -->
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary); margin-bottom:12px;">المفاضلةُ بين السيف والقلم</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:14px;">
+        <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--alert); border-radius:14px; padding:18px;"><strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:18px;">⚔️ السيفُ</strong><p style="font-size:14.5px; line-height:1.85; margin-top:8px;">مهما كان حادًّا يعتريه الثَّلْمُ لكثرة استعماله، وعملُه مقصورٌ على المقارعة والحروب.</p></div>
+        <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:14px; padding:18px;"><strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:18px;">🖋️ القلمُ</strong><p style="font-size:14.5px; line-height:1.85; margin-top:8px;">ما يُنتجه باقٍ كسيفٍ لا يَعطَب؛ أقسم اللهُ به لأهميّته، وله وظائفُ لا تُحصى للعلم وتدوين تاريخ الأمم وآدابها.</p></div>
+      </div>
+    </section>
+
+    <!-- drag match badi3 -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary);">🎯 اكتشف المحسّنَ البديعيّ</h2>
+        <span style="font-size:14px; color:var(--muted);">تمّ: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ matchedCount }} / 4</span></span>
+      </div>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:16px;">اسحب اسمَ المحسّن إلى شاهده من القصيدة.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:52px; margin-bottom:18px;">
+        <sc-for list="{{ chips }}" as="w" hint-placeholder-count="4">
+          <button onPointerDown="{{ w.onDown }}" style="{{ w.style }}">{{ w.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="4">
+          <div data-zone="{{ z.id }}" style="{{ z.style }}">
+            <span style="{{ z.slotStyle }}">{{ z.slotText }}</span>
+            <span style="flex:1; text-align:right; font-family:'Cairo',serif; font-size:clamp(15px,2.2vw,18px); line-height:1.7; color:var(--ink); pointer-events:none;">{{ z.shahid }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}"><div style="{{ feedbackStyle }}">{{ feedback }}</div></sc-if>
+      <div style="margin-top:12px; text-align:left;"><button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button></div>
+    </section>
+
+    <!-- notes + discussion -->
+    <div style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,22px);">
+      <h3 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:17px; margin-bottom:8px;">🔎 أساليبُ القصر</h3>
+      <p style="font-size:14.5px; line-height:1.9;">أكّد الشاعرُ المفاضلةَ بأسلوبَي قصرٍ: الأوّل بـ«إنّما» في <span style="font-family:'Cairo',serif; font-weight:700; color:var(--primary);">«وإنّما شرّف الأقلامَ بالقسمِ»</span>، والثاني بالنفي و«إلّا» في <span style="font-family:'Cairo',serif; font-weight:700; color:var(--primary);">«لا يصلُحُ السيفُ إلّا للقِراعِ»</span>. ونظمها على <strong>البحر البسيط</strong> وهو من أسهل البحور وأخفّها.</p>
+    </div>
+
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,20px); color:var(--primary); margin-bottom:12px;">💬 أسئلة المناقشة</h2>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ discussion }}" as="d" hint-placeholder-count="5">
+          <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px;">
+            <p style="font-size:15px; font-weight:700; color:var(--ink); line-height:1.7;">{{ d.q }}</p>
+            <button onClick="{{ d.onReveal }}" style="margin-top:8px; background:none; border:none; color:var(--accent); font-weight:700; font-size:13.5px; cursor:pointer;">{{ d.btn }}</button>
+            <sc-if value="{{ d.shown }}" hint-placeholder-val="{{ false }}"><div style="margin-top:8px; padding:12px 14px; border-radius:10px; background:var(--tint); border-right:3px solid var(--accent); font-size:14.5px; line-height:1.9;">{{ d.a }}</div></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L3%20Scene%204%20-%20Habboubi.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الحبّوبي</a>
+      <a href="Arabic%20L3%20Check.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; min-height:44px; border-radius:12px; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:16px; box-shadow:0 12px 28px -12px rgba(0,195,254,.6);">التقويم النهائيّ ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { matched:{}, feedback:null, ok:false };
+
+  VERSES = [
+    { a:'هذِّبْ يَراعَكَ وانصُرْ دَوْلَةَ القَلَمْ', b:'واحْمِلْ على الدَّهْرِ في جُنْدٍ مِنَ الكَلِمْ' },
+    { a:'السَّيفُ يُثْلَمُ إنْ طالَ القِراعُ بِهِ', b:'وفي اليَراعةِ سَيفٌ غيرُ مُنْثَلِمِ' },
+    { a:'لَمْ يُقْسِمِ اللهُ في الذِّكْرِ المُبينِ بِهِ', b:'وإنَّما شَرَّفَ الأقلامَ بالقَسَمِ' },
+    { a:'لا يَصْلُحُ السَّيفُ إلّا للقِراعِ وذا', b:'لِلْعِلْمِ، لِلْفَضْلِ، لِلآدابِ، لِلنِّعَمِ' },
+    { a:'إذا أصبَحَتْ أُمّةٌ بالسَّيفِ بائدةً', b:'إنَّ اليَراعةَ تُحيي سالِفَ الأُمَمِ' },
+    { a:'ما عَلَّمَ اللهُ إنسانًا بصارِمِهِ', b:'وإنَّما عَلَّمَ الإنسانَ بالقَلَمِ' },
+    { a:'تَستغمِدُ الصَّارِمَ المَسْلولَ نَبْعَتُهُ', b:'طَوْعًا بجَرْيِ مِدادٍ لا بجَرْيِ دَمِ' },
+    { a:'كَمْ نَغْمَةٍ لكَ في الأقلامِ قائلةً', b:'إنَّ الحُسامَ المُحَلَّى آيةُ النِّقَمِ' },
+    { a:'إنْ أصبَحَ السَّيفُ يَرْوي عَنْ يَدٍ خبرًا', b:'فذو اليَراعةِ يَرْوي عَنْ يَدٍ وفَمِ' },
+    { a:'إنْ كان للسَّيفِ حُكْمٌ في الوَغَى فَلَها', b:'في السِّلْمِ رائعةُ الأحكامِ والحِكَمِ' },
+    { a:'إنَّ اليَراعَ لَيَسْعَى طَوْعَ أنْمُلِنا', b:'سَعْيًا على الرَّأسِ لا سَعْيًا على القَدَمِ' }
+  ];
+
+  VOCAB = [
+    { word:'يَراع', meaning:'قَصَبةٌ كانت تُتَّخذ منها الأقلام.' },
+    { word:'قِراع', meaning:'مُبارَزةٌ.' },
+    { word:'الصارمُ', meaning:'اسمٌ من أسماء السيف.' },
+    { word:'الوَغَى', meaning:'الحربُ.' }
+  ];
+
+  DEVICES = [
+    { id:'salb', name:'طباق السلب', shahid:'«يُثلَمُ ... غيرُ مُنثَلِمِ»' },
+    { id:'eejab', name:'طباق الإيجاب', shahid:'«الوَغَى ... السِّلم»' },
+    { id:'jinas', name:'الجناس غير التامّ', shahid:'«الأحكامِ ... الحِكَمِ»' },
+    { id:'qasr', name:'أسلوب القصر', shahid:'«وإنّما شرّف الأقلامَ بالقَسَمِ»' }
+  ];
+  CHIP_ORDER = ['jinas','qasr','salb','eejab'];
+  poemRef = React.createRef();
+  onTime = (e) => {
+    const a = e.target; if (!a || !a.duration) return;
+    const idx = Math.floor((a.currentTime / a.duration) * (this.totalWords || 1));
+    const root = this.poemRef.current; if (!root) return;
+    root.querySelectorAll('[data-wi]').forEach(s => {
+      const wi = +s.getAttribute('data-wi');
+      if (wi === idx){ s.style.background='#ffe08a'; s.style.color='#7a4e00'; s.style.fontWeight='700'; s.style.borderRadius='4px'; s.style.padding='0 2px'; }
+      else if (wi < idx){ s.style.background='transparent'; s.style.color='#0378a3'; s.style.fontWeight='700'; s.style.padding='0'; }
+      else { s.style.background='transparent'; s.style.color=''; s.style.fontWeight=''; s.style.padding='0'; }
+    });
+  };
+
+  componentDidMount(){ try{ fetch('audio/sayf.mp3').then(r=>r.blob()).then(b=>{ const a=document.querySelector('audio'); if(a) a.src=URL.createObjectURL(b); }).catch(function(){}); }catch(e){} }
+  componentWillUnmount(){ this._cleanup && this._cleanup(); }
+  startDrag = (id) => (e) => {
+    if (this.state.matched[id]) return; e.preventDefault();
+    const d=this.DEVICES.find(x=>x.id===id);
+    const ghost=document.createElement('div'); ghost.textContent=d.name;
+    ghost.style.cssText='position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:999px;background:#200058;color:#fff;font-family:Reem Kufi,sans-serif;font-weight:700;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ghost.style.left=x+'px';ghost.style.top=y+'px';}; place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{ const el=document.elementFromPoint(ev.clientX,ev.clientY); const z=el&&el.closest&&el.closest('[data-zone]'); ghost.remove(); window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); this._cleanup=null; if(z) this.attempt(id, z.getAttribute('data-zone')); };
+    this._cleanup=()=>{ghost.remove();window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);};
+    window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  };
+  attempt = (id, zoneId) => {
+    if (this.state.matched[id]) return;
+    const d=this.DEVICES.find(x=>x.id===id);
+    if (id===zoneId){ this.setState(s=>({ matched:{...s.matched,[id]:true}, ok:true, feedback:d.name+' ✓ مطابقةٌ صحيحة.' })); }
+    else { this.setState({ ok:false, feedback:'«'+d.name+'» لا يطابق هذا الشاهد؛ حاول مجدّدًا.' }); }
+  };
+  reset = () => this.setState({ matched:{}, feedback:null, ok:false });
+
+  DISCQ = [
+    { q:'أين وُلِد الشاعرُ عليّ الشرقيّ، ومتى؟', a:'وُلِد في النجف الأشرف عام ١٨٩٠م.' },
+    { q:'ما الذي أثّر في فكر الشرقيّ فأدّى إلى تقبّل الثقافات المعاصرة؟', a:'تطلّعاتُه لآفاقٍ جديدة في بواكير شبابه، وأسفارُه إلى الخليج والحجاز وسوريا ولبنان التي أثْرَت شعرَه.' },
+    { q:'تحدّث عن مسيرة الشرقيّ الجهاديّة.', a:'رافق السيّدَ الحبّوبيَّ في جهاده ضدّ الإنكليز عام ١٩١٥، وكان مبعوثَه إلى عشائر الغرّاف في الناصريّة.' },
+    { q:'كيف وازن الشرقيّ بين السيف والقلم؟', a:'فضّل القلمَ؛ فالسيفُ يُثلَم وعملُه للحرب، والقلمُ باقٍ أقسم اللهُ به وله وظائفُ لا تُحصى للعلم والحضارة.' },
+    { q:'ما الفنونُ البلاغيّة التي ضمّنها الشاعرُ قصيدتَه؟', a:'طباقُ السلب (يُثلَم/غير منثلم)، وطباقُ الإيجاب (الوغى/السلم)، والجناسُ غير التامّ (الأحكام/الحِكَم)، وأسلوبا القصر (بإنّما، وبالنفي وإلّا).' }
+  ];
+  dReveal = (i) => () => this.setState(s => ({ dq: { ...s.dq, [i]: !(s.dq && s.dq[i]) } }));
+  renderVals(){
+    const { matched, feedback, ok, dq } = this.state;
+    const chips = this.CHIP_ORDER.filter(id=>!matched[id]).map(id=>{ const d=this.DEVICES.find(x=>x.id===id); return { label:d.name, style:'touch-action:none; user-select:none; cursor:grab; padding:10px 16px; min-height:44px; border-radius:999px; background:#fff; color:var(--primary); border:2px solid var(--primary); font-family:"Cairo",sans-serif; font-weight:700; font-size:clamp(13px,1.9vw,15px);', onDown:this.startDrag(id) }; });
+    const zones = this.DEVICES.map(d=>{ const done=matched[d.id]; return { id:d.id, shahid:d.shahid, slotText: done?d.name:'؟', slotStyle:`flex:none; display:flex; align-items:center; justify-content:center; min-width:120px; height:40px; border-radius:10px; font-family:'Cairo',sans-serif; font-weight:700; font-size:13px; ${done?'background:var(--accent); color:#08123a':'background:#fff; color:var(--muted); border:1px solid var(--line)'}`, style:`display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; transition:all .2s ease; ${done?'background:var(--accent-tint); border:2px solid var(--accent)':'background:var(--tint); border:2px dashed var(--line)'}` }; });
+    let wi = 0;
+    const verses = this.VERSES.map(v => {
+      const aWords = v.a.split(/\s+/).filter(Boolean).map(t => ({ t, wi: wi++ }));
+      const bWords = v.b.split(/\s+/).filter(Boolean).map(t => ({ t, wi: wi++ }));
+      return { aWords, bWords };
+    });
+    this.totalWords = wi;
+    return {
+      verses, poemRef:this.poemRef, onTime:this.onTime, vocab:this.VOCAB, chips, zones,
+      matchedCount:Object.keys(matched).length,
+      feedback, feedbackStyle:'margin-top:14px; padding:12px 16px; border-radius:12px; animation:popIn .25s ease; font-size:14.5px; font-weight:600; background:'+(ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset:this.reset,
+      discussion: this.DISCQ.map((d,i)=>({ q:d.q, a:d.a, shown:!!(dq&&dq[i]), btn:(dq&&dq[i])?'▲ إخفاء':'▼ الإجابة', onReveal:this.dReveal(i) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

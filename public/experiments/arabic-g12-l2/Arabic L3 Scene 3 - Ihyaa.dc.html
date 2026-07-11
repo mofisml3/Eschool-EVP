@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="audio-player.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="{{ rootStyle }}">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:var(--paper); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٣ من ٥ · مدرسة الإحياء</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:60%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Scene%202%20-%20Shi3r.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--paper); border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L3%20Scene%204%20-%20Habboubi.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <sc-if value="{{ ornament }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; align-items:center; gap:16px; justify-content:center; animation:popIn .4s ease;">
+        <span style="flex:1; max-width:260px; height:2px; background:linear-gradient(90deg,transparent,var(--gold)); border-radius:2px;"></span>
+        <span style="font-family:'Cairo',serif; color:var(--gold); font-size:32px; line-height:1;">۞</span>
+        <span style="flex:1; max-width:260px; height:2px; background:linear-gradient(270deg,transparent,var(--gold)); border-radius:2px;"></span>
+      </div>
+    </sc-if>
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">مدرسة الإحياء</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">إحياءُ التقاليد</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">نشأت أواخرَ القرن التاسع عشر، مماثلةً للنزعة الكلاسيكيّة الغربيّة، فنادت بإحياء التقاليد الشعريّة العربيّة والمحافظةِ على النظم الموروث.</p>
+    </div>
+
+    <article style="background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,36px); box-shadow:0 16px 40px -30px rgba(32,0,88,.4);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(17px,2.5vw,20px); margin-bottom:14px;">نصُّ الدرس</h2>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px; padding:12px 16px; background:var(--tint); border-radius:14px;">
+        <span style="font-size:22px;">🔊</span>
+        <div style="flex:1; min-width:0;">
+          <div style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:14px; margin-bottom:7px;">استمع إلى قراءة النصّ — اضغط ▶</div>
+          <sound-bar src="audio/ihyaa.mp3" style="display:block; width:100%;"></sound-bar>
+        </div>
+      </div>
+      <p style="font-family:'Cairo',serif; font-size:var(--read-size); line-height:var(--read-lh); color:var(--ink); text-align:justify; margin-bottom:14px;">نشأت مدرسةُ الإحياء في أواخر القرن التاسع عشر، مماثلةً للنزعة الكلاسيكيّة الغربيّة في الأدب والفنّ، فقد نادت بإحياء التقاليد الشعريّة العربيّة من لغةٍ ساميةٍ وأسلوبٍ جزلٍ رفيع، والمحافظةِ على تقاليد النظم العربيّ الموروث، وقد يكون نشوؤها لرغبة الشعراء الإحيائيّين في التعبير عن التذمّر من واقع الأمّة البائس، سياسيًّا واجتماعيًّا.</p>
+      <p style="font-family:'Cairo',serif; font-size:var(--read-size); line-height:var(--read-lh); color:var(--ink); text-align:justify;">وتميّز شعرُ هذه المدرسة بمحاكاة النماذج الشعريّة العربيّة القديمة منذ الشعر الجاهليّ حتى الشعر العبّاسيّ، وهدفُهم في ذلك إحياءُ التقاليد الشعريّة العربيّة القديمة والمحافظةُ على الهويّة الأدبيّة للأمّة، فضلًا عن تميّزهم بالذوبان في الروح الجماعيّة على حساب الفرديّة. ومن أبرز روّاد هذه المدرسة معروف الرصافي وعبد المحسن الكاظمي ومحمد سعيد الحبّوبي في العراق، ومحمود سامي البارودي وأحمد شوقي وحافظ إبراهيم في مصر.</p>
+    </article>
+
+    <!-- traits -->
+    <section style="background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,26px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary); margin-bottom:14px;">خصائصُها</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:12px;">
+        <sc-for list="{{ traits }}" as="t" hint-placeholder-count="4">
+          <div style="padding:14px 16px; border-radius:12px; background:var(--tint); border-right:3px solid var(--accent);">
+            <p style="font-size:14.5px; line-height:1.8; color:var(--ink);"><span style="margin-left:6px;">{{ t.emoji }}</span> {{ t.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:14px; padding:12px 16px; border-radius:12px; background:var(--alert-tint); border:1px solid var(--alert); font-size:14px; line-height:1.85; color:var(--alert-ink);">💡 سببُ نشوئها: رغبةُ الشعراء الإحيائيّين في التعبير عن التذمّر من واقع الأمّة البائس سياسيًّا واجتماعيًّا.</div>
+    </section>
+
+    <!-- drag pioneers into countries -->
+    <section style="background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary);">🎯 روّادُ الإحياء: العراق أم مصر؟</h2>
+        <span style="font-size:14px; color:var(--muted);">تمّ: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ placedCount }} / 6</span></span>
+      </div>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:16px;">اسحب كلَّ شاعرٍ إلى بلده.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:56px; padding:12px; border-radius:14px; background:var(--tint); margin-bottom:18px;">
+        <sc-for list="{{ tray }}" as="c" hint-placeholder-count="6">
+          <button onPointerDown="{{ c.onDown }}" style="{{ c.style }}">{{ c.text }}</button>
+        </sc-for>
+        <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}"><span style="align-self:center; color:var(--muted); font-size:14px;">✓ وزّعتَ الجميع</span></sc-if>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="2">
+          <div data-zone="{{ b.id }}" style="{{ b.style }}">
+            <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:16px; display:block; margin-bottom:8px; pointer-events:none;">{{ b.label }}</strong>
+            <div style="display:flex; flex-direction:column; gap:6px; pointer-events:none;">
+              <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="0">
+                <span style="font-family:'Cairo',serif; font-size:16px; font-weight:700; color:var(--accent-ink); background:var(--accent-tint); border:1px solid var(--accent); border-radius:8px; padding:6px 10px;">{{ it }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}"><div style="{{ feedbackStyle }}"><strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong><p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p></div></sc-if>
+      <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}"><div style="margin-top:14px; padding:14px; border-radius:14px; text-align:center; background:var(--accent-tint); color:var(--accent-ink); font-family:'Cairo',sans-serif; font-weight:700; animation:popIn .3s ease;">🎉 أحسنت! عرفتَ روّادَ كلِّ بلد.</div></sc-if>
+      <div style="margin-top:12px; text-align:left;"><button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button></div>
+    </section>
+
+    <div style="background:var(--tint); border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,22px);">
+      <p style="font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.8;">💬 تحدَّث عن نشوء مدرسة الإحياء.</p>
+      <button onClick="{{ revealDisc }}" style="margin-top:8px; background:none; border:none; color:var(--accent); font-weight:700; font-size:13.5px; cursor:pointer;">{{ discBtn }}</button>
+      <sc-if value="{{ discShown }}" hint-placeholder-val="{{ false }}"><p style="margin-top:8px; font-size:14.5px; line-height:1.9;">نشأت أواخرَ القرن التاسع عشر مماثلةً للكلاسيكيّة الغربيّة، فنادت بإحياء التقاليد الشعريّة العربيّة بلغةٍ ساميةٍ وأسلوبٍ جزلٍ رفيع، والمحافظةِ على النظم الموروث؛ ولعلّ نشوءها كان لرغبة الشعراء في التعبير عن التذمّر من واقع الأمّة البائس سياسيًّا واجتماعيًّا، فحاكوا النماذجَ القديمة من الجاهليّ حتى العبّاسيّ محافظين على الهويّة الأدبيّة للأمّة.</p></sc-if>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L3%20Scene%202%20-%20Shi3r.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:var(--paper); border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الشعر الحديث</a>
+      <a href="Arabic%20L3%20Scene%204%20-%20Habboubi.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الحبّوبي وموشّحته ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 920, &quot;height&quot;: 900 },
+  &quot;mood&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;بنفسجيّ هادئ&quot;, &quot;ورقة مخطوطة&quot;, &quot;ليل الشعر&quot;], &quot;default&quot;: &quot;بنفسجيّ هادئ&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;الجوّ العامّ&quot; },
+  &quot;readingComfort&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;مضغوط&quot;, &quot;قياسيّ&quot;, &quot;فسيح&quot;], &quot;default&quot;: &quot;قياسيّ&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;راحة القراءة&quot; },
+  &quot;ornament&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;زخرفة المخطوط&quot; }
+}">
+class Component extends DCLogic {
+  state = { placed:{}, feedback:null, ok:false, disc:false };
+
+  TRAITS = [
+    { emoji:'📜', text:'محاكاةُ النماذج الشعريّة العربيّة القديمة من الجاهليّ حتى العبّاسيّ.' },
+    { emoji:'🏛️', text:'المحافظةُ على تقاليد النظم العربيّ الموروث بلغةٍ ساميةٍ وأسلوبٍ جزل.' },
+    { emoji:'🛡️', text:'المحافظةُ على الهويّة الأدبيّة للأمّة.' },
+    { emoji:'🤝', text:'التميّزُ بالذوبان في الروح الجماعيّة على حساب الفرديّة.' }
+  ];
+  BUCKETS = [ { id:'iraq', label:'العراق 🇮🇶' }, { id:'egypt', label:'مصر 🇪🇬' } ];
+  CHIPS = [
+    { id:'c1', text:'معروف الرصافي', ans:'iraq' },
+    { id:'c2', text:'عبد المحسن الكاظمي', ans:'iraq' },
+    { id:'c3', text:'محمد سعيد الحبّوبي', ans:'iraq' },
+    { id:'c4', text:'محمود سامي البارودي', ans:'egypt' },
+    { id:'c5', text:'أحمد شوقي', ans:'egypt' },
+    { id:'c6', text:'حافظ إبراهيم', ans:'egypt' }
+  ];
+
+  componentWillUnmount(){ this._cleanup && this._cleanup(); }
+  startDrag = (chip) => (e) => {
+    if (this.state.placed[chip.id]) return; e.preventDefault();
+    const ghost=document.createElement('div'); ghost.textContent=chip.text;
+    ghost.style.cssText='position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:12px;background:#200058;color:#fff;font-family:Cairo,serif;font-weight:700;font-size:16px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ghost.style.left=x+'px';ghost.style.top=y+'px';}; place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{ const el=document.elementFromPoint(ev.clientX,ev.clientY); const z=el&&el.closest&&el.closest('[data-zone]'); ghost.remove(); window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); this._cleanup=null; if(z) this.drop(chip.id, z.getAttribute('data-zone')); };
+    this._cleanup=()=>{ghost.remove();window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);};
+    window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  };
+  drop = (chipId, bucketId) => {
+    const chip=this.CHIPS.find(c=>c.id===chipId);
+    if (chip.ans===bucketId){ this.setState(s=>({ placed:{...s.placed,[chipId]:bucketId}, ok:true, feedback:chip.text+' ✓' })); }
+    else { this.setState({ ok:false, feedback:'ليس هنا؛ راجِع بلدَ الشاعر «'+chip.text+'» وحاول مجدّدًا.' }); }
+  };
+  reset = () => this.setState({ placed:{}, feedback:null, ok:false });
+  revealDisc = () => this.setState(s=>({ disc:!s.disc }));
+
+  MOODS = {
+    'بنفسجيّ هادئ': { bg:'#f5f3fb', v:{ '--paper':'#ffffff','--ink':'#1c1436','--primary':'#200058','--muted':'#6a6389','--tint':'#efecf8','--line':'#e2ddf1','--accent':'#00c3fe','--accent-tint':'#e2f6fe','--accent-ink':'#0378a3','--alert':'#f6848e','--alert-tint':'#fdeaec','--alert-ink':'#8c2f42','--gold':'#e0b64b' } },
+    'ورقة مخطوطة': { bg:'#e7d9b8', v:{ '--paper':'#fbf3df','--ink':'#3b2c14','--primary':'#5c3a17','--muted':'#8a7350','--tint':'#efe4c6','--line':'#d8c398','--accent':'#a6772a','--accent-tint':'#efe1bd','--accent-ink':'#6d4e15','--alert':'#a8492a','--alert-tint':'#eed9c4','--alert-ink':'#7a3b1e','--gold':'#9c7526' } },
+    'ليل الشعر': { bg:'#141122', v:{ '--paper':'#211d33','--ink':'#e9e5f5','--primary':'#cabff2','--muted':'#a49dc4','--tint':'#2a2542','--line':'#3a3360','--accent':'#22c1fd','--accent-tint':'#123243','--accent-ink':'#8fd8f7','--alert':'#f6848e','--alert-tint':'#3a2230','--alert-ink':'#f6a6ae','--gold':'#e7c463' } }
+  };
+  COMFORT = {
+    'مضغوط':  { size:'15px', lh:'1.8' },
+    'قياسيّ': { size:'clamp(16px,2.4vw,20px)', lh:'2.1' },
+    'فسيح':   { size:'clamp(18px,2.8vw,23px)', lh:'2.55' }
+  };
+
+  renderVals(){
+    const { placed, feedback, ok, disc } = this.state;
+    const mood = this.MOODS[this.props.mood] || this.MOODS['بنفسجيّ هادئ'];
+    const comfort = this.COMFORT[this.props.readingComfort] || this.COMFORT['قياسيّ'];
+    const rootStyle = "direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink); transition:background .45s ease; background:" + mood.bg + "; --read-size:" + comfort.size + "; --read-lh:" + comfort.lh + "; " + Object.entries(mood.v).map(function(e){return e[0]+':'+e[1];}).join('; ');
+    const tray = this.CHIPS.filter(c=>!placed[c.id]).map(c=>({ text:c.text, style:'touch-action:none; user-select:none; cursor:grab; padding:10px 16px; min-height:44px; border-radius:12px; background:var(--paper); color:var(--primary); border:2px solid var(--primary); font-family:"Cairo",serif; font-weight:700; font-size:clamp(14px,2vw,17px);', onDown:this.startDrag(c) }));
+    const buckets = this.BUCKETS.map(b=>({ id:b.id, label:b.label, items:this.CHIPS.filter(c=>placed[c.id]===b.id).map(c=>c.text), style:'min-height:120px; padding:14px; border-radius:14px; background:var(--tint); border:2px dashed var(--line);' }));
+    return {
+      rootStyle, ornament: this.props.ornament ?? false,
+      traits:this.TRAITS, tray, trayEmpty:tray.length===0, buckets,
+      placedCount:Object.keys(placed).length, allDone:Object.keys(placed).length===this.CHIPS.length,
+      feedback, feedbackTitle: ok?'✓ أحسنت':'✗ حاول مجدّدًا',
+      feedbackStyle:'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(ok?'var(--accent-tint); color:var(--accent-ink); border:1px solid var(--accent)':'var(--alert-tint); color:var(--alert-ink); border:1px solid var(--alert)'),
+      reset:this.reset, discShown:disc, discBtn: disc?'▲ إخفاء':'▼ عرض الإجابة', revealDisc:this.revealDisc
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -8,30 +8,131 @@
 <body>
 <x-dc>
 <helmet>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="brand/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="brand/theme.css">
-<script src="brand/palette.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
-body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;min-height:100vh;display:flex;align-items:center;justify-content:center;}
-.card{background:#fff;border-radius:24px;padding:56px 40px;max-width:520px;text-align:center;box-shadow:0 8px 32px rgba(35,27,61,0.08);}
-h1{font-size:28px;margin:0 0 12px;color:#200058;}
-p{font-size:16px;line-height:1.7;margin:0 0 24px;color:#4b4670;}
-.badge{display:inline-block;background:#efeaf9;color:#200058;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;margin-bottom:18px;}
-.btn{display:inline-flex;align-items:center;gap:8px;background:#200058;color:#fff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:500;font-size:15px;}
-.btn:hover{background:#00c3fe;}
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:translateY(0)} }
 </style>
 </helmet>
-<div dir="rtl" style="width:100%;">
-<div class="card">
-<span class="badge">الدرس الأول</span>
-<h1>هذا الدرس قيد الإعداد</h1>
-<p>محتوى الدرس الأول من الفصل الأول لم يكتمل بعد. يمكنك الآن استعراض الدرس الثاني المتاح ضمن هذه المكتبة.</p>
-<a class="btn" href="Chapter 1 Hub.dc.html">← العودة إلى محتويات الفصل</a>
-</div>
+<div style="direction:rtl; min-height:100vh; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <!-- top bar -->
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(18px,5vw,56px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20;">
+    <a href="Chapter%201%20Hub.dc.html" style="display:inline-flex; align-items:center; gap:10px; color:var(--muted); font-weight:500; font-size:15px;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; background:var(--tint); color:var(--primary); font-size:18px;">⌂</span>
+      دروس الوحدة
+    </a>
+    <img src="brand/logo.svg" alt="تعليم" style="height:36px; width:auto;">
+  </header>
+
+  <!-- hero -->
+  <section style="background:radial-gradient(120% 130% at 88% 0%, #2c0a6e 0%, #200058 48%, #0c0030 100%); color:#fff; padding:clamp(30px,5vw,60px) clamp(18px,5vw,56px);">
+    <div style="max-width:960px; margin:0 auto;">
+      <span style="display:inline-flex; gap:8px; align-items:center; padding:6px 16px; border-radius:999px; background:rgba(0,195,254,.12); border:1px solid rgba(0,195,254,.4); color:#bfe9fb; font-size:14px; font-weight:500; margin-bottom:16px;">مخطط الدرس · الدرس ١-١ · المطالعة</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(34px,6vw,64px); line-height:1.1; margin-bottom:14px;">بغداد حاضرةُ الدُّنيا</h1>
+      <p style="max-width:620px; font-size:clamp(15px,2vw,19px); line-height:1.9; color:#d7d1ee;">خريطةُ طريقٍ للدرس: ماذا ستتعلّم، وكيف تسير المشاهد من الفكرة البسيطة إلى الأعمق، وما التفاعلات والأسئلة التي ترافقك.</p>
+    </div>
+  </section>
+
+  <main style="max-width:960px; margin:0 auto; padding:clamp(24px,4vw,48px) clamp(18px,5vw,56px); display:flex; flex-direction:column; gap:26px;">
+
+    <!-- objective + prerequisites -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:18px;">
+      <div style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:24px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <span style="font-size:22px;">🎯</span>
+          <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:19px; color:var(--primary);">الهدف التعليميّ</h2>
+        </div>
+        <p style="font-size:16px; line-height:1.95;">أن يقرأ الطالبُ النصَّ قراءةً سليمة، ويشرحَ أهميّة بغداد التاريخيّة والحضاريّة، ويوضّحَ دورَ موقعها ومعالمها في صناعة الهُويّة الوطنيّة، ويُعرِبَ ما يرد من كلمات، ويستعملَ مفرداتٍ جديدة في جُمَلٍ من إنشائه.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-right:5px solid var(--alert); border-radius:16px; padding:24px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <span style="font-size:22px;">🔑</span>
+          <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:19px; color:var(--primary);">المتطلّبات السابقة</h2>
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:16px; line-height:1.7;">
+          <li style="display:flex; gap:10px;"><span style="color:var(--alert);">◂</span> معرفةٌ أوّليّة بالحضارات القديمة في بلاد الرافدين.</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--alert);">◂</span> مهارةُ القراءة الجهريّة الصحيحة.</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--alert);">◂</span> الإلمامُ بعلامات الإعراب الأساسيّة (الرفع والنصب والجر).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- scene list -->
+    <div>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(20px,3vw,26px); color:var(--primary); margin-bottom:6px;">مسار المشاهد <span style="color:var(--muted); font-weight:400; font-size:.7em;">(٧ مشاهد — من الأبسط إلى الأعمق)</span></h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">اضغط أيّ مشهد للانتقال إليه مباشرة.</p>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+
+        <a href="Arabic%20L1%20Scene%201%20-%20Tamheed.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">١</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">التمهيد والمفاهيم المتضمَّنة</strong><span style="color:var(--muted); font-size:14px;">كشفٌ تدريجيّ للفكرة + سؤال «ما قبل النص».</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20L1%20Scene%202%20-%20Text.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٢</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">قراءة النص: بغداد حاضرة الدنيا</strong><span style="color:var(--muted); font-size:14px;">قراءةٌ بالفقرات مع تظليل الأفكار الرئيسة + سؤال سريع.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20L1%20Scene%203%20-%20Map.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٣</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">خريطة بغداد التفاعليّة</strong><span style="color:var(--muted); font-size:14px;">الكرخ والرصافة ونهر دجلة ومعالم المدينة.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20L1%20Scene%204%20-%20Timeline.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٤</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">الخط الزمنيّ: عواصم العراق</strong><span style="color:var(--muted); font-size:14px;">من بابل ونينوى إلى الكوفة وسامرّاء وبغداد.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20L1%20Scene%205%20-%20Vocab.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٥</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">معاني المفردات</strong><span style="color:var(--muted); font-size:14px;">بطاقاتٌ قابلةٌ للقلب + مطابقةٌ بالسحب (الكرخ، الرصافة، صروف الدهر، قِبلة).</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20L1%20Scene%206%20-%20Grammar.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٦</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">النشاط النحويّ: إعراب «بغداد»</strong><span style="color:var(--muted); font-size:14px;">بناءُ الإعراب خطوةً بخطوة مع التحقّق الفوريّ.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+        <a href="Arabic%20L1%20Scene%207%20-%20Comprehension.dc.html" style="display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; transition:transform .15s ease, border-color .15s ease;" onmouseover="this.style.transform='translateX(-6px)'; this.style.borderColor='var(--accent)';" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='var(--line)';">
+          <span style="display:flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:12px; background:var(--tint); color:var(--primary); font-family:'Cairo',sans-serif; font-weight:700; font-size:20px;">٧</span>
+          <span style="min-width:0;"><strong style="display:block; font-family:'Cairo',sans-serif; font-size:17px; color:var(--ink);">نشاط الفهم والاستيعاب</strong><span style="color:var(--muted); font-size:14px;">سؤالٌ ختاميّ يقيس تحقّق الهدف + خريطة أفكار.</span></span>
+          <span style="font-size:20px; color:var(--accent);">←</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- at-a-glance summary -->
+    <div style="background:#fff; border:1px solid var(--line); border-radius:18px; padding:clamp(20px,3vw,30px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:20px; color:var(--primary); margin-bottom:18px;">لمحةٌ عن الدرس</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:18px;">
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">النصوص المعروضة</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">نصُّ المطالعة «بغداد حاضرة الدنيا»، وفقرة «ما بعد النص» لمعاني المفردات.</p></div>
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">الوسائط والتفاعلات</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">خريطةٌ حيّة، خطٌّ زمنيّ، بطاقاتٌ تُقلَب، مطابقةٌ بالسحب، وكشفٌ تدريجيّ للنص.</p></div>
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">الأسئلة والتغذية الراجعة</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">أسئلةٌ سريعة داخل المشاهد + تقويمٌ نهائيّ، مع تغذيةٍ راجعة تشرح سببَ الصواب والخطأ وتتيح إعادة المحاولة.</p></div>
+        <div><h3 style="font-size:15px; color:var(--accent); margin-bottom:8px; font-family:'Cairo',sans-serif;">النشاط الختاميّ</h3><p style="font-size:15px; line-height:1.8; color:var(--ink);">سؤالٌ مفتوح: كيف تسهم بغداد في صناعة الهُويّة الوطنيّة الواحدة؟ يقيس تحقّق الهدف.</p></div>
+      </div>
+    </div>
+
+    <!-- start -->
+    <div style="display:flex; justify-content:center; padding:10px 0 20px;">
+      <a href="Arabic%20L1%20Scene%201%20-%20Tamheed.dc.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 40px; min-height:44px; border-radius:999px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:20px; box-shadow:0 14px 34px -14px rgba(32,0,88,.7); transition:transform .18s ease;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">
+        ▶ ابدأ الدرس
+      </a>
+    </div>
+
+  </main>
 </div>
 </x-dc>
 </body>

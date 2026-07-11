@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٦ من ٧ · النحو</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:85.8%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L1%20Scene%205%20-%20Vocab.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L1%20Scene%207%20-%20Comprehension.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:880px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">النشاط النحويّ</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">أعرِبْ كلمةَ «بغداد»</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:640px;">جاءت كلمةُ «بغداد» في الكلام <strong>مرفوعةً</strong> و<strong>منصوبةً</strong> و<strong>مجرورة</strong>. اختر الحالةَ، ثم حدِّد علامةَ الإعراب الصحيحة، وسيظهرُ لك الإعرابُ الكامل والسبب.</p>
+    </div>
+
+    <!-- ===== interactive i3rab builder ===== -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <!-- case tabs -->
+      <div style="display:flex; gap:8px; margin-bottom:20px;">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }} {{ t.check }}</button>
+        </sc-for>
+      </div>
+
+      <!-- sentence -->
+      <div style="text-align:center; padding:clamp(16px,3vw,26px); border-radius:16px; background:var(--tint); margin-bottom:20px;">
+        <p style="font-family:'Cairo',serif; font-size:clamp(22px,4vw,34px); line-height:1.8; color:var(--ink);">{{ sentPre }}<span style="color:var(--primary); font-weight:700; background:linear-gradient(transparent 60%, #ffe08a 60%); padding:0 6px;">{{ sentWord }}</span>{{ sentPost }}</p>
+      </div>
+
+      <!-- question: علامة الإعراب -->
+      <p style="font-size:clamp(15px,2.1vw,18px); font-weight:700; color:var(--ink); margin-bottom:14px;">ما علامةُ إعراب «بغداد» في هذه الجملة؟</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+
+      <!-- full i3rab reveal -->
+      <sc-if value="{{ solved }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:18px; padding:18px 20px; border-radius:14px; background:var(--accent-tint); border-right:4px solid var(--accent); animation:popIn .3s ease-out;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="font-size:20px;">✓</span>
+            <strong style="font-family:'Cairo',sans-serif; color:#08536f; font-size:17px;">الإعرابُ الكامل</strong>
+            <span style="font-family:'Cairo',serif; font-size:26px; font-weight:700; color:var(--primary);">{{ vowelWord }}</span>
+          </div>
+          <p style="font-size:clamp(15px,2.1vw,17px); line-height:1.95; color:#0d4a63;">{{ i3rab }}</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ wrongMsg }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:18px; padding:16px 18px; border-radius:14px; background:var(--alert-tint); border:1px solid var(--alert); animation:popIn .25s ease-out; color:#8c2f42; font-size:clamp(14px,2vw,16px); line-height:1.85;">
+          <strong style="font-family:'Cairo',sans-serif;">✗ راجِع القاعدة</strong>
+          <p style="margin:6px 0 0;">{{ wrongMsg }}</p>
+        </div>
+      </sc-if>
+    </section>
+
+    <!-- rule box: mamnou3 min al-sarf -->
+    <aside style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--alert); border-radius:16px; padding:clamp(16px,3vw,24px);">
+      <h3 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:18px; margin-bottom:8px;">📌 قاعدةٌ مهمّة</h3>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.95;">كلمةُ «بغداد» <strong style="color:var(--alert);">ممنوعةٌ من الصرف</strong> (عَلَمٌ مؤنّثٌ أعجميّ)؛ لذلك تُرفَع بالضمّة، وتُنصَب بالفتحة، و<strong style="color:var(--alert);">تُجَرُّ بالفتحةِ نيابةً عن الكسرة</strong> — ولا تُنوَّن.</p>
+    </aside>
+
+    <!-- progress note -->
+    <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center; padding:16px; border-radius:14px; background:var(--accent-tint); color:#08536f; font-family:'Cairo',sans-serif; font-weight:700; animation:popIn .3s ease;">🎉 أعربتَ «بغداد» في الحالات الثلاث بنجاح!</div>
+    </sc-if>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L1%20Scene%205%20-%20Vocab.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ المفردات</a>
+      <a href="Arabic%20L1%20Scene%207%20-%20Comprehension.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الفهم والاستيعاب ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { caseKey:'raf', picked:{} };
+
+  CASES = {
+    raf: {
+      label:'مرفوعة', pre:'', word:'بغدادُ', post:' عاصمةُ العراقِ وحاضرةُ الدُّنيا.',
+      vowel:'بغدادُ', correct:0,
+      options:['الضمّة', 'الفتحة', 'الكسرة'],
+      i3rab:'«بغدادُ»: مبتدأ مرفوع، وعلامةُ رفعه الضمّةُ الظاهرة على آخره.',
+      wrong:['في حالة الرفع تكون العلامةُ الضمّة، لا هذه. «بغدادُ» مبتدأ مرفوع بالضمّة.','في حالة الرفع تكون العلامةُ الضمّة، لا هذه. «بغدادُ» مبتدأ مرفوع بالضمّة.','في حالة الرفع تكون العلامةُ الضمّة، لا هذه. «بغدادُ» مبتدأ مرفوع بالضمّة.']
+    },
+    nasb: {
+      label:'منصوبة', pre:'إنَّ ', word:'بغدادَ', post:' مدينةٌ عريقةٌ.',
+      vowel:'بغدادَ', correct:1,
+      options:['الضمّة', 'الفتحة', 'الكسرة'],
+      i3rab:'«بغدادَ»: اسمُ «إنَّ» منصوب، وعلامةُ نصبه الفتحةُ الظاهرة على آخره.',
+      wrong:['في حالة النصب تكون العلامةُ الفتحة. «بغدادَ» اسمُ إنّ منصوب بالفتحة.','','في حالة النصب تكون العلامةُ الفتحة. «بغدادَ» اسمُ إنّ منصوب بالفتحة.']
+    },
+    jarr: {
+      label:'مجرورة', pre:'عاشَ العلماءُ في ', word:'بغدادَ', post:' قرونًا.',
+      vowel:'بغدادَ', correct:1,
+      options:['الكسرة', 'الفتحة نيابةً عن الكسرة', 'الضمّة'],
+      i3rab:'«بغدادَ»: اسمٌ مجرور بحرف الجرّ «في»، وعلامةُ جرّه الفتحةُ نيابةً عن الكسرة؛ لأنه ممنوعٌ من الصرف.',
+      wrong:['انتبه! «بغداد» ممنوعةٌ من الصرف، فلا تُجَرُّ بالكسرة، بل بالفتحةِ نيابةً عنها.','', 'في حالة الجر لا تكون العلامةُ الضمّة. «بغداد» ممنوعةٌ من الصرف فتُجَرُّ بالفتحة نيابةً عن الكسرة.']
+    }
+  };
+  ORDER = ['raf','nasb','jarr'];
+
+  pickCase = (k) => () => this.setState({ caseKey:k });
+  answer = (i) => () => {
+    const k = this.state.caseKey;
+    this.setState(s => ({ picked: { ...s.picked, [k]: i } }));
+  };
+
+  renderVals(){
+    const { caseKey, picked } = this.state;
+    const c = this.CASES[caseKey];
+    const chosen = picked[caseKey];
+
+    const tabs = this.ORDER.map(k => {
+      const on = caseKey === k;
+      const done = picked[k] === this.CASES[k].correct;
+      const style = `flex:1; cursor:pointer; padding:12px 8px; min-height:44px; border-radius:12px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(14px,2vw,16px); transition:all .18s ease; ${on?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`;
+      return { label:this.CASES[k].label, check: done?'✓':'', style, onClick: this.pickCase(k) };
+    });
+
+    const options = c.options.map((label, i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (chosen != null){
+        if (i === c.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i === chosen){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `cursor:${chosen!=null&&chosen===c.correct?'default':'pointer'}; padding:14px 12px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(14px,1.9vw,17px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+      return { label, style, onClick: this.answer(i) };
+    });
+
+    const solved = chosen === c.correct;
+    const wrongMsg = (chosen != null && chosen !== c.correct) ? c.wrong[chosen] : null;
+    const allDone = this.ORDER.every(k => picked[k] === this.CASES[k].correct);
+
+    return {
+      tabs, options,
+      sentPre: c.pre, sentWord: c.word, sentPost: c.post,
+      solved, vowelWord: c.vowel, i3rab: c.i3rab,
+      wrongMsg, allDone
+    };
+  }
+}
+</script>
+</body>
+</html>

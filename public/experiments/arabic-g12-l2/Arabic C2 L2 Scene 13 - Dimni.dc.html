@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+  @keyframes slideDown { from{opacity:0; transform:translateY(-8px); max-height:0} to{opacity:1; transform:translateY(0); max-height:320px} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ١٣ من ١٦ · النفي الضمنيّ</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:81.25%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20C2%20L2%20Scene%2012%20-%20LaJins2.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20C2%20L2%20Scene%2014%20-%20Zaman.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(20px,3vw,30px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">ثانيًا · النفيُ الضمنيّ</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">نفيٌ بلا أداةٍ ظاهرة</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">عرفتَ أنّ النفيَ الصريحَ نستعملُ فيه أداةَ نفيٍ ظاهرة. أمّا <strong style="color:var(--primary);">النفيُ الضمنيّ</strong> فلا نستعملُ فيه أداةَ نفيٍ، بل يُفهَمُ من سياق النصّ. وهناك أساليبُ متعدّدةٌ تتضمّنُ معنى النفي، منها <strong style="color:var(--primary);">الاستفهامُ</strong> و<strong style="color:var(--primary);">الشرطُ</strong>.</p>
+    </div>
+
+    <!-- reveal figure -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary);">🔎 كاشفُ النفي الخفيّ</h2>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:18px;">اضغط «أظهِر المعنى» تحت كلّ شاهدٍ لترى المعنى المنفيّ المقصود.</p>
+
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <sc-for list="{{ shawahid }}" as="s" hint-placeholder-count="3">
+          <div style="background:linear-gradient(160deg,#fbfaff,#f2effb); border:1px solid var(--line); border-right:4px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,24px);">
+            <p style="font-family:'Amiri',serif; font-size:clamp(19px,3.2vw,28px); color:var(--primary); line-height:1.9;">{{ s.text }}</p>
+            <span style="display:inline-block; margin-top:6px; font-size:13px; color:var(--muted);">{{ s.ref }}</span>
+            <div style="margin-top:12px;">
+              <button onClick="{{ s.onReveal }}" style="{{ s.btnStyle }}">{{ s.btnLabel }}</button>
+            </div>
+            <sc-if value="{{ s.shown }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:12px; padding:14px 16px; border-radius:12px; background:var(--accent-tint); border:1px solid var(--accent); animation:slideDown .3s ease-out; overflow:hidden;">
+                <span style="display:inline-block; font-size:12px; font-weight:700; color:#0378a3; margin-bottom:4px;">المعنى المنفيّ المقصود</span>
+                <p style="font-family:'Amiri',serif; font-size:clamp(17px,2.6vw,23px); color:#08536f; line-height:1.85;">{{ s.meaning }}</p>
+                <p style="margin-top:6px; font-size:clamp(13px,1.9vw,15px); color:var(--ink); line-height:1.8;">{{ s.note }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- drag classify: sareeh vs dimni -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary); margin-bottom:6px;">🧲 صريحٌ أم ضمنيّ؟</h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">اسحب كلَّ جملةٍ إلى نوع النفي الصحيح — أو اضغطها ثمّ اضغط الصندوق.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:52px; margin-bottom:18px;">
+        <sc-for list="{{ tray }}" as="t" hint-placeholder-count="5">
+          <button onPointerDown="{{ t.onDown }}" onClick="{{ t.onTap }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+        <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}">
+          <span style="color:var(--muted); font-size:14px; align-self:center;">وزّعتَ كلَّ الجُمَل ✓</span>
+        </sc-if>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:14px;">
+        <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="2">
+          <div data-bucket="{{ b.id }}" onClick="{{ b.onTap }}" style="{{ b.style }}">
+            <h3 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:16px; margin-bottom:4px;">{{ b.title }}</h3>
+            <span style="font-size:12.5px; color:var(--muted);">{{ b.hint }}</span>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; min-height:44px; margin-top:10px;">
+              <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="0">
+                <span style="{{ it.style }}">{{ it.label }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">{{ feedback }}</div>
+      </sc-if>
+      <div style="margin-top:12px; text-align:left;">
+        <button onClick="{{ reset }}" style="background:none; border:none; color:var(--accent); font-size:14px; font-weight:700; cursor:pointer;">↺ إعادة</button>
+      </div>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق سريع</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.75; margin-bottom:16px;">في قوله تعالى ﴿ ولو شاءَ اللهُ لجمعَهم على الهُدى ﴾، ما نوعُ الأسلوب المتضمّن للنفي؟</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ mcqFeedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ mcqFeedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ mcqTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ mcqFeedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20C2%20L2%20Scene%2012%20-%20LaJins2.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ اسم «لا» وخبرها</a>
+      <a href="Arabic%20C2%20L2%20Scene%2014%20-%20Zaman.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">النفي والزمن ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab:'all', shown:{}, placed:{}, selected:null, feedback:null, ok:false, picked:null };
+
+  SH = [
+    { id:'s1', kind:'istifham', text:'﴿ ومَن يغفرُ الذنوبَ إلّا اللهُ ﴾', ref:'(آل عمران: ١٣٥)',
+      meaning:'لا يغفرُ الذنوبَ إلّا اللهُ.', note:'استفهامٌ خرج إلى معنى النفي؛ فالسائلُ عالمٌ بما يسأل عنه، والمعنى المقصود نفيٌ.' },
+    { id:'s2', kind:'istifham', text:'﴿ قُل هل يستوي الأعمى والبصيرُ ﴾', ref:'(الأنعام: ٥٠)',
+      meaning:'لا يستوي الأعمى والبصيرُ.', note:'استفهامٌ إنكاريّ يتضمّنُ نفيًا؛ فلا مساواةَ بين الحالين.' },
+    { id:'s3', kind:'istifham', text:'وكيفَ يُداري المرءُ حاسدَ نعمةٍ … إذا كان لا يُرضيهِ إلّا زوالُها', ref:'الإمام الشافعيّ',
+      meaning:'لا يستطيعُ المرءُ أن يُداريَ حاسدَ نعمةٍ.', note:'استفهامٌ إنكاريّ؛ المعنى نفيُ القدرة على المداراة.' },
+    { id:'s4', kind:'shart', text:'﴿ ولو شاءَ اللهُ لجمعَهم على الهُدى ﴾', ref:'(الأنعام: ٣٥)',
+      meaning:'لم يشأِ اللهُ جمعَهم على الهُدى.', note:'أسلوبُ شرطٍ بـ«لو» يتضمّنُ نفيًا؛ امتناعُ الجواب لامتناع الشرط.' },
+    { id:'s5', kind:'shart', text:'( لولا تضحياتُهم تلك ) — من نصّ المطالعة', ref:'التضحيةُ طريقُ النصر',
+      meaning:'لم يتحقّقِ النصرُ لولا تضحياتُهم.', note:'أسلوبُ شرطٍ بـ«لولا» (امتناعٌ لوجود) يتضمّنُ معنى النفي.' }
+  ];
+
+  ITEMS = [
+    { id:'i1', text:'ما تحقّقَ النصرُ', kind:'sareeh' },
+    { id:'i2', text:'﴿ هل يستوي الأعمى والبصيرُ ﴾', kind:'dimni' },
+    { id:'i3', text:'ليسَ المؤمنُ بالطعّانِ', kind:'sareeh' },
+    { id:'i4', text:'﴿ ولو شاءَ اللهُ لجمعَهم ﴾', kind:'dimni' },
+    { id:'i5', text:'لَنْ يكتبَ الطالبُ', kind:'sareeh' }
+  ];
+  ORDER = ['i1','i2','i3','i4','i5'];
+  BUCKETS = [
+    { id:'sareeh', title:'نفيٌ صريح', hint:'فيه أداةُ نفيٍ ظاهرة' },
+    { id:'dimni', title:'نفيٌ ضمنيّ', hint:'يُفهَمُ من السياق (استفهام/شرط)' }
+  ];
+
+  MCQ = { correct:1, options:[
+    'أسلوبُ استفهامٍ إنكاريّ',
+    'أسلوبُ شرطٍ (لو) متضمّنٌ للنفي',
+    'نفيٌ صريحٌ بأداةٍ ظاهرة'
+  ], why:[
+    'ليس استفهامًا؛ لا توجد أداةُ استفهام. تأمّل «لو».',
+    'أحسنت! «لو» أسلوبُ شرطٍ يتضمّنُ النفيَ، والمعنى: لم يشأِ اللهُ جمعَهم.',
+    'ليس صريحًا؛ لا توجد أداةُ نفيٍ ظاهرة، بل النفيُ مفهومٌ من الشرط.'
+  ] };
+
+  setTab = (k) => () => this.setState({ tab:k });
+  reveal = (id) => () => this.setState(s => ({ shown:{ ...s.shown, [id]: !s.shown[id] } }));
+
+  place = (id, bucket) => {
+    if (this.state.placed[id]) return;
+    const it = this.ITEMS.find(x=>x.id===id);
+    if (it.kind === bucket){
+      this.setState(s => {
+        const placed = { ...s.placed, [id]:bucket };
+        const done = Object.keys(placed).length === this.ITEMS.length;
+        return { placed, selected:null, ok:true,
+          feedback: done ? '✓ ممتاز! وزّعتَ كلَّ الجُمَل تصنيفًا صحيحًا.' : '«'+it.text+'» تصنيفٌ صحيح ✓' };
+      });
+    } else {
+      this.setState({ selected:null, ok:false, feedback:'راجِع: هل توجد أداةُ نفيٍ ظاهرة (صريح)، أم أنّ النفيَ مفهومٌ من استفهامٍ أو شرطٍ (ضمنيّ)؟' });
+    }
+  };
+
+  startDrag = (it) => (e) => {
+    if (this.state.placed[it.id]) return;
+    e.preventDefault();
+    const ghost = document.createElement('div');
+    ghost.textContent = it.text;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:10px 18px;border-radius:14px;background:#200058;color:#fff;font-family:Amiri,serif;font-weight:700;font-size:17px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;max-width:80vw;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ ghost.style.left=x+'px'; ghost.style.top=y+'px'; };
+    place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{
+      const el=document.elementFromPoint(ev.clientX,ev.clientY);
+      const b=el&&el.closest&&el.closest('[data-bucket]');
+      ghost.remove();
+      window.removeEventListener('pointermove',move);
+      window.removeEventListener('pointerup',up);
+      this.setState({ dragging:null });
+      if (b) this.place(it.id, b.getAttribute('data-bucket'));
+    };
+    window.addEventListener('pointermove',move);
+    window.addEventListener('pointerup',up);
+    this.setState({ dragging:it.id, selected:it.id });
+  };
+  tapTool = (id) => () => { if (!this.state.placed[id]) this.setState(s => ({ selected:s.selected===id?null:id, feedback:null })); };
+  tapBucket = (bid) => () => { if (this.state.selected) this.place(this.state.selected, bid); };
+  reset = () => this.setState({ placed:{}, selected:null, feedback:null, ok:false });
+  pick = (i) => () => { if (this.state.picked==null) this.setState({ picked:i }); };
+  retry = () => this.setState({ picked:null });
+
+  renderVals(){
+    const { tab, shown, placed, selected, feedback, ok, picked } = this.state;
+
+    const tabs = [ {k:'all',label:'الكلّ'}, {k:'istifham',label:'الاستفهام'}, {k:'shart',label:'الشرط'} ].map(t => {
+      const active = t.k===tab;
+      const style = `cursor:pointer; padding:9px 16px; min-height:44px; border-radius:12px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(13px,2vw,15px); transition:all .18s ease; ${active?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`;
+      return { label:t.label, style, onClick:this.setTab(t.k) };
+    });
+
+    const shawahid = this.SH.filter(s => tab==='all' || s.kind===tab).map(s => {
+      const isShown = !!shown[s.id];
+      const btnStyle = `cursor:pointer; padding:10px 18px; min-height:44px; border-radius:12px; border:none; font-family:'Cairo',sans-serif; font-weight:700; font-size:14px; background:${isShown?'var(--tint)':'var(--primary)'}; color:${isShown?'var(--primary)':'#fff'};`;
+      return { text:s.text, ref:s.ref, meaning:s.meaning, note:s.note, shown:isShown,
+        btnLabel: isShown ? '▲ إخفاء المعنى' : '▼ أظهِر المعنى', btnStyle, onReveal:this.reveal(s.id) };
+    });
+
+    const tray = this.ORDER.filter(id => !placed[id]).map(id => {
+      const it = this.ITEMS.find(x=>x.id===id);
+      const sel = selected===id;
+      const style = `cursor:grab; touch-action:none; padding:10px 16px; min-height:44px; border-radius:14px; font-family:'Amiri',serif; font-weight:700; font-size:clamp(15px,2vw,18px); transition:all .15s ease; ${sel?'background:var(--primary); color:#fff; border:2px solid var(--primary); transform:scale(1.04)':'background:#fff; color:var(--ink); border:2px solid var(--line)'}`;
+      return { label:it.text, style, onDown:this.startDrag(it), onTap:this.tapTool(id) };
+    });
+
+    const buckets = this.BUCKETS.map(b => {
+      const canDrop = selected && !placed[selected];
+      const style = `border-radius:16px; padding:16px; transition:all .2s ease; cursor:${canDrop?'pointer':'default'}; ${canDrop?'background:#fbfaff; border:2px dashed var(--accent)':'background:var(--tint); border:2px solid transparent'}`;
+      const items = this.ITEMS.filter(it => placed[it.id]===b.id).map(it => ({
+        label: it.text,
+        style:'padding:7px 14px; border-radius:999px; background:var(--accent-tint); border:1px solid var(--accent); color:#0378a3; font-family:"Amiri",serif; font-weight:700; font-size:clamp(14px,2vw,16px);'
+      }));
+      return { id:b.id, title:b.title, hint:b.hint, items, style, onTap:this.tapBucket(b.id) };
+    });
+
+    const options = this.MCQ.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style=`text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:14px 16px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(14px,2vw,17px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.7;`;
+      return { label, style, onClick:this.pick(i) };
+    });
+    const correct = picked===this.MCQ.correct;
+
+    return {
+      tabs, shawahid, tray, buckets,
+      trayEmpty: this.ORDER.every(id => placed[id]),
+      feedback,
+      feedbackStyle:'margin-top:16px; padding:14px 16px; border-radius:12px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); line-height:1.8; background:'+(ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset:this.reset,
+      options, retry:this.retry,
+      mcqFeedback: picked==null ? null : this.MCQ.why[picked],
+      mcqTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      mcqFeedbackStyle:'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(correct?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

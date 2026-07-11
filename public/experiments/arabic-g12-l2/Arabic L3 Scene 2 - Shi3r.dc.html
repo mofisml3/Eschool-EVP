@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="audio-player.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٢ من ٥ · الشعر الحديث</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:40%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L3%20Scene%201%20-%20Hadith.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L3%20Scene%203%20-%20Ihyaa.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">الشعر الحديث</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">ديوانُ العرب يتجدّد</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">الشعرُ ديوانُ العرب وأهمُّ نتاجهم الأدبيّ. ومع العصر الحديث تنوّعت مذاهبُه وتطوّرت أشكالُ القصيدة. طابِق كلَّ شكلٍ بخاصيّته.</p>
+    </div>
+
+    <article style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(20px,4vw,36px); box-shadow:0 16px 40px -30px rgba(32,0,88,.4);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(17px,2.5vw,20px); margin-bottom:14px;">نصُّ الدرس</h2>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px; padding:12px 16px; background:var(--tint); border-radius:14px;">
+        <span style="font-size:22px;">🔊</span>
+        <div style="flex:1; min-width:0;">
+          <div style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:14px; margin-bottom:7px;">استمع إلى قراءة النصّ — اضغط ▶</div>
+          <sound-bar src="audio/shi3r.mp3" style="display:block; width:100%;"></sound-bar>
+        </div>
+      </div>
+      <div ref="{{ poemRef }}" style="display:flex; flex-direction:column; gap:14px;">
+        <sc-for list="{{ paras }}" as="p" hint-placeholder-count="3">
+          <p style="font-family:'Cairo',serif; font-size:clamp(16px,2.4vw,20px); line-height:2.1; color:var(--ink); text-align:justify;"><sc-for list="{{ p.words }}" as="w" hint-placeholder-count="30"><span data-wi="{{ w.wi }}" style="transition:color .12s ease;">{{ w.t }} </span></sc-for></p>
+        </sc-for>
+      </div>
+    </article>
+
+    <!-- schools chips -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,26px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary); margin-bottom:6px;">المذاهبُ الشعريّة</h2>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:14px;">اضغط كلَّ مذهبٍ لتعرف ملمحَه.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <sc-for list="{{ schools }}" as="s" hint-placeholder-count="4">
+          <button onClick="{{ s.onClick }}" style="{{ s.style }}">{{ s.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ activeSchool }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:14px; padding:14px 16px; border-radius:12px; background:var(--tint); border-right:4px solid var(--accent); animation:popIn .25s ease; font-size:15px; line-height:1.85;"><strong style="color:var(--primary); font-family:'Cairo',sans-serif;">{{ activeSchool.label }}:</strong> {{ activeSchool.desc }}</div>
+      </sc-if>
+    </section>
+
+    <!-- drag match forms -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary);">🎯 طابِق الشكلَ بخاصيّته</h2>
+        <span style="font-size:14px; color:var(--muted);">تمّ: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ placedCount }} / 4</span></span>
+      </div>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:16px;">اسحب كلَّ شكلٍ إلى تعريفه الصحيح.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:56px; padding:12px; border-radius:14px; background:var(--tint); margin-bottom:18px;">
+        <sc-for list="{{ tray }}" as="c" hint-placeholder-count="4">
+          <button onPointerDown="{{ c.onDown }}" style="{{ c.style }}">{{ c.text }}</button>
+        </sc-for>
+        <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}"><span style="align-self:center; color:var(--muted); font-size:14px;">✓ تمّت المطابقة</span></sc-if>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="4">
+          <div data-zone="{{ z.id }}" style="{{ z.style }}">
+            <span style="{{ z.slotStyle }}">{{ z.slotText }}</span>
+            <span style="flex:1; text-align:right; font-size:14.5px; line-height:1.7; color:var(--ink); pointer-events:none;">{{ z.def }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}"><div style="{{ feedbackStyle }}"><strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong><p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p></div></sc-if>
+      <div style="margin-top:12px; text-align:left;"><button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button></div>
+    </section>
+
+    <!-- discussion -->
+    <div style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,22px);">
+      <p style="font-size:15.5px; font-weight:700; color:var(--ink); line-height:1.8;">💬 ناقش: «خريطةُ الشعر الحديث واسعةُ الحدود ومتداخلةٌ مع ما يقع في العالم من حركاتٍ ومذاهبَ أدبيّة».</p>
+      <button onClick="{{ revealDisc }}" style="margin-top:8px; background:none; border:none; color:var(--accent); font-weight:700; font-size:13.5px; cursor:pointer;">{{ discBtn }}</button>
+      <sc-if value="{{ discShown }}" hint-placeholder-val="{{ false }}"><p style="margin-top:8px; font-size:14.5px; line-height:1.9; color:var(--ink);">لأنّ الأدبَ العربيّ الحديث تفاعل مع الآداب العالميّة، فاستوعب مذاهبَ وأشكالًا متنوّعةً (كلاسيكيّة ورومانسيّة وواقعيّة ورمزيّة، وشعرًا حرًّا وقصيدةَ نثر)، تعبِّر عن حاجات الإنسان المعاصر وآماله ومخاوفه وطموحاته ورؤاه؛ فصارت خريطتُه متّسعةً متداخلةً مع حركات العالم.</p></sc-if>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L3%20Scene%201%20-%20Hadith.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الأدب الحديث</a>
+      <a href="Arabic%20L3%20Scene%203%20-%20Ihyaa.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">مدرسة الإحياء ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { school:null, placed:{}, feedback:null, ok:false, disc:false };
+
+  SCHOOLS = [
+    { key:'k', label:'الكلاسيكيّة', desc:'محاكاةُ النماذج الشعريّة القديمة والمحافظةُ على تقاليد النظم العربيّ الموروث.' },
+    { key:'r', label:'الرومانسيّة', desc:'التعبيرُ عن العاطفة والوجدان والذات، والانطلاقُ في الخيال.' },
+    { key:'w', label:'الواقعيّة', desc:'تصويرُ الواقع وهموم الناس وقضاياهم الاجتماعيّة.' },
+    { key:'z', label:'الرمزيّة', desc:'الإيحاءُ بالرمز والإيماء بدل التصريح المباشر.' }
+  ];
+
+  FORMS = [
+    { id:'amoodi', name:'الشعر العموديّ', def:'قائمٌ على الشطرين، ووحدتُه البيتُ، وقافيةٌ واحدة.' },
+    { id:'muwashah', name:'الموشّح', def:'نشأ في المشرق وتطوّر في الأندلس، بنيتُه أدوارٌ وأغصانٌ وخرجة.' },
+    { id:'horr', name:'الشعر الحرّ', def:'نشأ في الأربعينيّات والخمسينيّات، ووحدتُه التفعيلةُ لا البيت.' },
+    { id:'nathr', name:'قصيدة النثر', def:'تخلو من الوزن، نشأت لتكريس نوعٍ آخرَ من القصيدة.' }
+  ];
+  CHIP_ORDER = ['nathr','amoodi','horr','muwashah'];
+
+  componentDidMount(){ try{ fetch('audio/shi3r.mp3').then(r=>r.blob()).then(b=>{ const a=document.querySelector('audio'); if(a) a.src=URL.createObjectURL(b); }).catch(function(){}); }catch(e){} }
+  componentWillUnmount(){ this._cleanup && this._cleanup(); }
+  poemRef = React.createRef();
+  PARAS = [
+    'يُعَدُّ الشعرُ العربيُّ ديوانَ العرب وأهمَّ نتاجهم الأدبيّ على مرِّ العصور، وقد مرّ بك أنّ العربَ في الجاهليّة علّقوا قصائدَهم على أركان الكعبة تكريمًا وتعظيمًا لها فسُمّيت بالمعلّقات. ومع مطلع العصر الحديث، نبغ في الشعر أجيالٌ من الشعراء، تقاسموا المجدَ الأدبيَّ، وصنعوا ملحمةَ الشعر العربيّ الذي يأبى التراجعَ عن حياة الناس وأخيلتهم وحاجاتهم.',
+    'فنشأت مذاهبُ شعريّةٌ متنوّعة كالكلاسيكيّة والرومانسيّة والواقعيّة والرمزيّة، وتطوّرت أشكالُ القصيدة وهيئاتُها، فنشأت حركةُ الشعر الجديد المسمّى بالشعر الحرّ في أربعينيّات القرن الماضي وخمسينيّاته؛ فبدلًا من وحدة البيت في القصيدة القائمة على الشطرين، استجدّت وحدةٌ بنائيّةٌ جديدة هي وحدةُ التفعيلة في القصيدة الحرّة.',
+    'وإلى جانب الحركات القديمة كالشعر العموديّ والموشّحات، والجديدة كالقصيدة الحرّة المقفّاة وغير المقفّاة المدوّرة التي نشأت منذ بداية السبعينيّات، كانت هنالك حركةٌ متوقّدة لتكريس نوعٍ آخرَ من القصيدة هي قصيدةُ النثر التي تخلو من الوزن. فخريطةُ الشعر العربيّ الحديث واسعةُ الحدود ومتداخلةٌ مع ما يقع في العالم من حركاتٍ ومذاهبَ أدبيّة متنوّعة تعبّر عن حاجات الإنسان المعاصر وآماله ومخاوفه وطموحاته ورُؤاه.'
+  ];
+  onTime = (e) => {
+    const a = e.target; if (!a || !a.duration) return;
+    const idx = Math.floor((a.currentTime / a.duration) * (this.totalWords || 1));
+    const root = this.poemRef.current; if (!root) return;
+    root.querySelectorAll('[data-wi]').forEach(s => {
+      const wi = +s.getAttribute('data-wi');
+      if (wi === idx){ s.style.background='#ffe08a'; s.style.color='#7a4e00'; s.style.fontWeight='700'; s.style.borderRadius='4px'; s.style.padding='0 2px'; }
+      else if (wi < idx){ s.style.background='transparent'; s.style.color='#0378a3'; s.style.fontWeight='700'; s.style.padding='0'; }
+      else { s.style.background='transparent'; s.style.color=''; s.style.fontWeight=''; s.style.padding='0'; }
+    });
+  };
+  pickSchool = (k) => () => this.setState(s=>({ school: s.school===k?null:k }));
+  startDrag = (id) => (e) => {
+    if (this.state.placed[id]) return; e.preventDefault();
+    const f = this.FORMS.find(x=>x.id===id);
+    const ghost=document.createElement('div'); ghost.textContent=f.name;
+    ghost.style.cssText='position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:12px;background:#200058;color:#fff;font-family:Cairo,serif;font-weight:700;font-size:17px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place=(x,y)=>{ghost.style.left=x+'px';ghost.style.top=y+'px';}; place(e.clientX,e.clientY);
+    const move=(ev)=>place(ev.clientX,ev.clientY);
+    const up=(ev)=>{ const el=document.elementFromPoint(ev.clientX,ev.clientY); const z=el&&el.closest&&el.closest('[data-zone]'); ghost.remove(); window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); this._cleanup=null; if(z) this.drop(id, z.getAttribute('data-zone')); };
+    this._cleanup=()=>{ghost.remove();window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);};
+    window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  };
+  drop = (id, zoneId) => {
+    if (id===zoneId){ const f=this.FORMS.find(x=>x.id===id); this.setState(s=>({ placed:{...s.placed,[id]:true}, ok:true, feedback:f.name+' ✓ — مطابقةٌ صحيحة.' })); }
+    else { this.setState({ ok:false, feedback:'ليست مطابقةً صحيحة؛ اقرأ التعريفَ بدقّةٍ وحاول مجدّدًا.' }); }
+  };
+  reset = () => this.setState({ placed:{}, feedback:null, ok:false });
+  revealDisc = () => this.setState(s=>({ disc:!s.disc }));
+
+  renderVals(){
+    const { school, placed, feedback, ok, disc } = this.state;
+    let pwi = 0;
+    const paras = this.PARAS.map(t => ({ words: t.split(/\s+/).filter(Boolean).map(x => ({ t:x, wi: pwi++ })) }));
+    this.totalWords = pwi;
+    const schools = this.SCHOOLS.map(s=>{ const on=school===s.key; return { label:s.label, style:`cursor:pointer; padding:9px 16px; min-height:44px; border-radius:999px; font-family:'Cairo',sans-serif; font-weight:700; font-size:14px; transition:all .18s ease; ${on?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`, onClick:this.pickSchool(s.key) }; });
+    const activeSchool = this.SCHOOLS.find(s=>s.key===school) || null;
+    const tray = this.CHIP_ORDER.filter(id=>!placed[id]).map(id=>{ const f=this.FORMS.find(x=>x.id===id); return { text:f.name, style:'touch-action:none; user-select:none; cursor:grab; padding:10px 16px; min-height:44px; border-radius:12px; background:#fff; color:var(--primary); border:2px solid var(--primary); font-family:"Cairo",serif; font-weight:700; font-size:clamp(15px,2.1vw,18px);', onDown:this.startDrag(id) }; });
+    const zones = this.FORMS.map(f=>{ const done=placed[f.id]; return { id:f.id, def:f.def, slotText: done?f.name:'؟', slotStyle:`flex:none; display:flex; align-items:center; justify-content:center; min-width:110px; height:40px; border-radius:10px; font-family:'Cairo',serif; font-weight:700; font-size:15px; ${done?'background:var(--accent); color:#08123a':'background:#fff; color:var(--muted); border:1px solid var(--line)'}`, style:`display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; transition:all .2s ease; ${done?'background:var(--accent-tint); border:2px solid var(--accent)':'background:var(--tint); border:2px dashed var(--line)'}` }; });
+    return {
+      paras, poemRef:this.poemRef, onTime:this.onTime,
+      schools, activeSchool, tray, trayEmpty:tray.length===0, zones,
+      placedCount:Object.keys(placed).length,
+      feedback, feedbackTitle: ok?'✓ أحسنت':'✗ حاول مجدّدًا',
+      feedbackStyle:'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:'+(ok?'var(--accent-tint); color:#08536f; border:1px solid var(--accent)':'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset:this.reset, discShown:disc, discBtn: disc?'▲ إخفاء':'▼ عرض المناقشة', revealDisc:this.revealDisc
+    };
+  }
+}
+</script>
+</body>
+</html>
