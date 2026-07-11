@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="audio-player.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٣ من ١١ · حرفا الاستفهام</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:27.3%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%202%20-%20Tasdeeq.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Scene%204%20-%20Names.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">حرفا الاستفهام</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">الهمزةُ و«هل»</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">الحروفُ كلُّها لا محلَّ لها من الإعراب. حرفا الاستفهام: <strong>الهمزةُ</strong> و<strong>هل</strong>. اضغط كلَّ خاصيّةٍ لتقارنَ بينهما بالشواهد.</p>
+    </div>
+
+    <div style="background:linear-gradient(155deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--accent); border-radius:16px; padding:clamp(16px,3vw,22px);">
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.95;">هما <strong>متشابهان</strong> عندما يكون الاستفهامُ تصديقيًّا مثبتًا؛ إذ يمكن استبدالُ إحداهما بالأخرى: <span style="font-family:'Amiri',serif; font-weight:700; color:var(--primary);">(أبغدادُ جميلةٌ؟)</span> = <span style="font-family:'Amiri',serif; font-weight:700; color:var(--primary);">(هل بغدادُ جميلةٌ؟)</span>. وفيما عدا ذلك تتميّز الهمزةُ بخصائص.</p>
+    </div>
+
+    <!-- comparison accordion -->
+    <section style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="7">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden;">
+          <button onClick="{{ r.onClick }}" style="{{ r.headStyle }}">
+            <span style="display:flex; align-items:center; gap:12px;"><span style="{{ r.numStyle }}">{{ r.num }}</span> {{ r.title }}</span>
+            <span style="font-size:18px; color:var(--accent); transition:transform .2s ease; transform:rotate({{ r.rot }});">⌄</span>
+          </button>
+          <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(14px,3vw,20px) clamp(16px,3vw,20px); animation:popIn .25s ease;">
+              <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:10px;">
+                <div style="padding:14px 16px; border-radius:12px; background:var(--accent-tint); border:1px solid #b9e8f8;">
+                  <strong style="font-family:'Amiri',serif; font-size:20px; color:#0378a3;">الهمزة ✓</strong>
+                  <p style="font-size:14.5px; line-height:1.85; margin-top:6px; color:#0d4a63;">{{ r.hamza }}</p>
+                </div>
+                <div style="padding:14px 16px; border-radius:12px; background:var(--alert-tint); border:1px solid #f3c0c7;">
+                  <strong style="font-family:'Amiri',serif; font-size:20px; color:#c0455a;">هَلْ</strong>
+                  <p style="font-size:14.5px; line-height:1.85; margin-top:6px; color:#8c2f42;">{{ r.hal }}</p>
+                </div>
+              </div>
+              <sc-if value="{{ r.extra }}" hint-placeholder-val="{{ false }}">
+                <p style="margin-top:10px; font-size:14px; line-height:1.8; color:var(--ink); padding:10px 14px; background:var(--tint); border-radius:10px;">💡 {{ r.extra }}</p>
+              </sc-if>
+              <sc-if value="{{ r.shahid }}" hint-placeholder-val="{{ false }}">
+                <p style="margin-top:10px; font-family:'Amiri',serif; font-size:clamp(16px,2.2vw,19px); line-height:1.9; color:var(--primary); text-align:center; padding:10px; border-top:1px dashed var(--line);">{{ r.shahid }}</p>
+              </sc-if>
+              <sc-if value="{{ r.audio }}" hint-placeholder-val="{{ false }}">
+                <div style="max-width:540px; margin:0 auto;"><sound-bar src="{{ r.audio }}" label="استمع إلى التّلاوة القرآنيّة ▶" style="display:block; width:100%;"></sound-bar></div>
+              </sc-if>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق من الفهم</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:6px;">إذا أجبتَ عن <span style="font-family:'Amiri',serif; color:var(--primary);">(ألم تُسافرْ إلى بغدادَ؟)</span> بـ«بلى»، فماذا يعني جوابُك؟</p>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">تذكّر قاعدةَ الجواب عن الاستفهام المنفيّ.</p>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Scene%202%20-%20Tasdeeq.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ تصديق وتصوّر</a>
+      <a href="Arabic%20L2%20Scene%204%20-%20Names.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">أسماء الاستفهام ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open:0, picked:null };
+
+  ROWS = [
+    { title:'الورودُ في نوعَي الاستفهام', hamza:'ترِد في الاستفهام التصديقيّ والتصوّريّ معًا؛ فهي وحدها تصلح للتعيين: (أراكبًا حضرتَ أم ماشيًا؟).', hal:'ترِد في التصديقيّ فقط، فلا تُستبدَل بالهمزة في مثل هذا التعيين.', shahid:'﴿هَلْ يَسْتَوِي الْأَعْمَى وَالْبَصِيرُ أَمْ هَلْ تَسْتَوِي الظُّلُمَاتُ وَالنُّورُ﴾ (الرعد: ١٦)', extra:'«أمْ» المعادِلة تأتي بعد الهمزة؛ فإن وردت بعد «هل» فهي منقطعةٌ بمعنى «بل».', audio:'audio/verse_hal.mp4' },
+    { title:'الدخولُ على الجملة المنفيّة', hamza:'تدخل على المُثبَتة والمنفيّة: (ألَمْ تعلمْ؟).', hal:'تدخل على المُثبَتة فقط.', shahid:'﴿أَلَمْ تَرَوْا أَنَّ اللَّهَ سَخَّرَ لَكُم مَّا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ﴾ (لقمان: ٢٠)', extra:'يكون الجوابُ عن المنفيّ بـ«بلى» لإثبات المعنى: (ألم تسافرْ؟) — بلى (سافرتُ)، أمّا «نعم» فمعناها (لم أسافرْ).', audio:'audio/verse_alam.mp4' },
+    { title:'الصدارةُ وأحرفُ العطف', hamza:'لها الصدارةُ، فتسبق أحرفَ العطف (الواو، ثمّ، الفاء): (أوَلَمْ نشبعْ؟).', hal:'تأتي بعد أحرف العطف: (فهل لها صِقالٌ؟).', shahid:'', extra:'' },
+    { title:'موضعُ المُستفهَم عنه', hamza:'يقع المُستفهَم عنه بعدها مباشرةً ولا يجوز تأخيره: (أروايةً قرأتَ أم قصّةً؟).', hal:'لا يُشترط ذلك معها: (هل أكرمتَ المرأةَ؟).', shahid:'', extra:'' },
+    { title:'جوازُ الحذف', hamza:'تُحذَف لوجود قرينةٍ تدلّ عليها: (إلى الرصافةِ ذهبتَ أم إلى الكرخِ؟) والتقدير: أإلى الرصافةِ؟', hal:'لا تُحذَف.', shahid:'', extra:'' },
+    { title:'الدخولُ على أسلوب الشرط', hamza:'تدخل على أسلوب الشرط: (أإنْ تُسافرْ أُسافرْ معك؟).', hal:'لا يصحّ ذلك معها.', shahid:'', extra:'' },
+    { title:'الدخولُ على «إنّ»', hamza:'تدخل على الحرف المشبَّه بالفعل «إنّ»: (أإنّكَ شجاعٌ؟).', hal:'لا يصحّ ذلك معها.', shahid:'﴿قَالُوا أَئِنَّكَ لَأَنتَ يُوسُفُ﴾ (يوسف: ٩٠)', extra:'', audio:'audio/verse_ainnaka.mp4' }
+  ];
+
+  MCQ = { correct:0, options:[
+    'بلى = سافرتُ (إثباتُ المعنى)',
+    'بلى = لم أُسافرْ (نفيُ المعنى)',
+    'لا فرقَ بين «بلى» و«نعم» هنا'
+  ], why:[
+    'أحسنت! «بلى» تُثبت المعنى بعد النفي؛ فجوابُها يعني (سافرتُ). أمّا «نعم» فتعني (لم أسافرْ).',
+    'خطأ؛ «بلى» تُبطل النفيَ وتُثبت المعنى، فتعني (سافرتُ). التي تعني (لم أسافرْ) هي «نعم».',
+    'خطأ؛ ثمّة فرقٌ: «بلى» إثباتٌ (سافرتُ)، و«نعم» تقريرٌ للنفي (لم أسافرْ).'
+  ] };
+
+  renderVals(){
+    const { open, picked } = this.state;
+    const AR = ['١','٢','٣','٤','٥','٦','٧'];
+
+    const rows = this.ROWS.map((r,i) => {
+      const on = open === i;
+      return {
+        num:AR[i], title:r.title, hamza:r.hamza, hal:r.hal,
+        shahid:r.shahid || null, extra:r.extra || null, audio:r.audio || null,
+        open:on, rot: on?'180deg':'0deg',
+        headStyle: `width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px clamp(14px,3vw,20px); background:${on?'var(--tint)':'#fff'}; border:none; cursor:pointer; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(15px,2vw,17px); color:var(--primary); text-align:right;`,
+        numStyle: `flex:none; display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; font-size:14px; ${on?'background:var(--accent); color:#08123a':'background:var(--tint); color:var(--primary)'}`,
+        onClick: () => this.setState(s => ({ open: s.open===i?-1:i }))
+      };
+    });
+
+    const options = this.MCQ.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `text-align:right; cursor:${picked!=null?'default':'pointer'}; padding:14px 16px; min-height:44px; border-radius:14px; font-family:'Cairo',sans-serif; font-size:clamp(14px,2vw,16px); font-weight:600; background:${bg}; color:${color}; border:${border}; transition:all .18s ease; line-height:1.6;`;
+      return { label, style, onClick: () => { if (this.state.picked==null) this.setState({ picked:i }); } };
+    });
+    const correct = picked===this.MCQ.correct;
+
+    return {
+      rows, options,
+      retry: () => this.setState({ picked:null }),
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (correct ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

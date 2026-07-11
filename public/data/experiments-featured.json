@@ -10,6 +10,16 @@
     "launchPath": "experiments/physics-g12-l1/Physics Book.dc.html"
   },
   {
+    "id": "exp-arabic-mulazima-lil-idafa",
+    "title": "اللغة العربية: الأسماء الملازمة للإضافة",
+    "disciplineName": "اللغة العربية",
+    "typeLabel": "درس تفاعلي",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي — الدرس الثاني",
+    "durationMinutes": 30,
+    "launchPath": "experiments/arabic-g12-l2/Book Cover.dc.html"
+  },
+  {
     "id": "exp-newton-laws",
     "title": "محاكاة قوانين نيوتن للحركة",
     "disciplineName": "الفيزياء",

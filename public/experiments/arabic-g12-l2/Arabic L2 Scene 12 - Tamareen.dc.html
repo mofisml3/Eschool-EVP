@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">التمرينات · بنك التطبيقات</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:100%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%2011%20-%20I3rab-Tatbeeq.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Check.dc.html" title="التقويم" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:18px;">✓</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(18px,3vw,26px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">التمرينات</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,42px); color:var(--primary); line-height:1.18; margin-bottom:10px;">طبِّق ما تعلّمت</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:680px;">تمريناتُ الكتاب كاملةً. افتح كلَّ تمرينٍ، وحاول الإجابةَ بنفسك، ثم اكشف الإجابةَ النموذجيّة حيث تتوفّر.</p>
+    </div>
+
+    <section style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ exercises }}" as="ex" hint-placeholder-count="8">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden;">
+          <button onClick="{{ ex.onToggle }}" style="{{ ex.headStyle }}">
+            <span style="display:flex; align-items:center; gap:12px;"><span style="{{ ex.numStyle }}">{{ ex.num }}</span> {{ ex.title }}</span>
+            <span style="font-size:18px; color:var(--accent); transform:rotate({{ ex.rot }}); transition:transform .2s;">⌄</span>
+          </button>
+          <sc-if value="{{ ex.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 clamp(14px,3vw,20px) clamp(16px,3vw,20px); animation:popIn .25s ease;">
+              <p style="font-size:14.5px; color:var(--muted); line-height:1.8; margin-bottom:14px; padding-top:4px;">{{ ex.instruction }}</p>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <sc-for list="{{ ex.items }}" as="it" hint-placeholder-count="4">
+                  <div style="padding:12px 14px; border-radius:12px; background:var(--tint);">
+                    <p style="font-family:'Amiri',serif; font-size:clamp(16px,2.3vw,20px); line-height:1.85; color:var(--ink);"><span style="color:var(--primary); font-weight:700;">{{ it.num }}.</span> {{ it.text }}</p>
+                    <sc-if value="{{ it.hasAns }}" hint-placeholder-val="{{ false }}">
+                      <button onClick="{{ it.onReveal }}" style="{{ it.btnStyle }}">{{ it.btnLabel }}</button>
+                      <sc-if value="{{ it.shown }}" hint-placeholder-val="{{ false }}">
+                        <div style="margin-top:8px; padding:10px 14px; border-radius:10px; background:var(--accent-tint); border-right:3px solid var(--accent); font-size:14.5px; line-height:1.85; color:#0d4a63;">{{ it.ans }}</div>
+                      </sc-if>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Scene%2011%20-%20I3rab-Tatbeeq.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ حلّل وأعرب</a>
+      <a href="Arabic%20L2%20Check.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; min-height:44px; border-radius:12px; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:16px; box-shadow:0 12px 28px -12px rgba(0,195,254,.6);">التقويم النهائيّ ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0, revealed: {} };
+
+  EX = [
+    { title:'استخراج أسماء الاستفهام وإعرابها', instruction:'استخرج اسمَ الاستفهام، واذكر دلالتَه وإعرابَه، مبيّنًا السبب.', items:[
+      { t:'قال تعالى: ﴿وَمَا تِلْكَ بِيَمِينِكَ يَا مُوسَى﴾ (طه: ١٧)', a:'«ما»: للسؤال عن غير العاقل؛ مبتدأ في محل رفع (ويجوز خبرًا مقدّمًا)؛ لأنه تلاها اسمٌ معرفة (تلك).' },
+      { t:'قال تعالى: ﴿رَبِّ أَنَّى يَكُونُ لِي وَلَدٌ﴾ (آل عمران: ٤٧)', a:'«أنّى»: بمعنى «كيف» (الحال)؛ في محل نصب خبر مقدّم للفعل الناقص «يكون».' },
+      { t:'قال تعالى: ﴿فَمَاذَا تَأْمُرُونَ﴾ (الشعراء: ٣٥)', a:'«ماذا»: غير العاقل؛ في محل نصب مفعول به مقدّم؛ لأنه تلاها فعلٌ متعدٍّ لم يستوفِ مفعولَه (تأمرون).' },
+      { t:'قال تعالى: ﴿فَمَنْ رَبُّكُمَا يَا مُوسَى﴾ (طه: ٤٩)', a:'«مَن»: العاقل؛ مبتدأ في محل رفع (ويجوز خبرًا مقدّمًا)؛ لأنه تلاها اسمٌ معرفة (ربّكما).' },
+      { t:'قال الإمام عليّ (عليه السلام): «وَكَيْفَ غَفْلَتُكُمْ عَمَّا لَيْسَ يُغْفِلُكُمْ»', a:'«كيف»: الحال؛ في محل رفع خبر مقدّم؛ لأنه تلاها اسمٌ معرفة (غفلتكم).' },
+      { t:'قال أبو فِراس: كَيْفَ السَّبِيلُ إلى طيفٍ يُزاوِرُهُ', a:'«كيف»: الحال؛ في محل رفع خبر مقدّم؛ لأنه تلاها اسمٌ معرفة (السبيل).' },
+      { t:'قال الشاعر: وَأَيُّ ذَبِيحٍ داسَتِ الخيلُ صدرَهُ', a:'«أيّ»: للسؤال عن غير العاقل؛ مبتدأ مرفوع بالضمة؛ لأنه تلاها فعلٌ متعدٍّ استوفى مفعولَه.' },
+      { t:'أَيْنَ تَقَعُ بابلُ الأثريّةُ؟', a:'«أين»: المكان؛ في محل نصب مفعول فيه (ظرف مكان)؛ لأنه تلاها فعلٌ تامّ (تقع).' },
+      { t:'مَتَى يكونُ موعدُ سفرِكَ؟', a:'«متى»: الزمان؛ في محل نصب خبر مقدّم للفعل الناقص «يكون».' },
+      { t:'أَيَّانَ وقتُ مقارعةِ الظلمِ؟', a:'«أيّان»: للزمان المستقبل؛ في محل رفع خبر مقدّم؛ لأنه تلاها اسمٌ معرفة (وقت).' },
+      { t:'مَا قَدَّمْتَ للمحتاجِ؟', a:'«ما»: غير العاقل؛ في محل نصب مفعول به مقدّم؛ لأنه تلاها فعلٌ متعدٍّ لم يستوفِ مفعولَه (قدّمت).' }
+    ]},
+    { title:'نوع الاستفهام: تصديق أم تصوّر', instruction:'استخرج الاستفهام، وبيّن نوعَه من حيث الجواب (تصديق أو تصوّر) مع ذكر السبب.', items:[
+      { t:'قال تعالى: ﴿أَحَقٌّ هُوَ قُلْ إِي وَرَبِّي﴾ (يونس: ٥٣)', a:'تصديقيّ؛ الهمزةُ دون «أمْ» معادِلة، والجوابُ بالإثبات (إي).' },
+      { t:'قال تعالى: ﴿أَفَطَالَ عَلَيْكُمُ الْعَهْدُ أَمْ أَرَدْتُمْ...﴾ (طه: ٨٦)', a:'تصوّريّ؛ الهمزةُ مع «أمْ» المعادِلة تطلب التعيين.' },
+      { t:'قال تعالى: ﴿أَفَمَنْ يَمْشِي مُكِبًّا... أَمَّنْ يَمْشِي سَوِيًّا...﴾ (الملك: ٢٢)', a:'تصوّريّ؛ الهمزةُ مع «أمْ» المعادِلة.' },
+      { t:'قال المأمون: «... أفتحبسُ أصحابي ولي بهم حاجةٌ؟ قال: نعم»', a:'تصديقيّ؛ الجوابُ بـ«نعم».' },
+      { t:'قال ابن الروميّ: أَرَصَاصٌ كِيانُهُ أم حديدُ', a:'تصوّريّ؛ الهمزةُ مع «أمْ» المعادِلة (تعيين أحد الأمرين).' },
+      { t:'قال ابن الفارض: أَأُذادُ عن عذبِ الورودِ بأرضِهِ', a:'تصديقيّ؛ الهمزةُ دون «أمْ» معادِلة.' },
+      { t:'قال أحمد شوقي: إلى الموتِ أمشي أم إلى الموتِ أركبُ', a:'تصوّريّ؛ «أمْ» المعادِلة تطلب التعيين.' },
+      { t:'كَمْ مسكينًا أعنتَهُ؟', a:'تصوّريّ؛ أداتُه اسمُ الاستفهام «كم»، والجوابُ بالتعيين.' },
+      { t:'أَإلى أربيلَ سافرتَ أم إلى كركوكَ؟', a:'تصوّريّ؛ الهمزةُ مع «أمْ» المعادِلة.' },
+      { t:'هَلْ ترى النجاةَ في الصدقِ؟', a:'تصديقيّ؛ «هل» والجوابُ بنعم أو لا.' },
+      { t:'أَيَّ فتًى تُصاحبُ؟', a:'تصوّريّ؛ أداتُه اسمُ الاستفهام «أيّ».' }
+    ]},
+    { title:'ما يميّز «الهمزة» من «هل»', instruction:'ما الذي يميّز «الهمزة» من «هل» فيما يأتي؟', items:[
+      { t:'قال تعالى: ﴿أَفَعَيِينَا بِالْخَلْقِ الْأَوَّلِ﴾ (ق: ١٥)', a:'الهمزةُ لها الصدارةُ فسبقت الفاء، ودخلت على معنًى منفيّ؛ ولا يصحّ ذلك مع «هل».' },
+      { t:'قال تعالى: ﴿أَأَرْبَابٌ مُتَفَرِّقُونَ خَيْرٌ أَمِ اللَّهُ الْوَاحِدُ الْقَهَّارُ﴾ (يوسف: ٣٩)', a:'الهمزةُ وردت في استفهامٍ تصوّريّ مع «أمْ» المعادِلة؛ و«هل» لا تأتي في التصوّريّ.' },
+      { t:'قال تعالى: ﴿أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ﴾ (التين: ٨)', a:'دخلت الهمزةُ على جملةٍ منفيّة (ليس)؛ و«هل» لا تدخل على المنفيّ.' },
+      { t:'قال تعالى: ﴿أَفَإِنْ مِتَّ فَهُمُ الْخَالِدُونَ﴾ (الأنبياء: ٣٤)', a:'دخلت الهمزةُ على أداة الشرط «إنْ» وسبقت الفاء؛ ولا يصحّ ذلك مع «هل».' },
+      { t:'قال تعالى: ﴿أَئِنَّكُمْ لَتَشْهَدُونَ أَنَّ مَعَ اللَّهِ آلِهَةً أُخْرَى﴾ (الأنعام: ١٩)', a:'دخلت الهمزةُ على «إنّ»؛ ولا يصحّ ذلك مع «هل».' },
+      { t:'أَوَلم تحافظوا على الممتلكاتِ العامّةِ؟', a:'الهمزةُ سبقت الواوَ (الصدارة) ودخلت على معنًى منفيّ؛ ولا يصحّ ذلك مع «هل».' },
+      { t:'صِدْقًا قلتَ أم كذِبًا؟', a:'حُذفت الهمزةُ لقرينة «أمْ» المعادِلة، والتقدير: أصِدقًا؟ وهي تصوّريّة؛ ولا يصحّ ذلك مع «هل».' },
+      { t:'أَإنّك مدافعٌ عن حقوقِ الطفلِ؟', a:'دخلت الهمزةُ على «إنّ»؛ ولا يصحّ ذلك مع «هل».' },
+      { t:'أَإذا التزمَ الناسُ بأداءِ الزكاةِ انتهى الفقرُ؟', a:'دخلت الهمزةُ على أداة الشرط «إذا»؛ ولا يصحّ ذلك مع «هل».' }
+    ]},
+    { title:'استبدال «هل» بـ«الهمزة»', instruction:'استبدل «هل» بـ«الهمزة» فيما يلي، وإذا تعذّر ذلك فاذكر السبب. (تطبيقٌ ذاتيّ؛ راجع إجابتك مع معلّمك.)', items:[
+      { t:'قال لبيد: أَوَلَم تَرَي أنّ الحوادثَ أهلكت إِرَمًا وَرامَت حِميَرًا بِعَظيمِ' },
+      { t:'قال الأعشى: أَلَمْ تَغتَمِضْ عَيناكَ لَيلَةَ أَرمَدا وَعادَكَ ما عَادَ السَّليمَ الـمُسَهَّدا' },
+      { t:'قال المتنبّي: أَيَدْرِي الرَّبْعُ أَيَّ دَمٍ أَرَاقَا وَأَيَّ قُلوبِ هَذا الرَّكْبِ شَاقَا' },
+      { t:'قال أحمد شوقي: فَليَسْأَلَنَّ عَنِ الأَرائِكِ سائِلٌ أَحَملنَ فَضلًا أَم حَملنَ فُضولا' },
+      { t:'أَلَمْ يكنِ التسامحُ من صفاتِ المسلمِ؟' },
+      { t:'أَكُرِّمَ المتفوّقُ؟' },
+      { t:'أَتَعْلَمُ أيُّ ذلٍّ في سؤالِ غيرِ اللهِ؟' }
+    ]},
+    { title:'أسئلة إعرابيّة متنوّعة', instruction:'أجب عن الأسئلة الآتية المتعلّقة بأسماء الاستفهام وخصائصها. (تطبيقٌ ذاتيّ.)', items:[
+      { t:'﴿أَفَلَمْ يَنْظُرُوا إِلَى السَّمَاءِ فَوْقَهُمْ كَيْفَ بَنَيْنَاهَا﴾ (ق: ٦): ما خصيصةُ الهمزة؟ وأعرِب «كيف» واذكر السبب.' },
+      { t:'قال الفرزدق: يا سائِلي أَينَ حَلَّ الجُودُ وَالكَرَمُ: استبدل بـ«أين» اسمَ استفهامٍ بمعناه، وأعرِب «أين».' },
+      { t:'قال المتنبّي: أُراقِبُ فيهِ الشَّمسَ أَيّانَ تَغرُبُ: استبدل بـ«أيّان» اسمَ استفهامٍ بمعناه، وأعرِب «أيّان».' },
+      { t:'﴿وَمَا يَشْعُرُونَ أَيَّانَ يُبْعَثُونَ﴾ (النحل: ٢١): اذكر الزمنَ الذي أفادته «أيّان»، وبيّن الفرقَ بينها وبين «متى».' },
+      { t:'قال الباروديّ: وَكَيْفَ يَكُونُ الْمَرْءُ حُرًّا مُهَذَّبًا: استبدل بـ«كيف» اسمَ استفهامٍ بمعناه، وأعرِب «كيف».' },
+      { t:'قال الشاعر: مَتَى يَسْتَقِيْمُ الظِّلُّ والعودُ أَعْوَجُ: أعرِب «متى»، واستبدل بـ«هل» حرفًا آخر.' },
+      { t:'قال الشاعر: أيُّ قلبٍ هَامَ فيكُم وَسَكَنْ: ما معنى «أيّ»؟ ومن أين يُستفاد؟ وأعرِب «أيّ».' }
+    ]},
+    { title:'اجعل ما فوق الخط جوابًا لسؤال', instruction:'اجعل الكلمةَ (بين القوسين) جوابًا لجملةٍ استفهاميّةٍ بأداةٍ مناسبة. (تطبيقٌ ذاتيّ؛ الأداةُ المقترحةُ بين المعقوفتين.)', items:[
+      { t:'فَلَمّا (عِشَاءً) أَجمَعوا أَمرَهُم أَصبَحُوا... [متى؟]' },
+      { t:'تَقَعُ محافظةُ ذي قار (جنوبَ العراقِ). [أين؟]' },
+      { t:'اجتهدتُ (اجتهادَ العلماءِ). [كيف؟ / أيَّ اجتهادٍ؟]' },
+      { t:'يُحشَرُ الناسُ جميعًا (يومَ القيامةِ). [متى؟]' },
+      { t:'(الزهراءُ) قدوةٌ للمرأةِ المحتشمةِ. [مَن؟]' },
+      { t:'يُنفِقُ المؤمنُ (أعزَّ ما يملِكُ) في سبيلِ اللهِ. [ماذا؟]' },
+      { t:'خُلِقَ الناسُ (أحرارًا). [كيف؟]' }
+    ]},
+    { title:'«أمْ» المتّصلة والمنقطعة', instruction:'ميّز «أمْ» المتّصلة (المعادِلة) من «أمْ» المنقطعة، مع إعرابها.', items:[
+      { t:'قال تعالى: ﴿قُلْ هَلْ يَسْتَوِي الْأَعْمَى وَالْبَصِيرُ أَمْ هَلْ تَسْتَوِي الظُّلُمَاتُ وَالنُّورُ﴾ (الرعد: ١٦)', a:'منقطعة؛ لوقوعها بعد «هل»، فهي بمعنى «بل» (ابتدائيّة) لا معادِلة.' },
+      { t:'قال تعالى: ﴿أَهُمْ أَشَدُّ خَلْقًا أَمْ مَنْ خَلَقْنَا﴾ (الصافّات: ١١)', a:'متّصلة (معادِلة)؛ جاءت بعد الهمزة تطلب التعيين، و«مَن» بعدها معطوفٌ على المستفهَم عنه.' },
+      { t:'قال تعالى: ﴿قُلْ إِنْ أَدْرِي أَقَرِيبٌ مَا تُوعَدُونَ أَمْ يَجْعَلُ لَهُ رَبِّي أَمَدًا﴾ (الجن: ٢٥)', a:'متّصلة (معادِلة)؛ بعد الهمزة، تطلب التعيينَ بين أمرين.' },
+      { t:'قال تعالى: ﴿أَفَلَا تُبْصِرُونَ ۝ أَمْ أَنَا خَيْرٌ مِنْ هَذَا الَّذِي هُوَ مَهِينٌ﴾ (الزخرف: ٥١-٥٢)', a:'منقطعة؛ بمعنى «بل» (انتقالٌ من كلامٍ إلى آخر).' },
+      { t:'قال تعالى: ﴿مِنْ رَبِّ الْعَالَمِينَ ۝ أَمْ يَقُولُونَ افْتَرَاهُ﴾ (يونس: ٣٧-٣٨)', a:'منقطعة؛ بمعنى «بل».' },
+      { t:'قال عنترة: هَل غادَرَ الشُّعَراءُ مِن مُتَرَدَّمِ أَمْ هَل عَرَفْتَ الدَّارَ بَعدَ تَوَهُّمِ', a:'منقطعة؛ لوقوعها بعد «هل».' },
+      { t:'أَفِضّةٌ عندَكَ أم ذهبٌ؟', a:'متّصلة (معادِلة)؛ الهمزةُ مع «أمْ» تطلب تعيينَ أحد الأمرين.' }
+    ]},
+    { title:'«كم» الاستفهاميّة والخبريّة', instruction:'ميّز «كم» الاستفهاميّة من «كم» الخبريّة، واذكر دلالتَهما، وأعرِبهما مع تمييزهما.', items:[
+      { t:'قال تعالى: ﴿وَكَمْ مِنْ مَلَكٍ فِي السَّمَاوَاتِ لَا تُغْنِي شَفَاعَتُهُمْ شَيْئًا﴾ (النجم: ٢٦)', a:'خبريّة؛ تدلّ على التكثير، ولا تحتاج جوابًا؛ وتمييزها «مَلَكٍ» مجرورٌ بـ«مِن».' },
+      { t:'قال تعالى: ﴿سَلْ بَنِي إِسْرَائِيلَ كَمْ آتَيْنَاهُمْ مِنْ آيَةٍ بَيِّنَةٍ﴾ (البقرة: ٢١١)', a:'خبريّة؛ للتكثير؛ وتمييزها «آيةٍ» مجرورٌ بـ«مِن».' },
+      { t:'قال تعالى: ﴿قَالَ كَمْ لَبِثْتَ﴾ (البقرة: ٢٥٩)', a:'استفهاميّة؛ تطلب جوابًا؛ وتمييزها محذوفٌ تقديرُه «كم يومًا لبثتَ؟».' },
+      { t:'قال تعالى: ﴿وَكَمْ مِنْ قَرْيَةٍ أَهْلَكْنَاهَا فَجَاءَهَا بَأْسُنَا بَيَاتًا﴾ (الأعراف: ٤)', a:'خبريّة؛ للتكثير؛ وتمييزها «قريةٍ» مجرورٌ بـ«مِن».' },
+      { t:'قال الإمام عليّ (عليه السلام): «كَمْ مِنْ صَائِمٍ لَيْسَ لَهُ مِنْ صِيَامِهِ إِلَّا الظَّمَأُ»', a:'خبريّة؛ للتكثير؛ وتمييزها «صائمٍ» مجرورٌ بـ«مِن».' },
+      { t:'قال البحتريّ: كَم صَديقٍ عَرَفتُهُ بِصَديقِ', a:'خبريّة؛ للتكثير؛ وتمييزها «صديقٍ» مجرورٌ بالإضافة.' },
+      { t:'قال الحلّاج: كَم دَمعَةٍ فيكَ لي ما كُنتُ أُجريها', a:'خبريّة؛ للتكثير؛ وتمييزها «دمعةٍ» مجرورٌ بالإضافة.' },
+      { t:'كَمْ طبيبًا في المستشفى؟', a:'استفهاميّة؛ تطلب جوابًا؛ وتمييزها «طبيبًا» مفردٌ منصوب.' },
+      { t:'كَمْ جولةً جُلتَ في السباقِ؟', a:'استفهاميّة؛ تطلب جوابًا؛ وتمييزها «جولةً» مفردٌ منصوب.' }
+    ]}
+  ];
+
+  toggle = (i) => () => this.setState(s => ({ open: s.open===i?-1:i }));
+  reveal = (key) => () => this.setState(s => ({ revealed: { ...s.revealed, [key]: !s.revealed[key] } }));
+
+  renderVals(){
+    const { open, revealed } = this.state;
+    const AR = ['١','٢','٣','٤','٥','٦','٧','٨','٩','١٠','١١'];
+    const exercises = this.EX.map((ex, ei) => {
+      const isOpen = open === ei;
+      const items = ex.items.map((it, ii) => {
+        const key = ei + '-' + ii;
+        const shown = !!revealed[key];
+        return {
+          num: AR[ii], text: it.t,
+          hasAns: !!it.a, ans: it.a || '', shown,
+          btnLabel: shown ? '▲ إخفاء الإجابة' : '▼ الإجابة النموذجيّة',
+          btnStyle: 'margin-top:8px; background:none; border:none; color:var(--accent); font-weight:700; font-size:13.5px; cursor:pointer; padding:2px 0;',
+          onReveal: this.reveal(key)
+        };
+      });
+      return {
+        num: AR[ei], title: ex.title, instruction: ex.instruction, items,
+        open: isOpen, rot: isOpen?'180deg':'0deg', onToggle: this.toggle(ei),
+        headStyle: `width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px clamp(14px,3vw,20px); background:${isOpen?'var(--tint)':'#fff'}; border:none; cursor:pointer; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(15px,2vw,17px); color:var(--primary); text-align:right;`,
+        numStyle: `flex:none; display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; font-size:14px; ${isOpen?'background:var(--accent); color:#08123a':'background:var(--tint); color:var(--primary)'}`
+      };
+    });
+    return { exercises };
+  }
+}
+</script>
+</body>
+</html>

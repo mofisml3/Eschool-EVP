@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٦ من ١١ · إعراب الذات</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:54.5%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%205%20-%20Rule.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Scene%207%20-%20Zaman.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">أولًا · ما يُسأل به عن الذات</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(26px,4.6vw,42px); color:var(--primary); line-height:1.18; margin-bottom:10px;">إعرابُ: مَنْ، ما، ماذا، أيّ</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">تُعرَب هذه الأسماءُ بحسب ما يليها. راجِع الحالاتِ الأربع، ثم <strong>اسحب</strong> كلَّ مثالٍ إلى خانته الصحيحة.</p>
+    </div>
+
+    <!-- 4 cases reference -->
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:14px;">
+      <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:14px; padding:18px;">
+        <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:17px;">أ) مبتدأ</strong>
+        <p style="font-size:14px; line-height:1.8; margin-top:6px; color:var(--muted);">إذا تلاها: اسمٌ نكرة، أو فعلٌ لازم، أو فعلٌ متعدٍّ استوفى مفعولَه، أو مبنيٌّ للمجهول، أو ناقصٌ استوفى خبرَه، أو شبهُ جملة، أو اسمٌ معرفة (ويجوز خبرًا مقدّمًا).</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--alert); border-radius:14px; padding:18px;">
+        <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:17px;">ب) مفعولٌ به مقدَّم وجوبًا</strong>
+        <p style="font-size:14px; line-height:1.8; margin-top:6px; color:var(--muted);">إذا تلاها فعلٌ متعدٍّ <strong>لم يستوفِ</strong> مفعولَه.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:14px; padding:18px;">
+        <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:17px;">ج) خبرٌ مقدَّم للناقص</strong>
+        <p style="font-size:14px; line-height:1.8; margin-top:6px; color:var(--muted);">إذا تلاها فعلٌ ناقصٌ <strong>لم يستوفِ</strong> خبرَه.</p>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--alert); border-radius:14px; padding:18px;">
+        <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:17px;">د) مجرورة</strong>
+        <p style="font-size:14px; line-height:1.8; margin-top:6px; color:var(--muted);">إمّا بحرف الجرِّ إذا سبقها، وإمّا بالإضافة إذا سبقها اسمٌ نكرةٌ مضاف.</p>
+      </div>
+    </section>
+
+    <!-- drag & drop sort -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary);">🎯 اسحب المثالَ إلى إعرابه</h2>
+        <span style="font-size:14px; color:var(--muted);">تمّ: <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ placedCount }} / 6</span></span>
+      </div>
+      <p style="color:var(--muted); font-size:13px; margin-bottom:16px;">اسحب بالإصبع أو بالفأرة. إن أخطأت عاد المثالُ إلى مكانه.</p>
+
+      <!-- tray of draggable chips -->
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; min-height:56px; padding:12px; border-radius:14px; background:var(--tint); margin-bottom:18px;">
+        <sc-for list="{{ tray }}" as="c" hint-placeholder-count="6">
+          <button onPointerDown="{{ c.onDown }}" style="{{ c.style }}">{{ c.text }}</button>
+        </sc-for>
+        <sc-if value="{{ trayEmpty }}" hint-placeholder-val="{{ false }}">
+          <span style="align-self:center; color:var(--muted); font-size:14px;">✓ وزّعتَ كلَّ الأمثلة</span>
+        </sc-if>
+      </div>
+
+      <!-- buckets -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:12px;">
+        <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="4">
+          <div data-zone="{{ b.id }}" style="{{ b.style }}">
+            <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:15px; display:block; margin-bottom:8px; pointer-events:none;">{{ b.label }}</strong>
+            <div style="display:flex; flex-direction:column; gap:6px; pointer-events:none;">
+              <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="0">
+                <span style="font-family:'Cairo',serif; font-size:15px; font-weight:700; color:#0378a3; background:var(--accent-tint); border:1px solid #b9e8f8; border-radius:8px; padding:6px 10px;">{{ it }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}"><strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong><p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p></div>
+      </sc-if>
+      <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:14px; padding:14px; border-radius:14px; text-align:center; background:var(--accent-tint); color:#08536f; font-family:'Cairo',sans-serif; font-weight:700; animation:popIn .3s ease;">🎉 أعربتَ الأمثلةَ جميعَها بنجاح!</div>
+      </sc-if>
+      <div style="margin-top:12px; text-align:left;"><button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button></div>
+    </section>
+
+    <!-- fa2ida -->
+    <div style="background:linear-gradient(160deg,#fbf9ff,#f2effb); border:1px solid var(--line); border-right:5px solid var(--alert); border-radius:16px; padding:clamp(16px,3vw,22px);">
+      <h3 style="font-family:'Cairo',sans-serif; font-weight:600; color:var(--primary); font-size:17px; margin-bottom:8px;">✦ فائدة</h3>
+      <p style="font-size:clamp(15px,2vw,17px); line-height:1.9;">«ما» الاستفهاميّة إذا سُبِقت بحرف جرٍّ <strong>تُحذَف ألفُها</strong> تخفيفًا، نحو: <span style="font-family:'Cairo',serif; font-weight:700; color:var(--alert);">إلامَ، ممَّ، عمَّ، علامَ، بِمَ، فيمَ، لِمَ</span>.</p>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Scene%205%20-%20Rule.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ القاعدة الذهبيّة</a>
+      <a href="Arabic%20L2%20Scene%207%20-%20Zaman.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الزمان والمكان والحال ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { placed:{}, feedback:null, ok:false };
+
+  BUCKETS = [
+    { id:'mubtada', label:'أ) مبتدأ' },
+    { id:'maf3ul', label:'ب) مفعول به مقدّم' },
+    { id:'khabar', label:'ج) خبر مقدّم للناقص' },
+    { id:'majrur', label:'د) مجرورة' }
+  ];
+  CHIPS = [
+    { id:'c1', text:'مَنْ سَافَرَ؟', ans:'mubtada', why:'تَلَاهُ فِعْلٌ لَازِمٌ (سَافَرَ)، فَهُوَ فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ.' },
+    { id:'c2', text:'مَنْ كَافَأْتَ؟', ans:'maf3ul', why:'تَلَاهُ فِعْلٌ مُتَعَدٍّ لَمْ يَسْتَوْفِ مَفْعُولَهُ (كَافَأْتَ)، فَهُوَ مَفْعُولٌ بِهِ مُقَدَّمٌ.' },
+    { id:'c3', text:'مَاذَا أَصْبَحْتَ؟', ans:'khabar', why:'تَلَاهُ فِعْلٌ نَاقِصٌ لَمْ يَسْتَوْفِ خَبَرَهُ (أَصْبَحْتَ)، فَهُوَ خَبَرٌ مُقَدَّمٌ لِلنَّاقِصِ.' },
+    { id:'c4', text:'بِأَيِّ ذَنْبٍ قُتِلَتْ؟', ans:'majrur', why:'سَبَقَهَا حَرْفُ الْجَرِّ (الْبَاءُ)، فَهِيَ مَجْرُورَةٌ بِهِ.' },
+    { id:'c5', text:'مَنْ تَحْتَ الْمِظَلَّةِ؟', ans:'mubtada', why:'تَلَاهَا شِبْهُ جُمْلَةٍ ظَرْفِيَّةٍ، فَهِيَ فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ.' },
+    { id:'c6', text:'كِتَابَ مَنِ اسْتَعَرْتَ؟', ans:'majrur', why:'سَبَقَهَا اسْمٌ نَكِرَةٌ مُضَافٌ (كِتَابَ)، فَهِيَ مَجْرُورَةٌ بِالْإِضَافَةِ.' }
+  ];
+
+  componentWillUnmount(){ this._cleanup && this._cleanup(); }
+
+  componentDidMount(){ try { window.speechSynthesis && window.speechSynthesis.getVoices(); } catch(e){} }
+  speak = (text) => {
+    try {
+      const s = window.speechSynthesis;
+      if (!s) { alert('متصفّحك لا يدعم النطق الصوتيّ.'); return; }
+      s.cancel();
+      const say = () => {
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.85;
+        const vs = s.getVoices() || [];
+        const v = vs.find(x => /^ar/i.test(x.lang)) || vs.find(x => /arab/i.test(x.name));
+        u.lang = v ? v.lang : 'ar-SA';
+        if (v) u.voice = v;
+        s.resume();
+        s.speak(u);
+      };
+      if ((s.getVoices() || []).length === 0) {
+        let done = false; const run = () => { if (done) return; done = true; say(); };
+        s.onvoiceschanged = run;
+        setTimeout(run, 300);
+      } else { say(); }
+    } catch (e) {}
+  };
+  startDrag = (chip) => (e) => {
+    if (this.state.placed[chip.id]) return;
+    e.preventDefault();
+    const ghost = document.createElement('div');
+    ghost.textContent = chip.text;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:12px;background:#200058;color:#fff;font-family:Cairo,serif;font-weight:700;font-size:17px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place = (x,y) => { ghost.style.left=x+'px'; ghost.style.top=y+'px'; };
+    place(e.clientX, e.clientY);
+    const move = (ev) => place(ev.clientX, ev.clientY);
+    const up = (ev) => {
+      const el = document.elementFromPoint(ev.clientX, ev.clientY);
+      const zone = el && el.closest && el.closest('[data-zone]');
+      ghost.remove();
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      this._cleanup = null;
+      if (zone) this.drop(chip.id, zone.getAttribute('data-zone'));
+    };
+    this._cleanup = () => { ghost.remove(); window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  drop = (chipId, bucketId) => {
+    const chip = this.CHIPS.find(c => c.id === chipId);
+    if (chip.ans === bucketId){
+      this.setState(s => ({ placed: { ...s.placed, [chipId]: bucketId }, ok:true, feedback: chip.text + ' ✓ — ' + chip.why }));
+    } else {
+      const b = this.BUCKETS.find(x => x.id === bucketId);
+      this.setState({ ok:false, feedback: 'ليس هنا؛ «' + chip.text + '» لا يُعرَب ' + b.label.replace(/^[أبجد]\)\s*/,'') + '. ' + chip.why });
+    }
+  };
+  reset = () => this.setState({ placed:{}, feedback:null, ok:false });
+
+  renderVals(){
+    const { placed, feedback, ok } = this.state;
+    const tray = this.CHIPS.filter(c => !placed[c.id]).map(c => ({
+      text: c.text,
+      style: 'display:inline-flex; align-items:center; gap:8px; touch-action:none; user-select:none; cursor:grab; padding:10px 16px; min-height:44px; border-radius:12px; background:#fff; color:var(--primary); border:2px solid var(--primary); font-family:"Cairo",serif; font-weight:700; font-size:clamp(15px,2.1vw,18px);',
+      onDown: this.startDrag(c),
+      onSpeakDown: (e) => { e.stopPropagation(); },
+      onSpeak: (e) => { e.stopPropagation(); this.speak(c.text); }
+    }));
+    const buckets = this.BUCKETS.map(b => {
+      const items = this.CHIPS.filter(c => placed[c.id] === b.id).map(c => c.text);
+      return { id:b.id, label:b.label, items,
+        style: 'min-height:96px; padding:14px; border-radius:14px; background:var(--tint); border:2px dashed var(--line); transition:border-color .2s ease;' };
+    });
+    return {
+      tray, trayEmpty: tray.length === 0, buckets,
+      placedCount: Object.keys(placed).length,
+      allDone: Object.keys(placed).length === this.CHIPS.length,
+      feedback,
+      feedbackTitle: ok ? '✓ أحسنت' : '✗ حاول مجدّدًا',
+      feedbackStyle: 'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (ok ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset: this.reset
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٨ من ١١ · إعراب «كم»</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:72.7%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%207%20-%20Zaman.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Scene%209%20-%20Ayy.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">رابعًا · ما يُسأل به عن العدد</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">«كَمْ» وتمييزُها</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">«كم» اسمٌ مبهمٌ يحتاج إلى <strong>تمييزٍ نكرةٍ مفردٍ منصوبٍ</strong> يحدّد معناها وإعرابَها.</p>
+    </div>
+
+    <!-- i3rab of kam istifhamiyya -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,20px); color:var(--primary); margin-bottom:14px;">مواقعُ إعراب «كم» الاستفهاميّة</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:12px;">
+        <sc-for list="{{ cases }}" as="c" hint-placeholder-count="6">
+          <div style="padding:14px 16px; border-radius:12px; background:var(--tint);">
+            <span style="display:inline-block; padding:2px 10px; border-radius:999px; background:var(--primary); color:#fff; font-size:12px; font-weight:700; font-family:'Cairo',sans-serif; margin-bottom:6px;">{{ c.mahal }}</span>
+            <p style="font-family:'Amiri',serif; font-size:clamp(15px,2.1vw,18px); line-height:1.8; color:var(--ink);">{{ c.ex }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:14px; padding:12px 16px; border-radius:12px; background:var(--accent-tint); border-right:4px solid var(--accent); font-size:14.5px; line-height:1.85; color:#0d4a63;">💡 يجوز حذفُ تمييز «كم» الاستفهاميّة، فتُعرَب بإعراب تمييزها المُقدَّر، كقوله تعالى: ﴿قَالَ قَائِلٌ مِّنْهُمْ كَمْ لَبِثْتُمْ﴾ (الكهف: ١٩) أي: كم يومًا لبثتُم؟</div>
+    </section>
+
+    <!-- khabariyya vs istifhamiyya -->
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,20px); color:var(--primary); margin-bottom:12px;">«كم» الاستفهاميّة و«كم» الخبريّة</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:14px;">
+        <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:14px; padding:18px;">
+          <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:18px;">الاستفهاميّة</strong>
+          <ul style="list-style:none; margin-top:10px; display:flex; flex-direction:column; gap:8px; font-size:14.5px; line-height:1.7;">
+            <li style="display:flex; gap:8px;"><span style="color:var(--accent);">◂</span> تدلُّ على الاستفهام وتحتاج إلى جواب.</li>
+            <li style="display:flex; gap:8px;"><span style="color:var(--accent);">◂</span> تمييزُها <strong>مفردٌ منصوبٌ</strong>.</li>
+            <li style="display:flex; gap:8px;"><span style="color:var(--accent);">◂</span> <span style="font-family:'Amiri',serif; font-size:1.15em;">كم تلميذًا في الصفِّ؟</span></li>
+          </ul>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-top:4px solid var(--alert); border-radius:14px; padding:18px;">
+          <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:18px;">الخبريّة</strong>
+          <ul style="list-style:none; margin-top:10px; display:flex; flex-direction:column; gap:8px; font-size:14.5px; line-height:1.7;">
+            <li style="display:flex; gap:8px;"><span style="color:var(--alert);">◂</span> تدلُّ على التكثير ولا تحتاج إلى جواب.</li>
+            <li style="display:flex; gap:8px;"><span style="color:var(--alert);">◂</span> تمييزُها مفردٌ أو جمعٌ <strong>مجرورٌ</strong> بالإضافة أو بـ«مِنْ».</li>
+            <li style="display:flex; gap:8px;"><span style="color:var(--alert);">◂</span> <span style="font-family:'Amiri',serif; font-size:1.15em;">كم مِن تلميذٍ في الصفِّ اجتهدَ ونجحَ!</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:12px; padding:12px 16px; border-radius:12px; background:var(--tint); border-right:4px solid var(--accent); font-size:14.5px; line-height:1.85;">🔗 من درس المطالعة: <span style="font-family:'Amiri',serif; font-weight:700; color:var(--primary);">«وكَمْ مِن شاعرٍ قديمًا وحديثًا قد تغنّى بها»</span> — «كم» هنا خبريّةٌ (تكثيرٌ).</div>
+    </section>
+
+    <!-- sorter -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(16px,2.4vw,20px); color:var(--primary);">🗂️ استفهاميّة أم خبريّة؟</h2>
+        <span style="font-size:13px; color:var(--muted);"><span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ progress }}</span></span>
+      </div>
+      <sc-if value="{{ inSort }}" hint-placeholder-val="{{ true }}">
+        <div style="text-align:center; padding:clamp(18px,4vw,28px) 16px; border-radius:16px; background:var(--tint); margin-bottom:16px;">
+          <p style="font-family:'Amiri',serif; font-size:clamp(20px,3.6vw,28px); font-weight:700; color:var(--ink); line-height:1.7;">{{ current }}</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <button onClick="{{ pickIstif }}" style="{{ btnIstif }}">استفهاميّة</button>
+          <button onClick="{{ pickKhab }}" style="{{ btnKhab }}">خبريّة</button>
+        </div>
+        <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ feedbackStyle }}"><strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong><p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p></div>
+          <div style="display:flex; justify-content:flex-start; margin-top:14px;"><button onClick="{{ nextItem }}" style="padding:12px 28px; min-height:44px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:15px; cursor:pointer;">{{ nextLabel }}</button></div>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ sortDone }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:24px; animation:popIn .3s ease;"><div style="font-size:44px;">🎯</div><p style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:20px; margin:10px 0;">أصبتَ <span style="direction:ltr; unicode-bidi:isolate; color:var(--accent);">{{ score }}</span></p><button onClick="{{ restart }}" style="padding:12px 26px; min-height:44px; border-radius:12px; border:none; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:15px; cursor:pointer;">↺ أعِد التصنيف</button></div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Scene%207%20-%20Zaman.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الزمان والحال</a>
+      <a href="Arabic%20L2%20Scene%209%20-%20Ayy.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">«أيّ» عن الحدث ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx:0, picked:null, correct:0, done:false };
+
+  CASES = [
+    { mahal:'مبتدأ (رفع)', ex:'كم طالبًا اشترك في الامتحانِ؟' },
+    { mahal:'مفعول به (نصب)', ex:'كم قلمًا اشتريتَ؟' },
+    { mahal:'اسم مجرور', ex:'بكم دينارًا اشتريتَ هاتفَكَ؟' },
+    { mahal:'مضاف إليه', ex:'قصائدَ كم شاعرٍ قرأتَ؟' },
+    { mahal:'مفعول فيه (ظرف)', ex:'كم ساعةً قرأتَ الدرسَ؟' },
+    { mahal:'مفعول مطلق', ex:'كم زيارةً زُرتَ صديقَكَ؟' }
+  ];
+
+  ITEMS = [
+    { q:'كم تلميذًا في الصفِّ؟', ans:'i', why:'استفهاميّة؛ تحتاج جوابًا، وتمييزُها مفردٌ منصوبٌ (تلميذًا).' },
+    { q:'كم مِن تلميذٍ في الصفِّ اجتهدَ ونجحَ!', ans:'k', why:'خبريّة؛ تدلّ على التكثير، وتمييزُها مجرورٌ بـ«مِن» ولا تحتاج جوابًا.' },
+    { q:'كم ساعةً درستَ اليومَ؟', ans:'i', why:'استفهاميّة؛ تطلب جوابًا، وتمييزُها مفردٌ منصوبٌ (ساعةً).' },
+    { q:'وكم مِن شاعرٍ قديمًا وحديثًا قد تغنّى بها', ans:'k', why:'خبريّة (من درس المطالعة)؛ تدلّ على التكثير، وتمييزُها مجرورٌ بـ«مِن».' },
+    { q:'بكم دينارًا اشتريتَ الكتابَ؟', ans:'i', why:'استفهاميّة؛ سؤالٌ يطلب جوابًا، وتمييزُها مفردٌ منصوبٌ (دينارًا).' },
+    { q:'كم كتابٍ نافعٍ قرأتُه في العطلةِ!', ans:'k', why:'خبريّة؛ تدلّ على التكثير، وتمييزُها مجرورٌ بالإضافة.' }
+  ];
+
+  pick = (v) => () => { if (this.state.picked!=null) return; const c=v===this.ITEMS[this.state.idx].ans; this.setState(s=>({ picked:v, correct:s.correct+(c?1:0) })); };
+  pickIstif = this.pick('i');
+  pickKhab = this.pick('k');
+  nextItem = () => this.setState(s => (s.idx>=this.ITEMS.length-1 ? {done:true} : {idx:s.idx+1, picked:null}));
+  restart = () => this.setState({ idx:0, picked:null, correct:0, done:false });
+
+  renderVals(){
+    const { idx, picked, correct, done } = this.state;
+    const AR=['٠','١','٢','٣','٤','٥','٦'];
+    const it = this.ITEMS[idx];
+    const answered = picked!=null;
+    const isCorrect = answered && picked===it.ans;
+    const btn = (v) => {
+      let s='cursor:pointer; padding:16px 12px; min-height:56px; border-radius:14px; font-family:"Cairo",sans-serif; font-weight:700; font-size:clamp(15px,2.2vw,18px); transition:all .18s ease; ';
+      if (!answered) s+='background:#fff; color:var(--primary); border:2px solid var(--primary);';
+      else if (v===it.ans) s+='background:var(--accent-tint); color:#0378a3; border:2px solid var(--accent);';
+      else if (v===picked) s+='background:var(--alert-tint); color:#c0455a; border:2px solid var(--alert);';
+      else s+='background:#fff; color:var(--muted); border:1px solid var(--line);';
+      return s;
+    };
+
+    return {
+      cases: this.CASES,
+      inSort:!done, sortDone:done,
+      progress:`${AR[Math.min(idx+1,this.ITEMS.length)]} / ${AR[this.ITEMS.length]}`,
+      current:it.q,
+      pickIstif:this.pickIstif, pickKhab:this.pickKhab,
+      btnIstif:btn('i'), btnKhab:btn('k'),
+      feedback: answered ? it.why : null,
+      feedbackTitle: isCorrect ? '✓ صحيح' : '✗ راجِع التمييز',
+      feedbackStyle: 'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (isCorrect ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      nextItem:this.nextItem,
+      nextLabel: idx>=this.ITEMS.length-1 ? 'إظهار النتيجة ←' : 'التالي ←',
+      score:`${AR[correct]} / ${AR[this.ITEMS.length]}`,
+      restart:this.restart
+    };
+  }
+}
+</script>
+</body>
+</html>

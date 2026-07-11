@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٢ من ١١ · نوع الاستفهام</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:18.2%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%201%20-%20Intro.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Scene%203%20-%20Hamza.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">أولًا · من حيث الجواب</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">تصديقٌ وتصوُّر</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">يُقسَم الاستفهامُ من حيث الجوابُ على قسمين. تأمّل الفرقَ بينهما، ثم صنِّف الأسئلةَ بنفسك.</p>
+    </div>
+
+    <!-- two definitions -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:16px;">
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--accent); border-radius:16px; padding:22px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:19px; margin-bottom:8px;">أ) التصديقيّ</h2>
+        <p style="font-size:15.5px; line-height:1.9; margin-bottom:10px;">طلبُ معرفة <strong>النسبة بين شيئين</strong> ثبوتًا أو نفيًا؛ فيكون الجوابُ بـ (نعم/لا/بلى/إي). أداتاه: <strong>الهمزةُ وهل</strong>.</p>
+        <div style="padding:12px 14px; border-radius:10px; background:var(--accent-tint);">
+          <p style="font-family:'Cairo',serif; font-size:18px; font-weight:700; color:#0d4a63; line-height:1.7;">هل سافرتَ إلى بغدادَ؟ — أمُسافرٌ غدًا؟</p>
+        </div>
+      </div>
+      <div style="background:#fff; border:1px solid var(--line); border-top:5px solid var(--alert); border-radius:16px; padding:22px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:19px; margin-bottom:8px;">ب) التصوُّريّ</h2>
+        <p style="font-size:15.5px; line-height:1.9; margin-bottom:10px;">طلبُ معرفة <strong>المفرد بتعيينِ</strong> ما يُسأل عنه؛ فيكون الجوابُ <strong>بالتعيين</strong> لا بالنفي أو الإثبات. أدواته: الهمزةُ وأسماءُ الاستفهام.</p>
+        <div style="padding:12px 14px; border-radius:10px; background:var(--alert-tint);">
+          <p style="font-family:'Cairo',serif; font-size:18px; font-weight:700; color:#8c2f42; line-height:1.7;">أصِدقًا قلتَ أم كذِبًا؟ — مَن أكرمتَ؟</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- classifier -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+        <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary);">🗂️ صنِّف السؤال</h2>
+        <span style="font-size:13px; color:var(--muted);"><span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--accent);">{{ progress }}</span></span>
+      </div>
+
+      <sc-if value="{{ inSort }}" hint-placeholder-val="{{ true }}">
+        <div style="text-align:center; padding:clamp(20px,4vw,34px) 16px; border-radius:16px; background:var(--tint); margin-bottom:16px;">
+          <p style="font-family:'Cairo',serif; font-size:clamp(22px,4vw,32px); font-weight:700; color:var(--ink); line-height:1.7;">{{ current }}</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <button onClick="{{ pickTasdeeq }}" style="{{ btnTasdeeq }}">تصديق<br><span style="font-weight:400; font-size:.75em;">نعم / لا</span></button>
+          <button onClick="{{ pickTasawwur }}" style="{{ btnTasawwur }}">تصوُّر<br><span style="font-weight:400; font-size:.75em;">تعيين</span></button>
+        </div>
+        <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ feedbackStyle }}">
+            <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+            <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          </div>
+          <div style="display:flex; justify-content:flex-start; margin-top:14px;">
+            <button onClick="{{ nextItem }}" style="padding:12px 28px; min-height:44px; border-radius:12px; border:none; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:15px; cursor:pointer;">{{ nextLabel }}</button>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ sortDone }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:24px; animation:popIn .3s ease;">
+          <div style="font-size:44px;">🎯</div>
+          <p style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:20px; margin:10px 0;">أصبتَ <span style="direction:ltr; unicode-bidi:isolate; color:var(--accent);">{{ score }}</span></p>
+          <button onClick="{{ restart }}" style="padding:12px 26px; min-height:44px; border-radius:12px; border:none; background:var(--accent); color:#08123a; font-family:'Cairo',sans-serif; font-weight:700; font-size:15px; cursor:pointer;">↺ أعِد التصنيف</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <!-- 3-part rule -->
+    <section>
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,20px); color:var(--primary); margin-bottom:12px;">الأدوات بحسب نوع الجواب</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:12px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px;">
+          <strong style="font-family:'Cairo',serif; font-size:22px; color:var(--primary);">الهمزة</strong>
+          <p style="font-size:14px; color:var(--muted); margin-top:6px; line-height:1.7;">للتصديق مرّةً وللتصوّر مرّةً. <span style="color:var(--ink);">(أقامَ محمدٌ؟) تصديق، (أقامَ محمدٌ أم قعدَ؟) تصوّر.</span></p>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px;">
+          <strong style="font-family:'Cairo',serif; font-size:22px; color:var(--primary);">هَلْ</strong>
+          <p style="font-size:14px; color:var(--muted); margin-top:6px; line-height:1.7;">للتصديق فقط. <span style="color:var(--ink);">(هل اجتهدتَ في دراستك؟)</span></p>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px;">
+          <strong style="font-family:'Cairo',serif; font-size:22px; color:var(--primary);">أسماء الاستفهام</strong>
+          <p style="font-size:14px; color:var(--muted); margin-top:6px; line-height:1.7;">للتصوّر فقط. <span style="color:var(--ink);">(أين تقعُ بحيرةُ ساوةَ؟)</span></p>
+        </div>
+      </div>
+      <div style="margin-top:14px; padding:14px 18px; border-radius:12px; background:var(--tint); border-right:4px solid var(--accent); font-size:15px; line-height:1.85;">💡 يجب أن تأتي بعد «الهمزة» في الاستفهام التصوّريّ <strong>«أمْ» المعادِلة</strong>، ونستطيع تحويلَه إلى تصديقيٍّ بحذف «أمْ» وما بعدها.</div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Scene%201%20-%20Intro.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ التمهيد</a>
+      <a href="Arabic%20L2%20Scene%203%20-%20Hamza.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">الهمزة وهل ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { idx:0, picked:null, correct:0, done:false };
+
+  ITEMS = [
+    { q:'هل سافرتَ إلى بغدادَ؟', ans:'t', why:'تصديقيّ؛ أداتُه «هل»، والجوابُ بنعم أو لا (إثباتُ النسبة أو نفيُها).' },
+    { q:'أصِدقًا قلتَ أم كذِبًا؟', ans:'s', why:'تصوُّريّ؛ الهمزةُ مع «أمْ» المعادِلة، والجوابُ بتعيين أحدهما: صِدقًا أو كذِبًا.' },
+    { q:'مَن بَنَى بغدادَ؟', ans:'s', why:'تصوُّريّ؛ أداتُه اسمُ الاستفهام «مَن»، وأسماءُ الاستفهام كلُّها للتصوّر.' },
+    { q:'أمُسافرٌ غدًا؟', ans:'t', why:'تصديقيّ؛ الهمزةُ دون «أمْ»، والجوابُ بنعم أو لا.' },
+    { q:'متى أُسِّست بغدادُ؟', ans:'s', why:'تصوُّريّ؛ اسمُ الاستفهام «متى»، والجوابُ بتعيين الزمن.' },
+    { q:'أقامَ محمدٌ أم قعدَ؟', ans:'s', why:'تصوُّريّ؛ الهمزةُ مع «أمْ» المعادِلة، والجوابُ بتعيين أحد الفعلين.' }
+  ];
+
+  pick = (v) => () => {
+    if (this.state.picked != null) return;
+    const c = v === this.ITEMS[this.state.idx].ans;
+    this.setState(s => ({ picked:v, correct: s.correct + (c?1:0) }));
+  };
+  pickTasdeeq = this.pick('t');
+  pickTasawwur = this.pick('s');
+  nextItem = () => this.setState(s => (s.idx >= this.ITEMS.length-1 ? { done:true } : { idx:s.idx+1, picked:null }));
+  restart = () => this.setState({ idx:0, picked:null, correct:0, done:false });
+
+  renderVals(){
+    const { idx, picked, correct, done } = this.state;
+    const AR = ['٠','١','٢','٣','٤','٥','٦'];
+    const it = this.ITEMS[idx];
+    const answered = picked != null;
+    const isCorrect = answered && picked === it.ans;
+
+    const btnStyle = (v) => {
+      let s = 'cursor:pointer; padding:16px 12px; min-height:56px; border-radius:14px; font-family:"Cairo",sans-serif; font-weight:700; font-size:clamp(16px,2.2vw,19px); transition:all .18s ease; ';
+      if (!answered){ s += 'background:#fff; color:var(--primary); border:2px solid var(--primary);'; }
+      else if (v === it.ans){ s += 'background:var(--accent-tint); color:#0378a3; border:2px solid var(--accent);'; }
+      else if (v === picked){ s += 'background:var(--alert-tint); color:#c0455a; border:2px solid var(--alert);'; }
+      else { s += 'background:#fff; color:var(--muted); border:1px solid var(--line);'; }
+      return s;
+    };
+
+    return {
+      inSort: !done, sortDone: done,
+      progress: `${AR[Math.min(idx+1,this.ITEMS.length)]} / ${AR[this.ITEMS.length]}`,
+      current: it.q,
+      pickTasdeeq: this.pickTasdeeq, pickTasawwur: this.pickTasawwur,
+      btnTasdeeq: btnStyle('t'), btnTasawwur: btnStyle('s'),
+      feedback: answered ? it.why : null,
+      feedbackTitle: isCorrect ? '✓ صحيح' : '✗ راجِع التعريف',
+      feedbackStyle: 'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (isCorrect ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      nextItem: this.nextItem,
+      nextLabel: idx >= this.ITEMS.length-1 ? 'إظهار النتيجة ←' : 'السؤال التالي ←',
+      score: `${AR[correct]} / ${AR[this.ITEMS.length]}`,
+      restart: this.restart
+    };
+  }
+}
+</script>
+</body>
+</html>

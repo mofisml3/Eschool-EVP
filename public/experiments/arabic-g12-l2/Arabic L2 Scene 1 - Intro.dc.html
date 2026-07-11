@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ١ من ١١ · التمهيد</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:9.1%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Scene%202%20-%20Tasdeeq.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">القواعد · تمهيد</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">أسلوبُ الاستفهام</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">لو عُدتَ إلى درس المطالعة «بغداد حاضرة الدنيا» لوجدتَ جُملًا تتضمّن أسلوبًا من أساليب الطلب. لنبدأ منها لنكتشفَ هذا الأسلوب وأدواتِه.</p>
+    </div>
+
+    <!-- questions from mutala3a -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary); margin-bottom:6px;">🔎 أسئلةٌ من درس المطالعة</h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">اضغط كلَّ سؤالٍ لتكشفَ أداةَ الاستفهام فيه.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:12px;">
+        <sc-for list="{{ mQuestions }}" as="q" hint-placeholder-count="4">
+          <button onClick="{{ q.onClick }}" style="{{ q.style }}">
+            <span style="font-family:'Cairo',serif; font-size:clamp(18px,2.6vw,22px); font-weight:700;">{{ q.text }}</span>
+            <sc-if value="{{ q.show }}" hint-placeholder-val="{{ false }}">
+              <span style="margin-top:8px; display:inline-block; padding:3px 12px; border-radius:999px; background:var(--accent); color:#08123a; font-size:13px; font-weight:700;">الأداة: {{ q.tool }}</span>
+            </sc-if>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- definition result box -->
+    <div style="background:linear-gradient(155deg,#eafaff,#e2f6fe); border:1px solid #b9e8f8; border-right:5px solid var(--accent); border-radius:16px; padding:clamp(18px,3vw,26px);">
+      <h3 style="font-family:'Cairo',sans-serif; font-weight:700; color:var(--primary); font-size:clamp(17px,2.4vw,20px); margin-bottom:10px;">✦ التعريف</h3>
+      <p style="font-size:clamp(15px,2.1vw,18px); line-height:2; color:#0d4a63;">أسلوبُ الاستفهام أسلوبٌ من <strong>الأساليب الطلبيّة</strong>، يُطلَب به العلمُ بشيءٍ مجهولٍ في الذهن عند الطلب، كقولك: <span style="font-family:'Cairo',serif; font-weight:700;">(هل لديكَ قلمٌ؟)</span>. وتُسمّى الجملةُ التي تتضمّن هذا الطلبَ <strong>جملةً استفهاميّةً</strong>، وهي التي تبدأ بأداةٍ من أدوات الاستفهام.</p>
+    </div>
+
+    <!-- adawat explorer -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <h2 style="font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2.5vw,21px); color:var(--primary); margin-bottom:6px;">🧰 أدواتُ الاستفهام</h2>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">أحدَ عشرَ أداةً. اضغط أيَّ أداةٍ لترى مثالًا ونوعَها (حرفٌ أم اسمٌ).</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <sc-for list="{{ tools }}" as="t" hint-placeholder-count="11">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px; min-height:84px;">
+        <sc-if value="{{ activeTool }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:16px 18px; border-radius:14px; background:var(--tint); border-right:4px solid var(--accent); animation:popIn .25s ease;">
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:8px;">
+              <strong style="font-family:'Cairo',sans-serif; color:var(--primary); font-size:19px;">{{ activeTool.name }}</strong>
+              <span style="{{ activeTool.kindStyle }}">{{ activeTool.kind }}</span>
+            </div>
+            <p style="font-family:'Cairo',serif; font-size:clamp(17px,2.4vw,21px); line-height:1.8; color:var(--ink);">{{ activeTool.ex }}</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noTool }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:16px; border-radius:14px; background:var(--tint); text-align:center; color:var(--muted); font-size:15px;">👆 اختر أداةً لعرض مثالها.</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- quick check -->
+    <section style="background:linear-gradient(160deg,#fff,#faf9ff); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700; margin-bottom:10px;">تحقّق سريع</span>
+      <p style="font-size:clamp(16px,2.3vw,19px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:16px;">أيُّ الأدوات الآتية <span style="color:var(--primary);">حرفٌ</span> من أدوات الاستفهام (وليست اسمًا)؟</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,120px),1fr)); gap:10px;">
+        <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onClick }}" style="{{ o.style }}">{{ o.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}">
+          <strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong>
+          <p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p>
+          <button onClick="{{ retry }}" style="margin-top:10px; background:none; border:none; color:var(--accent); font-weight:700; font-size:14px; cursor:pointer;">↺ حاول مرّة أخرى</button>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ مخطط الدرس</a>
+      <a href="Arabic%20L2%20Scene%202%20-%20Tasdeeq.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">من حيث الجواب ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openQ:{}, tool:null, picked:null };
+
+  MQ = [
+    { text:'مَنْ أَمَرَ بِبنائها؟', tool:'مَنْ' },
+    { text:'أَيْنَ تَقَعُ؟', tool:'أَيْنَ' },
+    { text:'مَتَى أُسِّسَتْ؟', tool:'مَتَى' },
+    { text:'كَيْفَ بُنِيَتْ؟', tool:'كَيْفَ' }
+  ];
+
+  TOOLS = [
+    { name:'الهمزة', kind:'حرف', ex:'أَبَغدادُ جميلةٌ؟' },
+    { name:'هَلْ',   kind:'حرف', ex:'هل لديكَ قلمٌ؟' },
+    { name:'مَنْ',   kind:'اسم', ex:'مَنْ بَنَى بغدادَ؟' },
+    { name:'مَا',    kind:'اسم', ex:'ما الخبرُ؟' },
+    { name:'مَتَى',  kind:'اسم', ex:'متى عُدتَ من الموصل؟' },
+    { name:'أَيَّانَ', kind:'اسم', ex:'أيّانَ يومُ الدِّينِ؟' },
+    { name:'أَيْنَ', kind:'اسم', ex:'أينَ تسكنُ؟' },
+    { name:'أَنَّى', kind:'اسم', ex:'أنّى لكَ هذا؟' },
+    { name:'كَيْفَ', kind:'اسم', ex:'كيف بُنِيَتْ بغدادُ؟' },
+    { name:'كَمْ',   kind:'اسم', ex:'كم كتابًا قرأتَ؟' },
+    { name:'أيّ',    kind:'اسم', ex:'أيَّ كتابٍ تقرأُ؟' }
+  ];
+
+  MCQ = { correct:1, options:['مَنْ','هَلْ','أَيْنَ','كَيْفَ'], why:[
+    '«مَنْ» اسمٌ من أسماء الاستفهام، وليست حرفًا.',
+    'أحسنت! حرفا الاستفهام هما «الهمزة» و«هل»، وبقيّةُ الأدوات أسماء.',
+    '«أَيْنَ» اسمٌ من أسماء الاستفهام، وليست حرفًا.',
+    '«كَيْفَ» اسمٌ من أسماء الاستفهام، وليست حرفًا.'
+  ] };
+
+  renderVals(){
+    const { openQ, tool, picked } = this.state;
+
+    const mQuestions = this.MQ.map((q,i) => {
+      const show = !!openQ[i];
+      const style = `cursor:pointer; text-align:center; display:flex; flex-direction:column; align-items:center; padding:16px 14px; min-height:44px; border-radius:14px; transition:all .18s ease; ${show?'background:var(--accent-tint); border:2px solid var(--accent)':'background:var(--tint); border:2px solid transparent'}`;
+      return { text:q.text, tool:q.tool, show, style, onClick: () => this.setState(s => ({ openQ: { ...s.openQ, [i]: !s.openQ[i] } })) };
+    });
+
+    const tools = this.TOOLS.map((t,i) => {
+      const on = tool === i;
+      const isHarf = t.kind === 'حرف';
+      const style = `cursor:pointer; padding:10px 18px; min-height:44px; border-radius:999px; font-family:'Cairo',serif; font-weight:700; font-size:clamp(16px,2.2vw,20px); transition:all .18s ease; ${on?`background:var(--primary); color:#fff; border:2px solid var(--primary)`:`background:#fff; color:${isHarf?'#c0455a':'var(--primary)'}; border:2px solid ${isHarf?'#f3c0c7':'var(--line)'}`}`;
+      return { name:t.name, style, onClick: () => this.setState(s => ({ tool: s.tool===i?null:i })) };
+    });
+    const at = tool!=null ? this.TOOLS[tool] : null;
+    const activeTool = at ? { name:at.name, ex:at.ex, kind: at.kind==='حرف'?'حرفٌ':'اسمٌ',
+      kindStyle: `padding:3px 12px; border-radius:999px; font-size:13px; font-weight:700; ${at.kind==='حرف'?'background:var(--alert-tint); color:#c0455a':'background:var(--accent-tint); color:#0378a3'}` } : null;
+
+    const options = this.MCQ.options.map((label,i) => {
+      let bg='#fff', color='var(--ink)', border='1px solid var(--line)';
+      if (picked!=null){
+        if (i===this.MCQ.correct){ bg='var(--accent-tint)'; color='#0378a3'; border='2px solid var(--accent)'; }
+        else if (i===picked){ bg='var(--alert-tint)'; color='#c0455a'; border='2px solid var(--alert)'; }
+        else color='var(--muted)';
+      }
+      const style = `cursor:${picked!=null?'default':'pointer'}; padding:14px 12px; min-height:44px; border-radius:14px; font-family:'Cairo',serif; font-size:clamp(17px,2.2vw,21px); font-weight:700; background:${bg}; color:${color}; border:${border}; transition:all .18s ease;`;
+      return { label, style, onClick: () => { if (this.state.picked==null) this.setState({ picked:i }); } };
+    });
+    const correct = picked===this.MCQ.correct;
+
+    return {
+      mQuestions, tools, activeTool, noTool: !activeTool, options,
+      retry: () => this.setState({ picked:null }),
+      feedback: picked==null ? null : this.MCQ.why[picked],
+      feedbackTitle: correct ? '✓ إجابةٌ صحيحة' : '✗ ليست دقيقة',
+      feedbackStyle: 'margin-top:16px; padding:16px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (correct ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)')
+    };
+  }
+}
+</script>
+</body>
+</html>

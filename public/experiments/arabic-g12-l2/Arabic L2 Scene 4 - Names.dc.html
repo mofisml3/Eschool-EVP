@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo',sans-serif; background:#f5f3fb; color:var(--ink); }
+  @keyframes riseIn { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes popIn { from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+</style>
+</helmet>
+<div style="direction:rtl; min-height:100vh; display:flex; flex-direction:column; font-family:'Cairo',sans-serif; color:var(--ink);">
+
+  <header style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px clamp(14px,4vw,40px); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:30;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Blueprint.dc.html" title="مخطط الدرس" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--tint); color:var(--primary); font-size:20px;">⌂</a>
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px; width:auto;">
+    </div>
+    <div style="flex:1; max-width:280px; display:flex; flex-direction:column; gap:5px; align-items:center;">
+      <span style="font-size:13px; color:var(--muted); font-weight:500;">المشهد ٤ من ١١ · أسماء الاستفهام</span>
+      <div style="width:100%; height:6px; border-radius:999px; background:var(--tint); overflow:hidden;"><div style="width:36.4%; height:100%; background:var(--accent);"></div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="Arabic%20L2%20Scene%203%20-%20Hamza.dc.html" title="السابق" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-size:20px;">→</a>
+      <a href="Arabic%20L2%20Scene%205%20-%20Rule.dc.html" title="التالي" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--primary); color:#fff; font-size:20px;">←</a>
+    </div>
+  </header>
+
+  <main style="flex:1; width:100%; max-width:920px; margin:0 auto; padding:clamp(22px,4vw,44px) clamp(16px,5vw,44px); display:flex; flex-direction:column; gap:clamp(22px,3vw,32px);">
+
+    <div style="animation:riseIn .5s ease-out both;">
+      <span style="display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent-tint); color:#0378a3; font-size:13px; font-weight:700; margin-bottom:12px;">أسماء الاستفهام</span>
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(28px,5vw,46px); color:var(--primary); line-height:1.15; margin-bottom:10px;">بمَ نسأل؟</h1>
+      <p style="font-size:clamp(15px,2.2vw,18px); line-height:1.9; color:var(--ink); max-width:660px;">أسماءُ الاستفهام: <span style="font-family:'Amiri',serif; font-weight:700;">مَن، ما، متى، أيّان، أين، أنّى، كيف، كم، أيّ</span>. تُقسَم بحسب المُستفهَم عنه على ستّة أقسام. اضغط كلَّ قسمٍ لاستكشافه.</p>
+    </div>
+
+    <!-- explorer -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(16px,3vw,26px); box-shadow:0 16px 40px -30px rgba(32,0,88,.5);">
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.emoji }} {{ c.label }}</button>
+        </sc-for>
+      </div>
+      <div style="padding:clamp(16px,3vw,22px); border-radius:16px; background:var(--tint); border-right:4px solid var(--accent);">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:10px;">
+          <strong style="font-family:'Amiri',serif; font-size:clamp(22px,3.4vw,28px); color:var(--primary);">{{ activeNames }}</strong>
+          <span style="padding:3px 12px; border-radius:999px; background:#fff; color:var(--primary); font-size:13px; font-weight:700; border:1px solid var(--line);">{{ activeLabel }}</span>
+        </div>
+        <p style="font-size:clamp(15px,2.1vw,17px); line-height:1.95; margin-bottom:12px;">{{ activeDesc }}</p>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <sc-for list="{{ activeExamples }}" as="e" hint-placeholder-count="3">
+            <p style="font-family:'Amiri',serif; font-size:clamp(16px,2.3vw,20px); line-height:1.85; color:var(--ink); background:#fff; padding:10px 14px; border-radius:10px;">{{ e }}</p>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- tap-match check -->
+    <section style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:clamp(18px,3vw,28px);">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
+        <span style="display:inline-block; padding:4px 12px; border-radius:999px; background:var(--alert-tint); color:#c0455a; font-size:12px; font-weight:700;">تمرين المطابقة</span>
+        <span style="font-size:14px; color:var(--muted);">تمّت <span style="direction:ltr; unicode-bidi:isolate; font-weight:700; color:var(--primary);">{{ matchedCount }} / 4</span></span>
+      </div>
+      <p style="font-size:clamp(15px,2.1vw,17px); font-weight:700; color:var(--ink); line-height:1.7; margin-bottom:16px;">اسحب الاسمَ إلى ما يُسأل به عنه (أو اضغطه ثم اضغط الهدف).</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:18px; min-height:48px;">
+        <sc-for list="{{ chips }}" as="w" hint-placeholder-count="4">
+          <button onPointerDown="{{ w.onDown }}" onClick="{{ w.onClick }}" style="{{ w.style }}">{{ w.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ zones }}" as="z" hint-placeholder-count="4">
+          <button data-zone="{{ z.id }}" onClick="{{ z.onClick }}" style="{{ z.style }}">
+            <span style="{{ z.slotStyle }}">{{ z.slotText }}</span>
+            <span style="flex:1; text-align:right; font-size:15px; color:var(--ink);">{{ z.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ feedback }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ feedbackStyle }}"><strong style="font-family:'Cairo',sans-serif;">{{ feedbackTitle }}</strong><p style="margin:6px 0 0; line-height:1.85;">{{ feedback }}</p></div>
+      </sc-if>
+      <div style="margin-top:12px; text-align:left;"><button onClick="{{ reset }}" style="background:none; border:none; color:var(--muted); font-weight:600; font-size:14px; cursor:pointer;">↺ إعادة</button></div>
+    </section>
+
+    <div style="display:flex; justify-content:space-between; gap:12px; padding-top:6px;">
+      <a href="Arabic%20L2%20Scene%203%20-%20Hamza.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 22px; min-height:44px; border-radius:12px; background:#fff; border:1px solid var(--line); color:var(--muted); font-weight:600; font-size:15px;">→ الهمزة وهل</a>
+      <a href="Arabic%20L2%20Scene%205%20-%20Rule.dc.html" style="display:inline-flex; align-items:center; gap:8px; padding:13px 26px; min-height:44px; border-radius:12px; background:var(--primary); color:#fff; font-family:'Cairo',sans-serif; font-weight:600; font-size:16px;">قاعدة الإعراب ←</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat:0, selected:null, matched:{}, feedback:null, ok:false };
+
+  CATS = [
+    { emoji:'👤', label:'العاقل', names:'مَنْ (ومَنْ ذا)', desc:'يُسأل بها عن العاقل. وقد تلحقها «ذا» فتصبح «مَن ذا» وتُعامَل معاملةَ الكلمة الواحدة.',
+      ex:['مَنْ بَنَى بغدادَ؟', '﴿فَسَيَقُولُونَ مَنْ يُعِيدُنَا قُلِ الَّذِي فَطَرَكُمْ أَوَّلَ مَرَّةٍ﴾ (الإسراء: ٥١)', 'مَنْ ذا الطبيبُ لأدوائي؟'] },
+    { emoji:'📦', label:'غير العاقل', names:'مَا (ومَاذَا)', desc:'يُسأل بها عن غير العاقل، وقد يُسأل بها عن صفة الشيء للعاقل ولغيره. وتلحقها «ذا» فتصبح «ماذا».',
+      ex:['ما الخبرُ؟ — ما في المدرسةِ؟', '﴿قَالَ فِرْعَوْنُ وَمَا رَبُّ الْعَالَمِينَ﴾ (الشعراء: ٢٣) — سؤالٌ عن الصفة', '(ما بغدادُ؟) أي سؤالٌ عن صفاتها'] },
+    { emoji:'🧭', label:'الزمان والمكان', names:'مَتَى، أيّانَ، أينَ، أنّى', desc:'ظروفٌ. مَتَى: للزمان المطلق (ماضٍ ومستقبل). أيّانَ: للزمان المستقبل ويفيد التهويلَ والتعظيم. أينَ: للمكان. أنّى: للمكان بمعنى «مِن أين».',
+      ex:['متى عُدتَ من الموصلِ؟ — أينَ تسكنُ؟', '﴿يَسْأَلُونَكَ عَنِ السَّاعَةِ أَيَّانَ مُرْسَاهَا﴾ (النازعات: ٤٢)', '﴿وَأَنَّى لَهُمُ التَّنَاوُشُ مِن مَّكَانٍ بَعِيدٍ﴾ (سبأ: ٥٢)'] },
+    { emoji:'🔄', label:'الحال', names:'كَيْفَ (وأنّى بمعناها)', desc:'يُسأل بها عن الحال. و«أنّى» إذا كانت بمعنى «كيف».',
+      ex:['﴿رَبِّ أَرِنِي كَيْفَ تُحْيِي الْمَوْتَى﴾ (البقرة: ٢٦٠)', '﴿ذَلِكُمُ اللَّهُ فَأَنَّى تُؤْفَكُونَ﴾ (الأنعام: ٩٥)'] },
+    { emoji:'🔢', label:'العدد', names:'كَمْ', desc:'اسمٌ مبهمٌ يحتاج إلى تمييزٍ مفردٍ منصوبٍ يوضّح معناه ويُزيل إبهامَه. ويأتي تمييزُها على خمسة أنواع:',
+      ex:['العاقل: كم لاعبًا يتكوّن الفريقُ؟', 'غير العاقل: كم جزءًا حفظتَ من القرآنِ؟', 'الزمان: كم ساعةً تدرسُ؟ — المكان: كم ميلًا بين الدولتينِ؟', 'الحدث: كم انتصارًا انتصرتَ على العدوِّ؟'] },
+    { emoji:'⭐', label:'أيّ (الشاملة)', names:'أيّ', desc:'اسمُ استفهامٍ ملازمٌ للإضافة مبهمٌ، يتحدّد معناه بحسب المضاف إليه؛ فتصلح للعاقل وغيره وللزمان والمكان والحال والحدث.',
+      ex:['العاقل: أيَّ صديقٍ ترافقُ؟ — الزمان: أيَّ يومٍ تسافرُ؟', 'المكان: أيَّ مدينةٍ تسكنُ؟ — الحال: أيَّ حالٍ عاد بها المقاتلُ؟', 'الحدث: أيَّ مساعدةٍ ساعدتَ المحتاجَ؟ (أُضيفت إلى مصدر)'] }
+  ];
+
+  PAIRS = [
+    { id:'kayf', name:'كَيْفَ', ask:'يُسأل به عن الحال' },
+    { id:'mata', name:'مَتَى', ask:'يُسأل به عن الزمان المطلق' },
+    { id:'kam',  name:'كَمْ', ask:'يُسأل به عن العدد' },
+    { id:'ayy',  name:'أيّ', ask:'معناها بحسب المضاف إليه' }
+  ];
+  CHIP_ORDER = ['kam','kayf','ayy','mata'];
+
+  attempt = (nameId, zoneId) => {
+    if (this.state.matched[nameId]) return;
+    if (nameId === zoneId){
+      this.setState(s => ({ matched:{...s.matched,[nameId]:true}, selected:null, ok:true,
+        feedback: this.PAIRS.find(p=>p.id===nameId).name + ' — مطابقةٌ صحيحة ✓' }));
+    } else {
+      this.setState({ selected:null, ok:false, feedback:'ليست مطابقةً صحيحة؛ تأمّل ما يُسأل به عن كلِّ اسمٍ وحاول مجدّدًا.' });
+    }
+  };
+  startDrag = (nameId) => (e) => {
+    if (this.state.matched[nameId]) return;
+    e.preventDefault();
+    const p = this.PAIRS.find(x=>x.id===nameId);
+    const ghost = document.createElement('div');
+    ghost.textContent = p.name;
+    ghost.style.cssText = 'position:fixed;z-index:99999;pointer-events:none;padding:10px 16px;border-radius:999px;background:#200058;color:#fff;font-family:Amiri,serif;font-weight:700;font-size:18px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translate(-50%,-50%);white-space:nowrap;';
+    document.body.appendChild(ghost);
+    const place = (x,y) => { ghost.style.left=x+'px'; ghost.style.top=y+'px'; };
+    place(e.clientX, e.clientY);
+    const move = (ev) => place(ev.clientX, ev.clientY);
+    const up = (ev) => {
+      const el = document.elementFromPoint(ev.clientX, ev.clientY);
+      const zone = el && el.closest && el.closest('[data-zone]');
+      ghost.remove();
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      if (zone) this.attempt(nameId, zone.getAttribute('data-zone'));
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+    this.setState({ selected: nameId, feedback:null });
+  };
+  tapChip = (id) => () => { if (!this.state.matched[id]) this.setState(s=>({ selected: s.selected===id?null:id, feedback:null })); };
+  tapZone = (id) => () => { if (this.state.selected) this.attempt(this.state.selected, id); };
+  reset = () => this.setState({ selected:null, matched:{}, feedback:null, ok:false });
+
+  renderVals(){
+    const { cat, selected, matched } = this.state;
+
+    const cats = this.CATS.map((c,i) => {
+      const on = cat === i;
+      const style = `cursor:pointer; padding:10px 16px; min-height:44px; border-radius:999px; font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(13px,1.9vw,15px); transition:all .18s ease; ${on?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--line)'}`;
+      return { emoji:c.emoji, label:c.label, style, onClick: () => this.setState({ cat:i }) };
+    });
+    const a = this.CATS[cat];
+
+    const chips = this.CHIP_ORDER.map(id => {
+      const p = this.PAIRS.find(x=>x.id===id);
+      const done = matched[id]; const sel = selected===id;
+      const style = `cursor:${done?'default':'grab'}; touch-action:none; user-select:none; padding:12px 20px; min-height:44px; border-radius:999px; font-family:'Amiri',serif; font-weight:700; font-size:clamp(17px,2.4vw,21px); transition:all .18s ease; ${done?'background:var(--tint); color:var(--muted); border:1px dashed var(--line); opacity:.5':(sel?'background:var(--primary); color:#fff; border:2px solid var(--primary)':'background:#fff; color:var(--primary); border:2px solid var(--primary)')}`;
+      return { label:p.name, style, onClick: this.tapChip(id), onDown: done?null:this.startDrag(id) };
+    });
+    const zones = this.PAIRS.map(p => {
+      const done = matched[p.id]; const canDrop = selected && !done;
+      const style = `width:100%; display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; cursor:${canDrop?'pointer':'default'}; transition:all .2s ease; ${done?'background:var(--accent-tint); border:2px solid var(--accent)':(canDrop?'background:#fbfaff; border:2px dashed var(--accent)':'background:var(--tint); border:2px dashed var(--line)')}`;
+      const slotStyle = `flex:none; display:flex; align-items:center; justify-content:center; min-width:74px; height:38px; border-radius:10px; font-family:'Amiri',serif; font-weight:700; font-size:17px; ${done?'background:var(--accent); color:#08123a':'background:#fff; color:var(--muted); border:1px solid var(--line)'}`;
+      return { id:p.id, label:p.ask, slotText: done? p.name : '؟', slotStyle, style, onClick: this.tapZone(p.id) };
+    });
+
+    return {
+      cats,
+      activeNames:a.names, activeLabel:a.label, activeDesc:a.desc, activeExamples:a.ex,
+      chips, zones,
+      matchedCount: Object.keys(matched).length,
+      feedback: this.state.feedback,
+      feedbackTitle: this.state.ok ? '✓ ممتاز' : '✗ حاول مجدّدًا',
+      feedbackStyle: 'margin-top:16px; padding:14px 18px; border-radius:14px; animation:popIn .25s ease-out; font-size:clamp(14px,2vw,16px); background:' + (this.state.ok ? 'var(--accent-tint); color:#08536f; border:1px solid var(--accent)' : 'var(--alert-tint); color:#8c2f42; border:1px solid var(--alert)'),
+      reset: this.reset
+    };
+  }
+}
+</script>
+</body>
+</html>

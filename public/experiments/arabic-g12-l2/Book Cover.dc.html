@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="brand/favicon.svg">
+<link rel="stylesheet" href="brand/theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{ font-family:'Cairo',sans-serif; background:#0c0030; overflow-x:hidden; }
+  @keyframes twinkle { 0%,100%{ opacity:.18 } 50%{ opacity:.5 } }
+  @keyframes riseIn { from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes floatY { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-14px) } }
+  @keyframes orbitZ { from{ transform:rotateZ(0deg); } to{ transform:rotateZ(360deg); } }
+  @keyframes glowPulse { 0%,100%{ opacity:.45 } 50%{ opacity:.85 } }
+</style>
+</helmet>
+<div style="position:relative; min-height:100vh; width:100%; overflow:hidden; direction:rtl; background:radial-gradient(120% 90% at 82% 12%, #2c0a6e 0%, #200058 42%, #0c0030 100%); color:#fff; font-family:'Cairo',sans-serif;">
+
+  <!-- sparks -->
+  <div style="position:absolute; inset:0; pointer-events:none; z-index:1;">
+    <span style="position:absolute; top:22%; right:36%; width:8px; height:8px; border-radius:50%; background:#00c3fe; opacity:.4; animation:twinkle 4s ease-in-out infinite;"></span>
+    <span style="position:absolute; top:58%; right:6%; width:6px; height:6px; border-radius:50%; background:#f6848e; opacity:.4; animation:twinkle 5.5s ease-in-out infinite;"></span>
+    <span style="position:absolute; top:40%; left:30%; width:5px; height:5px; border-radius:50%; background:#fff; opacity:.4; animation:twinkle 6s ease-in-out infinite;"></span>
+    <span style="position:absolute; top:78%; left:12%; width:4px; height:4px; border-radius:50%; background:#00c3fe; opacity:.35; animation:twinkle 7s ease-in-out infinite;"></span>
+  </div>
+
+  <!-- top bar -->
+  <header style="position:relative; z-index:4; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:clamp(20px,3vw,34px) clamp(20px,5vw,64px);">
+    <img src="brand/logo-white.svg" alt="تعليم" style="height:clamp(34px,4vw,46px); width:auto;">
+    <span style="font-family:'Cairo',sans-serif; font-size:clamp(13px,1.4vw,16px); font-weight:500; letter-spacing:.02em; color:#8fd8f6;">المنهج الرقمي التفاعلي</span>
+  </header>
+
+  <!-- hero -->
+  <main style="position:relative; z-index:3; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(24px,4vw,60px); max-width:1280px; margin:0 auto; padding:clamp(10px,2vw,30px) clamp(20px,5vw,64px) clamp(70px,9vw,110px);">
+
+    <!-- text column (right in RTL) -->
+    <div style="flex:1 1 420px; display:flex; flex-direction:column; align-items:flex-start; gap:clamp(14px,2vw,24px); min-width:min(100%,320px); animation:riseIn .8s ease-out both;">
+      <span style="display:inline-flex; align-items:center; gap:10px; padding:9px 20px; border:1px solid rgba(0,195,254,.5); border-radius:999px; background:rgba(0,195,254,.08); font-size:clamp(13px,1.5vw,16px); font-weight:500; color:#bfe9fb;">
+        الصف السادس الإعدادي
+        <span style="width:5px; height:5px; border-radius:50%; background:#f6848e;"></span>
+        كتاب اللغة العربية
+      </span>
+
+      <h1 style="font-family:'Cairo',sans-serif; font-weight:700; font-size:clamp(58px,11vw,150px); line-height:.98; margin:0; color:#fff; text-shadow:0 8px 40px rgba(0,195,254,.25);">
+        اللُّغة العربيّة
+      </h1>
+
+      <p style="max-width:620px; font-size:clamp(16px,2.2vw,22px); line-height:1.9; color:#d7d1ee; font-weight:400;">
+        كتابٌ رقميٌّ تفاعليٌّ يحوِّل كلَّ نصٍّ إلى تجربةٍ حيّة: نصوصٌ تُقرأ على مهل، وخرائطُ تنبض، ومفرداتٌ تُقلَب، وتقويمٌ فوريّ يرافقك خطوةً بخطوة.
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(14px,2.5vw,28px); margin-top:clamp(4px,1vw,12px);">
+        <a href="Chapter%201%20Hub.dc.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 34px; min-height:44px; border-radius:999px; background:#00c3fe; color:#08123a; font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(17px,2vw,21px); box-shadow:0 12px 34px rgba(0,195,254,.45); transition:transform .18s ease, box-shadow .18s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 16px 42px rgba(0,195,254,.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 34px rgba(0,195,254,.45)';">
+          افتح الكتاب
+          <span style="font-size:1.15em; line-height:1;">←</span>
+        </a>
+        <a href="Chapter%202%20Hub.dc.html" style="display:inline-flex; align-items:center; gap:10px; padding:15px 30px; min-height:44px; border-radius:999px; background:rgba(224,182,75,.14); border:1px solid rgba(224,182,75,.5); color:#f3d79b; font-family:'Cairo',sans-serif; font-weight:600; font-size:clamp(15px,1.8vw,19px); transition:transform .18s ease, background .18s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='rgba(224,182,75,.22)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(224,182,75,.14)';">
+          الوحدة الثانية
+          <span style="font-size:1.1em; line-height:1;">←</span>
+        </a>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:18px; margin-top:4px; font-size:clamp(13px,1.6vw,16px); color:#b7b0d6;">
+        <span><strong style="color:#fff; font-weight:700;">الوحدة الأولى:</strong> بغداد حاضرة الدنيا</span>
+        <span style="opacity:.4;">·</span>
+        <span><strong style="color:#fff; font-weight:700;">الوحدة الثانية:</strong> التضحية طريق النصر</span>
+      </div>
+    </div>
+
+    <!-- 3D model column (left in RTL) — extruded «ض» with orbiting letters -->
+    <div style="flex:1 1 340px; display:flex; align-items:center; justify-content:center; min-width:min(100%,300px); animation:riseIn .9s ease-out .1s both;">
+      <div ref="{{ stageRef }}" style="--mw:clamp(260px,38vw,460px); position:relative; width:var(--mw); height:var(--mw); perspective:1400px; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; animation:floatY 7s ease-in-out infinite;">
+
+        <div ref="{{ modelRef }}" style="position:absolute; inset:0; transform-style:preserve-3d; will-change:transform;">
+
+          <!-- orbit ring 1 -->
+          <div style="position:absolute; inset:4%; transform-style:preserve-3d; transform:rotateX(72deg) rotateY(-8deg);">
+            <div style="position:absolute; inset:0; border-radius:50%; border:1.5px solid rgba(0,195,254,.45); animation:orbitZ 16s linear infinite; transform-style:preserve-3d;">
+              <span style="position:absolute; top:-16px; left:50%; margin-left:-16px; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cairo',sans-serif; font-weight:800; font-size:17px; color:#08123a; background:radial-gradient(circle at 32% 28%, #a7e9ff, #00c3fe 58%, #0378a3); box-shadow:0 0 18px rgba(0,195,254,.7); transform:rotateX(-72deg);">ا</span>
+            </div>
+          </div>
+
+          <!-- orbit ring 2 -->
+          <div style="position:absolute; inset:11%; transform-style:preserve-3d; transform:rotateX(68deg) rotateY(38deg);">
+            <div style="position:absolute; inset:0; border-radius:50%; border:1.5px solid rgba(246,132,142,.45); animation:orbitZ 22s linear infinite reverse; transform-style:preserve-3d;">
+              <span style="position:absolute; top:-15px; left:50%; margin-left:-15px; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cairo',sans-serif; font-weight:800; font-size:16px; color:#3d0a12; background:radial-gradient(circle at 32% 28%, #ffd3d8, #f6848e 58%, #b64a56); box-shadow:0 0 18px rgba(246,132,142,.7); transform:rotateX(-68deg);">ب</span>
+            </div>
+          </div>
+
+          <!-- orbit ring 3 -->
+          <div style="position:absolute; inset:-2%; transform-style:preserve-3d; transform:rotateX(78deg) rotateY(-42deg);">
+            <div style="position:absolute; inset:0; border-radius:50%; border:1.5px solid rgba(255,255,255,.28); animation:orbitZ 28s linear infinite; transform-style:preserve-3d;">
+              <span style="position:absolute; top:-13px; left:50%; margin-left:-13px; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cairo',sans-serif; font-weight:800; font-size:14px; color:#1c1440; background:radial-gradient(circle at 32% 28%, #ffffff, #d9d3f0 58%, #9a90c4); box-shadow:0 0 14px rgba(255,255,255,.6); transform:rotateX(-78deg);">ن</span>
+            </div>
+          </div>
+
+          <!-- extruded 3D «ض» (stacked depth layers) -->
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transform-style:preserve-3d;">
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; color:#12003a; transform:translateZ(-22px); filter:blur(1px);">ض</span>
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; color:#1e0455; transform:translateZ(-16px);">ض</span>
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; color:#2c0a6e; transform:translateZ(-10px);">ض</span>
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; color:#0378a3; transform:translateZ(-4px);">ض</span>
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; color:#009fd6; transform:translateZ(2px);">ض</span>
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; color:#00c3fe; transform:translateZ(8px); text-shadow:0 0 34px rgba(0,195,254,.55);">ض</span>
+            <span style="position:absolute; font-family:'Cairo',sans-serif; font-weight:800; font-size:calc(var(--mw)*.46); line-height:1; background:linear-gradient(165deg,#ffffff 20%,#bfe9fb 55%,#00c3fe 100%); -webkit-background-clip:text; background-clip:text; color:transparent; transform:translateZ(14px);">ض</span>
+          </div>
+        </div>
+
+        <!-- glow beneath -->
+        <div style="position:absolute; bottom:-8%; left:50%; transform:translateX(-50%); width:70%; height:36px; border-radius:50%; background:radial-gradient(closest-side, rgba(0,195,254,.35), rgba(0,195,254,0)); filter:blur(12px); animation:glowPulse 5s ease-in-out infinite;"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- bottom hint -->
+  <div style="position:absolute; bottom:20px; right:0; left:0; z-index:3; text-align:center; color:#9a93bd; font-size:14px;">
+    اسحب «ض» لتدويرها ✋ · لغةُ الضاد
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  stageRef = React.createRef();
+  modelRef = React.createRef();
+
+  _rx = -12; _ry = 0;      // current
+  _trx = -12;              // target tilt
+  _spin = 0;               // accumulated idle spin
+  _dragY = 0;              // extra Y from dragging
+  _dragging = false;
+  _raf = 0;
+
+  componentDidMount(){
+    const stage = this.stageRef.current;
+    if (!stage) return;
+    let sx = 0, sy = 0, by = 0, bx = 0;
+
+    this._down = (e) => {
+      this._dragging = true;
+      sx = e.clientX; sy = e.clientY; by = this._dragY; bx = this._trx;
+      stage.style.cursor = 'grabbing';
+      if (stage.setPointerCapture && e.pointerId !== undefined) {
+        try { stage.setPointerCapture(e.pointerId); } catch(_){}
+      }
+    };
+    this._move = (e) => {
+      if (!this._dragging) return;
+      this._dragY = by + (e.clientX - sx) * 0.5;
+      this._trx = Math.max(-55, Math.min(35, bx - (e.clientY - sy) * 0.35));
+    };
+    this._up = () => { this._dragging = false; stage.style.cursor = 'grab'; };
+
+    stage.addEventListener('pointerdown', this._down);
+    stage.addEventListener('pointermove', this._move);
+    stage.addEventListener('pointerup', this._up);
+    stage.addEventListener('pointercancel', this._up);
+
+    const tick = () => {
+      if (!this._dragging) this._spin += 0.12;   // slow idle rotation
+      const targetY = this._spin + this._dragY;
+      this._ry += (targetY - this._ry) * 0.08;
+      this._rx += (this._trx - this._rx) * 0.08;
+      const m = this.modelRef.current;
+      if (m) m.style.transform = `rotateX(${this._rx.toFixed(2)}deg) rotateY(${this._ry.toFixed(2)}deg)`;
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  componentWillUnmount(){
+    cancelAnimationFrame(this._raf);
+    const stage = this.stageRef.current;
+    if (stage){
+      stage.removeEventListener('pointerdown', this._down);
+      stage.removeEventListener('pointermove', this._move);
+      stage.removeEventListener('pointerup', this._up);
+      stage.removeEventListener('pointercancel', this._up);
+    }
+  }
+
+  renderVals(){
+    return { stageRef: this.stageRef, modelRef: this.modelRef };
+  }
+}
+</script>
+</body>
+</html>
