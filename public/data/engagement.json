@@ -1,40 +1,40 @@
 {
   "_meta": {
     "schemaVersion": "0.1.0",
-    "seededAt": "2026-04-27",
+    "seededAt": "2026-05-27",
     "scenario": "default-mvp-demo"
   },
-  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "lastUpdatedAt": "2026-05-27T09:14:00+03:00",
   "period": {
     "id": "academic-year-2025-2026",
     "label": "العام الدراسي 2025/2026",
     "rangeStart": "2025-09-01",
-    "rangeEnd": "2026-04-27"
+    "rangeEnd": "2026-05-27"
   },
   "heroKpis": [
     {
       "id": "dau",
       "label": "المتعلمون النشطون يومياً",
-      "value": 8500,
-      "displayValue": "8,500",
+      "value": 7341,
+      "displayValue": "7,341",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 4.6, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 3.8, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "dau"
     },
     {
       "id": "wau",
       "label": "المتعلمون النشطون أسبوعياً",
-      "value": 12200,
-      "displayValue": "12,200",
+      "value": 10900,
+      "displayValue": "10,900",
       "unit": "متعلم",
-      "trend": { "direction": "up", "deltaPercent": 5.2, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 4.5, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "wau"
     },
     {
       "id": "mau",
       "label": "المتعلمون النشطون شهرياً",
-      "value": 15377,
-      "displayValue": "15,377",
+      "value": 13853,
+      "displayValue": "13,853",
       "unit": "متعلم",
       "trend": { "direction": "up", "deltaPercent": 4.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "mau"
@@ -42,10 +42,10 @@
     {
       "id": "stickiness",
       "label": "معدل الاستمرارية",
-      "value": 55.3,
-      "displayValue": "55.3٪",
+      "value": 53.0,
+      "displayValue": "53.0٪",
       "unit": "نسبة",
-      "trend": { "direction": "up", "deltaPercent": 1.4, "vsLabel": "نقاط مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "نقاط مقارنة بالشهر السابق" },
       "methodologyKey": "stickiness"
     }
   ],
@@ -54,15 +54,15 @@
     "averageSessionsPerLearnerPerWeek": 5.4
   },
   "gradeBreakdown": [
-    { "gradeId": "g9",  "label": "الصف الثالث متوسط",   "stageId": "middle",    "activeLearners":  1801, "sharePercent": 11.7 },
-    { "gradeId": "g12", "label": "الصف السادس الإعدادي","stageId": "secondary", "activeLearners": 13576, "sharePercent": 88.3 }
+    { "gradeId": "g9",  "label": "الصف الثالث متوسط",   "stageId": "middle",    "activeLearners":  1622, "sharePercent": 11.7 },
+    { "gradeId": "g12", "label": "الصف السادس الإعدادي","stageId": "secondary", "activeLearners": 12231, "sharePercent": 88.3 }
   ],
   "topEngagedSubjects": [
-    { "subjectId": "arabic",  "name": "اللغة العربية",      "engagedLearners": 14800 },
-    { "subjectId": "math",    "name": "الرياضيات",          "engagedLearners": 14200 },
-    { "subjectId": "islamic", "name": "الدراسات الإسلامية", "engagedLearners": 13800 },
-    { "subjectId": "english", "name": "اللغة الإنجليزية",   "engagedLearners": 13200 },
-    { "subjectId": "physics", "name": "الفيزياء",           "engagedLearners":  8000 },
-    { "subjectId": "biology", "name": "الأحياء",            "engagedLearners":  7800 }
+    { "subjectId": "arabic",  "name": "اللغة العربية",      "engagedLearners": 13300 },
+    { "subjectId": "math",    "name": "الرياضيات",          "engagedLearners": 12800 },
+    { "subjectId": "islamic", "name": "الدراسات الإسلامية", "engagedLearners": 12400 },
+    { "subjectId": "english", "name": "اللغة الإنجليزية",   "engagedLearners": 11900 },
+    { "subjectId": "physics", "name": "الفيزياء",           "engagedLearners":  7200 },
+    { "subjectId": "biology", "name": "الأحياء",            "engagedLearners":  7000 }
   ]
 }

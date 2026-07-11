@@ -4,7 +4,7 @@
     "seededAt": "2026-04-27",
     "scenario": "default-mvp-demo"
   },
-  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "lastUpdatedAt": "2026-05-27T09:14:00+03:00",
   "period": {
     "id": "academic-year-2025-2026",
     "label": "العام الدراسي 2025/2026",
@@ -15,8 +15,8 @@
     {
       "id": "active-learners",
       "label": "إجمالي المتعلمين الفاعلين",
-      "value": 15377,
-      "displayValue": "15,377",
+      "value": 13853,
+      "displayValue": "13,853",
       "unit": "متعلم",
       "trend": { "direction": "up", "deltaPercent": 4.2, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "active-learners"

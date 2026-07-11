@@ -4,7 +4,7 @@
     "seededAt": "2026-04-27",
     "scenario": "default-mvp-demo"
   },
-  "lastUpdatedAt": "2026-04-27T09:14:00+03:00",
+  "lastUpdatedAt": "2026-05-27T09:14:00+03:00",
   "period": {
     "id": "academic-year-2025-2026",
     "label": "العام الدراسي 2025/2026",
@@ -59,12 +59,12 @@
     }
   ],
   "disciplines": [
-    { "disciplineId": "physics",   "name": "الفيزياء",     "experimentsCount": 42 },
-    { "disciplineId": "biology",   "name": "الأحياء",      "experimentsCount": 34 },
-    { "disciplineId": "chemistry", "name": "الكيمياء",     "experimentsCount": 31 },
-    { "disciplineId": "math",      "name": "الرياضيات",    "experimentsCount": 28 },
-    { "disciplineId": "cs",        "name": "علوم الحاسب",  "experimentsCount": 24 },
-    { "disciplineId": "geo",       "name": "الجغرافيا",    "experimentsCount": 21 }
+    { "disciplineId": "physics",   "name": "الفيزياء",         "experimentsCount": 42 },
+    { "disciplineId": "biology",   "name": "الأحياء",          "experimentsCount": 34 },
+    { "disciplineId": "chemistry", "name": "الكيمياء",         "experimentsCount": 31 },
+    { "disciplineId": "math",      "name": "الرياضيات",        "experimentsCount": 28 },
+    { "disciplineId": "english",   "name": "اللغة الإنجليزية", "experimentsCount": 24 },
+    { "disciplineId": "geo",       "name": "الجغرافيا",        "experimentsCount": 21 }
   ],
   "typeBreakdown": [
     { "typeId": "virtual-lab", "label": "مختبرات افتراضية",       "experimentsCount": 72 },

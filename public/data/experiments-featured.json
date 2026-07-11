@@ -36,13 +36,13 @@
     "durationMinutes": 18
   },
   {
-    "id": "exp-quicksort-viz",
-    "title": "خوارزمية الفرز السريع: تصوّر تفاعلي",
-    "disciplineName": "علوم الحاسب",
-    "typeLabel": "نشاط مُلعَّب",
-    "stageLabel": "إعدادي",
-    "gradeLabel": "السادس الإعدادي",
-    "durationMinutes": 20
+    "id": "exp-english-conditionals-sim",
+    "title": "محاكاة الجمل الشرطية في اللغة الإنجليزية",
+    "disciplineName": "اللغة الإنجليزية",
+    "typeLabel": "محاكاة تفاعلية",
+    "stageLabel": "متوسط",
+    "gradeLabel": "الثالث متوسط",
+    "durationMinutes": 18
   },
   {
     "id": "exp-equations-of-motion",
