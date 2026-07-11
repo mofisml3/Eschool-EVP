@@ -33,8 +33,8 @@
     {
       "id": "library-size",
       "label": "التقييمات النشطة في المكتبة",
-      "value": 4000,
-      "displayValue": "4,000",
+      "value": 2000,
+      "displayValue": "2,000",
       "unit": "تقييم",
       "trend": { "direction": "up", "deltaPercent": 1.4, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "assessment-library"
@@ -70,14 +70,14 @@
     { "bandId": "did-not-pass","label": "لم يجتز (أقل من 60٪)",   "sharePercent":  5.4 }
   ],
   "assessmentTypes": [
-    { "typeId": "formative",  "label": "تكويني",  "count": 2690, "sharePercent": 67.3 },
-    { "typeId": "summative",  "label": "ختامي",   "count":  770, "sharePercent": 19.3 },
-    { "typeId": "diagnostic", "label": "تشخيصي",  "count":  540, "sharePercent": 13.4 }
+    { "typeId": "formative",  "label": "تكويني",  "count": 1346, "sharePercent": 67.3 },
+    { "typeId": "summative",  "label": "ختامي",   "count":  386, "sharePercent": 19.3 },
+    { "typeId": "diagnostic", "label": "تشخيصي",  "count":  268, "sharePercent": 13.4 }
   ],
   "curriculumCoverage": {
-    "totalCurriculumUnits": 84,
-    "unitsWithAssessments": 81,
-    "coveragePercent": 96.4
+    "totalCurriculumUnits": 42,
+    "unitsWithAssessments": 40,
+    "coveragePercent": 95.2
   },
   "yearMasteryTrendRef": "data/assessments-year-trend.json",
   "masteryBySubjectRef": "data/shared/mastery-by-subject.json",

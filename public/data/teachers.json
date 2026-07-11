@@ -33,8 +33,8 @@
     {
       "id": "content-authored",
       "label": "المحتوى المُنتَج",
-      "value": 17540,
-      "displayValue": "17,540",
+      "value": 8860,
+      "displayValue": "8,860",
       "unit": "عنصر",
       "trend": { "direction": "up", "deltaPercent": 2.3, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "content-authored"
@@ -51,8 +51,8 @@
     {
       "id": "subjects-served",
       "label": "المواد التي يخدمها الكادر",
-      "value": 84,
-      "displayValue": "84",
+      "value": 42,
+      "displayValue": "42",
       "unit": "مقرر",
       "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
       "methodologyKey": "subjects-served"
@@ -94,9 +94,9 @@
     { "regionId": "muthanna",     "name": "المثنى",       "teachersCount":  3 }
   ],
   "contentBreakdown": {
-    "videoLessonsAuthored": 13360,
+    "videoLessonsAuthored": 6680,
     "experimentsAuthored": 180,
-    "assessmentsAuthored": 4000
+    "assessmentsAuthored": 2000
   },
   "professionalDevelopment": {
     "certifiedTeachersCount": 154,

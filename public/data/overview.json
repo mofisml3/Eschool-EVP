@@ -24,8 +24,8 @@
     {
       "id": "video-lessons",
       "label": "الدروس المرئية المتاحة",
-      "value": 13360,
-      "displayValue": "13,360",
+      "value": 6680,
+      "displayValue": "6,680",
       "unit": "درس",
       "trend": { "direction": "up", "deltaPercent": 1.2, "vsLabel": "مقارنة بالفترة السابقة" },
       "methodologyKey": "video-lessons"
@@ -70,10 +70,10 @@
   "regionalFootprintRef": "data/shared/regions.json",
   "engagementTrendRef": "data/engagement-trend.json",
   "contentFootprint": {
-    "videoLessons": 13360,
-    "contentHours": 3780,
+    "videoLessons": 6680,
+    "contentHours": 1890,
     "interactiveExperiments": 180,
-    "subjectsCovered": 84
+    "subjectsCovered": 42
   },
   "masteryBySubjectRef": "data/shared/mastery-by-subject.json",
   "supportSnapshot": {
