@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>محاكاة السلم المنزلق — المعدلات المرتبطة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-card: #fbfaf6;
+    --ink: #16202e;
+    --ink-soft: #4a5868;
+    --ink-mute: #8a94a3;
+    --line: #d9d3c4;
+    --line-soft: #ebe6d8;
+    --navy: #1a2f55;
+    --navy-deep: #0e1d3a;
+    --accent: #c46a3a;          /* warm terra */
+    --accent-soft: #f1e0d2;
+    --green: #2f7a4f;
+    --green-soft: #d8ecdd;
+    --red: #b13a2e;
+    --red-soft: #f5dcd6;
+    --amber: #c69214;
+    --amber-soft: #f6e9c2;
+    --pop: #ffd9a8;
+    --shadow: 0 1px 0 rgba(20,20,30,.04), 0 8px 24px -12px rgba(20,20,30,.18);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; height:100%; }
+  body {
+    font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum" 1; direction: ltr; unicode-bidi: isolate; }
+  .display { font-family: "Reem Kufi", "IBM Plex Sans Arabic", sans-serif; letter-spacing: -0.01em; }
+
+  #root { height: 100dvh; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

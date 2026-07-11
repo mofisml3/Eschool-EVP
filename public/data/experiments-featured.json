@@ -30,31 +30,34 @@
     "launchPath": "experiments/islamic-g12/Book Cover.dc.html"
   },
   {
-    "id": "exp-newton-laws",
-    "title": "محاكاة قوانين نيوتن للحركة",
-    "disciplineName": "الفيزياء",
-    "typeLabel": "محاكاة تفاعلية",
+    "id": "exp-chemistry-g12-gibbs",
+    "title": "الكيمياء: تجربة كيبس لطاقة غيبس الحرة ΔG",
+    "disciplineName": "الكيمياء",
+    "typeLabel": "مختبر افتراضي",
     "stageLabel": "إعدادي",
     "gradeLabel": "السادس الإعدادي",
-    "durationMinutes": 22
+    "durationMinutes": 22,
+    "launchPath": "experiments/chemistry-g12-gibbs/Gibbs Lab.html"
   },
   {
-    "id": "exp-simple-circuit",
-    "title": "محاكاة الدائرة الكهربائية البسيطة",
-    "disciplineName": "الفيزياء",
+    "id": "exp-math-g12-related-rates",
+    "title": "الرياضيات: محاكاة المعدلات المرتبطة (السلم المنزلق)",
+    "disciplineName": "الرياضيات",
     "typeLabel": "محاكاة تفاعلية",
-    "stageLabel": "متوسط",
-    "gradeLabel": "الثالث متوسط",
-    "durationMinutes": 20
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي — الدرس ٣.١",
+    "durationMinutes": 20,
+    "launchPath": "experiments/math-g12-related-rates/simulation.html"
   },
   {
-    "id": "exp-digestive-system",
-    "title": "الجهاز الهضمي: محاكاة تفاعلية",
-    "disciplineName": "الأحياء",
-    "typeLabel": "تصوّر ثلاثي الأبعاد",
-    "stageLabel": "متوسط",
-    "gradeLabel": "الثالث متوسط",
-    "durationMinutes": 18
+    "id": "exp-arabic-g1-reading",
+    "title": "اللغة العربية: درس القراءة التفاعلي «الذهاب إلى المدرسة»",
+    "disciplineName": "اللغة العربية",
+    "typeLabel": "درس قرائي تفاعلي",
+    "stageLabel": "ابتدائي",
+    "gradeLabel": "الأول الابتدائي",
+    "durationMinutes": 15,
+    "launchPath": "experiments/arabic-g1-reading/Reading Lesson.html"
   },
   {
     "id": "exp-english-conditionals-sim",
