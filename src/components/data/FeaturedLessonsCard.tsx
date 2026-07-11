@@ -41,6 +41,8 @@ function toYouTubeEmbed(url: string): string | null {
         id = u.pathname.replace('/embed/', '');
       else if (u.pathname.startsWith('/shorts/'))
         id = u.pathname.replace('/shorts/', '');
+      else if (u.pathname.startsWith('/live/'))
+        id = u.pathname.replace('/live/', '');
     }
     if (!id) return null;
     return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;

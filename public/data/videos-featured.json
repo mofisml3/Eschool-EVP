@@ -9,43 +9,48 @@
     "youtubeUrl": "https://youtu.be/Hms_1utgYTk?si=sdJvVPQozN5r56-C"
   },
   {
-    "id": "lesson-physics-motion",
-    "title": "الفيزياء: الحركة والقوة وقوانين نيوتن",
+    "id": "lesson-physics-g12-live",
+    "title": "الفيزياء: حصة مباشرة",
     "subjectName": "الفيزياء",
     "stageLabel": "إعدادي",
     "gradeLabel": "السادس الإعدادي",
-    "durationMinutes": 25
+    "durationMinutes": 45,
+    "youtubeUrl": "https://www.youtube.com/live/J6PcpSj9a5M?si=-GcTg0ny_klvzQcY"
   },
   {
-    "id": "lesson-math-quadratic",
-    "title": "الرياضيات: المعادلات التربيعية",
-    "subjectName": "الرياضيات",
-    "stageLabel": "متوسط",
-    "gradeLabel": "الثالث متوسط",
-    "durationMinutes": 18
-  },
-  {
-    "id": "lesson-chemistry-acid-base",
-    "title": "الكيمياء: تفاعلات الأحماض والقواعد",
+    "id": "lesson-chemistry-g12-live",
+    "title": "الكيمياء: حصة مباشرة",
     "subjectName": "الكيمياء",
     "stageLabel": "إعدادي",
     "gradeLabel": "السادس الإعدادي",
-    "durationMinutes": 24
+    "durationMinutes": 45,
+    "youtubeUrl": "https://www.youtube.com/live/PxwKJpvV6QM?si=71dyS8N_QseaxVwA"
   },
   {
-    "id": "lesson-english-conditionals",
-    "title": "اللغة الإنجليزية: الجمل الشرطية",
-    "subjectName": "اللغة الإنجليزية",
-    "stageLabel": "متوسط",
-    "gradeLabel": "الثالث متوسط",
-    "durationMinutes": 16
+    "id": "lesson-math-g12-live",
+    "title": "الرياضيات: حصة مباشرة",
+    "subjectName": "الرياضيات",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 45,
+    "youtubeUrl": "https://www.youtube.com/live/PhjM0Cp9l8I?si=8c_7LAd6WYvDO38A"
   },
   {
-    "id": "lesson-tajweed-noon-sakinah",
-    "title": "التجويد: أحكام النون الساكنة",
-    "subjectName": "الدراسات الإسلامية",
-    "stageLabel": "متوسط",
-    "gradeLabel": "الثالث متوسط",
-    "durationMinutes": 15
+    "id": "lesson-social-studies-g12-live",
+    "title": "الاجتماعيات: حصة مباشرة",
+    "subjectName": "الاجتماعيات",
+    "stageLabel": "إعدادي",
+    "gradeLabel": "السادس الإعدادي",
+    "durationMinutes": 45,
+    "youtubeUrl": "https://www.youtube.com/live/Iio4SRE7UrA?si=6xBuE4s5JEIp11Dd"
+  },
+  {
+    "id": "lesson-primary-g2-cartoon",
+    "title": "رسوم متحركة تعليمية للصف الثاني الابتدائي",
+    "subjectName": "الأنشطة التعليمية",
+    "stageLabel": "ابتدائي",
+    "gradeLabel": "الثاني الابتدائي",
+    "durationMinutes": 10,
+    "youtubeUrl": "https://youtu.be/9a_Eo8w10Fw?si=qY120bGanfxfmn9e"
   }
 ]
