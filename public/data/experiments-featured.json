@@ -1,12 +1,13 @@
 [
   {
-    "id": "exp-acid-base-lab",
-    "title": "مختبر الكيمياء الافتراضي: تفاعلات الأحماض والقواعد",
-    "disciplineName": "الكيمياء",
-    "typeLabel": "مختبر افتراضي",
+    "id": "exp-physics-electrostatics-capacitors",
+    "title": "الفيزياء: الموصل المعزول والمكثف الكهربائي",
+    "disciplineName": "الفيزياء",
+    "typeLabel": "محاكاة تفاعلية",
     "stageLabel": "إعدادي",
-    "gradeLabel": "السادس الإعدادي",
-    "durationMinutes": 25
+    "gradeLabel": "السادس الإعدادي — الدرس الأول",
+    "durationMinutes": 25,
+    "launchPath": "experiments/physics-g12-l1/Physics Book.dc.html"
   },
   {
     "id": "exp-newton-laws",

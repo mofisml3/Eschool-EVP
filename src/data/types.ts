@@ -247,6 +247,12 @@ export type FeaturedExperiment = {
   stageLabel: string;
   gradeLabel: string;
   durationMinutes: number;
+  /**
+   * Optional path (relative to BASE_URL, no leading slash) to an
+   * interactive HTML experience. When present, the card becomes a
+   * clickable link that opens the experiment in a new tab.
+   */
+  launchPath?: string;
 };
 
 export type ExperimentsPayload = {

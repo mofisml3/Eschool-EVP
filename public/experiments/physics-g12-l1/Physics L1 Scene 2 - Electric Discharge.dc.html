@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+@keyframes s2Flash{0%{opacity:1;}100%{opacity:0;}}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="مشهد 2: التفريغ الكهربائي" style="min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 70%, #ded4f0 100%);">
+
+  <div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 14px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--brand-tint);">
+    <a href="Physics Book.dc.html" title="الكتاب" style="display:flex;align-items:center;text-decoration:none;"><img src="brand/logo.svg" alt="تعليم" style="height:32px;width:auto;display:block;"></a>
+    <a href="Physics L1 Blueprint.dc.html" style="font-size:12px;color:#6d6488;text-decoration:none;">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة · <b style="color:var(--brand-primary);">المشهد 2 من 4</b></a>
+    <div style="flex:1;"></div>
+    <button onClick="{{ goPrev }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">السابق</button>
+    <button onClick="{{ goNext }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 18px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(32,0,88,.25);" style-hover="background:var(--brand-primary-dark);">التالي</button>
+  </div>
+
+  <div id="pageWrap" style="max-width:960px;width:100%;margin:18px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:16px;">
+
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,28px);">
+      <div style="font-size:12px;color:var(--brand-accent);font-weight:700;letter-spacing:.08em;">المشهد 2</div>
+      <div style="font-size:clamp(21px,4vw,28px);font-weight:700;color:var(--brand-primary);margin:4px 0 10px;">التفريغ الكهربائي — لماذا لا يكفي الموصل المنفرد؟</div>
+      <div style="font-size:clamp(14px,2.4vw,16px);line-height:2;">وبذلك يزداد فرق الجهد الكهربائي بينه وبين أي جسم آخر (الهواء مثلاً)، وعندها يزداد مقدار المجال الكهربائي، وقد يصل إلى الحد الذي يحصل عنده <b>التفريغ الكهربائي</b> خلال الهواء المحيط به. لاحظ الشكل (1). لذا نادراً ما يستعمل الموصل المنفرد لتخزين الشحنات الكهربائية.</div>
+    </div>
+
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:4px;">جرّب بنفسك: أضف شحنات حتى يحدث التفريغ</div>
+      <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;margin-bottom:12px;">كل ضغطة تضيف شحنة. راقب مؤشر المجال الكهربائي وهو يقترب من حد تفريغ الهواء.</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:stretch;">
+        <div style="flex:2;min-width:280px;position:relative;">
+          <svg viewBox="0 0 460 320" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-primary-dark),var(--brand-primary));border-radius:12px;">
+            <circle id="s2Halo" cx="150" cy="170" r="60" style="fill:var(--brand-accent);opacity:.1;"></circle>
+            <circle cx="150" cy="170" r="48" style="fill:#ffffff;opacity:.92;"></circle>
+            <g id="s2Charges"></g>
+            <rect id="s2Obj" x="356" y="60" width="14" height="220" rx="7" style="fill:var(--brand-tint);opacity:.85;"></rect>
+            <polyline id="s2Spark" points="" style="fill:none;stroke:var(--brand-accent);stroke-width:3.4;stroke-linejoin:round;stroke-linecap:round;opacity:0;"></polyline>
+            <polyline id="s2SparkGlow" points="" style="fill:none;stroke:var(--brand-accent);stroke-width:11;opacity:0;"></polyline>
+            <circle id="s2Flash" cx="255" cy="170" r="150" style="fill:var(--brand-accent);opacity:0;"></circle>
+          </svg>
+          <div style="position:absolute;right:6%;top:7%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:9px;padding:4px 10px;font-size:max(11px,1.4vw);color:#fff;font-weight:500;">الموصل المشحون</div>
+          <div style="position:absolute;left:3%;top:7%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:9px;padding:4px 10px;font-size:max(11px,1.4vw);color:#fff;font-weight:500;">جسم قريب</div>
+          <sc-if value="{{ discharged }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;left:50%;bottom:8%;transform:translateX(-50%);background:var(--brand-alert);color:#fff;border-radius:10px;padding:6px 16px;font-size:max(12px,1.6vw);font-weight:700;box-shadow:0 4px 14px rgba(246,132,142,.5);">حدث تفريغ كهربائي خلال الهواء!</div>
+          </sc-if>
+        </div>
+        <div style="flex:1;min-width:250px;display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--brand-primary);margin-bottom:8px;"><span>المجال الكهربائي</span><span style="color:var(--brand-alert);">حد التفريغ</span></div>
+            <div style="position:relative;height:18px;border-radius:99px;background:#fff;border:1px solid var(--brand-tint);overflow:hidden;">
+              <div style="position:absolute;top:0;bottom:0;right:0;width:{{ fieldPct }};background:linear-gradient(to left,var(--brand-accent),var(--brand-alert));border-radius:99px;transition:width .3s ease;"></div>
+              <div style="position:absolute;top:-2px;bottom:-2px;left:8%;width:3px;background:var(--brand-alert);"></div>
+            </div>
+            <div style="font-size:11.5px;color:#6d6488;margin-top:6px;line-height:1.6;">كلما زادت الشحنة زاد الجهد وزاد المجال — وعند الخط الأحمر يتأين الهواء وتقفز الشرارة.</div>
+          </div>
+          <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--brand-primary);"><span>بُعد الجسم القريب</span><span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);">{{ distLabel }}</span></div>
+            <input type="range" min="2" max="14" step="1" value="{{ dist }}" onInput="{{ setDist }}">
+            <div style="font-size:11.5px;color:#6d6488;margin-top:2px;line-height:1.6;">كلما اقترب الجسم، ازداد المجال بين الموصل والجسم فيحدث التفريغ عند شحنةٍ أقل.</div>
+          </div>
+          <div style="background:var(--brand-primary);color:#fff;border-radius:12px;padding:12px 14px;text-align:center;">
+            <div style="font-size:12px;color:var(--brand-accent);font-weight:700;">الشحنات المضافة</div>
+            <div style="font-size:clamp(20px,3.2vw,25px);font-weight:700;direction:ltr;unicode-bidi:isolate;">{{ chargeCount }}</div>
+          </div>
+          <button onClick="{{ addCharge }}" style="min-height:50px;border:none;border-radius:11px;background:var(--brand-accent);color:var(--brand-primary-dark);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 5px 14px rgba(0,195,254,.35);" style-hover="background:#4fd6ff;">+ أضف شحنة</button>
+          <button onClick="{{ toggleAuto }}" style="min-height:46px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">{{ autoLabel }}</button>
+          <button onClick="{{ reset }}" style="min-height:44px;border:1px solid var(--brand-tint);border-radius:11px;background:#fff;color:#6d6488;font-family:inherit;font-size:13px;cursor:pointer;" style-hover="background:var(--brand-tint-2);">إعادة الضبط</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="flex:1.2;min-width:260px;background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+        <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);margin-bottom:8px;">الشكل (1) من الكتاب</div>
+        <svg viewBox="0 0 360 220" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-primary-dark),var(--brand-primary));border-radius:12px;">
+          <ellipse cx="80" cy="180" rx="60" ry="14" style="fill:#000;opacity:.2;"></ellipse>
+          <circle cx="80" cy="120" r="46" style="fill:#fff;opacity:.94;"></circle>
+          <circle cx="80" cy="120" r="46" style="fill:none;stroke:var(--brand-accent);stroke-width:2;opacity:.6;"></circle>
+          <text x="80" y="112" text-anchor="middle" style="fill:var(--brand-primary);font-size:15px;font-weight:bold;font-family:sans-serif;">+ + +</text>
+          <text x="80" y="132" text-anchor="middle" style="fill:var(--brand-primary);font-size:15px;font-weight:bold;font-family:sans-serif;">+ + +</text>
+          <rect x="76" y="166" width="8" height="40" style="fill:var(--brand-tint);"></rect>
+          <rect x="300" y="40" width="16" height="160" rx="5" style="fill:var(--brand-tint);opacity:.9;"></rect>
+          <text x="308" y="30" text-anchor="middle" style="fill:#fff;font-size:11px;font-family:sans-serif;opacity:.8;">جسم</text>
+          <polyline points="126,120 160,96 150,124 190,104 178,132 224,112 214,138 258,120 300,118" style="fill:none;stroke:var(--brand-accent);stroke-width:10;opacity:.3;"></polyline>
+          <polyline points="126,120 160,96 150,124 190,104 178,132 224,112 214,138 258,120 300,118" style="fill:none;stroke:var(--brand-accent);stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round;"></polyline>
+        </svg>
+        <div style="font-size:12px;color:#6d6488;margin-top:8px;text-align:center;">الشكل (1): التفريغ الكهربائي خلال الهواء</div>
+      </div>
+      <div style="flex:1;min-width:240px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);font-size:clamp(13px,2.2vw,15px);line-height:2;color:var(--brand-ink);">
+        <b style="color:var(--brand-primary);">مثال من حياتك:</b> الشرارة الصغيرة التي تشعر بها أحياناً عند لمس مقبض الباب في يوم جاف هي تفريغ كهربائي مصغّر — شحنات تجمّعت على جسمك حتى قفزت خلال الهواء، والبرق هو الصورة الهائلة للظاهرة نفسها.
+      </div>
+    </div>
+
+    <div style="background:var(--brand-paper);border:1.5px solid var(--brand-accent);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,17px);margin-bottom:10px;">سؤال سريع: لماذا نادراً ما يستعمل الموصل المنفرد لتخزين الشحنات الكهربائية؟</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ pick0 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">لأن جهده يرتفع مع الشحن حتى يحدث تفريغ كهربائي خلال الهواء</button>
+        <button onClick="{{ pick1 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">لأنه لا يستطيع حمل أي شحنة كهربائية إطلاقاً</button>
+        <button onClick="{{ pick2 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">لأن الشحنات تتسرب من الموصل إلى الأرض دائماً</button>
+      </div>
+      <sc-if value="{{ answeredRight }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:var(--brand-primary);"><b>إجابة صحيحة.</b> الاستمرار في إضافة الشحنات يرفع الجهد، فيزداد المجال الكهربائي حتى يبلغ الحد الذي يتأين عنده الهواء ويحدث التفريغ — فتضيع الشحنات المخزونة.</div>
+      </sc-if>
+      <sc-if value="{{ answeredWrong }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:#8c2f38;"><b>ليس تماماً.</b> الموصل المنفرد يستطيع تخزين كمية محددة من الشحنات، والمشكلة أن جهده يرتفع مع كل شحنة تضاف حتى يحدث التفريغ الكهربائي خلال الهواء — أعد المحاولة بعد تجربة الشكل أعلاه.</div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;">
+      <button onClick="{{ goPrev }}" style="min-height:50px;padding:12px 26px;border:1.5px solid var(--brand-primary);border-radius:12px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">→ المشهد السابق</button>
+      <button onClick="{{ goNext }}" style="min-height:50px;padding:12px 30px;border:none;border-radius:12px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(32,0,88,.28);" style-hover="background:var(--brand-primary-dark);">المشهد التالي: المتسعة ←</button>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    n: 0, auto: false, discharged: false, dist: 10,
+    ans: (function(){ try { const v = localStorage.getItem('ta3leem-l1s2-q1'); return v === null ? null : parseInt(v, 10); } catch (e) { return null; } })()
+  };
+
+  componentDidMount() { this.drawCharges(); this._flipIn(); }
+  componentWillUnmount() { if (this._t) clearInterval(this._t); }
+
+  thr() { return this.state.dist; }
+  objX() { return 356 - (14 - this.state.dist) * 10; }
+
+  _flipIn() {}
+  _flipOut(href, dir) { try { localStorage.setItem('ta3leem-phys-navdir', dir); } catch (e) {} location.href = href; }
+
+  drawCharges() {
+    const g = document.getElementById('s2Charges');
+    if (!g) return;
+    const n = this.state.n;
+    const accent = window.BRAND ? window.BRAND.accent : '#00c3fe';
+    const dark = window.BRAND ? window.BRAND.primaryDark : '#140038';
+    let h = '';
+    for (let i = 0; i < n; i++) {
+      const a = (i / Math.max(1, n)) * Math.PI * 2 - Math.PI / 2;
+      const x = 150 + Math.cos(a) * 48;
+      const y = 170 + Math.sin(a) * 48;
+      h += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="5.5" fill="' + accent + '"></circle>' +
+           '<text x="' + x.toFixed(1) + '" y="' + (y + 2.8).toFixed(1) + '" text-anchor="middle" font-size="8.5" font-weight="bold" fill="' + dark + '">+</text>';
+    }
+    g.innerHTML = h;
+    const halo = document.getElementById('s2Halo');
+    if (halo) { halo.setAttribute('r', String(52 + n * 3)); halo.style.opacity = (0.06 + n * 0.02).toFixed(2); }
+    const obj = document.getElementById('s2Obj');
+    if (obj) obj.setAttribute('x', String(this.objX()));
+  }
+
+  spark() {
+    const sp = document.getElementById('s2Spark');
+    const gl = document.getElementById('s2SparkGlow');
+    const fl = document.getElementById('s2Flash');
+    const endX = this.objX();
+    const pts = [];
+    const N = 8;
+    for (let i = 0; i <= N; i++) {
+      const t = i / N;
+      const x = 198 + t * (endX - 198);
+      const y = 170 + (i > 0 && i < N ? (Math.random() - 0.5) * 46 * Math.sin(Math.PI * t) : 0);
+      pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+    }
+    const s = pts.join(' ');
+    [sp, gl].forEach(el => {
+      if (!el) return;
+      el.setAttribute('points', s);
+      el.style.animation = 'none';
+      void el.getBoundingClientRect();
+      el.style.animation = 's2Flash .9s ease-out forwards';
+    });
+    if (fl) { fl.style.animation = 'none'; void fl.getBoundingClientRect(); fl.style.opacity = '0'; fl.style.animation = 's2Flash .5s ease-out forwards'; }
+  }
+
+  addCharge() {
+    let n = this.state.n + 1;
+    if (n >= this.thr()) {
+      this.spark();
+      this.setState({ n: 0, discharged: true }, () => this.drawCharges());
+      setTimeout(() => this.setState({ discharged: false }), 2600);
+    } else {
+      this.setState({ n, discharged: false }, () => this.drawCharges());
+    }
+  }
+
+  renderVals() {
+    const { n, auto, ans, discharged, dist } = this.state;
+    const border = (i) => ans === null ? 'var(--brand-tint)' : (i === 0 ? 'var(--brand-accent)' : (i === ans ? 'var(--brand-alert)' : 'var(--brand-tint)'));
+    const pick = (i) => () => {
+      try { localStorage.setItem('ta3leem-l1s2-q1', String(i)); } catch (e) {}
+      this.setState({ ans: i });
+    };
+    const thr = this.thr();
+    return {
+      chargeCount: n + ' / ' + thr,
+      fieldPct: Math.min(100, (n / thr) * 92).toFixed(0) + '%',
+      dist,
+      distLabel: dist + ' cm',
+      setDist: (e) => { if (this.state.auto) this._stopAuto(); this.setState({ n: 0, dist: parseInt(e.target.value, 10), discharged: false }, () => this.drawCharges()); },
+      discharged,
+      addCharge: () => { if (this.state.auto) this._stopAuto(); this.addCharge(); },
+      autoLabel: auto ? '⏸ إيقاف الشحن التلقائي' : '▶ شحن تلقائي',
+      toggleAuto: () => {
+        if (this.state.auto) { this._stopAuto(); return; }
+        this.setState({ auto: true });
+        this._t = setInterval(() => this.addCharge(), 550);
+      },
+      reset: () => { this._stopAuto(); this.setState({ n: 0, discharged: false }, () => this.drawCharges()); },
+      pick0: pick(0), pick1: pick(1), pick2: pick(2),
+      b0: border(0), b1: border(1), b2: border(2),
+      answeredRight: ans === 0,
+      answeredWrong: ans !== null && ans !== 0,
+      goPrev: () => this._flipOut('Physics L1 Scene 1 - Isolated Conductor.dc.html', 'prev'),
+      goNext: () => this._flipOut('Physics L1 Scene 3 - The Capacitor.dc.html', 'next')
+    };
+  }
+  _stopAuto() { if (this._t) { clearInterval(this._t); this._t = null; } this.setState({ auto: false }); }
+}
+</script>
+</body>
+</html>

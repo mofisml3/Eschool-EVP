@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+input[type=range]{accent-color:#200058;height:44px;width:100%;cursor:pointer;}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="مشهد 1: الموصل المنفرد" style="min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 70%, #ded4f0 100%);">
+
+  <!-- nav -->
+  <div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 14px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--brand-tint);">
+    <a href="Physics Book.dc.html" title="الكتاب" style="display:flex;align-items:center;text-decoration:none;"><img src="brand/logo.svg" alt="تعليم" style="height:32px;width:auto;display:block;"></a>
+    <a href="Physics L1 Blueprint.dc.html" style="font-size:12px;color:#6d6488;text-decoration:none;">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة · <b style="color:var(--brand-primary);">المشهد 1 من 4</b></a>
+    <div style="flex:1;"></div>
+    <button onClick="{{ goPrev }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">السابق</button>
+    <button onClick="{{ goNext }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 18px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(32,0,88,.25);" style-hover="background:var(--brand-primary-dark);">التالي</button>
+  </div>
+
+  <div id="pageWrap" style="max-width:960px;width:100%;margin:18px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:16px;">
+
+    <!-- title + intro -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,28px);">
+      <div style="font-size:12px;color:var(--brand-accent);font-weight:700;letter-spacing:.08em;">المشهد 1</div>
+      <div style="font-size:clamp(21px,4vw,28px);font-weight:700;color:var(--brand-primary);margin:4px 0 10px;">الموصل المنفرد المعزول</div>
+      <div style="font-size:clamp(14px,2.4vw,16px);line-height:2;">الموصل الكروي المنفرد المعزول يمكنه تخزين كميةٍ محددة من الشحنات الكهربائية. وإن الاستمرار في إضافة الشحنات <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">(Q)</span> سيؤدي حتماً إلى ازدياد جهد الموصل <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">(V)</span> عند كل بعدٍ معين <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">(r)</span> عن مركز الشحنة، وفق العلاقة التي درستها سابقاً.</div>
+    </div>
+
+    <!-- interactive figure -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:4px;">جرّب بنفسك: اشحن الموصل وراقب جهده</div>
+      <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;margin-bottom:12px;">زد الشحنة أو قرّب نقطة القياس، ولاحظ كيف يتغير الجهد وفق <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span>.</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:stretch;">
+        <div style="flex:2;min-width:280px;position:relative;">
+          <svg viewBox="0 0 460 320" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-tint-2),#fff);border:1px solid var(--brand-tint);border-radius:12px;">
+            <circle id="s1Halo" cx="170" cy="160" r="70" style="fill:var(--brand-accent);opacity:.12;"></circle>
+            <circle cx="170" cy="160" r="52" style="fill:var(--brand-primary);"></circle>
+            <circle cx="170" cy="160" r="52" style="fill:none;stroke:var(--brand-accent);stroke-width:2;opacity:.6;"></circle>
+            <g id="s1Charges"></g>
+            <line id="s1RLine" x1="170" y1="160" x2="380" y2="160" style="stroke:var(--brand-alert);stroke-width:2;stroke-dasharray:6 5;"></line>
+            <circle id="s1Probe" cx="380" cy="160" r="7" style="fill:var(--brand-alert);"></circle>
+          </svg>
+          <div style="position:absolute;right:6%;top:6%;background:rgba(255,255,255,.9);border:1px solid var(--brand-tint);border-radius:9px;padding:4px 10px;font-size:max(11px,1.4vw);color:var(--brand-primary);font-weight:700;">الموصل الكروي</div>
+          <div style="position:absolute;left:4%;bottom:8%;background:rgba(255,255,255,.9);border:1px solid var(--brand-tint);border-radius:9px;padding:4px 10px;font-size:max(11px,1.4vw);color:var(--brand-alert);font-weight:700;">نقطة القياس <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">r</span></div>
+        </div>
+        <div style="flex:1;min-width:250px;display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;color:var(--brand-primary);"><span>الشحنة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">Q</span></span><span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);">{{ qLabel }}</span></div>
+            <input type="range" min="1" max="10" step="0.5" value="{{ q }}" onInput="{{ setQ }}">
+          </div>
+          <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;color:var(--brand-primary);"><span>البعد <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">r</span></span><span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);">{{ rLabel }}</span></div>
+            <input type="range" min="0.2" max="1" step="0.05" value="{{ r }}" onInput="{{ setR }}">
+          </div>
+          <div style="background:var(--brand-primary);color:#fff;border-radius:12px;padding:14px;text-align:center;">
+            <div style="font-size:12px;color:var(--brand-accent);font-weight:700;margin-bottom:4px;">الجهد الكهربائي <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span></div>
+            <div style="font-size:clamp(20px,3.4vw,26px);font-weight:700;direction:ltr;unicode-bidi:isolate;">{{ vLabel }}</div>
+          </div>
+          <button onClick="{{ toggleAuto }}" style="min-height:46px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">{{ autoLabel }}</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- derivation steps from the book -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:12px;">العلاقة كما في الكتاب</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:12px;align-items:center;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;flex-wrap:wrap;">
+          <div style="min-width:34px;height:34px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">①</div>
+          <div style="flex:1;min-width:200px;font-size:clamp(13px,2.2vw,15px);">جهد الموصل عند بعد <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">r</span> عن مركز الشحنة:</div>
+          <div data-tex="V=\dfrac{1}{4\pi\varepsilon_0}\times\dfrac{Q}{r}" style="direction:ltr;unicode-bidi:isolate;font-size:clamp(14px,2.4vw,17px);"></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;flex-wrap:wrap;">
+          <div style="min-width:34px;height:34px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">②</div>
+          <div style="flex:1;min-width:200px;font-size:clamp(13px,2.2vw,15px);">وكما درست سابقاً، مقدار ثابت التناسب <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">(k)</span> في قانون كولوم هو:</div>
+          <div data-tex="k=\dfrac{1}{4\pi\varepsilon_0}=9\times10^{9}\ \mathrm{N\cdot m^2/C^2}" style="direction:ltr;unicode-bidi:isolate;font-size:clamp(14px,2.4vw,17px);"></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;flex-wrap:wrap;">
+          <div style="min-width:34px;height:34px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">③</div>
+          <div style="flex:1;min-width:200px;font-size:clamp(13px,2.2vw,15px);">إذ إن <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">(ε₀)</span> هي سماحية الفراغ ومقدارها:</div>
+          <div data-tex="\varepsilon_0=8.85\times10^{-12}\ \mathrm{C^2/N\cdot m^2}" style="direction:ltr;unicode-bidi:isolate;font-size:clamp(14px,2.4vw,17px);"></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;background:linear-gradient(155deg,var(--brand-primary),var(--brand-primary-dark));color:#fff;border-radius:12px;padding:14px 16px;flex-wrap:wrap;box-shadow:0 6px 18px rgba(32,0,88,.25);">
+          <div style="min-width:34px;height:34px;border-radius:50%;background:var(--brand-accent);color:var(--brand-primary-dark);display:flex;align-items:center;justify-content:center;font-weight:700;">④</div>
+          <div style="flex:1;min-width:200px;font-size:clamp(13px,2.2vw,15px);font-weight:700;">فتصبح العلاقة:</div>
+          <div id="s1Result" data-tex="V=k\dfrac{Q}{r}" style="direction:ltr;unicode-bidi:isolate;font-size:clamp(17px,3vw,21px);background:rgba(255,255,255,.1);border-radius:9px;padding:6px 14px;"></div>
+        </div>
+      </div>
+      <div style="margin-top:12px;font-size:clamp(12px,2.1vw,14px);color:#544a70;background:var(--brand-tint-2);border-radius:10px;padding:10px 14px;line-height:1.8;">مثال من حياتك: عندما تنفخ بالوناً أكثر فأكثر يزداد ضغطه — كذلك الموصل: كلما أضفت شحنات أكثر ارتفع «ضغطها الكهربائي» أي الجهد.</div>
+    </div>
+
+    <!-- quick check -->
+    <div style="background:var(--brand-paper);border:1.5px solid var(--brand-accent);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,17px);margin-bottom:10px;">سؤال سريع: إذا تضاعفت الشحنة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">Q</span> على الموصل وبقي البعد <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">r</span> ثابتاً، فإن الجهد <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V</span>:</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ pick0 }}" style="flex:1;min-width:140px;min-height:48px;border:1.5px solid {{ b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:14px;cursor:pointer;" style-hover="background:var(--brand-tint-2);">يتضاعف</button>
+        <button onClick="{{ pick1 }}" style="flex:1;min-width:140px;min-height:48px;border:1.5px solid {{ b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:14px;cursor:pointer;" style-hover="background:var(--brand-tint-2);">ينخفض إلى النصف</button>
+        <button onClick="{{ pick2 }}" style="flex:1;min-width:140px;min-height:48px;border:1.5px solid {{ b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:14px;cursor:pointer;" style-hover="background:var(--brand-tint-2);">يبقى ثابتاً</button>
+      </div>
+      <sc-if value="{{ answeredRight }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:var(--brand-primary);"><b>أحسنت — يتضاعف.</b> الجهد يتناسب طردياً مع الشحنة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V ∝ Q</span> في العلاقة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span>، فمضاعفة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">Q</span> تضاعف <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V</span>. جرّب ذلك في الشكل أعلاه!</div>
+      </sc-if>
+      <sc-if value="{{ answeredWrong }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:#8c2f38;"><b>ليس تماماً.</b> انظر إلى العلاقة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span>: الشحنة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">Q</span> في البسط، أي أن العلاقة طردية — زيادة الشحنة تزيد الجهد بالنسبة نفسها. حاول مرة أخرى.</div>
+      </sc-if>
+    </div>
+
+    <!-- bottom nav -->
+    <div style="display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;">
+      <button onClick="{{ goPrev }}" style="min-height:50px;padding:12px 26px;border:1.5px solid var(--brand-primary);border-radius:12px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">→ مخطط الدرس</button>
+      <button onClick="{{ goNext }}" style="min-height:50px;padding:12px 30px;border:none;border-radius:12px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(32,0,88,.28);" style-hover="background:var(--brand-primary-dark);">المشهد التالي: التفريغ الكهربائي ←</button>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    q: 4, r: 0.6, auto: false,
+    ans: (function(){ try { const v = localStorage.getItem('ta3leem-l1s1-q1'); return v === null ? null : parseInt(v, 10); } catch (e) { return null; } })()
+  };
+
+  componentDidMount() {
+    this.renderMath();
+    this.drawCharges();
+    this._flipIn();
+  }
+  componentWillUnmount() { if (this._t) clearInterval(this._t); }
+
+  _flipIn() {}
+  _flipOut(href, dir) { try { localStorage.setItem('ta3leem-phys-navdir', dir); } catch (e) {} location.href = href; }
+
+  renderMath() {
+    if (!window.katex) { setTimeout(() => this.renderMath(), 250); return; }
+    document.querySelectorAll('[data-tex]').forEach(el => {
+      try { window.katex.render(el.getAttribute('data-tex'), el, { throwOnError: false }); } catch (e) {}
+    });
+  }
+
+  drawCharges() {
+    const g = document.getElementById('s1Charges');
+    if (!g) return;
+    const n = Math.round(this.state.q * 2);
+    let h = '';
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+      const x = 170 + Math.cos(a) * 52;
+      const y = 160 + Math.sin(a) * 52;
+      h += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="5" fill="' + (window.BRAND ? window.BRAND.accent : '#00c3fe') + '"></circle>' +
+           '<text x="' + x.toFixed(1) + '" y="' + (y + 2.6).toFixed(1) + '" text-anchor="middle" font-size="8" font-weight="bold" fill="' + (window.BRAND ? window.BRAND.primaryDark : '#140038') + '">+</text>';
+    }
+    g.innerHTML = h;
+    const halo = document.getElementById('s1Halo');
+    if (halo) { halo.setAttribute('r', String(58 + this.state.q * 4)); halo.style.opacity = (0.06 + this.state.q * 0.02).toFixed(2); }
+    const px = 170 + this.state.r * 260;
+    const line = document.getElementById('s1RLine');
+    const probe = document.getElementById('s1Probe');
+    if (line) line.setAttribute('x2', px.toFixed(0));
+    if (probe) probe.setAttribute('cx', px.toFixed(0));
+  }
+
+  fmtV(v) {
+    if (v >= 1e6) return (v / 1e6).toFixed(2) + ' MV';
+    if (v >= 1e3) return (v / 1e3).toFixed(1) + ' kV';
+    return v.toFixed(0) + ' V';
+  }
+
+  renderVals() {
+    const { q, r, auto, ans } = this.state;
+    const v = 9e9 * q * 1e-6 / r;
+    const border = (i) => ans === null ? 'var(--brand-tint)' : (i === 0 ? 'var(--brand-accent)' : (i === ans ? 'var(--brand-alert)' : 'var(--brand-tint)'));
+    const pick = (i) => () => {
+      try { localStorage.setItem('ta3leem-l1s1-q1', String(i)); } catch (e) {}
+      this.setState({ ans: i });
+    };
+    return {
+      q, r,
+      qLabel: q.toFixed(1) + ' µC',
+      rLabel: (r * 100).toFixed(0) + ' cm',
+      vLabel: this.fmtV(v),
+      setQ: (e) => this.setState({ q: parseFloat(e.target.value) }, () => this.drawCharges()),
+      setR: (e) => this.setState({ r: parseFloat(e.target.value) }, () => this.drawCharges()),
+      autoLabel: auto ? '⏸ إيقاف الشحن التلقائي' : '▶ شحن تلقائي',
+      toggleAuto: () => {
+        if (this.state.auto) { clearInterval(this._t); this._t = null; this.setState({ auto: false }); return; }
+        this.setState({ auto: true });
+        this._t = setInterval(() => {
+          let nq = this.state.q + 0.5;
+          if (nq > 10) nq = 1;
+          this.setState({ q: nq }, () => this.drawCharges());
+        }, 700);
+      },
+      pick0: pick(0), pick1: pick(1), pick2: pick(2),
+      b0: border(0), b1: border(1), b2: border(2),
+      answeredRight: ans === 0,
+      answeredWrong: ans !== null && ans !== 0,
+      goPrev: () => this._flipOut('Physics L1 Blueprint.dc.html', 'prev'),
+      goNext: () => this._flipOut('Physics L1 Scene 2 - Electric Discharge.dc.html', 'next')
+    };
+  }
+}
+</script>
+</body>
+</html>

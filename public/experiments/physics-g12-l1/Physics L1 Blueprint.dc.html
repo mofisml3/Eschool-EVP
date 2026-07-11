@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="مخطط الدرس 1-1" style="min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 70%, #ded4f0 100%);">
+
+  <!-- nav bar -->
+  <div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:8px 14px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--brand-tint);">
+    <a href="Physics Book.dc.html" title="العودة إلى الكتاب" style="display:flex;align-items:center;gap:9px;text-decoration:none;">
+      <img src="brand/logo.svg" alt="تعليم" style="height:32px;width:auto;display:block;">
+    </a>
+    <div style="font-size:12px;color:#6d6488;">الفيزياء · الفصل الأول · <b style="color:var(--brand-primary);">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة</b></div>
+    <div style="flex:1;"></div>
+    <a href="Physics Book.dc.html" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 16px;border:1px solid var(--brand-tint);border-radius:11px;background:#fff;color:var(--brand-primary);font-size:13px;font-weight:500;text-decoration:none;">↩ الكتاب</a>
+  </div>
+
+  <div id="pageWrap" style="max-width:960px;width:100%;margin:20px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:16px;">
+
+    <!-- header -->
+    <div style="background:linear-gradient(155deg,var(--brand-primary),var(--brand-primary-dark));color:#fff;border-radius:16px;padding:clamp(20px,4vw,34px);box-shadow:0 12px 32px rgba(32,0,88,.28);">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="font-size:12px;letter-spacing:.12em;color:var(--brand-accent);font-weight:700;">مخطط الدرس · Blueprint</div>
+        <div style="font-size:11px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:3px 12px;border-radius:99px;">4 مشاهد + اختبار</div>
+      </div>
+      <div style="font-size:clamp(26px,5vw,38px);font-weight:700;margin:8px 0 4px;">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة</div>
+      <div style="font-size:clamp(13px,2.2vw,15px);color:rgba(255,255,255,.75);direction:ltr;text-align:right;">Capacitor</div>
+    </div>
+
+    <!-- objective + prerequisites -->
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="flex:2;min-width:280px;background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+        <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:8px;">الهدف التعليمي</div>
+        <div style="font-size:clamp(14px,2.4vw,16px);line-height:1.9;">بنهاية الدرس يكون الطالب قادراً على أن: يفسّر لماذا نادراً ما يستعمل الموصل المنفرد لتخزين الشحنات الكهربائية، ويعرّف المتسعة ويحدد مكوناتها، ويميز أشكالها الهندسية وأنواعها المختلفة وفق تطبيقاتها العملية.</div>
+      </div>
+      <div style="flex:1;min-width:240px;background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+        <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:8px;">المتطلبات السابقة</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:clamp(13px,2.2vw,15px);line-height:1.7;">
+          <div style="display:flex;gap:8px;"><span style="color:var(--brand-accent);">●</span><span>الجهد الكهربائي وفرق الجهد</span></div>
+          <div style="display:flex;gap:8px;"><span style="color:var(--brand-accent);">●</span><span>قانون كولوم وثابت التناسب <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">k</span></span></div>
+          <div style="display:flex;gap:8px;"><span style="color:var(--brand-accent);">●</span><span>مفهوم المجال الكهربائي</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- scenes list -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(16px,2.8vw,19px);margin-bottom:14px;">مشاهد الدرس — من البسيط إلى المركّب</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <a href="Physics L1 Scene 1 - Isolated Conductor.dc.html" style="display:flex;gap:14px;align-items:flex-start;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:13px;padding:14px 16px;text-decoration:none;color:inherit;" style-hover="border-color:var(--brand-accent);background:var(--brand-tint);">
+          <div style="min-width:44px;height:44px;border-radius:11px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;">1</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);">الموصل المنفرد المعزول</div>
+            <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;line-height:1.7;margin-top:2px;">النص: علاقة جهد الموصل بشحنته <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span> وثابت كولوم وسماحية الفراغ · الشكل التفاعلي: موصل كروي مع منزلقي الشحنة والبعد وقراءة حية للجهد وزر تشغيل تلقائي · سؤال سريع مع تغذية راجعة.</div>
+          </div>
+        </a>
+
+        <a href="Physics L1 Scene 2 - Electric Discharge.dc.html" style="display:flex;gap:14px;align-items:flex-start;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:13px;padding:14px 16px;text-decoration:none;color:inherit;" style-hover="border-color:var(--brand-accent);background:var(--brand-tint);">
+          <div style="min-width:44px;height:44px;border-radius:11px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;">2</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);">التفريغ الكهربائي — الشكل (1)</div>
+            <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;line-height:1.7;margin-top:2px;">النص: ازدياد فرق الجهد والمجال حتى حد التفريغ خلال الهواء · الشكل التفاعلي: أضف شحنات وراقب المجال يقترب من حد التفريغ حتى تحدث الشرارة · مكان لصورة الشكل (1) من الكتاب · سؤال سريع.</div>
+          </div>
+        </a>
+
+        <a href="Physics L1 Scene 3 - The Capacitor.dc.html" style="display:flex;gap:14px;align-items:flex-start;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:13px;padding:14px 16px;text-decoration:none;color:inherit;" style-hover="border-color:var(--brand-accent);background:var(--brand-tint);">
+          <div style="min-width:44px;height:44px;border-radius:11px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;">3</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);">المتسعة: الفكرة والتعريف — الشكل (2)</div>
+            <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;line-height:1.7;margin-top:2px;">النص: موصلان معزولان يفصل بينهما عازل يختزنان شحنات موجبة وسالبة · الشكل التفاعلي: انقل الشحنة بين الموصلين وراقب تراكمها · صندوق تعريف المتسعة · سؤال سريع.</div>
+          </div>
+        </a>
+
+        <a href="Physics L1 Scene 4 - Capacitor Types.dc.html" style="display:flex;gap:14px;align-items:flex-start;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:13px;padding:14px 16px;text-decoration:none;color:inherit;" style-hover="border-color:var(--brand-accent);background:var(--brand-tint);">
+          <div style="min-width:44px;height:44px;border-radius:11px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;">4</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);">أشكال المتسعات وأنواعها — الشكل (3)</div>
+            <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;line-height:1.7;margin-top:2px;">النص: الأشكال الهندسية للمتسعات وتنوّع أحجامها وأنواعها وفق تطبيقاتها · الشكل التفاعلي: بدّل بين الصفيحتين المتوازيتين والأسطوانتين والكرتين المتمركزتين · مكان لصورة الشكل (3) · سؤال سريع.</div>
+          </div>
+        </a>
+
+        <a href="Physics L1 Check.dc.html" style="display:flex;gap:14px;align-items:flex-start;background:#fff;border:1.5px dashed var(--brand-accent);border-radius:13px;padding:14px 16px;text-decoration:none;color:inherit;" style-hover="background:var(--brand-tint-2);">
+          <div style="min-width:44px;height:44px;border-radius:11px;background:var(--brand-accent);color:var(--brand-primary-dark);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;">✓</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);">اختبار الدرس — هل تحقق الهدف؟</div>
+            <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;line-height:1.7;margin-top:2px;">4 أسئلة اختيار من متعدد تغطي مشاهد الدرس، مع تغذية راجعة فورية تشرح سبب صحة أو خطأ كل إجابة، وإمكانية إعادة المحاولة.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- pedagogy note -->
+    <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(14px,2.6vw,20px);font-size:clamp(12px,2.2vw,14px);line-height:1.8;color:#544a70;">
+      في كل مشهد: فكرة واحدة أساسية، شكل تفاعلي واحد يتحكم به الطالب، وسؤال فهم قصير بتغذية راجعة فورية تشرح السبب. إجاباتك محفوظة — يمكنك العودة لأي مشهد دون فقدان تقدمك.
+    </div>
+
+    <!-- start -->
+    <a href="Physics L1 Scene 1 - Isolated Conductor.dc.html" style="align-self:center;display:flex;align-items:center;gap:10px;min-height:54px;padding:14px 44px;border-radius:14px;background:var(--brand-primary);color:#fff;font-weight:700;font-size:clamp(15px,2.8vw,18px);text-decoration:none;box-shadow:0 8px 24px rgba(32,0,88,.3);" style-hover="background:var(--brand-primary-dark);transform:translateY(-1px);">▶ ابدأ الدرس</a>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

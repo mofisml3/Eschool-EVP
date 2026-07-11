@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<style>
+*{box-sizing:border-box;}
+html{background:#e2d8f2;}
+html,body{margin:0;padding:0;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+input[type=range]{accent-color:#200058;height:44px;width:100%;cursor:pointer;}
+@keyframes s4shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="مشهد 4: أشكال المتسعات" style="min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 70%, #ded4f0 100%);">
+
+  <div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 14px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--brand-tint);">
+    <a href="Physics Book.dc.html" title="الكتاب" style="display:flex;align-items:center;text-decoration:none;"><img src="brand/logo.svg" alt="تعليم" style="height:32px;width:auto;display:block;"></a>
+    <a href="Physics L1 Blueprint.dc.html" style="font-size:12px;color:#6d6488;text-decoration:none;">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة · <b style="color:var(--brand-primary);">المشهد 4 من 4</b></a>
+    <div style="flex:1;"></div>
+    <button onClick="{{ goPrev }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">السابق</button>
+    <button onClick="{{ goNext }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 18px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(32,0,88,.25);" style-hover="background:var(--brand-primary-dark);">الاختبار</button>
+  </div>
+
+  <div id="pageWrap" style="max-width:960px;width:100%;margin:18px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:16px;">
+
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,28px);">
+      <div style="font-size:12px;color:var(--brand-accent);font-weight:700;letter-spacing:.08em;">المشهد 4</div>
+      <div style="font-size:clamp(21px,4vw,28px);font-weight:700;color:var(--brand-primary);margin:4px 0 10px;">أشكال المتسعات وأنواعها</div>
+      <div style="font-size:clamp(14px,2.4vw,16px);line-height:2;">توجد المتسعات بأشكال هندسية مختلفة، منها: المتسعة ذات <b>الصفيحتين المتوازيتين</b>، والمتسعة ذات <b>الأسطوانتين المتمركزتين</b>، والمتسعة ذات <b>الكرتين المتمركزتين</b>. وتصنع المتسعات بأشكال مختلفة حجماً ونوعاً وفقاً لتطبيقاتها العملية — لاحظ الشكل (3) الذي يبين مجموعة من المتسعات مختلفة الأنواع والأحجام تستعمل في تطبيقات عملية مختلفة.</div>
+    </div>
+
+    <!-- interactive geometry figure -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:4px;">جرّب بنفسك: بدّل بين الأشكال الثلاثة واشحن كلاً منها</div>
+      <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;margin-bottom:12px;">في كل شكل هناك موصلان (باللون الداكن) يفصل بينهما عازل (باللون الفاتح). حرّك منزلق الشحن وراقب الشحنات على الموصلين.</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:stretch;">
+        <div style="flex:2;min-width:280px;position:relative;">
+          <svg viewBox="0 0 460 300" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-tint-2),#fff);border:1px solid var(--brand-tint);border-radius:12px;">
+            <sc-if value="{{ isPlates }}" hint-placeholder-val="{{ true }}">
+              <g>
+                <rect x="150" y="60" width="160" height="180" rx="8" style="fill:var(--brand-tint);opacity:.65;"></rect>
+                <rect x="132" y="50" width="16" height="200" rx="6" style="fill:var(--brand-primary);"></rect>
+                <rect x="312" y="50" width="16" height="200" rx="6" style="fill:var(--brand-primary);"></rect>
+                <line x1="90" y1="150" x2="132" y2="150" style="stroke:var(--brand-accent);stroke-width:3;"></line>
+                <line x1="328" y1="150" x2="370" y2="150" style="stroke:var(--brand-alert);stroke-width:3;"></line>
+              </g>
+            </sc-if>
+            <sc-if value="{{ isCylinders }}" hint-placeholder-val="{{ false }}">
+              <g>
+                <rect x="150" y="95" width="180" height="110" rx="55" style="fill:var(--brand-primary);"></rect>
+                <rect x="168" y="113" width="144" height="74" rx="37" style="fill:var(--brand-tint);"></rect>
+                <rect x="186" y="131" width="108" height="38" rx="19" style="fill:var(--brand-primary);opacity:.85;"></rect>
+                <ellipse cx="150" cy="150" rx="16" ry="55" style="fill:var(--brand-primary-dark);"></ellipse>
+                <ellipse cx="150" cy="150" rx="10" ry="37" style="fill:var(--brand-tint);"></ellipse>
+                <ellipse cx="150" cy="150" rx="5" ry="19" style="fill:var(--brand-primary);"></ellipse>
+              </g>
+            </sc-if>
+            <sc-if value="{{ isSpheres }}" hint-placeholder-val="{{ false }}">
+              <g>
+                <circle cx="230" cy="150" r="92" style="fill:var(--brand-primary);"></circle>
+                <circle cx="230" cy="150" r="72" style="fill:var(--brand-tint);"></circle>
+                <circle cx="230" cy="150" r="42" style="fill:var(--brand-primary);opacity:.85;"></circle>
+              </g>
+            </sc-if>
+            <g id="s4Charges"></g>
+          </svg>
+          <div style="position:absolute;left:50%;bottom:6%;transform:translateX(-50%);background:rgba(255,255,255,.94);border:1px solid var(--brand-tint);border-radius:9px;padding:5px 16px;font-size:max(12px,1.6vw);color:var(--brand-primary);font-weight:700;white-space:nowrap;">{{ shapeLabel }}</div>
+        </div>
+        <div style="flex:1;min-width:230px;display:flex;flex-direction:column;gap:10px;">
+          <button onClick="{{ setPlates }}" style="min-height:48px;border:1.5px solid {{ bPlates }};border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">صفيحتان متوازيتان</button>
+          <button onClick="{{ setCylinders }}" style="min-height:48px;border:1.5px solid {{ bCylinders }};border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">أسطوانتان متمركزتان</button>
+          <button onClick="{{ setSpheres }}" style="min-height:48px;border:1.5px solid {{ bSpheres }};border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">كرتان متمركزتان</button>
+          <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;color:var(--brand-primary);"><span>اشحن المتسعة</span><span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);">{{ chgLabel }}</span></div>
+            <input type="range" min="0" max="6" step="1" value="{{ chg }}" onInput="{{ setChg }}">
+            <div style="font-size:11.5px;color:#6d6488;line-height:1.6;">أياً كان الشكل الهندسي: شحنة موجبة على أحد الموصلين وسالبة مساوية لها على الآخر.</div>
+          </div>
+          <div style="background:linear-gradient(155deg,var(--brand-primary),var(--brand-primary-dark));color:#fff;border-radius:12px;padding:12px 14px;font-size:clamp(12.5px,2.1vw,14px);line-height:1.9;">سنتناول في دراستنا في هذا الفصل <b style="color:var(--brand-accent);">المتسعة ذات الصفيحتين المتوازيتين</b>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- figure 3 with clickable hotspots -->
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="flex:1.2;min-width:260px;background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+        <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);margin-bottom:8px;">الشكل (3): انقر أي متسعة لمعرفة نوعها</div>
+        <svg viewBox="0 0 360 200" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-tint-2),#fff);border:1px solid var(--brand-tint);border-radius:12px;">
+          <g onClick="{{ hs0 }}" opacity="{{ hs0op }}" style="cursor:pointer;">
+            <rect x="34" y="70" width="34" height="86" rx="9" style="fill:var(--brand-primary);"></rect>
+            <rect x="40" y="62" width="22" height="10" rx="4" style="fill:var(--brand-primary-dark);"></rect>
+            <rect x="46" y="76" width="10" height="60" rx="3" style="fill:var(--brand-accent);opacity:.65;"></rect>
+            <line x1="45" y1="156" x2="45" y2="180" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+            <line x1="57" y1="156" x2="57" y2="180" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+          </g>
+          <g onClick="{{ hs1 }}" opacity="{{ hs1op }}" style="cursor:pointer;">
+            <rect x="90" y="90" width="24" height="66" rx="7" style="fill:var(--brand-primary);opacity:.85;"></rect>
+            <line x1="97" y1="156" x2="97" y2="176" style="stroke:var(--brand-primary-dark);stroke-width:2;"></line>
+            <line x1="107" y1="156" x2="107" y2="176" style="stroke:var(--brand-primary-dark);stroke-width:2;"></line>
+          </g>
+          <g onClick="{{ hs2 }}" opacity="{{ hs2op }}" style="cursor:pointer;">
+            <ellipse cx="168" cy="112" rx="30" ry="34" style="fill:var(--brand-alert);"></ellipse>
+            <ellipse cx="168" cy="112" rx="18" ry="21" style="fill:var(--brand-alert);opacity:.55;"></ellipse>
+            <line x1="160" y1="144" x2="160" y2="178" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+            <line x1="176" y1="144" x2="176" y2="178" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+          </g>
+          <g onClick="{{ hs3 }}" opacity="{{ hs3op }}" style="cursor:pointer;">
+            <rect x="214" y="96" width="56" height="56" rx="7" style="fill:var(--brand-accent);"></rect>
+            <rect x="214" y="96" width="56" height="16" rx="7" style="fill:var(--brand-primary);opacity:.5;"></rect>
+            <line x1="230" y1="152" x2="230" y2="178" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+            <line x1="254" y1="152" x2="254" y2="178" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+          </g>
+          <g onClick="{{ hs4 }}" opacity="{{ hs4op }}" style="cursor:pointer;">
+            <circle cx="312" cy="112" r="30" style="fill:var(--brand-primary);"></circle>
+            <circle cx="312" cy="112" r="30" style="fill:none;stroke:var(--brand-accent);stroke-width:2.5;"></circle>
+            <line x1="312" y1="112" x2="330" y2="94" style="stroke:var(--brand-accent);stroke-width:4;stroke-linecap:round;"></line>
+            <line x1="304" y1="142" x2="304" y2="176" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+            <line x1="320" y1="142" x2="320" y2="176" style="stroke:var(--brand-primary-dark);stroke-width:2.5;"></line>
+          </g>
+        </svg>
+        <div style="margin-top:10px;min-height:44px;background:var(--brand-tint-2);border:1px solid {{ hsBorder }};border-radius:11px;padding:10px 14px;font-size:clamp(12.5px,2.1vw,14px);line-height:1.7;color:var(--brand-primary);display:flex;align-items:center;">{{ hsInfo }}</div>
+        <div style="font-size:12px;color:#6d6488;margin-top:8px;text-align:center;">الشكل (3): مجموعة متسعات مختلفة الأنواع والأحجام لتطبيقات عملية مختلفة</div>
+      </div>
+      <div style="flex:1;min-width:240px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);font-size:clamp(13px,2.2vw,15px);line-height:2;color:var(--brand-ink);">
+        <b style="color:var(--brand-primary);">مثال من حياتك:</b> فلاش الكاميرا في هاتفك يعتمد على متسعة صغيرة تُشحن ببطء ثم تفرّغ طاقتها دفعة واحدة لتصدر الومضة الساطعة.
+      </div>
+    </div>
+
+    <!-- drag & drop matching -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:4px;">نشاط: طابق اسم كل شكل هندسي مع رسمه</div>
+      <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;margin-bottom:12px;">اسحب الاسم إلى الرسم الصحيح — أو انقر الاسم ثم انقر الرسم.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;">
+        <button onPointerDown="{{ dragCyl }}" style="flex:1;min-width:150px;min-height:48px;touch-action:none;user-select:none;-webkit-user-select:none;border:1.5px solid {{ chipCylB }};border-radius:11px;background:{{ chipCylBg }};color:{{ chipCylC }};font-family:inherit;font-size:13.5px;font-weight:700;cursor:grab;" style-hover="background:var(--brand-tint-2);">أسطوانتان متمركزتان</button>
+        <button onPointerDown="{{ dragSph }}" style="flex:1;min-width:150px;min-height:48px;touch-action:none;user-select:none;-webkit-user-select:none;border:1.5px solid {{ chipSphB }};border-radius:11px;background:{{ chipSphBg }};color:{{ chipSphC }};font-family:inherit;font-size:13.5px;font-weight:700;cursor:grab;" style-hover="background:var(--brand-tint-2);">كرتان متمركزتان</button>
+        <button onPointerDown="{{ dragPla }}" style="flex:1;min-width:150px;min-height:48px;touch-action:none;user-select:none;-webkit-user-select:none;border:1.5px solid {{ chipPlaB }};border-radius:11px;background:{{ chipPlaBg }};color:{{ chipPlaC }};font-family:inherit;font-size:13.5px;font-weight:700;cursor:grab;" style-hover="background:var(--brand-tint-2);">صفيحتان متوازيتان</button>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div id="s4dropPla" data-drop="pla" onClick="{{ dropPla }}" style="flex:1;min-width:140px;border:2px dashed {{ dropPlaB }};border-radius:13px;background:{{ dropPlaBg }};padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;min-height:120px;">
+          <svg viewBox="0 0 120 70" style="width:min(120px,70%);height:auto;pointer-events:none;">
+            <rect x="34" y="10" width="52" height="50" rx="4" style="fill:var(--brand-tint);opacity:.6;"></rect>
+            <rect x="26" y="6" width="8" height="58" rx="3" style="fill:var(--brand-primary);"></rect>
+            <rect x="86" y="6" width="8" height="58" rx="3" style="fill:var(--brand-primary);"></rect>
+          </svg>
+          <div style="font-size:12.5px;font-weight:700;color:var(--brand-primary);min-height:18px;pointer-events:none;">{{ dropPlaLabel }}</div>
+        </div>
+        <div id="s4dropCyl" data-drop="cyl" onClick="{{ dropCyl }}" style="flex:1;min-width:140px;border:2px dashed {{ dropCylB }};border-radius:13px;background:{{ dropCylBg }};padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;min-height:120px;">
+          <svg viewBox="0 0 120 70" style="width:min(120px,70%);height:auto;pointer-events:none;">
+            <rect x="18" y="8" width="84" height="54" rx="27" style="fill:var(--brand-primary);"></rect>
+            <rect x="28" y="18" width="64" height="34" rx="17" style="fill:var(--brand-tint);"></rect>
+            <rect x="38" y="27" width="44" height="16" rx="8" style="fill:var(--brand-primary);opacity:.85;"></rect>
+          </svg>
+          <div style="font-size:12.5px;font-weight:700;color:var(--brand-primary);min-height:18px;pointer-events:none;">{{ dropCylLabel }}</div>
+        </div>
+        <div id="s4dropSph" data-drop="sph" onClick="{{ dropSph }}" style="flex:1;min-width:140px;border:2px dashed {{ dropSphB }};border-radius:13px;background:{{ dropSphBg }};padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;min-height:120px;">
+          <svg viewBox="0 0 120 70" style="width:min(120px,70%);height:auto;pointer-events:none;">
+            <circle cx="60" cy="35" r="32" style="fill:var(--brand-primary);"></circle>
+            <circle cx="60" cy="35" r="24" style="fill:var(--brand-tint);"></circle>
+            <circle cx="60" cy="35" r="14" style="fill:var(--brand-primary);opacity:.85;"></circle>
+          </svg>
+          <div style="font-size:12.5px;font-weight:700;color:var(--brand-primary);min-height:18px;pointer-events:none;">{{ dropSphLabel }}</div>
+        </div>
+      </div>
+      <sc-if value="{{ hasMatchMsg }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:{{ matchMsgBg }};border:1px solid {{ matchMsgB }};border-radius:11px;padding:11px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:{{ matchMsgC }};">{{ matchMsg }}</div>
+      </sc-if>
+      <sc-if value="{{ matchDone }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:11px 14px;font-size:clamp(13px,2.2vw,14.5px);color:var(--brand-primary);font-weight:700;">أكملت المطابقة — تعرف الآن الأشكال الهندسية الثلاثة للمتسعات.</div>
+          <button onClick="{{ resetMatch }}" style="min-height:44px;padding:8px 18px;border:1px solid var(--brand-tint);border-radius:10px;background:#fff;color:#6d6488;font-family:inherit;font-size:13px;cursor:pointer;" style-hover="background:var(--brand-tint-2);">إعادة النشاط</button>
+        </div>
+      </sc-if>
+    </div>
+
+    <!-- quick check -->
+    <div style="background:var(--brand-paper);border:1.5px solid var(--brand-accent);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,17px);margin-bottom:10px;">سؤال سريع: أي متسعة سنتناولها بالدراسة في هذا الفصل؟</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ pick0 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">ذات الأسطوانتين المتمركزتين</button>
+        <button onClick="{{ pick1 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">ذات الصفيحتين المتوازيتين</button>
+        <button onClick="{{ pick2 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">ذات الكرتين المتمركزتين</button>
+      </div>
+      <sc-if value="{{ answeredRight }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:var(--brand-primary);"><b>إجابة صحيحة.</b> كما ورد في نهاية هذا القسم من الكتاب: سنتناول في دراستنا في هذا الفصل المتسعة ذات الصفيحتين المتوازيتين.</div>
+      </sc-if>
+      <sc-if value="{{ answeredWrong }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:#8c2f38;"><b>ليس تماماً.</b> الأشكال الثلاثة كلها متسعات صحيحة، لكن الكتاب يحدد أن دراستنا في هذا الفصل ستقتصر على المتسعة ذات الصفيحتين المتوازيتين. حاول مرة أخرى.</div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;">
+      <button onClick="{{ goPrev }}" style="min-height:50px;padding:12px 26px;border:1.5px solid var(--brand-primary);border-radius:12px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">→ المشهد السابق</button>
+      <button onClick="{{ goNext }}" style="min-height:50px;padding:12px 30px;border:none;border-radius:12px;background:var(--brand-accent);color:var(--brand-primary-dark);font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(0,195,254,.35);" style-hover="background:#4fd6ff;">اختبار الدرس: هل تحقق الهدف؟ ←</button>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    shape: 'plates', chg: 3,
+    hs: null,
+    selected: null,
+    solved: (function(){ try { return JSON.parse(localStorage.getItem('ta3leem-l1s4-match')) || { pla: false, cyl: false, sph: false }; } catch (e) { return { pla: false, cyl: false, sph: false }; } })(),
+    matchMsg: null, matchOk: false,
+    ans: (function(){ try { const v = localStorage.getItem('ta3leem-l1s4-q1'); return v === null ? null : parseInt(v, 10); } catch (e) { return null; } })()
+  };
+
+  LABELS = { pla: 'صفيحتان متوازيتان', cyl: 'أسطوانتان متمركزتان', sph: 'كرتان متمركزتان' };
+
+  componentDidMount() {
+    this._flipIn();
+    this.drawCharges();
+    // drag ghost + global pointer listeners
+    const g = document.createElement('div');
+    g.style.cssText = 'position:fixed;display:none;z-index:999;pointer-events:none;padding:10px 18px;border-radius:11px;background:#200058;color:#fff;font-weight:700;font-size:13.5px;box-shadow:0 8px 22px rgba(32,0,88,.4);font-family:inherit;';
+    document.body.appendChild(g);
+    this._ghost = g;
+    this._onMove = (e) => {
+      if (!this._drag) return;
+      this._moved = true;
+      g.style.display = 'block';
+      g.style.left = (e.clientX + 12) + 'px';
+      g.style.top = (e.clientY - 22) + 'px';
+    };
+    this._onUp = (e) => {
+      if (!this._drag) return;
+      const k = this._drag;
+      const moved = this._moved;
+      this._drag = null; this._moved = false;
+      g.style.display = 'none';
+      if (moved) {
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        const t = el && el.closest ? el.closest('[data-drop]') : null;
+        if (t) { this.tryPlace(t.getAttribute('data-drop'), k); return; }
+      }
+      // treated as tap: keep selection
+      this.setState({ selected: k, matchMsg: null });
+    };
+    window.addEventListener('pointermove', this._onMove);
+    window.addEventListener('pointerup', this._onUp);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('pointermove', this._onMove);
+    window.removeEventListener('pointerup', this._onUp);
+    if (this._ghost) this._ghost.remove();
+  }
+
+  _flipIn() {}
+  _flipOut(href, dir) { try { localStorage.setItem('ta3leem-phys-navdir', dir); } catch (e) {} location.href = href; }
+
+  drawCharges() {
+    const g = document.getElementById('s4Charges');
+    if (!g) return;
+    const n = this.state.chg;
+    const shape = this.state.shape;
+    const accent = window.BRAND ? window.BRAND.accent : '#00c3fe';
+    const alert = window.BRAND ? window.BRAND.alert : '#f6848e';
+    const T = (x, y, s, c, fs) => '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="middle" font-size="' + (fs || 15) + '" font-weight="bold" fill="' + c + '">' + s + '</text>';
+    let h = '';
+    if (n > 0) {
+      if (shape === 'plates') {
+        for (let i = 0; i < n; i++) {
+          const y = 80 + i * (150 / Math.max(1, n - 1 || 1));
+          h += T(320, y, '+', accent) + T(140, y, '−', alert, 17);
+        }
+      } else if (shape === 'cylinders') {
+        for (let i = 0; i < n; i++) {
+          const x = 196 + i * (88 / Math.max(1, n - 1 || 1));
+          h += T(x, 155, '+', accent, 13);
+          h += T(160 + i * (160 / Math.max(1, n - 1 || 1)), 90, '−', alert, 15);
+          h += T(160 + i * (160 / Math.max(1, n - 1 || 1)), 220, '−', alert, 15);
+        }
+      } else {
+        for (let i = 0; i < n; i++) {
+          const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+          h += T(230 + Math.cos(a) * 28, 155 + Math.sin(a) * 28 - 5 + 5, '+', accent, 13);
+          h += T(230 + Math.cos(a) * 82, 155 + Math.sin(a) * 82, '−', alert, 15);
+        }
+      }
+    }
+    g.innerHTML = h;
+  }
+
+  tryPlace(target, chip) {
+    const solved = Object.assign({}, this.state.solved);
+    if (solved[target]) { this.setState({ selected: null, matchMsg: null }); return; }
+    if (target === chip) {
+      solved[target] = true;
+      try { localStorage.setItem('ta3leem-l1s4-match', JSON.stringify(solved)); } catch (e) {}
+      this.setState({ solved, selected: null, matchOk: true, matchMsg: 'أحسنت — «' + this.LABELS[chip] + '» في مكانها الصحيح: موصلان يفصل بينهما عازل بهذا الشكل الهندسي.' });
+    } else {
+      const el = document.getElementById(target === 'pla' ? 's4dropPla' : target === 'cyl' ? 's4dropCyl' : 's4dropSph');
+      if (el) { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = 's4shake .4s ease'; }
+      this.setState({ selected: null, matchOk: false, matchMsg: 'ليس هذا الرسم — انظر إلى شكل الموصلين: «' + this.LABELS[chip] + '» لهما شكل مختلف. حاول مرة أخرى.' });
+    }
+  }
+
+  renderVals() {
+    const { shape, chg, hs, ans, selected, solved, matchMsg, matchOk } = this.state;
+    const labels = {
+      plates: 'متسعة ذات صفيحتين متوازيتين',
+      cylinders: 'متسعة ذات أسطوانتين متمركزتين',
+      spheres: 'متسعة ذات كرتين متمركزتين'
+    };
+    const sel = (s) => shape === s ? 'var(--brand-accent)' : 'var(--brand-tint)';
+    const border = (i) => ans === null ? 'var(--brand-tint)' : (i === 1 ? 'var(--brand-accent)' : (i === ans ? 'var(--brand-alert)' : 'var(--brand-tint)'));
+    const pick = (i) => () => {
+      try { localStorage.setItem('ta3leem-l1s4-q1', String(i)); } catch (e) {}
+      this.setState({ ans: i });
+    };
+    const HS = [
+      'متسعة إلكتروليتية كبيرة — تخزن شحنة كبيرة، تستعمل في دوائر تغذية الأجهزة.',
+      'متسعة إلكتروليتية صغيرة — شائعة في اللوحات الإلكترونية.',
+      'متسعة قرصية (خزفية) — صغيرة الحجم، للسعات الصغيرة.',
+      'متسعة رقائقية — تستعمل في الدوائر الإلكترونية المختلفة.',
+      'متسعة متغيرة السعة — تستعمل في توليف محطات الراديو.'
+    ];
+    const hsF = (i) => () => this.setState({ hs: this.state.hs === i ? null : i });
+    const hsOp = (i) => hs === null ? '1' : (hs === i ? '1' : '0.4');
+    const chipVals = (k, pre) => {
+      const out = {};
+      out['chip' + pre + 'B'] = solved[k] ? 'var(--brand-accent)' : (selected === k ? 'var(--brand-accent)' : 'var(--brand-primary)');
+      out['chip' + pre + 'Bg'] = solved[k] ? 'rgba(0,195,254,.12)' : (selected === k ? 'var(--brand-tint-2)' : '#fff');
+      out['chip' + pre + 'C'] = solved[k] ? '#6d6488' : 'var(--brand-primary)';
+      return out;
+    };
+    const dragF = (k) => (e) => {
+      if (solved[k]) return;
+      this._drag = k; this._moved = false;
+      if (this._ghost) this._ghost.textContent = this.LABELS[k];
+    };
+    const dropF = (k) => () => { if (this.state.selected) this.tryPlace(k, this.state.selected); };
+    const dropB = (k) => solved[k] ? 'var(--brand-accent)' : (selected ? 'var(--brand-alert)' : 'var(--brand-tint)');
+    const dropBg = (k) => solved[k] ? 'rgba(0,195,254,.08)' : 'var(--brand-tint-2)';
+    return Object.assign(
+      chipVals('cyl', 'Cyl'), chipVals('sph', 'Sph'), chipVals('pla', 'Pla'),
+      {
+        isPlates: shape === 'plates',
+        isCylinders: shape === 'cylinders',
+        isSpheres: shape === 'spheres',
+        shapeLabel: labels[shape],
+        setPlates: () => this.setState({ shape: 'plates' }, () => this.drawCharges()),
+        setCylinders: () => this.setState({ shape: 'cylinders' }, () => this.drawCharges()),
+        setSpheres: () => this.setState({ shape: 'spheres' }, () => this.drawCharges()),
+        bPlates: sel('plates'), bCylinders: sel('cylinders'), bSpheres: sel('spheres'),
+        chg,
+        chgLabel: chg === 0 ? 'غير مشحونة' : '±' + chg + 'q',
+        setChg: (e) => this.setState({ chg: parseInt(e.target.value, 10) }, () => this.drawCharges()),
+        hs0: hsF(0), hs1: hsF(1), hs2: hsF(2), hs3: hsF(3), hs4: hsF(4),
+        hs0op: hsOp(0), hs1op: hsOp(1), hs2op: hsOp(2), hs3op: hsOp(3), hs4op: hsOp(4),
+        hsInfo: hs === null ? 'انقر أي متسعة في الصورة أعلاه لمعرفة نوعها واستعمالها.' : HS[hs],
+        hsBorder: hs === null ? 'var(--brand-tint)' : 'var(--brand-accent)',
+        dragCyl: dragF('cyl'), dragSph: dragF('sph'), dragPla: dragF('pla'),
+        dropPla: dropF('pla'), dropCyl: dropF('cyl'), dropSph: dropF('sph'),
+        dropPlaB: dropB('pla'), dropCylB: dropB('cyl'), dropSphB: dropB('sph'),
+        dropPlaBg: dropBg('pla'), dropCylBg: dropBg('cyl'), dropSphBg: dropBg('sph'),
+        dropPlaLabel: solved.pla ? this.LABELS.pla : '؟',
+        dropCylLabel: solved.cyl ? this.LABELS.cyl : '؟',
+        dropSphLabel: solved.sph ? this.LABELS.sph : '؟',
+        hasMatchMsg: !!matchMsg,
+        matchMsg: matchMsg || '',
+        matchMsgBg: matchOk ? 'rgba(0,195,254,.1)' : 'rgba(246,132,142,.1)',
+        matchMsgB: matchOk ? 'var(--brand-accent)' : 'var(--brand-alert)',
+        matchMsgC: matchOk ? 'var(--brand-primary)' : '#8c2f38',
+        matchDone: solved.pla && solved.cyl && solved.sph,
+        resetMatch: () => {
+          const s = { pla: false, cyl: false, sph: false };
+          try { localStorage.setItem('ta3leem-l1s4-match', JSON.stringify(s)); } catch (e) {}
+          this.setState({ solved: s, matchMsg: null, selected: null });
+        },
+        pick0: pick(0), pick1: pick(1), pick2: pick(2),
+        b0: border(0), b1: border(1), b2: border(2),
+        answeredRight: ans === 1,
+        answeredWrong: ans !== null && ans !== 1,
+        goPrev: () => this._flipOut('Physics L1 Scene 3 - The Capacitor.dc.html', 'prev'),
+        goNext: () => this._flipOut('Physics L1 Check.dc.html', 'next')
+      }
+    );
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;}
+html{background:#e2d8f2;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;overflow:hidden;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+@keyframes pbHintPulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+</style>
+</helmet>
+
+<div id="pbRoot" dir="rtl" style="height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 60%, #ded4f0 100%);">
+
+  <!-- ======================= TOP BAR ======================= -->
+  <div id="pbBar" style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 14px;background:rgba(255,255,255,.88);border-bottom:1px solid var(--brand-tint);position:relative;z-index:100;">
+    <img src="brand/logo.svg" alt="تعليم" style="height:36px;width:auto;display:block;">
+    <div style="display:flex;flex-direction:column;line-height:1.25;">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:15px;">الفيزياء</div>
+      <div style="font-size:11px;color:#6d6488;">السادس العلمي · الكتاب التفاعلي</div>
+    </div>
+    <div style="flex:1;"></div>
+    <div style="direction:ltr;font-size:13px;font-weight:500;color:var(--brand-primary);background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:9px;padding:6px 12px;min-width:64px;text-align:center;">{{ pageLabel }}</div>
+    <button onClick="{{ toggleToc }}" title="الفهرس" style="display:flex;align-items:center;gap:7px;height:44px;padding:0 14px;border:1px solid var(--brand-tint);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);border-color:var(--brand-accent);">
+      <svg viewBox="0 0 20 20" style="width:18px;height:18px;"><path d="M3 5h14M3 10h14M3 15h9" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none;"></path></svg>
+      <span>الفهرس</span>
+    </button>
+    <button onClick="{{ toggleMute }}" title="صوت تقليب الصفحات" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--brand-tint);border-radius:11px;background:#fff;color:var(--brand-primary);cursor:pointer;" style-hover="background:var(--brand-tint-2);border-color:var(--brand-accent);">
+      <sc-if value="{{ muted }}" hint-placeholder-val="{{ true }}">
+        <svg viewBox="0 0 22 22" style="width:20px;height:20px;"><path d="M4 9v4h3l4 3.5v-11L7 9H4z" style="fill:currentColor;"></path><path d="M14 8l5 6M19 8l-5 6" style="stroke:var(--brand-alert);stroke-width:2;stroke-linecap:round;fill:none;"></path></svg>
+      </sc-if>
+      <sc-if value="{{ notMuted }}" hint-placeholder-val="{{ false }}">
+        <svg viewBox="0 0 22 22" style="width:20px;height:20px;"><path d="M4 9v4h3l4 3.5v-11L7 9H4z" style="fill:currentColor;"></path><path d="M14.5 8.5a4 4 0 010 5M16.5 6.5a7 7 0 010 9" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none;"></path></svg>
+      </sc-if>
+    </button>
+    <button onClick="{{ toggleAuto }}" title="التقليب التلقائي" style="display:flex;align-items:center;gap:7px;height:44px;padding:0 14px;border:1px solid var(--brand-tint);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);border-color:var(--brand-accent);">
+      <sc-if value="{{ notPlaying }}" hint-placeholder-val="{{ true }}">
+        <svg viewBox="0 0 20 20" style="width:16px;height:16px;"><path d="M6 4l10 6-10 6V4z" style="fill:currentColor;"></path></svg>
+        <span>تقليب تلقائي</span>
+      </sc-if>
+      <sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+        <svg viewBox="0 0 20 20" style="width:16px;height:16px;"><path d="M5 4h3.4v12H5zM11.6 4H15v12h-3.4z" style="fill:var(--brand-alert);"></path></svg>
+        <span style="color:var(--brand-alert);">إيقاف التقليب</span>
+      </sc-if>
+    </button>
+    <button onClick="{{ prev }}" title="الصفحة السابقة" style="display:flex;align-items:center;gap:6px;height:44px;padding:0 16px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">
+      <svg viewBox="0 0 20 20" style="width:16px;height:16px;"><path d="M7.5 4l6 6-6 6" style="stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;fill:none;"></path></svg>
+      <span>السابق</span>
+    </button>
+    <button onClick="{{ next }}" title="الصفحة التالية" style="display:flex;align-items:center;gap:6px;height:44px;padding:0 18px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(32,0,88,.25);" style-hover="background:var(--brand-primary-dark);">
+      <span>التالي</span>
+      <svg viewBox="0 0 20 20" style="width:16px;height:16px;"><path d="M12.5 4l-6 6 6 6" style="stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;fill:none;"></path></svg>
+    </button>
+  </div>
+
+  <!-- ======================= BOOK STAGE ======================= -->
+  <div id="pbStage" style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:0;">
+    <div id="pbViewport" style="position:relative;width:var(--vpw,900px);height:var(--ph,600px);perspective:2800px;">
+      <div id="pbBook" style="position:absolute;top:0;left:0;width:calc(var(--pw,450px)*2);height:100%;transform-style:preserve-3d;">
+
+        <!-- page-block thickness at the spine -->
+        <div id="pbStackL" style="position:absolute;top:5px;bottom:5px;right:calc(var(--pw,450px) + 1px);width:12px;transform:translateX(calc(var(--pw,450px)*-1 + 12px));background:repeating-linear-gradient(to left,#efe9dd 0 1px,#fffdf8 1px 3px);border-radius:6px 0 0 6px;box-shadow:0 10px 26px rgba(32,0,88,.22);"></div>
+        <div id="pbStackR" style="position:absolute;top:5px;bottom:5px;left:calc(var(--pw,450px) + 1px);width:0;transform:translateX(calc(var(--pw,450px) - 12px));background:repeating-linear-gradient(to right,#efe9dd 0 1px,#fffdf8 1px 3px);border-radius:0 6px 6px 0;box-shadow:0 10px 26px rgba(32,0,88,.22);"></div>
+
+        <!-- =============== SHEET 0 : cover / about =============== -->
+        <div id="pbSheet0" style="position:absolute;top:0;left:0;width:var(--pw,450px);height:100%;transform-origin:100% 50%;transform-style:preserve-3d;">
+          <!-- p0 — front cover -->
+          <div data-screen-label="الغلاف" style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:12px 3px 3px 12px;background:linear-gradient(155deg,var(--brand-primary) 0%,var(--brand-primary-dark) 80%);color:#fff;box-shadow:0 14px 40px rgba(20,0,56,.4);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(var(--pw,450px)*0.06) calc(var(--pw,450px)*0.055);">
+            <img src="brand/logo-dark.svg" alt="تعليم" style="height:calc(var(--pw,450px)*0.105);width:auto;">
+            <div style="text-align:center;">
+              <div style="font-size:max(11px,calc(var(--pw,450px)*0.026));letter-spacing:.14em;color:var(--brand-accent);font-weight:500;">كتاب تفاعلي · السادس العلمي</div>
+              <div style="font-size:calc(var(--pw,450px)*0.155);font-weight:700;line-height:1.15;margin-top:calc(var(--pw,450px)*0.01);">الفيزياء</div>
+              <div style="width:calc(var(--pw,450px)*0.18);height:3px;border-radius:2px;background:linear-gradient(to left,var(--brand-accent),var(--brand-alert));margin:calc(var(--pw,450px)*0.022) auto 0;"></div>
+            </div>
+            <svg id="coverFig" viewBox="0 0 420 300" style="width:90%;height:auto;display:block;cursor:crosshair;touch-action:none;">
+              <defs><filter id="pbBoltGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter></defs>
+              <line x1="52" y1="150" x2="92" y2="150" style="stroke:rgba(255,255,255,.45);stroke-width:3;"></line>
+              <line x1="328" y1="150" x2="368" y2="150" style="stroke:rgba(255,255,255,.45);stroke-width:3;"></line>
+              <circle cx="48" cy="150" r="6" style="fill:none;stroke:var(--brand-accent);stroke-width:2.5;"></circle>
+              <circle cx="372" cy="150" r="6" style="fill:none;stroke:var(--brand-alert);stroke-width:2.5;"></circle>
+              <rect x="92" y="56" width="9" height="188" rx="4.5" style="fill:#ffffff;opacity:.94;"></rect>
+              <rect x="319" y="56" width="9" height="188" rx="4.5" style="fill:#ffffff;opacity:.94;"></rect>
+              <text x="78" y="92" style="fill:var(--brand-accent);font-size:22px;font-weight:700;font-family:sans-serif;">+</text>
+              <text x="78" y="160" style="fill:var(--brand-accent);font-size:22px;font-weight:700;font-family:sans-serif;">+</text>
+              <text x="78" y="228" style="fill:var(--brand-accent);font-size:22px;font-weight:700;font-family:sans-serif;">+</text>
+              <text x="336" y="90" style="fill:var(--brand-alert);font-size:24px;font-weight:700;font-family:sans-serif;">−</text>
+              <text x="336" y="158" style="fill:var(--brand-alert);font-size:24px;font-weight:700;font-family:sans-serif;">−</text>
+              <text x="336" y="226" style="fill:var(--brand-alert);font-size:24px;font-weight:700;font-family:sans-serif;">−</text>
+              <polyline id="pbBoltGlowLine" points="" filter="url(#pbBoltGlow)" style="fill:none;stroke:var(--brand-accent);stroke-width:10;opacity:.32;"></polyline>
+              <polyline id="pbBolt2" points="" style="fill:none;stroke:var(--brand-alert);stroke-width:1.6;opacity:.5;stroke-linejoin:round;stroke-linecap:round;"></polyline>
+              <polyline id="pbBolt" points="" style="fill:none;stroke:var(--brand-accent);stroke-width:3.2;stroke-linejoin:round;stroke-linecap:round;"></polyline>
+              <circle id="pbFlash" cx="210" cy="150" r="130" style="fill:var(--brand-accent);opacity:0;"></circle>
+            </svg>
+            <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:calc(var(--pw,450px)*0.022);width:100%;">
+              <div style="font-size:max(10px,calc(var(--pw,450px)*0.022));color:rgba(255,255,255,.72);animation:pbHintPulse 3s ease-in-out infinite;">حرّك المؤشر بين صفيحتي المتسعة… وانقر لتفريغ الشحنة</div>
+              <button onClick="{{ openBook }}" style="min-height:48px;padding:12px 34px;border:none;border-radius:12px;background:var(--brand-accent);color:var(--brand-primary-dark);font-family:inherit;font-weight:700;font-size:max(14px,calc(var(--pw,450px)*0.032));cursor:pointer;box-shadow:0 6px 18px rgba(0,195,254,.35);" style-hover="background:#4fd6ff;transform:translateY(-1px);">افتح الكتاب</button>
+            </div>
+            <div id="pbOv0f" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(10,0,30,.6),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ next }}" title="اقلب الصفحة" style="position:absolute;left:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:0 16px 0 12px;" style-hover="background:linear-gradient(45deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,.12) 45%,transparent 52%);"></div>
+          </div>
+          <!-- p1 — about the book -->
+          <div data-screen-label="عن هذا الكتاب" style="position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:3px 12px 12px 3px;background:var(--brand-paper);box-shadow:0 10px 30px rgba(32,0,88,.18);display:flex;flex-direction:column;padding:calc(var(--pw,450px)*0.065) calc(var(--pw,450px)*0.06);">
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(32,0,88,.09),transparent 9%);"></div>
+            <div style="font-size:max(11px,calc(var(--pw,450px)*0.024));color:var(--brand-accent);font-weight:700;letter-spacing:.08em;">مرحباً بك</div>
+            <div style="font-size:max(20px,calc(var(--pw,450px)*0.055));font-weight:700;color:var(--brand-primary);margin:4px 0 calc(var(--pw,450px)*0.04);">كيف تقرأ هذا الكتاب؟</div>
+            <div style="display:flex;flex-direction:column;gap:calc(var(--pw,450px)*0.028);font-size:max(12px,calc(var(--pw,450px)*0.027));line-height:1.8;color:var(--brand-ink);">
+              <div style="display:flex;gap:12px;align-items:flex-start;"><div style="min-width:34px;height:34px;border-radius:9px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-weight:700;">١</div><div>زرا <b>التالي</b> و<b>السابق</b> في الشريط العلوي يقلبان الصفحات كما في الكتاب الورقي.</div></div>
+              <div style="display:flex;gap:12px;align-items:flex-start;"><div style="min-width:34px;height:34px;border-radius:9px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-weight:700;">٢</div><div>انقر <b>زاوية الصفحة السفلية</b> لقلبها، أو <b>اسحب</b> عند حافة الصفحة على الشاشات اللمسية.</div></div>
+              <div style="display:flex;gap:12px;align-items:flex-start;"><div style="min-width:34px;height:34px;border-radius:9px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-weight:700;">٣</div><div>زر <b>التقليب التلقائي</b> يقلب الصفحات وحده، ويتوقف مؤقتاً عند أي تفاعل منك مع الصفحة.</div></div>
+              <div style="display:flex;gap:12px;align-items:flex-start;"><div style="min-width:34px;height:34px;border-radius:9px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-weight:700;">٤</div><div>صوت التقليب <b>مكتوم افتراضياً</b> — فعّله من زر السماعة إن رغبت.</div></div>
+              <div style="display:flex;gap:12px;align-items:flex-start;"><div style="min-width:34px;height:34px;border-radius:9px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-weight:700;">٥</div><div>تقدمك <b>محفوظ</b>: عند عودتك يُفتح الكتاب على آخر صفحة وصلت إليها.</div></div>
+            </div>
+            <div style="flex:1;"></div>
+            <button onClick="{{ goIndex }}" style="align-self:flex-start;min-height:46px;padding:10px 26px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-weight:700;font-size:max(13px,calc(var(--pw,450px)*0.028));cursor:pointer;" style-hover="background:var(--brand-primary-dark);">إلى فهرس الكتاب ←</button>
+            <div style="position:absolute;bottom:12px;left:18px;font-size:11px;color:#9a92b2;direction:ltr;">1</div>
+            <div id="pbOv0b" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,0,30,.5),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ prev }}" title="ارجع صفحة" style="position:absolute;right:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:16px 0 12px 0;" style-hover="background:linear-gradient(-45deg,rgba(32,0,88,.14) 0%,rgba(32,0,88,.05) 45%,transparent 52%);"></div>
+          </div>
+        </div>
+
+        <!-- =============== SHEET 1 : book index / chapter divider =============== -->
+        <div id="pbSheet1" style="position:absolute;top:0;left:0;width:var(--pw,450px);height:100%;transform-origin:100% 50%;transform-style:preserve-3d;">
+          <!-- p2 — book index -->
+          <div data-screen-label="فهرس الكتاب" style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:12px 3px 3px 12px;background:var(--brand-paper);box-shadow:0 10px 30px rgba(32,0,88,.18);display:flex;flex-direction:column;padding:calc(var(--pw,450px)*0.06) calc(var(--pw,450px)*0.055);">
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(32,0,88,.09),transparent 9%);"></div>
+            <div style="font-size:max(20px,calc(var(--pw,450px)*0.05));font-weight:700;color:var(--brand-primary);margin-bottom:calc(var(--pw,450px)*0.03);">فهرس الكتاب</div>
+            <div style="display:flex;flex-direction:column;gap:calc(var(--pw,450px)*0.014);font-size:max(12px,calc(var(--pw,450px)*0.026));">
+              <div onClick="{{ goCh1 }}" style="display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 12px;border-radius:11px;background:var(--brand-tint-2);border:1.5px solid var(--brand-accent);cursor:pointer;" style-hover="background:var(--brand-tint);">
+                <div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">1</div>
+                <div style="flex:1;font-weight:700;color:var(--brand-primary);">المتسعات</div>
+                <div style="font-size:max(10px,calc(var(--pw,450px)*0.02));color:var(--brand-accent);font-weight:700;">افتح ←</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">2</div><div style="flex:1;">الحث الكهرومغناطيسي</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">3</div><div style="flex:1;">التيار المتناوب</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">4</div><div style="flex:1;">الموجات الكهرومغناطيسية</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">5</div><div style="flex:1;">البصريات الفيزيائية</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">6</div><div style="flex:1;">الفيزياء الحديثة</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">7</div><div style="flex:1;">إلكترونيات الحالة الصلبة</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">8</div><div style="flex:1;">الأطياف الذرية والليزر</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">9</div><div style="flex:1;">النظرية النسبية</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:10px;min-height:40px;padding:5px 12px;border-radius:11px;color:#8b83a5;"><div style="min-width:30px;height:30px;border-radius:8px;background:var(--brand-tint);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.023));">10</div><div style="flex:1;">الفيزياء النووية</div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;">قريباً</div></div>
+            </div>
+            <div style="position:absolute;bottom:12px;right:18px;font-size:11px;color:#9a92b2;direction:ltr;">2</div>
+            <div id="pbOv1f" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(10,0,30,.5),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ next }}" title="اقلب الصفحة" style="position:absolute;left:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:0 16px 0 12px;" style-hover="background:linear-gradient(45deg,rgba(32,0,88,.14) 0%,rgba(32,0,88,.05) 45%,transparent 52%);"></div>
+          </div>
+          <!-- p3 — chapter 1 divider -->
+          <div data-screen-label="الفصل الأول" style="position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:3px 12px 12px 3px;background:linear-gradient(165deg,var(--brand-tint-2),var(--brand-tint));box-shadow:0 10px 30px rgba(32,0,88,.18);display:flex;flex-direction:column;padding:calc(var(--pw,450px)*0.07) calc(var(--pw,450px)*0.065);">
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(32,0,88,.09),transparent 9%);"></div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="font-size:max(12px,calc(var(--pw,450px)*0.027));font-weight:700;color:var(--brand-accent);letter-spacing:.1em;">الفصل الأول</div>
+              <div style="font-size:max(10px,calc(var(--pw,450px)*0.02));color:var(--brand-primary);background:#fff;border:1px solid var(--brand-tint);padding:3px 12px;border-radius:99px;font-weight:500;">10 دروس</div>
+            </div>
+            <div style="font-size:calc(var(--pw,450px)*0.105);font-weight:700;color:var(--brand-primary);line-height:1.2;margin-top:6px;">المتسعات</div>
+            <div style="font-size:max(11px,calc(var(--pw,450px)*0.026));color:#6d6488;direction:ltr;text-align:right;">Capacitors</div>
+            <div style="width:calc(var(--pw,450px)*0.16);height:3px;border-radius:2px;background:linear-gradient(to left,var(--brand-accent),var(--brand-alert));margin:calc(var(--pw,450px)*0.035) 0;"></div>
+            <div style="font-weight:700;color:var(--brand-primary);font-size:max(13px,calc(var(--pw,450px)*0.03));margin-bottom:10px;">في هذا الفصل ستتعلم:</div>
+            <div style="display:flex;flex-direction:column;gap:10px;font-size:max(12px,calc(var(--pw,450px)*0.026));line-height:1.75;color:var(--brand-ink);">
+              <div style="display:flex;gap:10px;"><div style="min-width:9px;height:9px;border-radius:50%;background:var(--brand-accent);margin-top:9px;"></div><div>كيف يخزّن الموصل الشحنة الكهربائية، وما المتسعة.</div></div>
+              <div style="display:flex;gap:10px;"><div style="min-width:9px;height:9px;border-radius:50%;background:var(--brand-accent);margin-top:9px;"></div><div>سعة المتسعة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,'Times New Roman',serif;">C = Q/ΔV</span> والعوامل المؤثرة فيها والعازل الكهربائي.</div></div>
+              <div style="display:flex;gap:10px;"><div style="min-width:9px;height:9px;border-radius:50%;background:var(--brand-accent);margin-top:9px;"></div><div>ربط المتسعات على التوازي وعلى التوالي.</div></div>
+              <div style="display:flex;gap:10px;"><div style="min-width:9px;height:9px;border-radius:50%;background:var(--brand-accent);margin-top:9px;"></div><div>الطاقة المختزنة في المتسعة، شحنها وتفريغها، وأنواعها وتطبيقاتها العملية.</div></div>
+            </div>
+            <div style="flex:1;"></div>
+            <button onClick="{{ goLessons }}" style="align-self:flex-start;min-height:46px;padding:10px 28px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-weight:700;font-size:max(13px,calc(var(--pw,450px)*0.028));cursor:pointer;" style-hover="background:var(--brand-primary-dark);">▶ عرض الدروس</button>
+            <div style="position:absolute;bottom:12px;left:18px;font-size:11px;color:#9a92b2;direction:ltr;">3</div>
+            <div id="pbOv1b" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,0,30,.5),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ prev }}" title="ارجع صفحة" style="position:absolute;right:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:16px 0 12px 0;" style-hover="background:linear-gradient(-45deg,rgba(32,0,88,.14) 0%,rgba(32,0,88,.05) 45%,transparent 52%);"></div>
+          </div>
+        </div>
+
+        <!-- =============== SHEET 2 : lessons 1–5 / 6–10 =============== -->
+        <div id="pbSheet2" style="position:absolute;top:0;left:0;width:var(--pw,450px);height:100%;transform-origin:100% 50%;transform-style:preserve-3d;">
+          <!-- p4 — lessons 1..5 -->
+          <div data-screen-label="دروس الفصل الأول 1-5" style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:12px 3px 3px 12px;background:var(--brand-paper);box-shadow:0 10px 30px rgba(32,0,88,.18);display:flex;flex-direction:column;padding:calc(var(--pw,450px)*0.06) calc(var(--pw,450px)*0.055);">
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(32,0,88,.09),transparent 9%);"></div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:calc(var(--pw,450px)*0.03);">
+              <div style="font-size:max(18px,calc(var(--pw,450px)*0.045));font-weight:700;color:var(--brand-primary);">دروس الفصل الأول</div>
+              <div style="font-size:max(11px,calc(var(--pw,450px)*0.024));color:var(--brand-accent);font-weight:700;direction:ltr;">1–5</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:calc(var(--pw,450px)*0.02);">
+              <a href="Physics L1 Blueprint.dc.html" style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1.5px solid var(--brand-accent);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);text-decoration:none;color:inherit;cursor:pointer;" style-hover="background:var(--brand-tint);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-1</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-primary);font-size:max(12px,calc(var(--pw,450px)*0.027));">المتسعة</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">الموصل المعزول وخزن الشحنات الكهربائية · 4 مشاهد + اختبار</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-primary-dark);background:var(--brand-accent);padding:3px 11px;border-radius:99px;white-space:nowrap;font-weight:700;">ابدأ ←</div></a>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-2</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">سعة المتسعة</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">تعريف السعة <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">C = Q/ΔV</span> ووحدتها الفاراد</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-3</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">المتسعة ذات الصفيحتين المتوازيتين</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">بنيتها والعوامل المؤثرة في سعتها</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-4</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">العازل الكهربائي</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">نشاط تجربة فراداي وثابت العزل الكهربائي</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-5</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">ربط المتسعات على التوازي</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">السعة المكافئة وخصائص هذا الربط</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+            </div>
+            <div style="position:absolute;bottom:12px;right:18px;font-size:11px;color:#9a92b2;direction:ltr;">4</div>
+            <div id="pbOv2f" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(10,0,30,.5),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ next }}" title="اقلب الصفحة" style="position:absolute;left:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:0 16px 0 12px;" style-hover="background:linear-gradient(45deg,rgba(32,0,88,.14) 0%,rgba(32,0,88,.05) 45%,transparent 52%);"></div>
+          </div>
+          <!-- p5 — lessons 6..10 -->
+          <div data-screen-label="دروس الفصل الأول 6-10" style="position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:3px 12px 12px 3px;background:var(--brand-paper);box-shadow:0 10px 30px rgba(32,0,88,.18);display:flex;flex-direction:column;padding:calc(var(--pw,450px)*0.06) calc(var(--pw,450px)*0.055);">
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(32,0,88,.09),transparent 9%);"></div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:calc(var(--pw,450px)*0.03);">
+              <div style="font-size:max(18px,calc(var(--pw,450px)*0.045));font-weight:700;color:var(--brand-primary);">دروس الفصل الأول</div>
+              <div style="font-size:max(11px,calc(var(--pw,450px)*0.024));color:var(--brand-accent);font-weight:700;direction:ltr;">6–10</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:calc(var(--pw,450px)*0.02);">
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-6</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">ربط المتسعات على التوالي</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">السعة المكافئة وخصائص هذا الربط</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-7</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">الطاقة المختزنة في المتسعة</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">العلاقات الخاصة بحساب الطاقة المختزنة</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-8</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">دائرة مقاومة ومتسعة</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">كيفية شحن المتسعة وتفريغها</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-9</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">بعض أنواع المتسعات</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">مكوناتها ومميزاتها واستعمالاتها</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+              <div style="display:flex;align-items:center;gap:12px;background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:calc(var(--pw,450px)*0.024) calc(var(--pw,450px)*0.03);"><div style="min-width:calc(var(--pw,450px)*0.105);height:calc(var(--pw,450px)*0.07);display:flex;align-items:center;justify-content:center;background:var(--brand-primary);color:#fff;border-radius:9px;font-weight:700;font-size:max(11px,calc(var(--pw,450px)*0.024));direction:ltr;">1-10</div><div style="flex:1;min-width:0;"><div style="font-weight:700;color:var(--brand-ink);font-size:max(12px,calc(var(--pw,450px)*0.027));">التطبيقات العملية للمتسعة</div><div style="color:#6d6488;font-size:max(10px,calc(var(--pw,450px)*0.021));">أمثلة من الأجهزة والحياة اليومية</div></div><div style="font-size:max(9px,calc(var(--pw,450px)*0.018));color:var(--brand-alert);background:rgba(246,132,142,.12);border:1px solid rgba(246,132,142,.35);padding:2px 9px;border-radius:99px;white-space:nowrap;">قريباً</div></div>
+            </div>
+            <div style="position:absolute;bottom:12px;left:18px;font-size:11px;color:#9a92b2;direction:ltr;">5</div>
+            <div id="pbOv2b" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,0,30,.5),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ prev }}" title="ارجع صفحة" style="position:absolute;right:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:16px 0 12px 0;" style-hover="background:linear-gradient(-45deg,rgba(32,0,88,.14) 0%,rgba(32,0,88,.05) 45%,transparent 52%);"></div>
+          </div>
+        </div>
+
+        <!-- =============== SHEET 3 : closing / back cover =============== -->
+        <div id="pbSheet3" style="position:absolute;top:0;left:0;width:var(--pw,450px);height:100%;transform-origin:100% 50%;transform-style:preserve-3d;">
+          <!-- p6 — closing -->
+          <div data-screen-label="الخاتمة" style="position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:12px 3px 3px 12px;background:var(--brand-paper);box-shadow:0 10px 30px rgba(32,0,88,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--pw,450px)*0.08);gap:calc(var(--pw,450px)*0.03);">
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(32,0,88,.09),transparent 9%);"></div>
+            <img src="brand/logo.svg" alt="تعليم" style="height:calc(var(--pw,450px)*0.12);width:auto;opacity:.9;">
+            <div style="font-size:max(18px,calc(var(--pw,450px)*0.045));font-weight:700;color:var(--brand-primary);">الدروس التفاعلية قيد الإعداد</div>
+            <div style="font-size:max(12px,calc(var(--pw,450px)*0.027));line-height:1.9;color:var(--brand-ink);max-width:85%;">كل درس سيتضمن مخططاً تعريفياً، ومشاهد تفاعلية تشرح كل فكرة بشكلٍ متحرك تتحكم به بنفسك، واختباراً قصيراً في نهايته. ستُضاف الدروس إلى هذه النسخة تباعاً.</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+              <button onClick="{{ goIndex }}" style="min-height:46px;padding:10px 24px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-weight:700;font-size:max(13px,calc(var(--pw,450px)*0.027));cursor:pointer;" style-hover="background:var(--brand-primary-dark);">العودة إلى الفهرس</button>
+              <button onClick="{{ goCover }}" style="min-height:46px;padding:10px 24px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-weight:500;font-size:max(13px,calc(var(--pw,450px)*0.027));cursor:pointer;" style-hover="background:var(--brand-tint-2);">الغلاف</button>
+            </div>
+            <div style="position:absolute;bottom:12px;right:18px;font-size:11px;color:#9a92b2;direction:ltr;">6</div>
+            <div id="pbOv3f" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(10,0,30,.5),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ next }}" title="اقلب الصفحة" style="position:absolute;left:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:0 16px 0 12px;" style-hover="background:linear-gradient(45deg,rgba(32,0,88,.14) 0%,rgba(32,0,88,.05) 45%,transparent 52%);"></div>
+          </div>
+          <!-- p7 — back cover -->
+          <div data-screen-label="الغلاف الخلفي" style="position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:3px 12px 12px 3px;background:linear-gradient(155deg,var(--brand-primary-dark) 0%,var(--brand-primary) 90%);box-shadow:0 14px 40px rgba(20,0,56,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;">
+            <img src="brand/logo-dark.svg" alt="تعليم" style="height:calc(var(--pw,450px)*0.14);width:auto;">
+            <div style="font-size:max(12px,calc(var(--pw,450px)*0.026));color:rgba(255,255,255,.75);">الفيزياء · السادس العلمي</div>
+            <div style="width:calc(var(--pw,450px)*0.12);height:3px;border-radius:2px;background:linear-gradient(to left,var(--brand-accent),var(--brand-alert));"></div>
+            <div id="pbOv3b" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,0,30,.6),rgba(10,0,30,0) 60%);opacity:0;z-index:5;"></div>
+            <div onClick="{{ prev }}" title="ارجع صفحة" style="position:absolute;right:0;bottom:0;width:64px;height:64px;cursor:pointer;z-index:6;border-radius:16px 0 12px 0;" style-hover="background:linear-gradient(-45deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.1) 45%,transparent 52%);"></div>
+          </div>
+        </div>
+
+      </div>
+      <!-- swipe margins -->
+      <div id="pbSwL" style="position:absolute;left:-6px;top:10%;bottom:10%;width:9%;min-width:34px;z-index:70;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:pointer;"></div>
+      <div id="pbSwR" style="position:absolute;right:-6px;top:10%;bottom:10%;width:9%;min-width:34px;z-index:70;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:pointer;"></div>
+    </div>
+  </div>
+
+  <!-- ======================= TOC DRAWER ======================= -->
+  <sc-if value="{{ tocOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeToc }}" style="position:fixed;inset:0;background:rgba(20,0,56,.4);z-index:300;"></div>
+    <div style="position:fixed;top:0;bottom:0;right:0;width:min(340px,86vw);background:var(--brand-paper);z-index:301;box-shadow:-12px 0 40px rgba(20,0,56,.3);display:flex;flex-direction:column;padding:18px;overflow-y:auto;" dir="rtl">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+        <div style="font-weight:700;color:var(--brand-primary);font-size:17px;">فهرس سريع</div>
+        <button onClick="{{ closeToc }}" title="إغلاق" style="width:44px;height:44px;border:1px solid var(--brand-tint);border-radius:10px;background:#fff;color:var(--brand-primary);cursor:pointer;font-size:16px;font-family:inherit;" style-hover="background:var(--brand-tint-2);">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;">
+        <div onClick="{{ goCover }}" style="min-height:44px;display:flex;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;color:var(--brand-ink);" style-hover="background:var(--brand-tint-2);">الغلاف</div>
+        <div onClick="{{ goAbout }}" style="min-height:44px;display:flex;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;color:var(--brand-ink);" style-hover="background:var(--brand-tint-2);">كيف تقرأ هذا الكتاب؟</div>
+        <div onClick="{{ goIndex }}" style="min-height:44px;display:flex;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;color:var(--brand-ink);" style-hover="background:var(--brand-tint-2);">فهرس الفصول</div>
+        <div onClick="{{ goCh1 }}" style="min-height:44px;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;cursor:pointer;background:var(--brand-tint-2);border:1px solid var(--brand-tint);color:var(--brand-primary);font-weight:700;" style-hover="background:var(--brand-tint);">الفصل الأول: المتسعات</div>
+        <sc-for list="{{ tocLessons }}" as="l" hint-placeholder-count="10">
+          <div onClick="{{ l.go }}" style="min-height:40px;display:flex;align-items:center;gap:10px;padding:6px 12px 6px 8px;margin-right:14px;border-radius:9px;cursor:pointer;color:var(--brand-ink);font-size:13px;" style-hover="background:var(--brand-tint-2);">
+            <span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);font-weight:700;font-size:12px;">{{ l.code }}</span>
+            <span>{{ l.title }}</span>
+          </div>
+        </sc-for>
+        <div onClick="{{ goClosing }}" style="min-height:44px;display:flex;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;color:var(--brand-ink);" style-hover="background:var(--brand-tint-2);">الخاتمة</div>
+        <div onClick="{{ goBackCover }}" style="min-height:44px;display:flex;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;color:var(--brand-ink);" style-hover="background:var(--brand-tint-2);">الغلاف الخلفي</div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;autoFlipSeconds&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 8, &quot;min&quot;: 4, &quot;max&quot;: 20, &quot;step&quot;: 1, &quot;unit&quot;: &quot;s&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;التقليب&quot;},
+  &quot;flipMs&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 750, &quot;min&quot;: 400, &quot;max&quot;: 1200, &quot;step&quot;: 50, &quot;unit&quot;: &quot;ms&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;التقليب&quot;}
+}">
+class Component extends DCLogic {
+  state = {
+    page: (function(){ try { const v = parseInt(localStorage.getItem('ta3leem-phys-page'), 10); return (v >= 0 && v <= 7) ? v : 0; } catch (e) { return 0; } })(),
+    muted: (function(){ try { return localStorage.getItem('ta3leem-phys-muted') !== '0'; } catch (e) { return true; } })(),
+    playing: false,
+    tocOpen: false
+  };
+
+  TOTAL = 8;
+  SHEETS = 4;
+
+  fCount(p) { return Math.floor((p + 1) / 2); }
+  isNarrow() { return window.innerWidth < 760; }
+  flipMs() { return this.props.flipMs ?? 750; }
+
+  componentDidMount() {
+    this._busy = false;
+    this._narrow = this.isNarrow();
+    this.measure();
+    this.applyBook(true);
+    this._onR = () => { const n = this.isNarrow(); this._narrow = n; this.measure(); this.applyBook(true); this.forceUpdate(); };
+    window.addEventListener('resize', this._onR);
+    this._onK = (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); this.next(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); this.prev(); }
+    };
+    window.addEventListener('keydown', this._onK);
+    const vp = document.getElementById('pbViewport');
+    if (vp) {
+      this._onPD = () => { if (this.state.playing) this.stopAuto(); };
+      vp.addEventListener('pointerdown', this._onPD, true);
+    }
+    this.initSwipe();
+    this.initSpark();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onR);
+    window.removeEventListener('keydown', this._onK);
+    const vp = document.getElementById('pbViewport');
+    if (vp && this._onPD) vp.removeEventListener('pointerdown', this._onPD, true);
+    if (this._timer) clearInterval(this._timer);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  measure() {
+    const bar = document.getElementById('pbBar');
+    const barH = bar ? bar.offsetHeight : 64;
+    const aw = window.innerWidth - 28;
+    const ah = window.innerHeight - barH - 44;
+    const R = 0.72;
+    const narrow = this._narrow;
+    let pw = Math.min(narrow ? aw : aw / 2, Math.max(200, ah) * R);
+    pw = Math.max(230, pw);
+    const ph = pw / R;
+    this._pw = pw;
+    const root = document.getElementById('pbRoot');
+    if (root) {
+      root.style.setProperty('--pw', pw + 'px');
+      root.style.setProperty('--ph', ph + 'px');
+      root.style.setProperty('--vpw', (narrow ? pw : pw * 2) + 'px');
+    }
+    const vp = document.getElementById('pbViewport');
+    if (vp) vp.style.overflow = narrow ? 'hidden' : 'visible';
+  }
+
+  bookTx() {
+    const f = this.fCount(this.state.page);
+    const pw = this._pw || 450;
+    if (this._narrow) return (this.state.page % 2 === 1) ? -pw : 0;
+    if (f === 0) return pw / 2;
+    if (f === this.SHEETS) return -pw / 2;
+    return 0;
+  }
+
+  moveBook(instant) {
+    const book = document.getElementById('pbBook');
+    if (!book) return;
+    book.style.transition = instant ? 'none' : 'transform 0.55s cubic-bezier(.22,.61,.36,1)';
+    book.style.transform = 'translateX(' + this.bookTx() + 'px)';
+    const f = this.fCount(this.state.page);
+    const sl = document.getElementById('pbStackL');
+    const sr = document.getElementById('pbStackR');
+    if (sl) sl.style.width = ((this.SHEETS - f) * 3 + 2) + 'px';
+    if (sr) sr.style.width = (f * 3 + 2) + 'px';
+  }
+
+  applyBook(instant) {
+    const f = this.fCount(this.state.page);
+    for (let i = 0; i < this.SHEETS; i++) {
+      const s = document.getElementById('pbSheet' + i);
+      if (!s) continue;
+      const flipped = i < f;
+      if (instant) s.style.transition = 'none';
+      s.style.transform = 'rotateY(' + (flipped ? 180 : 0) + 'deg)';
+      const of = document.getElementById('pbOv' + i + 'f');
+      const ob = document.getElementById('pbOv' + i + 'b');
+      if (of) of.style.opacity = '0';
+      if (ob) ob.style.opacity = '0';
+    }
+    this.assertStack();
+    this.moveBook(instant);
+  }
+
+  // z-index + stack thickness live entirely in JS so React re-renders never clobber them
+  assertStack() {
+    const f = this.fCount(this.state.page);
+    for (let i = 0; i < this.SHEETS; i++) {
+      const s = document.getElementById('pbSheet' + i);
+      if (!s) continue;
+      if (this._flipping && this._flipping.has(i)) continue;
+      const flipped = i < f;
+      s.style.zIndex = String(flipped ? 10 + i : 10 + (this.SHEETS - i));
+    }
+    const sl = document.getElementById('pbStackL');
+    const sr = document.getElementById('pbStackR');
+    if (sl) sl.style.width = ((this.SHEETS - f) * 3 + 2) + 'px';
+    if (sr) sr.style.width = (f * 3 + 2) + 'px';
+  }
+
+  componentDidUpdate() {
+    this.assertStack();
+  }
+
+  flipSheet(i, forward, dur) {
+    const s = document.getElementById('pbSheet' + i);
+    if (!s) return;
+    s.style.transition = 'transform ' + dur + 'ms cubic-bezier(.32,.08,.24,1)';
+    s.style.zIndex = '60';
+    // force a reflow so a freshly-committed transform value animates rather than snapping
+    void s.offsetWidth;
+    s.style.transform = 'rotateY(' + (forward ? 180 : 0) + 'deg)';
+    const ov = document.getElementById('pbOv' + i + (forward ? 'b' : 'f'));
+    if (ov) {
+      ov.style.transition = 'opacity ' + Math.round(dur / 2) + 'ms ease-in';
+      ov.style.opacity = '0.42';
+      setTimeout(() => {
+        ov.style.transition = 'opacity ' + Math.round(dur / 2) + 'ms ease-out';
+        ov.style.opacity = '0';
+      }, Math.round(dur / 2));
+    }
+    this.playFlipSound();
+    setTimeout(() => {
+      const f = this.fCount(this.state.page);
+      s.style.zIndex = String(i < f ? 10 + i : 10 + (this.SHEETS - i));
+    }, dur + 30);
+  }
+
+  setPage(target, fast) {
+    target = Math.max(0, Math.min(this.TOTAL - 1, target));
+    const cur = this.state.page;
+    if (target === cur || this._busy) return;
+    const f0 = this.fCount(cur);
+    const f1 = this.fCount(target);
+    const dur = fast ? 320 : this.flipMs();
+    if (f1 !== f0) {
+      this._busy = true;
+      const forward = f1 > f0;
+      const list = [];
+      if (forward) { for (let i = f0; i < f1; i++) list.push(i); }
+      else { for (let i = f0 - 1; i >= f1; i--) list.push(i); }
+      this._flipping = new Set(list);
+      const step = fast ? 160 : Math.round(dur * 0.55);
+      list.forEach((i, k) => { setTimeout(() => this.flipSheet(i, forward, dur), k * step); });
+      setTimeout(() => { this._busy = false; this._flipping = null; this.assertStack(); }, (list.length - 1) * step + dur + 40);
+    }
+    this.setState({ page: target }, () => {
+      this.moveBook(false);
+      this.updateSparkState();
+      try { localStorage.setItem('ta3leem-phys-page', String(target)); } catch (e) {}
+    });
+  }
+
+  next() {
+    const p = this.state.page;
+    const t = this._narrow ? p + 1 : (p === 0 ? 1 : p + 2);
+    this.setPage(Math.min(this.TOTAL - 1, t));
+  }
+  prev() {
+    const p = this.state.page;
+    const t = this._narrow ? p - 1 : (p === 1 ? 0 : p - 2);
+    this.setPage(Math.max(0, t));
+  }
+  goToPage(t) {
+    this.stopAuto();
+    const jumps = Math.abs(this.fCount(t) - this.fCount(this.state.page));
+    this.setPage(t, jumps > 1);
+    if (this.state.tocOpen) this.setState({ tocOpen: false });
+  }
+
+  startAuto() {
+    if (this._timer) clearInterval(this._timer);
+    const secs = Math.max(3, this.props.autoFlipSeconds ?? 8);
+    this._timer = setInterval(() => {
+      if (this.state.page >= this.TOTAL - 1) { this.stopAuto(); return; }
+      this.next();
+    }, secs * 1000);
+    this.setState({ playing: true });
+  }
+  stopAuto() {
+    if (this._timer) { clearInterval(this._timer); this._timer = null; }
+    if (this.state.playing) this.setState({ playing: false });
+  }
+
+  playFlipSound() {
+    if (this.state.muted) return;
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!this._ac) this._ac = new AC();
+      const ac = this._ac;
+      if (ac.state === 'suspended') ac.resume();
+      const dur = 0.3;
+      const buf = ac.createBuffer(1, Math.floor(ac.sampleRate * dur), ac.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < d.length; i++) {
+        const t = i / d.length;
+        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - t, 1.7) * Math.sin(Math.PI * Math.min(1, t * 3.2));
+      }
+      const src = ac.createBufferSource();
+      src.buffer = buf;
+      const bp = ac.createBiquadFilter();
+      bp.type = 'bandpass';
+      bp.frequency.setValueAtTime(1500, ac.currentTime);
+      bp.frequency.exponentialRampToValueAtTime(320, ac.currentTime + dur);
+      bp.Q.value = 0.9;
+      const g = ac.createGain();
+      g.gain.value = 0.45;
+      src.connect(bp); bp.connect(g); g.connect(ac.destination);
+      src.start();
+    } catch (e) {}
+  }
+
+  initSwipe() {
+    const attach = (el, dir) => {
+      if (!el) return;
+      let sx = null;
+      el.addEventListener('pointerdown', (e) => { sx = e.clientX; el.setPointerCapture && el.setPointerCapture(e.pointerId); });
+      el.addEventListener('pointerup', (e) => {
+        if (sx === null) return;
+        const dx = e.clientX - sx;
+        sx = null;
+        if (dx > 42) this.next();
+        else if (dx < -42) this.prev();
+        else if (Math.abs(dx) < 8) { if (dir === 'L') this.next(); else this.prev(); }
+      });
+      el.addEventListener('pointercancel', () => { sx = null; });
+    };
+    attach(document.getElementById('pbSwL'), 'L');
+    attach(document.getElementById('pbSwR'), 'R');
+  }
+
+  // ---- cover spark figure ----
+  initSpark() {
+    this._sparkPt = null;
+    this._burst = 0;
+    this._lastGen = 0;
+    const fig = document.getElementById('coverFig');
+    if (fig) {
+      const toLocal = (e) => {
+        const r = fig.getBoundingClientRect();
+        return { x: (e.clientX - r.left) / r.width * 420, y: (e.clientY - r.top) / r.height * 300 };
+      };
+      fig.addEventListener('pointermove', (e) => { this._sparkPt = toLocal(e); });
+      fig.addEventListener('pointerleave', () => { this._sparkPt = null; });
+      fig.addEventListener('pointerdown', (e) => { this._sparkPt = toLocal(e); this._burst = 1; });
+    }
+    const loop = (ts) => {
+      this._raf = requestAnimationFrame(loop);
+      if (this.state.page !== 0) return;
+      if (ts - this._lastGen < 85 && this._burst <= 0.01) return;
+      this._lastGen = ts;
+      this.drawBolt();
+    };
+    this._raf = requestAnimationFrame(loop);
+  }
+  updateSparkState() {}
+
+  drawBolt() {
+    const bolt = document.getElementById('pbBolt');
+    const bolt2 = document.getElementById('pbBolt2');
+    const glow = document.getElementById('pbBoltGlowLine');
+    const flash = document.getElementById('pbFlash');
+    if (!bolt) return;
+    const N = 9;
+    const x0 = 101, x1 = 319, yMid = 150;
+    const t0 = this._sparkPt;
+    const targetY = t0 ? Math.max(60, Math.min(240, t0.y)) : yMid;
+    const gen = (amp) => {
+      const pts = [];
+      for (let i = 0; i <= N; i++) {
+        const t = i / N;
+        const bell = Math.sin(Math.PI * t);
+        let x = x0 + t * (x1 - x0);
+        let y = yMid + (targetY - yMid) * bell;
+        if (i > 0 && i < N) {
+          x += (Math.random() - 0.5) * 14;
+          y += (Math.random() - 0.5) * amp * bell;
+        }
+        pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+      }
+      return pts.join(' ');
+    };
+    const main = gen(30);
+    bolt.setAttribute('points', main);
+    if (glow) glow.setAttribute('points', main);
+    if (bolt2) bolt2.setAttribute('points', gen(52));
+    const b = this._burst;
+    bolt.style.strokeWidth = (3.2 + b * 4.5).toFixed(2);
+    if (glow) glow.style.opacity = (0.32 + b * 0.4).toFixed(2);
+    if (flash) flash.style.opacity = (b * 0.28).toFixed(2);
+    this._burst = b > 0.02 ? b * 0.82 : 0;
+  }
+
+  renderVals() {
+    const page = this.state.page;
+    const narrow = (typeof window !== 'undefined') && window.innerWidth < 760;
+    const f = this.fCount(page);
+    let pageLabel;
+    if (narrow) pageLabel = (page + 1) + ' / 8';
+    else if (f === 0) pageLabel = 'الغلاف';
+    else if (f === this.SHEETS) pageLabel = '8 / 8';
+    else pageLabel = (2 * f) + '–' + (2 * f + 1) + ' / 8';
+    const lessons = [
+      ['1-1', 'المتسعة', 4], ['1-2', 'سعة المتسعة', 4], ['1-3', 'المتسعة ذات الصفيحتين المتوازيتين', 4],
+      ['1-4', 'العازل الكهربائي', 4], ['1-5', 'ربط المتسعات على التوازي', 4],
+      ['1-6', 'ربط المتسعات على التوالي', 5], ['1-7', 'الطاقة المختزنة في المتسعة', 5],
+      ['1-8', 'دائرة مقاومة ومتسعة', 5], ['1-9', 'بعض أنواع المتسعات', 5], ['1-10', 'التطبيقات العملية للمتسعة', 5]
+    ];
+    return {
+      pageLabel,
+      tocOpen: this.state.tocOpen,
+      playing: this.state.playing,
+      notPlaying: !this.state.playing,
+      muted: this.state.muted,
+      notMuted: !this.state.muted,
+      next: () => this.next(),
+      prev: () => this.prev(),
+      openBook: () => this.setPage(1),
+      toggleToc: () => this.setState(s => ({ tocOpen: !s.tocOpen })),
+      closeToc: () => this.setState({ tocOpen: false }),
+      toggleMute: () => this.setState(s => {
+        try { localStorage.setItem('ta3leem-phys-muted', s.muted ? '0' : '1'); } catch (e) {}
+        return { muted: !s.muted };
+      }),
+      toggleAuto: () => { if (this.state.playing) this.stopAuto(); else this.startAuto(); },
+      goCover: () => this.goToPage(0),
+      goAbout: () => this.goToPage(1),
+      goIndex: () => this.goToPage(2),
+      goCh1: () => this.goToPage(3),
+      goLessons: () => this.goToPage(4),
+      goLessons2: () => this.goToPage(5),
+      goClosing: () => this.goToPage(6),
+      goBackCover: () => this.goToPage(7),
+      tocLessons: lessons.map(l => ({
+        code: l[0], title: l[1],
+        go: l[0] === '1-1' ? () => { location.href = 'Physics L1 Blueprint.dc.html'; } : () => this.goToPage(l[2])
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

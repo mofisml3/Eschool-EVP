@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+input[type=range]{accent-color:#200058;height:44px;width:100%;cursor:pointer;}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="مشهد 3: المتسعة" style="min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 70%, #ded4f0 100%);">
+
+  <div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 14px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--brand-tint);">
+    <a href="Physics Book.dc.html" title="الكتاب" style="display:flex;align-items:center;text-decoration:none;"><img src="brand/logo.svg" alt="تعليم" style="height:32px;width:auto;display:block;"></a>
+    <a href="Physics L1 Blueprint.dc.html" style="font-size:12px;color:#6d6488;text-decoration:none;">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة · <b style="color:var(--brand-primary);">المشهد 3 من 4</b></a>
+    <div style="flex:1;"></div>
+    <button onClick="{{ goPrev }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">السابق</button>
+    <button onClick="{{ goNext }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 18px;border:none;border-radius:11px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(32,0,88,.25);" style-hover="background:var(--brand-primary-dark);">التالي</button>
+  </div>
+
+  <div id="pageWrap" style="max-width:960px;width:100%;margin:18px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:16px;">
+
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,28px);">
+      <div style="font-size:12px;color:var(--brand-accent);font-weight:700;letter-spacing:.08em;">المشهد 3</div>
+      <div style="font-size:clamp(21px,4vw,28px);font-weight:700;color:var(--brand-primary);margin:4px 0 10px;">المتسعة: الفكرة والتعريف</div>
+      <div style="font-size:clamp(14px,2.4vw,16px);line-height:2;">لعلك تتساءل: هل يمكن صنع جهاز يستعمل لتخزين مقادير كبيرة من الشحنات الكهربائية؟ لتحقيق ذلك استُعمل نظام يتألف من موصلين (بأي شكلين كانا) معزولين، يفصل بينهما عازل (الفراغ أو الهواء أو أي مادة عازلة كهربائياً)، وبمقدوره اختزان شحنات موجبة على أحد الموصلين وشحنات سالبة على الموصل الآخر — بما يسمى <b>بالمتسعة</b>. لاحظ الشكل (2).</div>
+    </div>
+
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,18px);margin-bottom:4px;">جرّب بنفسك: انقل الشحنة بين الموصلين</div>
+      <div style="font-size:clamp(12px,2vw,13.5px);color:#6d6488;margin-bottom:12px;">حرّك المنزلق لنقل الشحنة من الموصل الأيسر إلى الأيمن — لاحظ أن الشحنتين متساويتان بالمقدار ومختلفتان بالنوع.</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:stretch;">
+        <div style="flex:2;min-width:280px;position:relative;">
+          <svg viewBox="0 0 460 300" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-tint-2),#fff);border:1px solid var(--brand-tint);border-radius:12px;">
+            <rect x="150" y="55" width="160" height="190" rx="8" style="fill:var(--brand-tint);opacity:.6;"></rect>
+            <rect x="128" y="45" width="18" height="210" rx="6" style="fill:var(--brand-primary);"></rect>
+            <rect x="314" y="45" width="18" height="210" rx="6" style="fill:var(--brand-primary);"></rect>
+            <g id="s3Field"></g>
+            <g id="s3Plus"></g>
+            <g id="s3Minus"></g>
+            <g id="s3Arrow"></g>
+          </svg>
+          <div style="position:absolute;right:6%;top:5%;background:rgba(255,255,255,.92);border:1px solid var(--brand-tint);border-radius:9px;padding:4px 10px;font-size:max(11px,1.4vw);color:var(--brand-accent);font-weight:700;">شحنة موجبة</div>
+          <div style="position:absolute;left:6%;top:5%;background:rgba(255,255,255,.92);border:1px solid var(--brand-tint);border-radius:9px;padding:4px 10px;font-size:max(11px,1.4vw);color:var(--brand-alert);font-weight:700;">شحنة سالبة</div>
+          <div style="position:absolute;left:50%;bottom:5%;transform:translateX(-50%);background:rgba(255,255,255,.92);border:1px solid var(--brand-tint);border-radius:9px;padding:4px 12px;font-size:max(11px,1.4vw);color:var(--brand-primary);font-weight:700;">عازل</div>
+        </div>
+        <div style="flex:1;min-width:250px;display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--brand-tint-2);border:1px solid var(--brand-tint);border-radius:12px;padding:12px 14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;color:var(--brand-primary);"><span>الشحنة المنقولة</span><span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);">{{ qLabel }}</span></div>
+            <input type="range" min="0" max="8" step="1" value="{{ q }}" onInput="{{ setQ }}">
+          </div>
+          <div style="display:flex;gap:10px;">
+            <div style="flex:1;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:12px;padding:10px;text-align:center;">
+              <div style="font-size:11.5px;color:var(--brand-primary);font-weight:700;">الموصل الأيمن</div>
+              <div style="font-size:20px;font-weight:700;color:var(--brand-accent);direction:ltr;unicode-bidi:isolate;">{{ qPlus }}</div>
+            </div>
+            <div style="flex:1;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:12px;padding:10px;text-align:center;">
+              <div style="font-size:11.5px;color:var(--brand-primary);font-weight:700;">الموصل الأيسر</div>
+              <div style="font-size:20px;font-weight:700;color:var(--brand-alert);direction:ltr;unicode-bidi:isolate;">{{ qMinus }}</div>
+            </div>
+          </div>
+          <button onClick="{{ toggleAuto }}" style="min-height:46px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">{{ autoLabel }}</button>
+          <button onClick="{{ toggleField }}" style="min-height:46px;border:1.5px solid {{ fieldBorder }};border-radius:11px;background:{{ fieldBg }};color:var(--brand-primary);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;" style-hover="background:var(--brand-tint-2);">{{ fieldLabel }}</button>
+          <div style="font-size:12px;color:#6d6488;line-height:1.7;background:#fff;border:1px solid var(--brand-tint);border-radius:10px;padding:10px 12px;">العازل في المنتصف يمنع الشحنات من العبور، فتبقى مخزونة على الموصلين — كخزانِ ماءٍ يحفظ الماء لحين الحاجة.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- definition box -->
+    <div style="background:linear-gradient(155deg,var(--brand-primary),var(--brand-primary-dark));color:#fff;border-radius:16px;padding:clamp(18px,3.4vw,30px);box-shadow:0 10px 28px rgba(32,0,88,.3);">
+      <div style="font-size:12px;color:var(--brand-accent);font-weight:700;letter-spacing:.1em;margin-bottom:8px;">تعريف — احفظه</div>
+      <div style="font-size:clamp(15px,2.8vw,19px);line-height:2;font-weight:500;"><b style="color:var(--brand-accent);">فالمتسعة:</b> جهاز يستعمل لتخزين الشحنات الكهربائية والطاقة الكهربائية، يتكون من زوج (أو أكثر) من الصفائح الموصلة يفصل بينها عازل.</div>
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:260px;background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+        <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.4vw,16px);margin-bottom:8px;">الشكل (2) من الكتاب</div>
+        <svg viewBox="0 0 360 200" style="width:100%;height:auto;display:block;background:linear-gradient(165deg,var(--brand-tint-2),#fff);border:1px solid var(--brand-tint);border-radius:12px;">
+          <rect x="120" y="35" width="120" height="130" rx="6" style="fill:var(--brand-tint);opacity:.55;"></rect>
+          <rect x="100" y="28" width="14" height="144" rx="5" style="fill:var(--brand-alert);"></rect>
+          <rect x="246" y="28" width="14" height="144" rx="5" style="fill:var(--brand-accent);"></rect>
+          <text x="107" y="24" text-anchor="middle" style="fill:var(--brand-alert);font-size:13px;font-weight:bold;font-family:sans-serif;">−</text>
+          <text x="253" y="24" text-anchor="middle" style="fill:var(--brand-primary);font-size:13px;font-weight:bold;font-family:sans-serif;">+</text>
+          <text x="107" y="60" text-anchor="middle" style="fill:var(--brand-alert);font-size:15px;font-weight:bold;font-family:sans-serif;">−</text>
+          <text x="107" y="92" text-anchor="middle" style="fill:var(--brand-alert);font-size:15px;font-weight:bold;font-family:sans-serif;">−</text>
+          <text x="107" y="124" text-anchor="middle" style="fill:var(--brand-alert);font-size:15px;font-weight:bold;font-family:sans-serif;">−</text>
+          <text x="107" y="156" text-anchor="middle" style="fill:var(--brand-alert);font-size:15px;font-weight:bold;font-family:sans-serif;">−</text>
+          <text x="253" y="60" text-anchor="middle" style="fill:var(--brand-primary);font-size:13px;font-weight:bold;font-family:sans-serif;">+</text>
+          <text x="253" y="92" text-anchor="middle" style="fill:var(--brand-primary);font-size:13px;font-weight:bold;font-family:sans-serif;">+</text>
+          <text x="253" y="124" text-anchor="middle" style="fill:var(--brand-primary);font-size:13px;font-weight:bold;font-family:sans-serif;">+</text>
+          <text x="253" y="156" text-anchor="middle" style="fill:var(--brand-primary);font-size:13px;font-weight:bold;font-family:sans-serif;">+</text>
+          <line x1="114" y1="70" x2="246" y2="70" style="stroke:var(--brand-primary);stroke-width:1.4;opacity:.4;stroke-dasharray:4 4;"></line>
+          <line x1="114" y1="100" x2="246" y2="100" style="stroke:var(--brand-primary);stroke-width:1.4;opacity:.4;stroke-dasharray:4 4;"></line>
+          <line x1="114" y1="130" x2="246" y2="130" style="stroke:var(--brand-primary);stroke-width:1.4;opacity:.4;stroke-dasharray:4 4;"></line>
+          <text x="180" y="188" text-anchor="middle" style="fill:var(--brand-primary);font-size:11px;font-family:sans-serif;">عازل بين الموصلين</text>
+        </svg>
+        <div style="font-size:12px;color:#6d6488;margin-top:8px;text-align:center;">الشكل (2): شحنة موجبة وشحنة سالبة على موصلين يفصل بينهما عازل</div>
+      </div>
+    </div>
+
+    <div style="background:var(--brand-paper);border:1.5px solid var(--brand-accent);border-radius:16px;padding:clamp(16px,3vw,26px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(15px,2.6vw,17px);margin-bottom:10px;">سؤال سريع: تختزن المتسعة الشحنات على موصليها بحيث تكون:</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ pick0 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">موجبة على أحد الموصلين وسالبة على الآخر</button>
+        <button onClick="{{ pick1 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">موجبة على الموصلين معاً</button>
+        <button onClick="{{ pick2 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">على العازل الذي يفصل بينهما</button>
+      </div>
+      <sc-if value="{{ answeredRight }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:var(--brand-primary);"><b>إجابة صحيحة.</b> المتسعة تختزن شحنات موجبة على أحد الموصلين وشحنات سالبة مساوية لها بالمقدار على الموصل الآخر، والعازل بينهما يمنع انتقالها.</div>
+      </sc-if>
+      <sc-if value="{{ answeredWrong }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:12px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:12px 14px;font-size:clamp(13px,2.2vw,14.5px);line-height:1.8;color:#8c2f38;"><b>ليس تماماً.</b> العازل لا يحمل الشحنة المخزونة، والموصلان لا يحملان النوع نفسه — بل شحنة موجبة على أحدهما وسالبة على الآخر، كما رأيت في الشكل التفاعلي. حاول مرة أخرى.</div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;">
+      <button onClick="{{ goPrev }}" style="min-height:50px;padding:12px 26px;border:1.5px solid var(--brand-primary);border-radius:12px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">→ المشهد السابق</button>
+      <button onClick="{{ goNext }}" style="min-height:50px;padding:12px 30px;border:none;border-radius:12px;background:var(--brand-primary);color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(32,0,88,.28);" style-hover="background:var(--brand-primary-dark);">المشهد التالي: أشكال المتسعات ←</button>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    q: 0, auto: false, field: false,
+    ans: (function(){ try { const v = localStorage.getItem('ta3leem-l1s3-q1'); return v === null ? null : parseInt(v, 10); } catch (e) { return null; } })()
+  };
+
+  componentDidMount() { this.draw(); this._flipIn(); }
+  componentWillUnmount() { if (this._t) clearInterval(this._t); }
+
+  _flipIn() {}
+  _flipOut(href, dir) { try { localStorage.setItem('ta3leem-phys-navdir', dir); } catch (e) {} location.href = href; }
+
+  draw() {
+    const q = this.state.q;
+    const accent = window.BRAND ? window.BRAND.accent : '#00c3fe';
+    const alert = window.BRAND ? window.BRAND.alert : '#f6848e';
+    const plus = document.getElementById('s3Plus');
+    const minus = document.getElementById('s3Minus');
+    const arrow = document.getElementById('s3Arrow');
+    if (!plus || !minus) return;
+    let hp = '', hm = '';
+    for (let i = 0; i < q; i++) {
+      const y = 68 + i * 22;
+      hp += '<text x="323" y="' + y + '" text-anchor="middle" font-size="15" font-weight="bold" fill="' + accent + '">+</text>';
+      hm += '<text x="137" y="' + y + '" text-anchor="middle" font-size="17" font-weight="bold" fill="' + alert + '">−</text>';
+    }
+    plus.innerHTML = hp;
+    minus.innerHTML = hm;
+    const field = document.getElementById('s3Field');
+    if (field) {
+      if (this.state.field && q > 0) {
+        let hf = '';
+        for (let i = 0; i < 4; i++) {
+          const y = 80 + i * 45;
+          hf += '<line x1="314" y1="' + y + '" x2="146" y2="' + y + '" stroke="' + accent + '" stroke-width="2" opacity="0.55"></line>' +
+                '<path d="M146 ' + y + ' l14 -6 v12 z" fill="' + accent + '" opacity="0.55"></path>';
+        }
+        field.innerHTML = hf;
+      } else { field.innerHTML = ''; }
+    }
+    if (arrow) {
+      arrow.innerHTML = q > 0 && q < 8
+        ? '<line x1="160" y1="270" x2="300" y2="270" stroke="' + accent + '" stroke-width="2.5" stroke-dasharray="7 5"></line><path d="M300 270 l-11 -6 v12 z" fill="' + accent + '"></path><text x="230" y="290" text-anchor="middle" font-size="11" fill="' + (window.BRAND ? window.BRAND.primary : '#200058') + '">انتقال الشحنة</text>'
+        : '';
+    }
+  }
+
+  renderVals() {
+    const { q, auto, ans, field } = this.state;
+    const border = (i) => ans === null ? 'var(--brand-tint)' : (i === 0 ? 'var(--brand-accent)' : (i === ans ? 'var(--brand-alert)' : 'var(--brand-tint)'));
+    const pick = (i) => () => {
+      try { localStorage.setItem('ta3leem-l1s3-q1', String(i)); } catch (e) {}
+      this.setState({ ans: i });
+    };
+    return {
+      q,
+      qLabel: q + ' وحدات',
+      qPlus: '+' + q + 'q',
+      qMinus: '−' + q + 'q',
+      fieldLabel: field ? '✓ خطوط المجال ظاهرة' : 'أظهر خطوط المجال',
+      fieldBg: field ? 'var(--brand-tint-2)' : '#fff',
+      fieldBorder: field ? 'var(--brand-accent)' : 'var(--brand-primary)',
+      toggleField: () => this.setState(s => ({ field: !s.field }), () => this.draw()),
+      setQ: (e) => { if (this.state.auto) this._stopAuto(); this.setState({ q: parseInt(e.target.value, 10) }, () => this.draw()); },
+      autoLabel: auto ? '⏸ إيقاف الشحن التلقائي' : '▶ شحن تلقائي',
+      toggleAuto: () => {
+        if (this.state.auto) { this._stopAuto(); return; }
+        this.setState({ auto: true });
+        this._t = setInterval(() => {
+          let nq = this.state.q + 1;
+          if (nq > 8) nq = 0;
+          this.setState({ q: nq }, () => this.draw());
+        }, 650);
+      },
+      pick0: pick(0), pick1: pick(1), pick2: pick(2),
+      b0: border(0), b1: border(1), b2: border(2),
+      answeredRight: ans === 0,
+      answeredWrong: ans !== null && ans !== 0,
+      goPrev: () => this._flipOut('Physics L1 Scene 2 - Electric Discharge.dc.html', 'prev'),
+      goNext: () => this._flipOut('Physics L1 Scene 4 - Capacitor Types.dc.html', 'next')
+    };
+  }
+  _stopAuto() { if (this._t) { clearInterval(this._t); this._t = null; } this.setState({ auto: false }); }
+}
+</script>
+</body>
+</html>

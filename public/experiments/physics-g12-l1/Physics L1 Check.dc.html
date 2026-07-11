@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/theme.css">
+<script src="brand/palette.js"></script>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;background:#efeaf9;color:#231b3d;}
+a{color:#200058;} a:hover{color:#00c3fe;}
+</style>
+</helmet>
+
+<div dir="rtl" data-screen-label="اختبار الدرس 1-1" style="min-height:100dvh;display:flex;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%, #f5f2fc 0%, #e7e0f6 70%, #ded4f0 100%);">
+
+  <div style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 14px;background:rgba(255,255,255,.92);border-bottom:1px solid var(--brand-tint);">
+    <a href="Physics Book.dc.html" title="الكتاب" style="display:flex;align-items:center;text-decoration:none;"><img src="brand/logo.svg" alt="تعليم" style="height:32px;width:auto;display:block;"></a>
+    <a href="Physics L1 Blueprint.dc.html" style="font-size:12px;color:#6d6488;text-decoration:none;">الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span>: المتسعة · <b style="color:var(--brand-primary);">اختبار الدرس</b></a>
+    <div style="flex:1;"></div>
+    <button onClick="{{ goPrev }}" style="display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border:1.5px solid var(--brand-primary);border-radius:11px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">السابق</button>
+    <a href="Physics L1 Blueprint.dc.html" style="display:flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--brand-tint);border-radius:11px;background:#fff;color:var(--brand-primary);font-size:13px;font-weight:500;text-decoration:none;">↩ مخطط الدرس</a>
+  </div>
+
+  <div id="pageWrap" style="max-width:840px;width:100%;margin:18px auto 48px;padding:0 14px;display:flex;flex-direction:column;gap:16px;">
+
+    <div style="background:linear-gradient(155deg,var(--brand-primary),var(--brand-primary-dark));color:#fff;border-radius:16px;padding:clamp(18px,3.4vw,30px);box-shadow:0 10px 28px rgba(32,0,88,.3);">
+      <div style="font-size:12px;color:var(--brand-accent);font-weight:700;letter-spacing:.1em;">اختبار الدرس <span style="direction:ltr;unicode-bidi:isolate;">1-1</span></div>
+      <div style="font-size:clamp(20px,4vw,27px);font-weight:700;margin:6px 0 4px;">هل تحقق هدف الدرس؟</div>
+      <div style="font-size:clamp(13px,2.2vw,15px);color:rgba(255,255,255,.8);">أجب عن الأسئلة الأربعة — ستحصل على تغذية راجعة فورية بعد كل إجابة، ويمكنك إعادة المحاولة.</div>
+    </div>
+
+    <!-- Q1 -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.5vw,16px);margin-bottom:10px;"><span style="color:var(--brand-accent);">س1.</span> العلاقة بين جهد الموصل الكروي المعزول وشحنته هي:</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ q1p0 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ q1b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);"><span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span> — طردية مع Q</button>
+        <button onClick="{{ q1p1 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ q1b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);"><span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = k r/Q</span> — عكسية مع Q</button>
+        <button onClick="{{ q1p2 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ q1b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">لا علاقة بين V وQ</button>
+      </div>
+      <sc-if value="{{ q1Right }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:var(--brand-primary);"><b>صحيح.</b> <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span>: كلما أضفنا شحنة ازداد الجهد بالنسبة نفسها.</div></sc-if>
+      <sc-if value="{{ q1Wrong }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:#8c2f38;"><b>غير صحيح.</b> الشحنة Q في البسط، فالعلاقة طردية: <span style="direction:ltr;unicode-bidi:isolate;font-family:Georgia,serif;">V = kQ/r</span>. راجع المشهد 1.</div></sc-if>
+    </div>
+
+    <!-- Q2 -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.5vw,16px);margin-bottom:10px;"><span style="color:var(--brand-accent);">س2.</span> يحدث التفريغ الكهربائي خلال الهواء المحيط بالموصل عندما:</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ q2p0 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ q2b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">ينخفض جهد الموصل إلى الصفر</button>
+        <button onClick="{{ q2p1 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ q2b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">يبلغ المجال الكهربائي الحد الذي يحصل عنده التفريغ</button>
+        <button onClick="{{ q2p2 }}" style="flex:1;min-width:200px;min-height:48px;border:1.5px solid {{ q2b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;line-height:1.6;" style-hover="background:var(--brand-tint-2);">تصبح شحنة الموصل سالبة</button>
+      </div>
+      <sc-if value="{{ q2Right }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:var(--brand-primary);"><b>صحيح.</b> ازدياد الشحنة يرفع فرق الجهد فيزداد المجال الكهربائي حتى يبلغ حد التفريغ خلال الهواء.</div></sc-if>
+      <sc-if value="{{ q2Wrong }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:#8c2f38;"><b>غير صحيح.</b> التفريغ يحدث عندما يزداد الجهد فيزداد المجال الكهربائي إلى الحد الذي يتأين عنده الهواء. راجع المشهد 2.</div></sc-if>
+    </div>
+
+    <!-- Q3 -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.5vw,16px);margin-bottom:10px;"><span style="color:var(--brand-accent);">س3.</span> المتسعة جهاز يستعمل لتخزين:</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ q3p0 }}" style="flex:1;min-width:180px;min-height:48px;border:1.5px solid {{ q3b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">التيار الكهربائي فقط</button>
+        <button onClick="{{ q3p1 }}" style="flex:1;min-width:180px;min-height:48px;border:1.5px solid {{ q3b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">المقاومة الكهربائية</button>
+        <button onClick="{{ q3p2 }}" style="flex:1;min-width:180px;min-height:48px;border:1.5px solid {{ q3b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">الشحنات الكهربائية والطاقة الكهربائية</button>
+      </div>
+      <sc-if value="{{ q3Right }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:var(--brand-primary);"><b>صحيح.</b> هذا نص التعريف: جهاز لتخزين الشحنات الكهربائية والطاقة الكهربائية، من زوج (أو أكثر) من الصفائح الموصلة يفصل بينها عازل.</div></sc-if>
+      <sc-if value="{{ q3Wrong }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:#8c2f38;"><b>غير صحيح.</b> المتسعة تخزن الشحنات الكهربائية والطاقة الكهربائية — لا التيار ولا المقاومة. راجع صندوق التعريف في المشهد 3.</div></sc-if>
+    </div>
+
+    <!-- Q4 -->
+    <div style="background:var(--brand-paper);border:1px solid var(--brand-tint);border-radius:16px;padding:clamp(16px,3vw,24px);">
+      <div style="font-weight:700;color:var(--brand-primary);font-size:clamp(14px,2.5vw,16px);margin-bottom:10px;"><span style="color:var(--brand-accent);">س4.</span> أي مما يأتي <u>ليس</u> من الأشكال الهندسية للمتسعات المذكورة في الكتاب؟</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button onClick="{{ q4p0 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ q4b0 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">صفيحتان متوازيتان</button>
+        <button onClick="{{ q4p1 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ q4b1 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">مكعبان متجاوران</button>
+        <button onClick="{{ q4p2 }}" style="flex:1;min-width:170px;min-height:48px;border:1.5px solid {{ q4b2 }};border-radius:11px;background:#fff;color:var(--brand-ink);font-family:inherit;font-size:13.5px;cursor:pointer;padding:8px 12px;" style-hover="background:var(--brand-tint-2);">كرتان متمركزتان</button>
+      </div>
+      <sc-if value="{{ q4Right }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(0,195,254,.1);border:1px solid var(--brand-accent);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:var(--brand-primary);"><b>صحيح.</b> الأشكال المذكورة: صفيحتان متوازيتان، أسطوانتان متمركزتان، كرتان متمركزتان.</div></sc-if>
+      <sc-if value="{{ q4Wrong }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;background:rgba(246,132,142,.1);border:1px solid var(--brand-alert);border-radius:11px;padding:10px 14px;font-size:13.5px;line-height:1.8;color:#8c2f38;"><b>غير صحيح.</b> هذا الشكل مذكور في الكتاب فعلاً — المطلوب الشكل غير المذكور. راجع المشهد 4 وحاول مجدداً.</div></sc-if>
+    </div>
+
+    <!-- result -->
+    <sc-if value="{{ allAnswered }}" hint-placeholder-val="{{ false }}">
+      <div style="background:linear-gradient(155deg,var(--brand-primary),var(--brand-primary-dark));color:#fff;border-radius:16px;padding:clamp(18px,3.4vw,28px);text-align:center;box-shadow:0 10px 28px rgba(32,0,88,.3);">
+        <div style="font-size:clamp(15px,2.8vw,18px);font-weight:700;margin-bottom:6px;">نتيجتك: <span style="direction:ltr;unicode-bidi:isolate;color:var(--brand-accent);">{{ score }}</span></div>
+        <div style="font-size:clamp(13px,2.2vw,15px);color:rgba(255,255,255,.85);line-height:1.9;">{{ verdict }}</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;">
+          <button onClick="{{ retry }}" style="min-height:48px;padding:10px 24px;border:1.5px solid var(--brand-accent);border-radius:11px;background:transparent;color:var(--brand-accent);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;" style-hover="background:rgba(0,195,254,.12);">إعادة المحاولة</button>
+          <a href="Physics L1 Blueprint.dc.html" style="display:flex;align-items:center;min-height:48px;padding:10px 24px;border-radius:11px;background:var(--brand-accent);color:var(--brand-primary-dark);font-size:14px;font-weight:700;text-decoration:none;">إلى مخطط الدرس</a>
+          <a href="Physics Book.dc.html" style="display:flex;align-items:center;min-height:48px;padding:10px 24px;border-radius:11px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:14px;font-weight:500;text-decoration:none;">العودة إلى الكتاب</a>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="display:flex;gap:10px;justify-content:flex-start;flex-wrap:wrap;">
+      <button onClick="{{ goPrev }}" style="min-height:50px;padding:12px 26px;border:1.5px solid var(--brand-primary);border-radius:12px;background:#fff;color:var(--brand-primary);font-family:inherit;font-size:14.5px;font-weight:500;cursor:pointer;" style-hover="background:var(--brand-tint-2);">→ المشهد السابق</button>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  KEYS = ['ta3leem-l1c-q1', 'ta3leem-l1c-q2', 'ta3leem-l1c-q3', 'ta3leem-l1c-q4'];
+  CORRECT = [0, 1, 2, 1];
+
+  state = {
+    a: (function(keys){
+      return keys.map(k => { try { const v = localStorage.getItem(k); return v === null ? null : parseInt(v, 10); } catch (e) { return null; } });
+    })(['ta3leem-l1c-q1', 'ta3leem-l1c-q2', 'ta3leem-l1c-q3', 'ta3leem-l1c-q4'])
+  };
+
+  componentDidMount() { this._flipIn(); }
+
+  _flipIn() {}
+  _flipOut(href, dir) { try { localStorage.setItem('ta3leem-phys-navdir', dir); } catch (e) {} location.href = href; }
+
+  pick(qi, oi) {
+    const a = this.state.a.slice();
+    a[qi] = oi;
+    try { localStorage.setItem(this.KEYS[qi], String(oi)); } catch (e) {}
+    this.setState({ a });
+  }
+
+  renderVals() {
+    const a = this.state.a;
+    const C = this.CORRECT;
+    const vals = {};
+    for (let qi = 0; qi < 4; qi++) {
+      const n = qi + 1;
+      for (let oi = 0; oi < 3; oi++) {
+        vals['q' + n + 'p' + oi] = (() => { const q = qi, o = oi; return () => this.pick(q, o); })();
+        vals['q' + n + 'b' + oi] = a[qi] === null ? 'var(--brand-tint)' : (oi === C[qi] ? 'var(--brand-accent)' : (oi === a[qi] ? 'var(--brand-alert)' : 'var(--brand-tint)'));
+      }
+      vals['q' + n + 'Right'] = a[qi] === C[qi];
+      vals['q' + n + 'Wrong'] = a[qi] !== null && a[qi] !== C[qi];
+    }
+    const answered = a.every(x => x !== null);
+    const score = a.reduce((s, x, i) => s + (x === C[i] ? 1 : 0), 0);
+    vals.allAnswered = answered;
+    vals.score = score + ' / 4';
+    vals.verdict = score === 4
+      ? 'ممتاز — تحقق هدف الدرس كاملاً: تفهم لماذا لا يكفي الموصل المنفرد، وتعرف المتسعة ومكوناتها وأشكالها.'
+      : (score >= 2
+        ? 'جيد — راجع المشاهد المرتبطة بالأسئلة التي أخطأت فيها ثم أعد المحاولة لتحقق الهدف كاملاً.'
+        : 'يحتاج الهدف إلى مراجعة — ارجع إلى مشاهد الدرس من البداية، فكل سؤال هنا يقابل مشهداً واحداً.');
+    vals.retry = () => {
+      this.KEYS.forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
+      this.setState({ a: [null, null, null, null] });
+    };
+    vals.goPrev = () => this._flipOut('Physics L1 Scene 4 - Capacitor Types.dc.html', 'prev');
+    return vals;
+  }
+}
+</script>
+</body>
+</html>
