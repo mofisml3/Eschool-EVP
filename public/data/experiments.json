@@ -15,10 +15,10 @@
     {
       "id": "total-experiments",
       "label": "إجمالي التجارب التفاعلية",
-      "value": 180,
-      "displayValue": "180",
+      "value": 48,
+      "displayValue": "48",
       "unit": "تجربة",
-      "trend": { "direction": "up", "deltaPercent": 3.5, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "up", "deltaPercent": 4.3, "vsLabel": "مقارنة بالشهر السابق" },
       "methodologyKey": "interactive-experiments"
     },
     {
@@ -59,23 +59,23 @@
     }
   ],
   "disciplines": [
-    { "disciplineId": "physics",   "name": "الفيزياء",         "experimentsCount": 42 },
-    { "disciplineId": "biology",   "name": "الأحياء",          "experimentsCount": 34 },
-    { "disciplineId": "chemistry", "name": "الكيمياء",         "experimentsCount": 31 },
-    { "disciplineId": "math",      "name": "الرياضيات",        "experimentsCount": 28 },
-    { "disciplineId": "english",   "name": "اللغة الإنجليزية", "experimentsCount": 24 },
-    { "disciplineId": "geo",       "name": "الجغرافيا",        "experimentsCount": 21 }
+    { "disciplineId": "physics",   "name": "الفيزياء",         "experimentsCount": 11 },
+    { "disciplineId": "biology",   "name": "الأحياء",          "experimentsCount":  9 },
+    { "disciplineId": "chemistry", "name": "الكيمياء",         "experimentsCount":  8 },
+    { "disciplineId": "math",      "name": "الرياضيات",        "experimentsCount":  8 },
+    { "disciplineId": "english",   "name": "اللغة الإنجليزية", "experimentsCount":  6 },
+    { "disciplineId": "geo",       "name": "الجغرافيا",        "experimentsCount":  6 }
   ],
   "typeBreakdown": [
-    { "typeId": "virtual-lab", "label": "مختبرات افتراضية",       "experimentsCount": 72 },
-    { "typeId": "simulation",  "label": "محاكاة تفاعلية",         "experimentsCount": 61 },
-    { "typeId": "gamified",    "label": "نشاطات مُلعَّبة",          "experimentsCount": 29 },
-    { "typeId": "3d-viz",      "label": "تصوّرات ثلاثية الأبعاد", "experimentsCount": 18 }
+    { "typeId": "virtual-lab", "label": "مختبرات افتراضية",       "experimentsCount": 19 },
+    { "typeId": "simulation",  "label": "محاكاة تفاعلية",         "experimentsCount": 16 },
+    { "typeId": "gamified",    "label": "نشاطات مُلعَّبة",          "experimentsCount":  8 },
+    { "typeId": "3d-viz",      "label": "تصوّرات ثلاثية الأبعاد", "experimentsCount":  5 }
   ],
   "stageBreakdown": [
-    { "stageId": "secondary", "label": "إعدادي", "experimentsCount": 80 },
-    { "stageId": "middle",    "label": "متوسط",  "experimentsCount": 62 },
-    { "stageId": "primary",   "label": "ابتدائي","experimentsCount": 38 }
+    { "stageId": "secondary", "label": "إعدادي", "experimentsCount": 21 },
+    { "stageId": "middle",    "label": "متوسط",  "experimentsCount": 17 },
+    { "stageId": "primary",   "label": "ابتدائي","experimentsCount": 10 }
   ],
   "interactionsTrendRef": "data/experiments-interactions-trend.json",
   "featuredRef": "data/experiments-featured.json"

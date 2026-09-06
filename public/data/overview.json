@@ -33,19 +33,19 @@
     {
       "id": "interactive-experiments",
       "label": "التجارب التفاعلية",
-      "value": 180,
-      "displayValue": "180",
+      "value": 48,
+      "displayValue": "48",
       "unit": "تجربة",
-      "trend": { "direction": "up", "deltaPercent": 3.5, "vsLabel": "مقارنة بالفترة السابقة" },
+      "trend": { "direction": "up", "deltaPercent": 4.3, "vsLabel": "مقارنة بالفترة السابقة" },
       "methodologyKey": "interactive-experiments"
     },
     {
       "id": "contributing-teachers",
       "label": "المعلمون المساهمون",
-      "value": 170,
-      "displayValue": "170",
+      "value": 30,
+      "displayValue": "30",
       "unit": "معلم",
-      "trend": { "direction": "up", "deltaPercent": 0.9, "vsLabel": "مقارنة بالشهر السابق" },
+      "trend": { "direction": "flat", "deltaPercent": 0, "vsLabel": "ثابتة" },
       "methodologyKey": "contributing-teachers"
     },
     {
@@ -72,7 +72,7 @@
   "contentFootprint": {
     "videoLessons": 6680,
     "contentHours": 1890,
-    "interactiveExperiments": 180,
+    "interactiveExperiments": 48,
     "subjectsCovered": 42
   },
   "masteryBySubjectRef": "data/shared/mastery-by-subject.json",
